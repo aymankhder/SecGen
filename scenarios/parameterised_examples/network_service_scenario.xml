@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<scenario xmlns="http://www.github/cliffe/SecGen/scenario"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.github/cliffe/SecGen/scenario">
+
+	<!-- an example system hosting a parameterised randomly generated website -->
+	<system>
+		<system_name>web_server</system_name>
+		<base platform="linux"/>
+
+		<vulnerability module_path=".*parameterised_network_service"/>
+
+<!--		<vulnerability module_path=".*parameterised_network_service">
+                    <input into="read_input_code">
+                        <value>lalalala</value>
+                    </input>
+                </vulnerability>-->
+
+                
+		<network type="private_network" range="dhcp"/>
+	</system>
+
+</scenario>
