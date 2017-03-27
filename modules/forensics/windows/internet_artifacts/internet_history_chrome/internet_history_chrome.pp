@@ -1,0 +1,1 @@
+include internet_history_chrome::init

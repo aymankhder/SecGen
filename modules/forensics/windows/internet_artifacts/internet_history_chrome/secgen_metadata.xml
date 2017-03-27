@@ -1,13 +1,41 @@
-<evidence>
-  <!-- Module information-->
+<?xml version="1.0"?>
+
+<forensic xmlns="http://www.github/cliffe/SecGen/forensic"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.github/cliffe/SecGen/forensic">
+  <name>Internet history chrome</name>
   <author>Jason Keighley</author>
-  <type>evidence</type>
-  <os>windows</os>
-  <category>cybercrime</category>
-  <name>internet_history_chrome</name>
-  <version></version>
-  <path>evidence/windows/cybercrime/internet_history_chrome</path>
-  <description>Creates google chrome internet history</description>
-  <provider>Puppet</provider>
-  <manifest_file>init.pp</manifest_file>
-</evidence>
+  <module_license>Apache v2</module_license>
+  <description>Create internet history for the Google Chrome browser</description>
+
+  <type>internet_artifacts</type>
+  <platform>windows</platform>
+
+  <!--optional details-->
+  <reference></reference>
+
+  <!--<read_fact>number_of_generic_urls</read_fact>-->
+  <!--<read_fact>number_of_cybercrime_urls</read_fact>-->
+
+  <read_fact>chrome_history_file</read_fact>
+
+  <default_input into="chrome_history_file">
+    <generator name="Chrome history file generator">
+      <input into="history_urls">
+        <generator name="Url generator"/>
+      </input>
+    </generator>
+  </default_input>
+
+  <!--<default_input into="number_of_generic_urls">-->
+    <!--<value>20</value>-->
+  <!--</default_input>-->
+  <!--<default_input into="number_of_cybercrime_urls">-->
+    <!--<value>1</value>-->
+  <!--</default_input>-->
+
+
+  <requires>
+    <name>Google Chrome install</name>
+  </requires>
+</forensic>
