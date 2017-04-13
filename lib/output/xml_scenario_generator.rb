@@ -70,6 +70,14 @@ class XmlScenarioGenerator
         xml.utility(selected_module.attributes_for_scenario_output) {
           insert_inputs_and_values(selected_module,xml)
         }
+      when 'forensic'
+        xml.forensic(selected_module.attributes_for_scenario_output) {
+          selected_module.received_inputs.each do |key,value|
+            xml.input({"into" => key}) {
+              xml.value value
+            }
+          end
+        }
       when 'network'
         xml.network(selected_module.attributes_for_scenario_output)
       else
