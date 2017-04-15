@@ -22,7 +22,7 @@
   </default_input>
 
   <default_input into="all_times_date">
-    <value>11/25/2000 11:12:13</value>
+    <generator type="time_generator" name="Generate random time"/>
   </default_input>
 
   <!--<requires>-->

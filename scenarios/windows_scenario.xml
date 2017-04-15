@@ -20,9 +20,6 @@
           <input into="all_times_file_path">
             <value>C:\Users\vagrant\Desktop\Hello</value>
           </input>
-          <input into="all_times_date">
-            <value>11/25/2000 11:12:13</value>
-          </input>
         </forensic>
 
 		<network type="private_network" range="dhcp"/>

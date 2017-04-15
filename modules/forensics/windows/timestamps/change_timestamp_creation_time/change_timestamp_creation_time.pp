@@ -8,7 +8,7 @@ file { 'ensure_path_present':
   ensure => 'present'
 }
 
-class { 'change_timestamp_last_access_time':
+class { 'change_timestamp_creation_time':
   file_path => $creation_time_file_path,
   file_time => $creation_time_date
 }
