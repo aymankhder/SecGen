@@ -33,7 +33,7 @@ vb.customize ['modifyvm', :id, '--hwvirtex', 'on']
 "      vb.customize ['modifyvm', :id, '--vtxvpid', 'on']"
     else
 "      vb.customize ['modifyvm', :id, '--vtxvpid', 'off']"
-    end -%>
+    end %>
 <%= if (@options.has_key? :memory_per_vm)
 "      vb.memory = #{@options[:memory_per_vm]}"
     elsif (@options.has_key? :total_memory)
@@ -62,7 +62,7 @@ vb.customize ['modifyvm', :id, '--hwvirtex', 'on']
     <% if (selected_module.attributes['platform'].first.downcase == 'windows') %>
     config.vm.communicator = 'winrm'
     config.vm.guest = :windows
-    config.vm.network :forwarded_port, guest: 3389, host: 3389
+    # config.vm.network :forwarded_port, guest: 3389, host: 3389
     config.vm.network :forwarded_port, guest: 5985, host: 5985, id: "winrm", auto_correct: true
     <% end %>
 
@@ -72,7 +72,7 @@ vb.customize ['modifyvm', :id, '--hwvirtex', 'on']
 <%     else -%>
     <%= system.name %>.vm.network :<%= selected_module.attributes['type'].first %>, ip: "<%= resolve_network(selected_module.attributes['range'].first)%>"
 <%     end -%>
-<%   when 'vulnerability', 'service', 'utility', 'build' -%>
+<%   when 'vulnerability', 'service', 'utility', 'build', 'forensic' -%>
 <%     module_name = selected_module.module_path_name -%>
     <%= system.name %>.vm.provision "puppet" do | <%=module_name%> |
 <%     # if there are facter variables to define
@@ -85,9 +85,14 @@ vb.customize ['modifyvm', :id, '--hwvirtex', 'on']
       <%=module_name%>.module_path = "<%="puppet/#{system.name}/modules"%>"
       <%=module_name%>.environment_path = "environments/"
       <%=module_name%>.environment = "production"
+      <% if (selected_module.attributes['platform'].first.downcase == 'windows') -%>
+      #<%=module_name%>.synced_folder_type = "smb"
+      <% else -%>
       <%=module_name%>.synced_folder_type = "rsync"
+      <% end -%>
       <%=module_name%>.manifests_path = "<%="puppet/#{system.name}/modules/#{selected_module.module_path_end}"%>"
       <%=module_name%>.manifest_file = "<%="#{selected_module.module_path_end}.pp"%>"
+      #<%=module_name%>.options = "--verbose --debug"
     end
 <%   end -%>
 <% end -%>

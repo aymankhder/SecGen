@@ -1,27 +1,29 @@
 #!/usr/bin/ruby
 require_relative '../../../../../../lib/objects/local_string_generator.rb'
-require 'date'
+require 'time'
+require 'json'
 
 class UrlGenerator < StringGenerator
+  attr_accessor :number_of_generic_urls
+  attr_accessor :generic_urls_start_time
+  attr_accessor :generic_urls_end_time
+
   def initialize
     super
     self.module_name = 'Url generator'
-    self.number_of_generic_urls = '10'
-    self.generic_urls_start_time = '3rd july 2017'
-    self.number_of_cybercrime_urls = ''
-    self.cybercrime_urls_start_time = ''
+    # self.number_of_generic_urls = ''
+    # self.generic_urls_start_time = ''
+    # self.generic_urls_end_time = ''
+    # self.number_of_cybercrime_urls = ''
+    # self.cybercrime_urls_start_time = ''
   end
 
   def generate
-
-
     urls = Hash.new
 
-    # number_of_generic_urls = 10
-    # generic_urls_start_time = '3rd july 2017 15:16:20'
-    # generic_urls_length_time = '2 days 1 hour 10 seconds'
-    # ROOT_DIR = File.expand_path('../../../../../../../',__FILE__)
-    # URLLISTS_DIR = "#{ROOT_DIR}/lib/resources/urllists"
+    self.number_of_generic_urls = 10
+    self.generic_urls_start_time = '3rd july 2013 15:16:20'
+    self.generic_urls_end_time = '5rd june 2015 15:16:20'
 
     # Generic filler urls
     generic_urls = File.readlines("#{URLLISTS_DIR}/generic_urls").sample(self.number_of_generic_urls.to_int)
@@ -30,32 +32,22 @@ class UrlGenerator < StringGenerator
     # cybercrime_urls = File.readlines("#{URLLISTS_DIR}/cybercrime_urls").sample(self.number_of_cybercrime_urls).chomp
 
     generic_urls.each do |url|
-      start_time = DateTime.parse(self.generic_urls_start_time)
+      date_start = Time.parse(self.generic_urls_start_time)
+      date_end = Time.parse(self.generic_urls_end_time)
 
-      # urls[url] = DateTime.new(
-      #     rand(start_time.year..length_time.year + 1),
-      #     rand(start_time.month..length_time.month + 1),
-      #     rand(start_time.day..length_time.day + 1),
-      #     rand(start_time.hour..length_time.hour + 1),
-      #     rand(start_time.minute..length_time.minute + 1),
-      #     rand(start_time.second..length_time.second + 1)
-      # )
-
-      # urls[url] = DateTime.new(
-      #     rand(length_time.year - start_time.year),
-      #     rand(length_time.month - start_time.month),
-      #     rand(length_time.day - start_time.day),
-      #     rand(length_time.hour - start_time.hour),
-      #     rand(length_time.minute - start_time.minute),
-      #     rand(length_time.second - start_time.second)
-      # )
-
-      urls[url] = { :url => url ,:title => 'test', :visit_count => '1', :typed_count => '1', :last_visit_time => start_time, :hidden => '0', :favicon_id => '0' }
+      urls[url] = {
+          :url => url,
+          :title => url[/\/\/.*\//].gsub(/(\/)/),
+          :visit_count => rand,
+          :typed_count => rand,
+          :last_visit_time => date_start.to_f + rand * (date_end.to_f - date_start.to_f),
+          :hidden => '0',
+          :favicon_id => '0'
+      }
     end
 
-    puts urls
-
-    self.outputs << urls
+    # self.outputs << Base64.strict_encode64(urls.to_s)
+    self.outputs << Base64.encode64(urls)
   end
 end
 

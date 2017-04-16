@@ -14,7 +14,15 @@
   <reference></reference>
 
   <!-- Number of Urls of a given type. -->
-  <read_fact>history_urls</read_fact>
+  <!--<read_fact>history_urls</read_fact>-->
+
+  <read_fact>number_of_generic_urls</read_fact>
+  <read_fact>generic_urls_start_time</read_fact>
+  <read_fact>generic_urls_end_time</read_fact>
+
+  <read_fact>number_of_cybercrime_urls</read_fact>
+  <read_fact>cybercrime_urls_start_time</read_fact>
+  <read_fact>cybercrime_urls_end_time</read_fact>
 
   <output_type>urls</output_type>
 </generator>

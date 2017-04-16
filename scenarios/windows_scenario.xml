@@ -9,24 +9,7 @@
     <system_name>storage_server</system_name>
     <base platform="windows" name="Windows 2008 Virtualbox puppet 64"/>
 
-    <!--<forensic type="internet_artifacts" name="Internet history chrome"/>-->
-    <forensic type="illegal_images" name="Add illegal images cats">
-      <input into="image_path">
-        <value>C:\Users\vagrant\Desktop\Hello.jpg</value>
-      </input>
-    </forensic>
-
-    <!--<forensic type="illegal_images" name="Add illegal images cats">-->
-      <!--<input into="image_path">-->
-        <!--<value>C:\Users\meow.jpg</value>-->
-      <!--</input>-->
-    <!--</forensic>-->
-
-    <!--<forensic type="illegal_images" name="Add illegal images cats">-->
-      <!--<input into="image_path">-->
-        <!--<value>C:\Windows\System32\meowth.jpg</value>-->
-      <!--</input>-->
-    <!--</forensic>-->
+    <forensic type="internet_artifacts" name="Internet history chrome"/>
 
     <network type="private_network" range="dhcp"/>
   </system>
