@@ -18,13 +18,13 @@
 
     <!--<forensic type="illegal_images" name="Add illegal images cats">-->
       <!--<input into="image_path">-->
-        <!--<value>C:\Users\meow.jpg</value>-->
+        <!--<value>C:\Users\vagrant\Desktop\meow.jpg</value>-->
       <!--</input>-->
     <!--</forensic>-->
 
     <!--<forensic type="illegal_images" name="Add illegal images cats">-->
       <!--<input into="image_path">-->
-        <!--<value>C:\Windows\System32\meowth.jpg</value>-->
+        <!--<value>C:\Users\vagrant\Desktop\meowth.jpg</value>-->
       <!--</input>-->
     <!--</forensic>-->
 

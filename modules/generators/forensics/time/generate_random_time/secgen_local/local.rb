@@ -14,8 +14,8 @@ class GenerateRandomDate < StringGenerator
   end
 
   def generate
-    # self.date_start.nil? ? self.date_start = 0.0: date_start = self.Time.parse(:date_start)
-    # self.date_end.nil? ? self.date_end = Time.now: date_end = self.Time.parse(:date_end)
+    self.date_start.nil? ? self.date_start = 0.0: date_start = self.Time.parse(:date_start)
+    self.date_end.nil? ? self.date_end = Time.now: date_end = self.Time.parse(:date_end)
 
     random_date = Time.at(self.date_start.to_f + rand * (self.date_end.to_f - self.date_start.to_f))
     self.outputs << random_date.strftime("%m/%d/%Y %H:%M:%S")
