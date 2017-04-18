@@ -25,8 +25,8 @@
     <generator type="time_generator" name="Generate random time"/>
   </default_input>
 
-  <!--<requires>-->
-    <!--<name>Create file</name>-->
-  <!--</requires>-->
+  <requires>
+    <name>Powershell install local</name>
+  </requires>
 
 </forensic>
