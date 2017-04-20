@@ -9,18 +9,11 @@
     <system_name>windows_server</system_name>
     <base platform="windows" name="Windows 2008 Virtualbox puppet 64"/>
 
-    <utility type="registry" name="Access data registry viewer install"/>
-
-    <forensic type="registry" name="Add registry values">
-      <input into="key_locations">
-        <value>HKLM\System\CurrentControlSet\Services\Puppet</value>
+    <forensic type="file_manipulation" name="Create file">
+      <input into="new_file_path">
+        <value>C:\Users\vagrant\Desktop\Hash_file</value>
       </input>
-
-      <input into="key_value_type">
-        <value>string</value>
-      </input>
-
-      <input into="key_value">
+      <input into="new_file_contents">
         <encoder type="hash" name="MD5 hash encoder string">
           <input into="strings_to_encode">
             <value>String to demonstrate the module</value>
