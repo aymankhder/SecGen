@@ -24,6 +24,10 @@ def usage
    --nopae: disable PAE support
    --hwvirtex: enable HW virtex support
    --vtxvpid: enable VTX support
+   --memory-per-vm: set amount of memory to give each VM
+   --total-memory: set total amount of memory to give all VMs
+   --max-cpu-cores: set total amount of cpu cores for each VM
+   --max-cpu-usage: set total amount of cpu usage (percentage)
 
    COMMANDS:
    run, r: Builds project and then builds the VMs
