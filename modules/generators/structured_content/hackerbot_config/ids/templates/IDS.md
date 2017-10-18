@@ -317,7 +317,7 @@ In general, rules are defined on one line (although, they can break over lines b
 
 **header (body)**
 
-where header = "**action** (log,alert) **protocol** (ip,tcp,udp,icmp,any) **source_IP** **source_port** **direction** (-&gt;,&lt;&gt;)** **destination_IP** **destination_port**"
+where header = "**action** (log,alert) **protocol** (ip,tcp,udp,icmp,any) **source_IP** **source_port** **direction** (-&gt;,&lt;&gt;) **destination_IP** **destination_port**"
 
 > for example: `alert tcp any any -> any any` to make an alert for all TCP traffic, or `alert tcp any any -> 192.168.0.1 23` to make an alert for connections to telnet on the given IP address
 
@@ -355,23 +355,32 @@ There are lots more options that can make rules more precise and efficient. For 
 
 ==Figure out how the rule could be improved to be case insensitive.==
 
-==Study the existing rules in `/etc/snort/rules` and figure out how at least two of them work.==
+==Browse the existing rules in `/etc/snort/rules` and figure out how at least two of them work.==
 
-# TODO
-### Problem-based tasks
-
-Edit your new rules file:
-
+Lets create a basic rule that detects any web traffic on port 80.
 
 ```bash
-vi /etc/snort/rules/my.rules
+echo "alert tcp any any -> any 80  (msg: "Web traffic detected - RANDOM"; sid:1000002; rev:1;)" >> /etc/snort/rules/my.rules
+
+systemctl restart snort
 ```
+Browse to a website, and confirm the rule worked to generate an alert containing RANDOM.
 
-Add a rule to detect any attempt to connect to a Telnet server. Connections to a Telnet server could be a security issue, since logging into a networked computer using Telnet is known to be insecure because traffic is not encrypted. Make the output message include your name, as we did previously.
+# TODO RANDOM
+# HACKERBOT ATTACKS
+(Move up above)
+I'm about to attack your system, use Snort to detect the method of attack.
+??? quiz???
+Random IP address? LPORT?
 
-Hint: you can combine the information above (tagged with \*) to create this rule. Change the IP address to "any", and consider removing any content rules.
+---
+Add a rule to detect any attempt to connect to a Telnet server, the output message must include "- RANDOM". Connections to a Telnet server could be a security issue, since logging into a networked computer using Telnet is known to be insecure because traffic is not encrypted. Don't forget to reload Snort!
 
-Once you have saved your rule and reloaded Snort, test this rule by using Telnet. Rather than starting an actual Telnet server (unless you want to do so), you can simulate this by using Netcat to listen on the Telnet port, then connect with Telnet from the openSUSE VM.
+
+
+
+
+Once you have saved your rule and reloaded Snort, test this rule by using Telnet. Rather than starting an actual Telnet server (unless you want to do so), you can simulate this by using Netcat to listen on the Telnet port, then connect with Telnet from the desktop VM.
 
 On a terminal on the Kali Linux VM:
 
@@ -387,9 +396,14 @@ telnet localhost
 ```
 Type "hello"
 
-> Hint: if you have connectivity problems, make sure both systems are on the same subnet (the IP addresses start the same). If you have problems in the IMS labs using VMs (not oVirt), consider setting networking to "bridged".
 
-Look at the alert output, and confirm that your alert has been logged, and it includes your name in the output.
+
+##TODO
+Create a rule that only triggers on loading the Webserver's homepage (http://<%= $web_server_ip %>). Don't forget to reload Snort.
+
+---
+
+Create a rule that triggers on the 
 
 ##TODO
 Create a Snort rule that detects visits to the Leeds Beckett website from the Kali VM, but does not get triggered by general web browsing.
@@ -400,12 +414,6 @@ Hints:
 > In the IMS labs or when using oVirt, you are likely using the proxy to access the web, so you will need to approach your rules a little differently, you may find you need to change the port you are listening to. Look at the output of tcpdump -A when you access a web page, what does the traffic contain that may point to what is being accessed? Have a look through the output of tcpdump for the text "Host".
 
 As before, include your name in the alert message.
-
-##TODO
-
-Enable the arpspoof preprocessor, and get Snort to detect an attempt at arp spoofing.
-
-> Hint: you will need preprocessor configuration rule(s) and alert(s) to match the preprocessor output. Refer to the Snort manual.
 
 ##TODO
 
