@@ -40,25 +40,27 @@ Work through the below exercises, completing the Hackerbot challenges as noted.
 
 This section gives a quick overview of the basics of network monitoring. If you feel you are already familiar with these techniques, keep in mind that these are important foundations, and we will quickly build on these.
 
-From your desktop VM, ==SSH into the ids_server==. **Leave this console open in a separate tab** (Shift-Ctrl-T):
+**From your desktop VM**, ==SSH into the ids_server==. **Leave this console open in a separate tab** (Shift-Ctrl-T):
 
 ```bash
-ssh <%= $ids_server_ip %>
+ssh <%= $main_user %>@<%= $ids_server_ip %>
+
+sudo -i
 ```
 
-To view live network traffic, ==start tcpdump on the ids_server via ssh:==
+**From this ssh session:** To view live network traffic, ==start tcpdump on the ids_server via ssh:==
 
 ```bash
 tcpdump
 ```
 > Tip: If running tcpdump generates the error "packet printing is not supported for link type USB\_Linux: use -w", then append "-i *eth0*" to each tcpdump command. (Where eth0 is the name of the interface as reported by ifconfig).
 
-With tcpdump still running via ssh,  **from the desktop VM** ==perform a ping to the ids_server VM.== 
+With tcpdump still running via ssh,  **from the desktop VM** ==perform a ping to the ids_server VM.==
 
 ```bash
 ping <%= $ids_server_ip %>
 ```
-> This is run from the desktop VM (not from the tab SSHed to the ids_server).
+> Run the above from the desktop VM (not from the tab SSHed to the ids_server).
 
 > Note that tcpdump displays the network activity taking place, including the pings, and various TCP connections and ARP requests. Depending on your environment you might be seeing the traffic between various VMs.
 
@@ -69,13 +71,13 @@ Test this, **from the desktop** ==ping the web_server==:
 ```bash
 ping <%= $web_server_ip %>
 ```
-> If your network is configured correctly you should see the pings between these separate VMs, from the ids_server SSH session. Take the time to confirm that this is working.
+> If your network is configured correctly, from the Tcpdump running on the ids_server you should see the pings between these separate VMs (the desktop, and the web_server). Take the time to confirm that this is working.
 
-Once you have seen tcpdump in action displaying these packets ==press Ctrl-C to exit==
+Once you have seen tcpdump in action displaying these packets ==press Ctrl-C to exit.==
 
 Tcpdump can format the output in various ways, showing various levels of detail.
 
-From the ids_server SSH session tab:
+**From the ids_server SSH session** tab, ==run:==
 
 ```bash
 tcpdump -q
@@ -89,38 +91,30 @@ tcpdump -A
 ```
 > Shows the packet content without the information about the source and destination. 
 
-# TODO
-If you ==access a web page in a browser on the Kali VM== (go ahead...), it will display the content, so long as the traffic is not SSL encrypted (for example, if the URL starts with http**s**://).
+When you ==access a web page in a browser on the desktop VM== (go ahead... ==reload this labsheet== webpage), Tcpdump will display the content, so long as the traffic is not SSL encrypted (for example, so long as the URL doesn't start with http**s**://).
 
-==Ping the Kali VM again== and observe the output.
+==Ping the web_server again== and observe the output.
 
-Start apache in Kali Linux:
+Stop tcpdump (Ctrl-C) on the ids_server VM once you have observed the output.
 
-```bash
-service apache2 start
-```
-
-Click OK
-
-In Firefox, on the openSUSE VM, browse to a web page by visiting the IP address of the Kali Linux VM (with tcpdump -A still running on the Kali VM)
-
-Stop tcpdump (Ctrl-C) on the Kali VM once you have observed the output.
-
-Run the following command on the Kali VM:
+==Run the following== command **on the ids_server** SSH session:
 
 ```bash
 tcpdump -v
 ```
 > The above is even more verbose, showing lots of detail about the network traffic.
 
-Now try the ==port scan against the Kali VM again==. Note the very detailed output.
+Now try the ==port scan again==. Note the very detailed output.
 
 It is possible to write tcpdump network traffic to storage, so that it can be analysed later:
 ```bash
 tcpdump -w /tmp/tcpdump-output
 ```
 
-While that is running, ==access a web page from Firefox on the Kali VM==, then close tcpdump (Ctrl-C).
+While that is running, ==access a web page from Firefox on the desktop VM== browse to:
+> ==<%= $web_server_ip %>==
+
+Then ==close tcpdump== (Ctrl-C).
 
 To view the file containing the tcpdump output on the Kali VM type:
 
@@ -135,28 +129,18 @@ less /tmp/tcpdump-output
 
 Run `man tcpdump` and read about the many options for output and filtering.
 
-### Wireshark and Tcpdump filtering
-
-The graphical program Wireshark can also be used to monitor network traffic, and can also read tcpdump output.
-
-On the Kali Linux VM, run (ignore any error messages about running Wireshark as superuser):
-
-```bash
-wireshark -r /tmp/tcpdump-output
-```
-
-Have a look at the recorded network traffic data using Wireshark, and investigate various ways that the data can be displayed. For example, right click one of the HTTP connections, and "follow TCP stream". Once you have finished, close Wireshark.
+### Tcpdump filtering
 
 We can also use tcpdump to do some simple monitoring of the network traffic to detect certain key words.
 
-On the Kali Linux VM, run:
+**On the ids_server** ssh session, ==run:==
 
 ```bash
-tcpdump -A | grep "leedsbeckett.ac.uk"
+tcpdump -A | grep "GET"
 ```
-> Tip: if you are using a UK keyboard and Kali Linux is configured for US, the "|" symbol is located where "\~" is.
+> Tip: if you are using a UK keyboard and the VM configured for US, the "|" symbol is located where "\~" is.
 
-Open a web browser **on the Kali VM**, and visit [*http://leedsbeckett.ac.uk*](http://leedsbeckett.ac.uk), (make sure the proxy is set) note that tcpdump captures *most* network content, and grep can be used to filter it down to lines that are interesting to us.
+Open a web browser **on the desktop VM**, and visit [*http://<%= $web_server_ip %>*](http://<%= $web_server_ip %>), note that tcpdump captures *most* network content, and grep can be used to filter it down to lines that are interesting to us.
 
 Note that making sense of this information using tcpdump and/or Wireshark is possible (and is a common sys-admin task), but the output is too noisy to be constantly and effectively monitored by a human to detect security incidents. Therefore we can use an IDS such as Snort to monitor and analyse the network traffic to detect activity that it is configured to alert.
 
@@ -164,21 +148,15 @@ Make sure tcpdump is stopped (Ctrl-C).
 
 ## IDS monitoring basics
 
-Continuing **on the Kali Linux VM**, install Snort:
+Continuing **on the ids_server VM** ssh session:
 
-> apt-get update
->
-> apt-get install snort
->
-> Accept the default settings, make a note of the IP address range and interface Snort is using: for example, 192.168.0.0/16 (in this case you should use the IP addresses in this range).
-
-Make a backup of the snort’s configuration file in case anything goes wrong:
+==Make a backup== of the snort’s configuration file in case anything goes wrong:
 
 ```bash
 cp /etc/snort/snort.conf /etc/snort/snort.conf.bak
 ```
 
-Change snort’s output to something more readable:
+==Change Snort’s output== to something more readable:
 
 ```bash
 vi /etc/snort/snort.conf
@@ -187,16 +165,16 @@ vi /etc/snort/snort.conf
 
 > ":wq" to write changes and quit)
 
-Comment out the line starting with "output …" 
+==Comment out== the line starting with "`output` …" 
 > (Put a \# in front of it)
 
-Add the following line:
+==Add the following line:==
 `output alert_fast`
 > **Help with find in vi:** the find command in vi is the / character (forward slash) . When **NOT in insert mode** (pressing Esc will get you out of insert mode if you need to), to find "output" you could enter / output \[+ PRESS ENTER\] Then press the n character to find the next output and the next and the next and the next etc.
 >
 > If there is still no alert file in /var/log/snort/, you may need to edit /etc/snort/snort.debian.conf, to use the correct interface (for example, eth1 if the output of "ifconfig" does not contain "eth0").
 
-Start Snort:
+==Start Snort:==
 
 ```bash
 systemctl start snort
@@ -204,23 +182,34 @@ systemctl start snort
 
 Snort should now be running, monitoring network traffic for activity.
 
-Do an nmap port scan of the Kali Linux VM (from the openSUSE VM).
+==Do an nmap port scan of the ids_server== VM (from the desktop VM):
+
+```bash
+nmap <%= $ids_server_ip %>
+```
 
 This should trigger an alert from Snort, which is stored in an alerts log file.
 
-Does the log match what happened? Are there any false positives (alerts that describe things that did not actually happen)?
-
-"Follow" the log file by running:
+"Follow" the Snort alert log file by running:
 
 ```bash
 tail -f /var/log/snort/alert
 ```
+>The tail program will wait for new alerts to be written to the file, and will display them as they are logged.
 
-The tail program will wait for new alerts to be written to the file, and will display them as they are logged.
+==LogBook question: Does the log match what happened? Are there any false positives (alerts that describe things that did not actually happen)?==
 
-Press Ctrl-Z to stop the process, if it did not do so automatically.
+==Do an nmap port scan of the web_server== VM (from the desktop VM):
 
-Kali Linux’s Snort configuration file can be configured to output, a "tcpdump" formatted network capture.
+```bash
+nmap <%= $web_server_ip %>
+```
+
+This should trigger another alert.
+
+Press Ctrl-C to ==stop the alert tail process==, if it did not do so automatically.
+
+The Snort configuration file can be configured to output, a "tcpdump" formatted network capture.
 
 Open the snort.conf file in vi:
 
@@ -229,9 +218,9 @@ vi /etc/snort/snort.conf
 ```
 > (Remember: editing using vi involves pressing "i" to insert/edit text, then *Esc*, ":wq" to write changes and quit)
 
-Uncomment the following line and then save the changes (remove the \#):
+Add the following line and then save the changes (or uncomment by removing the \#):
 
-`output log\_tcpdump: tcpdump.log`
+`output log_tcpdump: tcpdump.log`
 
 Restart Snort:
 
@@ -239,19 +228,19 @@ Restart Snort:
 systemctl restart snort
 ```
 
-Try another type of port scan, such as an Xmas Tree scan from the openSUSE VM (*hint: `man nmap`*).
+Try another type of port scan, such as an ==Xmas Tree scan from the desktop== VM (Hint: `man nmap`).
 
-Then run the following command to view the contents of the log:
+Then run the following command to ==view the contents of the log:==
 
 ```bash
-tcpdump -r /var/log/snort/tcpdump.log.\*
+tcpdump -r /var/log/snort/tcpdump.log.*
 ```
 
-You can use tcpdump’s various flags to change the way it is displayed, or even open the logged network activity in wireshark.
+You can use tcpdump’s various flags to change the way it is displayed, or you could even open the logged network activity in Wireshark.
 
 ##Configuring Snort
 
-Open /etc/snort/snort.conf in an editor; for example:
+**On the ids_server** ssh session, ==edit /etc/snort/snort.conf==; for example:
 
 ```bash
 vi /etc/snort/snort.conf
@@ -262,7 +251,7 @@ Scroll through the config file and, take notice of these details:
 
 -   In a production environment you would configure Snort to to correctly identify which traffic is considered LAN traffic, and which IP addresses are known to run various servers (this is also configured in snort.debian.conf). In this case, we will leave these settings as is.
 
--   Note the line "var RULE\_PATH /etc/snort/rules": this is where the IDS signatures are stored.
+-   Note the line "`var RULE_PATH /etc/snort/rules`": this is where the IDS signatures are stored.
 
 -   Note the presence of a Back Orifice detector preprocessor "bo". Back Orifice was a Windows Trojan horse that was popular in the 90s.
 
@@ -274,44 +263,44 @@ Scroll through the config file and, take notice of these details:
 
 Add the following line below the other include rules (at the end of the file):
 
-`include \$RULE\_PATH/my.rules`
+`include $RULE_PATH/my.rules`
 
 Save your changes to snort.conf
 > (For example, in vi, press Esc, then type ":wq"). 
+
 > Hint: you may find it easier to use Esc, then type ":w" to write your changes to disk and then type ":q" to exit (or "x" shorthand for "wq").
 
-Run this command, to create your new rule file:
+Run this command, to ==create your new rule file:==
 
 ```bash
 touch /etc/snort/rules/my.rules
 ```
 
-Edit the file. For example:
+==Edit the file.== For example:
 
 ```bash
 vi /etc/snort/rules/my.rules
 ```
 
-Add this line (with your own name), then save your changes:
+==Add this line (*with your own name*), and save your changes:==
 
 `alert icmp any any ->any any (msg: "*Your-name*: ICMP Packet found"; sid:1000000; rev:1;)`
 
 > For example, `alert icmp any any -> any any (msg: "**Cliffe**: ICMP Packet found"; sid:1000000; rev:1;)`
 
-Now that you have new rules, tell Snort to reload its configuration:
-
+Now that you have new rules, tell Snort to ==reload its configuration:==
 
 ```bash
 systemctl restart snort
 ```
-> (If after attempting a reload, Snort fails to start, then you have probably made a configuration mistake, so check the log for details by running: `tail /var/log/syslog`)
+> If after attempting a reload, Snort fails to start, then you have probably made a configuration mistake, so check the log for details by running: `tail /var/log/syslog`
 
 Due to the new rule you have just applied, sending a simple ICMP Ping (typically used to troubleshoot connectivity) will trigger a Snort alert.
 
-Try it, from the openSUSE VM:
+Try it, **from the desktop** VM, ==ping the web_server:==
 
 ```bash
-ping *Kali-Linux-VM-IP-Address*
+ping <%= $web_server_ip %>
 ```
 
 Check for the Snort alert. You should see that the ping was detected, and our new message was added to the alerts log file.
@@ -322,21 +311,17 @@ Snort is predominantly designed as a signature-based IDS. Snort monitors the net
 
 In addition to the lecture slides, you may find this resource helpful to complete these tasks:
 
-> Martin Roesch (n.d.) **Chapter 2:** Writing Snort Rules - How to Write Snort Rules and Keep Your Sanity. In: *Snort Users Manual*. Available from: &lt;[*http://www.snort.org.br/documentacao/SnortUsersManual.pdf*](http://www.snort.org.br/documentacao/SnortUsersManual.pdf)&gt; \[Accessed 31 August 2016\].
+> Martin Roesch (n.d.) **Chapter 2:** Writing Snort Rules - How to Write Snort Rules and Keep Your Sanity. In: *Snort Users Manual*. Available from: &lt;[*http://www.snort.org.br/documentacao/SnortUsersManual.pdf*](http://www.snort.org.br/documentacao/SnortUsersManual.pdf)&gt;
 
 In general, rules are defined on one line (although, they can break over lines by using `\`), and take the form of:
 
-header (body)
+**header (body)**
 
-where header =
+where header = "**action** (log,alert) **protocol** (ip,tcp,udp,icmp,any) **source_IP** **source_port** **direction** (-&gt;,&lt;&gt;)** **destination_IP** **destination_port**"
 
-action(log,alert) protocol(ip,tcp,udp,icmp,any) src IP src port direction(-&gt;,&lt;&gt;)
+> for example: `alert tcp any any -> any any` to make an alert for all TCP traffic, or `alert tcp any any -> 192.168.0.1 23` to make an alert for connections to telnet on the given IP address
 
-> for example: `alert tcp any any -> any any` to make an alert for all TCP traffic, or "alert tcp any any -&gt; 192.168.0.1 23"\* to make an alert for connections to telnet on the given IP address
-
-and body =
-
-> `option; option: "parameter"; ...`
+and body = "**option; option: "parameter"; ...**"
 
 The most common options are:
 
@@ -368,10 +353,11 @@ This rule looks at packets destined for 192.168.0.1 on the pop3 Email port (110)
 
 There are lots more options that can make rules more precise and efficient. For example, making them case insensitive, or starting to search content after an offset. Feel free to do some reading, to help you to create better IDS rules.
 
-Figure out how the rule could be improved to be case insensitive.
+==Figure out how the rule could be improved to be case insensitive.==
 
-Study the existing rules in `/etc/snort/rules` and figure out how at least two of them work.
+==Study the existing rules in `/etc/snort/rules` and figure out how at least two of them work.==
 
+# TODO
 ### Problem-based tasks
 
 Edit your new rules file:
