@@ -36,9 +36,11 @@ Work through the below exercises, completing the Hackerbot challenges as noted.
 
 ---
 ## Network monitoring basics
+It is important for an organisation to monitor their network for detecting unwanted behaviour, such as malicious attacks or organisational resources being misused.
+
 ### Tcpdump
 
-This section gives a quick overview of the basics of network monitoring. If you feel you are already familiar with these techniques, keep in mind that these are important foundations, and we will quickly build on these.
+This section gives a quick overview of the basics of network monitoring, using tools such as Tcpdump. Keep in mind that these are important foundations, and we will quickly build on these.
 
 **From your desktop VM**, ==SSH into the ids_server==. **Leave this console open in a separate tab** (Shift-Ctrl-T):
 

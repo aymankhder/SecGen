@@ -15,7 +15,8 @@
   <read_fact>accounts</read_fact>
   <read_fact>flags</read_fact>
   <read_fact>root_password</read_fact>
-  <read_fact>server_ip</read_fact>
+  <read_fact>web_server_ip</read_fact>
+  <read_fact>ids_server_ip</read_fact>
 
   <!--TODO: require input, such as accounts, or fail?-->
 

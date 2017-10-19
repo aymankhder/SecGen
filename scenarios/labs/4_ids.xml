@@ -8,6 +8,10 @@
 		<system_name>desktop</system_name>
 		<base distro="Debian 7.8" type="desktop" name="KDE"/>
 
+		<input into_datastore="organisation">
+			<generator type="organisation"/>
+		</input>
+
 		<!--generate two accounts, YOU and someone else-->
 		<input into_datastore="accounts">
 			<generator type="account">
@@ -75,7 +79,7 @@
 			</generator>
 		</input>
 
-		<input into_datastore="desktop_root_password">
+		<input into_datastore="hackerbot_access_root_password">
 			<generator type="strong_password_generator"/>
 		</input>
 
@@ -123,7 +127,7 @@
 
 		<vulnerability module_path=".*ssh_root_login">
 			<input into="root_password">
-				<datastore>desktop_root_password</datastore>
+				<datastore>hackerbot_access_root_password</datastore>
 			</input>
 		</vulnerability>
 
@@ -132,9 +136,7 @@
 
 	<system>
 		<system_name>ids_server</system_name>
-		<base platform="linux" distro="Debian 7.8"/>
-
-		<utility module_path=".*snort"/>
+		<base distro="Debian 7.8" type="desktop" name="KDE"/>
 
 		<utility module_path=".*parameterised_accounts">
 			<input into="accounts">
@@ -142,9 +144,14 @@
 			</input>
 		</utility>
 
+		<utility module_path=".*handy_cli_tools"/>
+		<utility module_path=".*snort"/>
+		<utility module_path=".*wireshark"/>
+		<utility module_path=".*nmap"/>
+
 		<vulnerability module_path=".*ssh_root_login">
 			<input into="root_password">
-				<datastore>desktop_root_password</datastore>
+				<datastore>hackerbot_access_root_password</datastore>
 			</input>
 		</vulnerability>
 
@@ -152,8 +159,16 @@
 	</system>
 
 	<system>
-		<system_name>server</system_name>
+		<system_name>web_server</system_name>
 		<base platform="linux" distro="Debian 7.8"/>
+                
+                <service type="httpd"/>
+                
+		<!--<service module_path="services/unix/http/parameterised_website">
+			<input into="organisation">
+				<datastore>organisation</datastore>
+			</input>
+		</service>-->
 
 		<utility module_path=".*parameterised_accounts">
 			<input into="accounts">
@@ -161,16 +176,12 @@
 			</input>
 		</utility>
 
-		<vulnerability module_path=".*ssh_root_login">
-			<input into="root_password">
-				<datastore>desktop_root_password</datastore>
-			</input>
-		</vulnerability>
-
+		<vulnerability module_path=".*distcc_exec"/>
+		<service type="ftp"/>
 
 		<vulnerability module_path=".*ssh_root_login">
 			<input into="root_password">
-				<datastore>desktop_root_password</datastore>
+				<datastore>hackerbot_access_root_password</datastore>
 			</input>
 		</vulnerability>
 
@@ -196,10 +207,13 @@
 						<datastore>accounts</datastore>
 					</input>
 					<input into="root_password">
-						<datastore>desktop_root_password</datastore>
+						<datastore>hackerbot_access_root_password</datastore>
 					</input>
-					<input into="server_ip">
+					<input into="ids_server_ip">
 						<value>172.16.0.3</value>
+					</input>
+					<input into="web_server_ip">
+						<value>172.16.0.4</value>
 					</input>
 				</generator>
 			</input>
