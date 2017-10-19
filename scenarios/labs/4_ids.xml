@@ -112,13 +112,13 @@
 				<value>true</value>
 			</input>
 			<input into="start_page">
-				<value>http://172.16.0.4</value>
+				<value>http://172.16.0.5</value>
 			</input>
 		</utility>
 
 		<utility module_path=".*pidgin">
 			<input into="server_ip">
-				<value>172.16.0.4</value>
+				<value>172.16.0.5</value>
 			</input>
 			<input into="accounts">
 				<datastore access="0">accounts</datastore>
@@ -144,6 +144,17 @@
 			</input>
 		</utility>
 
+		<utility module_path=".*kde_minimal">
+			<input into="autologin_user">
+				<datastore access="0" access_json="['username']">accounts</datastore>
+			</input>
+			<input into="accounts">
+				<datastore>accounts</datastore>
+			</input>
+			<input into="autostart_konsole">
+				<value>true</value>
+			</input>
+		</utility>
 		<utility module_path=".*handy_cli_tools"/>
 		<utility module_path=".*snort"/>
 		<utility module_path=".*wireshark"/>
@@ -161,14 +172,6 @@
 	<system>
 		<system_name>web_server</system_name>
 		<base platform="linux" distro="Debian 7.8"/>
-                
-                <service type="httpd"/>
-                
-		<!--<service module_path="services/unix/http/parameterised_website">
-			<input into="organisation">
-				<datastore>organisation</datastore>
-			</input>
-		</service>-->
 
 		<utility module_path=".*parameterised_accounts">
 			<input into="accounts">
@@ -177,7 +180,15 @@
 		</utility>
 
 		<vulnerability module_path=".*distcc_exec"/>
-		<service type="ftp"/>
+		<service module_path=".*vsftpd"/>
+
+		<service type="httpd"/>
+
+		<!--<service module_path="services/unix/http/parameterised_website">
+			<input into="organisation">
+				<datastore>organisation</datastore>
+			</input>
+		</service>-->
 
 		<vulnerability module_path=".*ssh_root_login">
 			<input into="root_password">
@@ -202,7 +213,7 @@
 
 		<utility module_path=".*hackerbot">
 			<input into="hackerbot_configs">
-				<generator module_path=".*backups">
+				<generator module_path=".*ids">
 					<input into="accounts">
 						<datastore>accounts</datastore>
 					</input>

@@ -3,12 +3,13 @@ require_relative '../../../../../../lib/objects/local_hackerbot_config_generator
 
 class IDS < HackerbotConfigGenerator
 
-  attr_accessor :server_ip
+  attr_accessor :web_server_ip
+  attr_accessor :ids_server_ip
 
   def initialize
     super
-    self.module_name = 'Hackerbot Config Generator Backups'
-    self.title = 'Backups'
+    self.module_name = 'Hackerbot Config Generator IDS'
+    self.title = 'IDS'
 
     self.local_dir = File.expand_path('../../',__FILE__)
     self.templates_path = "#{self.local_dir}/templates/"
@@ -20,7 +21,8 @@ class IDS < HackerbotConfigGenerator
   end
 
   def get_options_array
-    super + [['--server_ip', GetoptLong::REQUIRED_ARGUMENT]]
+    super + [['--web_server_ip', GetoptLong::REQUIRED_ARGUMENT],
+             ['--ids_server_ip', GetoptLong::REQUIRED_ARGUMENT]]
   end
 
   def process_options(opt, arg)
