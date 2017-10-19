@@ -2,9 +2,7 @@
 
 Snort is predominantly designed as a signature-based IDS. Snort monitors the network for matches to rules that indicate activity that should trigger an alert. You have now seen Snort detect a few types of activity, and have added a rule to detect ICMP packets. Next you will apply more complicated rules, and create your own.
 
-In addition to the lecture slides, you may find this resource helpful to complete these tasks:
-
-> Martin Roesch (n.d.) **Chapter 2:** Writing Snort Rules - How to Write Snort Rules and Keep Your Sanity. In: *Snort Users Manual*. Available from: &lt;[*http://www.snort.org.br/documentacao/SnortUsersManual.pdf*](http://www.snort.org.br/documentacao/SnortUsersManual.pdf)&gt;
+You may find external reference guides to writing Snort rules helpful. See the resources section below, and Google may come in handy.
 
 In general, rules are defined on one line (although, they can break over lines by using `\`), and take the form of:
 
@@ -59,14 +57,10 @@ systemctl restart snort
 ```
 Browse to a website, and confirm the rule worked to generate an alert containing RANDOM.
 
+
 # TODO RANDOM
 # HACKERBOT ATTACKS
-(Move up above)
-I'm about to attack your system, use Snort to detect the method of attack.
-??? quiz???
-Random IP address? LPORT?
 
----
 Add a rule to detect any attempt to connect to a Telnet server, the output message must include "- RANDOM". Connections to a Telnet server could be a security issue, since logging into a networked computer using Telnet is known to be insecure because traffic is not encrypted. Don't forget to reload Snort!
 
 
