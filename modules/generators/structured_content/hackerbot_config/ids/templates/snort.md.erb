@@ -20,37 +20,33 @@ sudo vi /etc/snort/snort.conf
 ==Add the following line:==
 `output alert_fast`
 
-==Change Snort's interface== to eth1 (or as you identified earlier):
+==Change Snort's interface== to eth1 (or as you identified earlier), and set the local network to your IP address range (or any):
 
 ```bash
 sudo vi /etc/snort/snort.debian.conf
 ```
-> Set the interface, and exit vi (Esc, ":wq").
+> Set the interface and HOME network range, and exit vi (Esc, ":wq").
 
 ==Start Snort:==
 
 ```bash
-sudo service snort restart
+sudo service snort stop
+sudo service snort start
 ```
+> Using "reload" or "restart" may not update the interface.
 
 Snort should now be running, monitoring network traffic for activity.
 
-==Do an nmap port scan of the ids_server== VM (**from the desktop VM**):
-
-```bash
-nmap <%= $ids_server_ip %>
-```
+==Have a chat with Hackerbot== (**from the desktop VM**).
 
 This should trigger an alert from Snort, which is stored in an alerts log file.
 
-"Follow" the Snort alert log file by running:
+**From the ids_server**, ==follow the Snort alert log== file by running (you may like to do this from a new tab):
 
 ```bash
 sudo tail -f /var/log/snort/alert
 ```
 >The tail program will wait for new alerts to be written to the file, and will display them as they are logged.
-
-==LogBook question: Does the log match what happened? Are there any false positives (alerts that describe things that did not actually happen)?==
 
 ==Do an nmap port scan of the web_server== VM (from the desktop VM):
 
@@ -60,34 +56,21 @@ nmap <%= $web_server_ip %>
 
 This should trigger another alert.
 
-Press Ctrl-C to ==stop the alert tail process==, if it did not do so automatically.
-
-The Snort configuration file can be configured to output, a "tcpdump" formatted network capture.
-
-Open the snort.conf file in vi:
-
-```bash
-vi /etc/snort/snort.conf
-```
-> (Remember: editing using vi involves pressing "i" to insert/edit text, then *Esc*, ":wq" to write changes and quit)
-
-Add the following line and then save the changes (or uncomment by removing the \#):
-
-`output log_tcpdump: tcpdump.log`
-
-Restart Snort:
-
-```bash
-systemctl restart snort
-```
+==LogBook question: Does the log match what happened? Are there any false positives (alerts that describe things that did not actually happen)?==
 
 Try another type of port scan, such as an ==Xmas Tree scan from the desktop== VM (Hint: `man nmap`).
+
+Press Ctrl-C to ==stop the alert tail process==, if it did not do so automatically.
+
+The Snort configuration file is also configured to output a "tcpdump" formatted network capture. (`output log_tcpdump: tcpdump.log`)
 
 Then run the following command to ==view the contents of the log:==
 
 ```bash
-tcpdump -r /var/log/snort/tcpdump.log.*
+sudo ls  /var/log/snort/
+sudo tcpdump -r /var/log/snort/tcpdump.log.XXXXX
 ```
+> Where XXXXX is one of the logs shown from the first command.
 
 You can use tcpdump's various flags to change the way it is displayed, or you could even open the logged network activity in Wireshark.
 
@@ -108,7 +91,7 @@ Scroll through the config file and, take notice of these details:
 
 -   Note the presence of a Back Orifice detector preprocessor "bo". Back Orifice was a Windows Trojan horse that was popular in the 90s.
 
--   We have already seen the "sfportscan" preprocessor in practice, detecting various kinds of port scans.
+-   Note the "sfportscan" preprocessor (is it enabled?), which can detect various kinds of port scans.
 
 -   The "arpspoof" preprocessor is described as experimental, and is not enabled by default.
 
@@ -126,13 +109,13 @@ Save your changes to snort.conf
 Run this command, to ==create your new rule file:==
 
 ```bash
-touch /etc/snort/rules/my.rules
+sudo touch /etc/snort/rules/my.rules
 ```
 
 ==Edit the file.== For example:
 
 ```bash
-vi /etc/snort/rules/my.rules
+sudo vi /etc/snort/rules/my.rules
 ```
 
 ==Add this line (*with your own name*), and save your changes:==
@@ -144,7 +127,8 @@ vi /etc/snort/rules/my.rules
 Now that you have new rules, tell Snort to ==reload its configuration:==
 
 ```bash
-systemctl restart snort
+sudo service snort stop
+sudo service snort start
 ```
 > If after attempting a reload, Snort fails to start, then you have probably made a configuration mistake, so check the log for details by running: `tail /var/log/syslog`
 

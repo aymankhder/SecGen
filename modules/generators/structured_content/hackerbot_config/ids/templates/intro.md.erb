@@ -12,7 +12,7 @@
 
 All of these VMs need to be running to complete the lab.
 
-**Ensure VMs allow promiscuous mode.** If you are completing this lab on Leeds Beckett oVirt infrastructure, this should be sorted. Otherwise, if you have used SecGen to spin up VMs, you need to ensure your VMs have permission to monitor networks by using promiscuous mode.
+**Ensure the ids_server VM is allowed promiscuous mode.** If you are completing this lab on Leeds Beckett oVirt infrastructure, this should be sorted. Otherwise, if you have used SecGen to spin up VMs, you need to ensure your VMs have permission to monitor networks using promiscuous mode. On the Leeds Beckett oVirt infrastructure we have snoop networks, which mirror all the traffic between systems. On Virtualbox, you would need to go to Advanced network settings for the host-only network on the ids_server and enable promiscious mode. 
 
 ### Your login details for the "desktop" and "ids_server" VMs
 User: <%= $main_user %>
@@ -27,10 +27,12 @@ You won't login to the hackerbot_server or web_server, but all the VMs need to b
 ## Hackerbot!
 ![small-right](images/skullandusb.svg)
 
-This exercise involves interacting with Hackerbot, a chatbot who will task you to monitor the network and will attack your system. If you satisfy Hackerbot by completing the challenges, she will reveal flags to you.
+This exercise involves interacting with Hackerbot, a chatbot who will task you to monitor the network and will attack your systems. If you satisfy Hackerbot by completing the challenges, she will reveal flags to you.
 
 Work through the below exercises, completing the Hackerbot challenges as noted.
 
 ---
 ## Network monitoring basics
 It is important for an organisation to monitor their network for detecting unwanted behaviour, such as malicious attacks or organisational resources being misused.
+
+Please take care to observe the instructions on which VM each command should be run from. (*There is quite a bit of switching between VMs in this lab.*)
