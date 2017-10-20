@@ -5,31 +5,32 @@ Continuing **on the ids_server VM:**
 ==Make a backup== of the snort's configuration file in case anything goes wrong:
 
 ```bash
-cp /etc/snort/snort.conf /etc/snort/snort.conf.bak
+sudo cp /etc/snort/snort.conf /etc/snort/snort.conf.bak
 ```
 
 ==Change Snort's output== to something more readable:
 
 ```bash
-vi /etc/snort/snort.conf
+sudo vi /etc/snort/snort.conf
 ```
 > (Remember: editing using vi involves pressing "i" to insert/edit text, then *Esc*,
 
 > ":wq" to write changes and quit)
 
-==Comment out== the line starting with "`output`"
-> (Put a \# in front of it)
-
 ==Add the following line:==
 `output alert_fast`
-> **Help with find in vi:** the find command in vi is the / character (forward slash) . When **NOT in insert mode** (pressing Esc will get you out of insert mode if you need to), to find "output" you could enter / output \[+ PRESS ENTER\] Then press the n character to find the next output and the next and the next and the next etc.
->
-> If there is still no alert file in /var/log/snort/, you may need to edit /etc/snort/snort.debian.conf, to use the correct interface (for example, eth1 if the output of "ifconfig" does not contain "eth0").
+
+==Change Snort's interface== to eth1 (or as you identified earlier):
+
+```bash
+sudo vi /etc/snort/snort.debian.conf
+```
+> Set the interface, and exit vi (Esc, ":wq").
 
 ==Start Snort:==
 
 ```bash
-systemctl start snort
+sudo service snort restart
 ```
 
 Snort should now be running, monitoring network traffic for activity.
@@ -45,7 +46,7 @@ This should trigger an alert from Snort, which is stored in an alerts log file.
 "Follow" the Snort alert log file by running:
 
 ```bash
-tail -f /var/log/snort/alert
+sudo tail -f /var/log/snort/alert
 ```
 >The tail program will wait for new alerts to be written to the file, and will display them as they are logged.
 

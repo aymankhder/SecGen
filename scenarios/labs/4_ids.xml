@@ -180,7 +180,9 @@
 		</utility>
 
 		<vulnerability module_path=".*distcc_exec"/>
-		<service module_path=".*vsftpd"/>
+
+		<!--TODO: FIXME ftp modules are currently broken-->
+		<!--<service module_path=".*vsftpd"/>-->
 
 		<service type="httpd"/>
 
@@ -225,6 +227,9 @@
 					</input>
 					<input into="web_server_ip">
 						<value>172.16.0.4</value>
+					</input>
+					<input into="hackerbot_server_ip">
+						<value>172.16.0.5</value>
 					</input>
 				</generator>
 			</input>
