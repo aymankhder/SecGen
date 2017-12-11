@@ -2,7 +2,7 @@
 require_relative '../../../../../../lib/objects/local_string_generator.rb'
 require 'date'
 
-class GenerateRandomDate < StringGenerator
+class SelectCatImage < StringGenerator
   attr_accessor :selected_image_path
 
   def initialize
@@ -29,4 +29,4 @@ class GenerateRandomDate < StringGenerator
   end
 end
 
-GenerateRandomDate.new.run
+SelectCatImage.new.run
