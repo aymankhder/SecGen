@@ -47,6 +47,7 @@ IMAGES_DIR = "#{ROOT_DIR}/lib/resources/images"
 URLLISTS_DIR = "#{ROOT_DIR}/lib/resources/urllists"
 INTERNET_BROWSER_FILES_DIR = "#{ROOT_DIR}/lib/resources/internet_browser_files"
 ILLEGAL_IMAGES_DIR = "#{ROOT_DIR}/lib/resources/illegal_images"
+FORENSIC_ARTEFACTS_DIR = "#{ROOT_DIR}/lib/resources/forensic_artefacts"
 
 # Path to secgen_functions puppet module
 SECGEN_FUNCTIONS_PUPPET_DIR = "#{MODULES_DIR}build/puppet/secgen_functions"
