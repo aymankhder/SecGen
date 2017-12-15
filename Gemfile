@@ -14,6 +14,7 @@ gem 'sshkey'
 gem 'zipruby'
 gem 'credy'
 gem 'pg'
+gem 'sqlite3'
 
 #development only gems go here
 group :test, :development do
