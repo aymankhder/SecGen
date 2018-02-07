@@ -107,6 +107,11 @@
             <datastore access_json="['employees'][1]['username']">organisation</datastore>
           </input>
         </generator>
+        <generator type="account">
+          <input into="username">
+            <datastore access_json="['employees'][2]['username']">organisation</datastore>
+          </input>
+        </generator>
       </input>
     </utility>
 
