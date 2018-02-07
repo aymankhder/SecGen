@@ -13,7 +13,6 @@
       <value>172.10.0.1</value>
       <value>172.10.0.2</value>
       <value>172.10.0.3</value>
-      <value>172.10.0.4</value>
     </input>
 
     <service module_path="services/unix/http/parameterised_website">
@@ -187,16 +186,14 @@
   </system>
 
   <!-- TODO: Attacker Kali on NIC1-->
-  <system>
-    <system_name>attack_vm</system_name>
-    <base distro="Kali" name="MSF"/>
-
-    <network type="private_network">
-      <input into="IP_address">
-        <datastore access="next">IP_addresses</datastore>
-      </input>
-    </network>
-
-  </system>
+  <!--<system>-->
+    <!--<system_name>attack_vm</system_name>-->
+    <!--<base distro="Kali" name="MSF"/>-->
+    <!--<network type="private_network">-->
+      <!--<input into="IP_address">-->
+        <!--<datastore access="next">IP_addresses</datastore>-->
+      <!--</input>-->
+    <!--</network>-->
+  <!--</system>-->
 
 </scenario>
