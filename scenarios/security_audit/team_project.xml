@@ -172,7 +172,7 @@
     <vulnerability module_path=".*xfce_lightdm_root_login"/>
     <utility module_path=".*iceweasel" >
     <input into="accounts">
-      <datastore access_json="['manager']['username']">organisation</datastore>
+      <datastore access_json="['manager']">organisation</datastore>
     </input>
     </utility>
     <utility module_path=".*handy_cli_tools"/>
