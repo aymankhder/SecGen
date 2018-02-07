@@ -116,7 +116,6 @@
 
     <service/>
     <service/>
-    <service/>
 
     <vulnerability access="remote" type="^((?!webapp).)*$">
       <input into="business_domain">
