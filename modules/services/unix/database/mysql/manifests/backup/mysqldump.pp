@@ -3,6 +3,7 @@ class mysql::backup::mysqldump (
   $backupuser         = '',
   $backuppassword     = '',
   $backupdir          = '',
+  $maxallowedpacket   = '1M',
   $backupdirmode      = '0700',
   $backupdirowner     = 'root',
   $backupdirgroup     = $mysql::params::root_group,
@@ -19,7 +20,13 @@ class mysql::backup::mysqldump (
   $prescript          = false,
   $postscript         = false,
   $execpath           = '/usr/bin:/usr/sbin:/bin:/sbin',
-) {
+  $optional_args      = [],
+) inherits mysql::params {
+
+  if $backupcompress {
+    ensure_packages(['bzip2'])
+    Package['bzip2'] -> File['mysqlbackup.sh']
+  }
 
   mysql_user { "${backupuser}@localhost":
     ensure        => $ensure,
