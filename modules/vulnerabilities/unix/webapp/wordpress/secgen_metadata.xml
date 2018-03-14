@@ -13,6 +13,7 @@
   <access>remote</access>
   <platform>linux</platform>
 
+  <read_fact>version</read_fact>
   <read_fact>port</read_fact>
   <read_fact>dbname</read_fact>
   <read_fact>dbhost</read_fact>
@@ -39,19 +40,23 @@
     <generator type="password_generator"/>
   </default_input>
 
+  <default_input into="version">
+    <value>4.9.4</value>
+  </default_input>
+
   <reference>https://www.exploit-db.com/exploits/44101/</reference>
   <hint>The authors of this website forgot to sanitise their database inputs!</hint>
 
-  <conflict>
-    <name>Wheezy</name>
-  </conflict>
+  <!--<conflict>-->
+    <!--<name>Wheezy</name>-->
+  <!--</conflict>-->
 
   <requires>
     <module_path>.*/handy_cli_tools</module_path>
   </requires>
 
   <requires>
-    <module_path>.*/apache_kali.*</module_path>
+    <module_path>.*/apache.*</module_path>
   </requires>
 
   <requires>
