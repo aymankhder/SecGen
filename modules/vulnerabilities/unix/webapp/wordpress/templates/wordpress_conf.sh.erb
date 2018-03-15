@@ -1,0 +1,24 @@
+#!/bin/bash
+<% $params = ''
+   $params += 'weblog_title=' + @blog_title
+   $url_email = @admin_email.gsub('@', '%40')
+   $params += '&admin_email=' + $url_email
+
+  if @version[0].to_i >= 3
+   $params += '&user_name=' + @username
+   $params += '&admin_password=' + @admin_password
+   $params += '&admin_password2=' + @admin_password
+
+  elsif (@version[0].to_i == 4) and (@version[2].to_i >= 3)
+    $params += '&pw_weak=on'
+    $params += '&pass1-text=' + @admin_password
+  end
+  if @version[0].to_i == 1 and @version[2].to_i == 5
+    $params += '&Submit=Continue+to+Second+Step+%C2%BB'
+  else
+    $params += '&blog_public=1'
+    $params += '&Submit=Install+WordPress'
+  end
+-%>
+
+curl -L --data '<%= $params %>' http://localhost:80/wp-admin/install.php?step=2
