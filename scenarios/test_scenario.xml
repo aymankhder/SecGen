@@ -13,15 +13,16 @@
 			<input into="version">
 				<encoder type="string_selector">
 					<input into="strings_to_encode">
-						<value>4.1</value>
-						<value>4.2</value>
-						<value>4.3</value>
-						<value>4.4</value>
-						<value>4.5</value>
-						<value>4.6</value>
-						<value>4.7</value>
-						<value>4.8</value>
-						<value>4.9</value>
+						<!--<value>2.0</value> Has different fields, only requires title and email, will auto create user: admin and generate random 6 char password -->
+						<!--<value>3.0</value>-->
+						<!--<value>4.2</value>&lt;!&ndash; Has old PW field&ndash;&gt;-->
+						<value>4.3</value> <!--Has new PW field-->
+						<!--<value>4.4</value>-->
+						<!--<value>4.5</value>-->
+						<!--<value>4.6</value>-->
+						<!--<value>4.7</value>-->
+						<!--<value>4.8</value>-->
+						<!--<value>4.9</value>-->
 					</input>
 				</encoder>
 			</input>

@@ -13,12 +13,21 @@
   <access>remote</access>
   <platform>linux</platform>
 
+  <read_fact>https</read_fact>
   <read_fact>version</read_fact>
   <read_fact>port</read_fact>
   <read_fact>dbname</read_fact>
   <read_fact>dbhost</read_fact>
   <read_fact>dbuser</read_fact>
   <read_fact>dbpass</read_fact>
+
+  <default_input into="https">
+    <!--<value>false</value>-->
+    <generator type="boolean_generator"/>
+  </default_input>
+  <default_input into="version">
+    <value>4.9.4</value>
+  </default_input>
 
   <default_input into="port">
     <value>80</value>
@@ -38,10 +47,6 @@
 
   <default_input into="dbpass">
     <generator type="password_generator"/>
-  </default_input>
-
-  <default_input into="version">
-    <value>4.9.4</value>
   </default_input>
 
   <reference>https://www.exploit-db.com/exploits/44101/</reference>
