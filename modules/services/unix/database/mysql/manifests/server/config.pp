@@ -17,20 +17,14 @@ class mysql::server::config {
       recurse => $mysql::server::purge_conf_dir,
       purge   => $mysql::server::purge_conf_dir,
     }
-  }
 
-  $logbin = pick($options['mysqld']['log-bin'], $options['mysqld']['log_bin'], false)
-
-  if $logbin {
-    $logbindir = mysql_dirname($logbin)
-
-    #Stop puppet from managing directory if just a filename/prefix is specified
-    if $logbindir != '.' {
-      file { $logbindir:
+    # on some systems this is /etc/my.cnf.d, while Debian has /etc/mysql/conf.d and FreeBSD something in /usr/local. For the latter systems,
+    # managing this basedir is also required, to have it available before the package is installed.
+    $includeparentdir = mysql_dirname($includedir)
+    if $includeparentdir != '/' and $includeparentdir != '/etc' {
+      file { $includeparentdir:
         ensure => directory,
         mode   => '0755',
-        owner  => $options['mysqld']['user'],
-        group  => $options['mysqld']['user'],
       }
     }
   }
@@ -42,11 +36,23 @@ class mysql::server::config {
       mode                    => '0644',
       selinux_ignore_defaults => true,
     }
+
+    # on mariadb systems, $includedir is not defined, but /etc/my.cnf.d has
+    # to be managed to place the server.cnf there
+    $configparentdir = mysql_dirname($mysql::server::config_file)
+    if $configparentdir != '/' and $configparentdir != '/etc' and $configparentdir
+        != $includedir and $configparentdir != mysql_dirname($includedir) {
+      file { $configparentdir:
+        ensure => directory,
+        mode   => '0755',
+      }
+    }
   }
 
   if $options['mysqld']['ssl-disable'] {
     notify {'ssl-disable':
-      message =>'Disabling SSL is evil! You should never ever do this except if you are forced to use a mysql version compiled without SSL support'
+      message =>'Disabling SSL is evil! You should never ever do this except
+                if you are forced to use a mysql version compiled without SSL support'
     }
   }
 }

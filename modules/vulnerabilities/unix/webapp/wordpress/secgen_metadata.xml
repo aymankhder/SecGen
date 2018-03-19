@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<vulnerability xmlns="http://www.github/cliffe/SecGen/vulnerability"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://www.github/cliffe/SecGen/vulnerability">
+
+  <name>wordpress</name>
+  <author>Thomas Shaw</author>
+  <module_license>MIT</module_license>
+  <description>wordpress</description>
+
+  <type>webapp</type>
+  <privilege>info_leak</privilege>
+  <access>remote</access>
+  <platform>linux</platform>
+
+  <read_fact>https</read_fact>
+  <read_fact>version</read_fact>
+  <read_fact>ip</read_fact> <!-- Installation requires the IP address of the network card apache is serving on. -->
+  <read_fact>port</read_fact>
+  <read_fact>blog_title</read_fact>
+  <read_fact>admin_email</read_fact>
+  <read_fact>admin_password</read_fact>
+  <read_fact>username</read_fact>
+
+  <default_input into="https">
+    <generator type="boolean_generator"/>
+  </default_input>
+
+  <default_input into="version">
+    <value>4.9.4</value>
+  </default_input>
+
+  <default_input into="ip">
+    <value>172.16.0.2</value>
+  </default_input>
+
+  <default_input into="port">
+    <value>80</value>
+  </default_input>
+
+  <default_input into="blog_title">
+    <value>New blog!</value>
+  </default_input>
+
+  <default_input into="admin_email">
+    <value>admin@wordpress.org</value>
+  </default_input>
+
+  <default_input into="admin_password">
+    <generator type="password_generator"/>
+  </default_input>
+
+  <default_input into="username">
+    <generator type="username_generator"/>
+  </default_input>
+
+  <reference>https://www.exploit-db.com/exploits/44101/</reference>
+  <hint>The authors of this website forgot to sanitise their database inputs!</hint>
+
+  <requires>
+    <module_path>.*/handy_cli_tools</module_path>
+  </requires>
+
+  <requires>
+    <module_path>.*/apache.*</module_path>
+  </requires>
+
+  <requires>
+    <module_path>.*/mysql</module_path>
+  </requires>
+
+</vulnerability>
