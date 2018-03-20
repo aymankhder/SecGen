@@ -6,6 +6,16 @@ require_relative './print.rb'
 
 class OVirtFunctions
 
+  # TODO supply this as a parameter/option instead
+  def self.authz
+    '@aet.leedsbeckett.ac.uk-authz'
+  end
+
+  # @param [Hash] options -- command-line opts
+  # @return [Boolean] is this secgen process using oVirt as the vagrant provider?
+  def self.provider_ovirt?(options)
+    options[:ovirtuser] and options[:ovirtpass] and options[:ovirturl]
+  end
 
   # Helper for removing VMs which Vagrant lost track of, i.e. exist but are reported as 'have not been created'.
   # @param [String] destroy_output_log -- logfile from vagrant destroy process which contains loose VMs
@@ -64,6 +74,22 @@ class OVirtFunctions
     end
   end
 
+  def self.get_userrole_role(ovirt_connection)
+    roles_service(ovirt_connection).list.each do |role_item|
+      if role_item.name == "UserRole"
+        return role_item
+      end
+    end
+  end
+
+  def self.roles_service(ovirt_connection)
+    ovirt_connection.system_service.roles_service
+  end
+
+  def self.users_service(ovirt_connection)
+    ovirt_connection.system_service.users_service
+  end
+
   def self.vms_service(ovirt_connection)
     ovirt_connection.system_service.vms_service
   end
@@ -110,9 +136,33 @@ class OVirtFunctions
     failures.uniq
   end
 
-  # @param [String] options -- command-line opts, contains oVirt username, password and url
+  def self.create_snapshot(options)
+
+  end
+
+  def self.assign_permissions(options)
+
+  end
+
+    # @param [String] username
+    # @return [OvirtUser]
+  def get_user(username)
+    un = username.chomp
+    search_string = "usrname=#{un}#{authz}"
+    puts "Searching for VMs owned by #{un}"
+    user = users_service.list(search: search_string).first
+    if user
+      Print.std "Found user '#{un}' on oVirt"
+      user
+    else
+      Print.err "User #{un} not found"
+      nil
+    end
+  end
+
+    # @param [String] options -- command-line opts, contains oVirt username, password and url
   def self.get_ovirt_connection(options)
-    if options[:ovirtuser] and options[:ovirtpass] and options[:ovirturl]
+    if provider_ovirt?(options)
       conn_attr = {}
       conn_attr[:url] = options[:ovirturl]
       conn_attr[:username] = options[:ovirtuser]

@@ -104,7 +104,7 @@ def build_config(scenario, out_dir, options)
   all_available_modules = all_available_bases + all_available_builds + all_available_vulnerabilties +
       all_available_services + all_available_utilities + all_available_generators + all_available_encoders + all_available_networks
   # update systems with module selections
-  systems.map! { |system|
+  systems.map! {|system|
     system.module_selections = system.resolve_module_selection(all_available_modules, options)
     system
   }
@@ -133,7 +133,7 @@ def build_vms(scenario, project_dir, options)
   end
 
   # if deploying to ovirt, when things fail to build, set the retry_count
-  retry_count = (options[:ovirtuser] and options[:ovirtpass]) ? 10 : 0
+  retry_count = OVirtFunctions::provider_ovirt?(options) ? 10 : 0
   successful_creation = false
 
   while retry_count and !successful_creation
@@ -143,10 +143,12 @@ def build_vms(scenario, project_dir, options)
       successful_creation = true
       if options[:shutdown]
         Print.info 'Shutting down VMs.'
-        if options[:ovirtuser] and options[:ovirtpass]
-          sleep(30)
-        end
+        sleep(30)
         GemExec.exe('vagrant', project_dir, 'halt')
+        # IF on ovirt, create snapshot and if prefix can be found (i.e. if it's a student number or username) assign UserRole permissions.
+        OVirtFunctions::create_snapshot(options)
+        OVirtFunctions::assign_permissions(options)
+
       end
     else
       if retry_count > 0
@@ -164,11 +166,11 @@ def build_vms(scenario, project_dir, options)
             elsif match = line.match(/^([-a-zA-Z_0-9]+):[^:]+VM is not created/i)
               vm_not_to_destroy = match.captures[0]
               Print.err "Not going to destroy #{vm_not_to_destroy}, since it does not exist"
-              failures_to_destroy.delete_if {|x| x == vm_not_to_destroy }
+              failures_to_destroy.delete_if {|x| x == vm_not_to_destroy}
               # TODO: not sure if there is a need to remove_uncreated_vms() here too? (I don't think so?)
             end
           end
-          
+
           failures_to_destroy = failures_to_destroy.uniq
 
           if failures_to_destroy.size == 0
@@ -191,14 +193,14 @@ def build_vms(scenario, project_dir, options)
             end
             sleep(10)
           end
-        else   # TODO:  elsif vagrant_output[:exception].type == ProcessHelper::TimeoutError   >destroy individually broken vms as above?
+        else # TODO:  elsif vagrant_output[:exception].type == ProcessHelper::TimeoutError   >destroy individually broken vms as above?
           Print.err 'Vagrant up timeout, destroying VMs and retrying...'
           GemExec.exe('vagrant', project_dir, 'destroy -f')
         end
       else
         Print.err 'Error provisioning VMs, destroying VMs and exiting SecGen.'
-        GemExec.exe('vagrant', project_dir, 'destroy -f')
-        exit 1
+        # GemExec.exe('vagrant', project_dir, 'destroy -f')
+        # exit 1
       end
     end
     retry_count -= 1
@@ -281,14 +283,14 @@ end
 
 def list_scenarios
   Print.std "Full paths to scenario files are displayed below"
-  Dir["#{ROOT_DIR}/scenarios/**/*"].select { |file| !File.directory? file }.each_with_index do |scenario_name, scenario_number|
+  Dir["#{ROOT_DIR}/scenarios/**/*"].select {|file| !File.directory? file}.each_with_index do |scenario_name, scenario_number|
     Print.std "#{scenario_number}) #{scenario_name}"
   end
 end
 
 def list_projects
   Print.std "Full paths to project directories are displayed below"
-  Dir["#{PROJECTS_DIR}/*"].select { |file| !File.file? file }.each_with_index do |scenario_name, scenario_number|
+  Dir["#{PROJECTS_DIR}/*"].select {|file| !File.file? file}.each_with_index do |scenario_name, scenario_number|
     Print.std "#{scenario_number}) #{scenario_name}"
   end
 end
@@ -304,10 +306,10 @@ end
 # end of method declarations
 # start of program execution
 
-Print.std '~'*47
+Print.std '~' * 47
 Print.std 'SecGen - Creates virtualised security scenarios'
 Print.std '            Licensed GPLv3 2014-18'
-Print.std '~'*47
+Print.std '~' * 47
 
 # Add read-options from config file (needs handling before options parsed by GetoptLong)
 if ARGV.include? '--read-options'
@@ -346,7 +348,7 @@ opts = GetoptLong.new(
     ['--ovirt-url', GetoptLong::REQUIRED_ARGUMENT],
     ['--ovirt-cluster', GetoptLong::REQUIRED_ARGUMENT],
     ['--ovirt-network', GetoptLong::REQUIRED_ARGUMENT],
-)
+    )
 
 scenario = SCENARIO_XML
 project_dir = nil
