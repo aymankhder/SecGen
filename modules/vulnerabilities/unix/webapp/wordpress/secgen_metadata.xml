@@ -3,7 +3,7 @@
                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                xsi:schemaLocation="http://www.github/cliffe/SecGen/vulnerability">
 
-  <name>wordpress</name>
+  <name>WordPress</name>
   <author>Thomas Shaw</author>
   <module_license>MIT</module_license>
   <description>wordpress</description>
@@ -15,7 +15,7 @@
 
   <read_fact>https</read_fact>
   <read_fact>version</read_fact>
-  <read_fact>ip</read_fact> <!-- Installation requires the IP address of the network card apache is serving on. -->
+  <read_fact>IP_address</read_fact> <!-- Installation requires the IP address of the network card apache is serving on. -->
   <read_fact>port</read_fact>
   <read_fact>blog_title</read_fact>
   <read_fact>admin_email</read_fact>
@@ -30,7 +30,7 @@
     <value>4.9.4</value>
   </default_input>
 
-  <default_input into="ip">
+  <default_input into="IP_address">
     <value>172.16.0.2</value>
   </default_input>
 
@@ -53,9 +53,6 @@
   <default_input into="username">
     <generator type="username_generator"/>
   </default_input>
-
-  <reference>https://www.exploit-db.com/exploits/44101/</reference>
-  <hint>The authors of this website forgot to sanitise their database inputs!</hint>
 
   <requires>
     <module_path>.*/handy_cli_tools</module_path>

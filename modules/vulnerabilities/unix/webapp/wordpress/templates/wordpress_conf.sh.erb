@@ -1,5 +1,6 @@
 #!/bin/bash
 <% require 'uri'
+   $url_base = "#{@https ? 'https' : 'http'}://#{@ip_address}:#{@https ? '443' : @port}"
    $params = ''
    $params += 'weblog_title=' + URI::encode(@blog_title)
    $params += '&admin_email=' + URI::encode(@admin_email)
@@ -19,6 +20,6 @@
     $params += '&language='
   end
 -%>
-curl -L http://<%= @ip_address %>:<%= @port %>/
+curl -L <%= @https ? '-k ': '' %><%= $url_base %>
 sleep 10
-curl -L --data '<%= $params %>' http://<%= @ip_address %>:<%= @port %>/wp-admin/install.php?step=2
+curl -L --data '<%= $params %>' <%= @https ? '-k ': '' %><%= $url_base %>/wp-admin/install.php?step=2

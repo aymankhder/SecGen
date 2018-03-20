@@ -6,6 +6,7 @@ $admin_password = $secgen_parameters['admin_password'][0]
 $username = $secgen_parameters['username'][0]
 $ip_address = $secgen_parameters['IP_address'][0]
 $port = $secgen_parameters['port'][0]
+$https = str2bool($secgen_parameters['https'][0])
 
 class { 'mysql::server': }
 class { 'mysql::bindings': php_enable => true, }
@@ -13,12 +14,21 @@ class { 'mysql::bindings': php_enable => true, }
 class { '::apache':
   default_vhost => false,
   overwrite_ports => false,
+  mpm_module => 'prefork',
   default_mods => ['rewrite', 'php'],
 }
 
-apache::vhost { 'wordpress':
-  docroot => '/var/www/wordpress',
-  port    => $port,
+if $https {
+  apache::vhost { 'wordpress':
+    docroot => '/var/www/wordpress',
+    port    => '443',
+    ssl     => true,
+  }
+} else {
+  apache::vhost { 'wordpress':
+    docroot => '/var/www/wordpress',
+    port    => $port,
+  }
 }
 
 class { 'wordpress':
