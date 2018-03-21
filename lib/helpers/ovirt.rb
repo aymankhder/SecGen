@@ -163,36 +163,40 @@ class OVirtFunctions
 
   def self.assign_permissions(options, scenario_path, vm_names)
     ovirt_connection = get_ovirt_connection(options)
-    username = options[:prefix]
+    username = options[:prefix].chomp
     user = get_user(ovirt_connection, username)
     if user
       vms = []
-      
+
       ovirt_vm_names = build_ovirt_names(scenario_path, username, vm_names)
+      Print.std "Searching for VMs owned by #{username}"
       ovirt_vm_names.each do |vm_name|
         vms << vms_service(ovirt_connection).list(search: "name=#{vm_name}")
       end
+      Print.std "Found VMs: #{vms}"
       
-      vms.each do |vm|
-        Print.std " VM: #{vm.name}"
+      vms.each do |vm_list|
+        vm_list.each do |vm|
+          Print.std " VM: #{vm.name}"
 
-        # find the service that manages that vm
-        vm_service = vms_service(ovirt_connection).vm_service(vm.id)
+          # find the service that manages that vm
+          vm_service = vms_service(ovirt_connection).vm_service(vm.id)
 
-        # find the service that manages the permissions of that vm
-        perm_service = vm_service.permissions_service
+          # find the service that manages the permissions of that vm
+          perm_service = vm_service.permissions_service
 
-        # add a permission for that user to use that VM
-        perm_attr = {}
-        perm_attr[:comment] = 'Automatic assignment'
-        perm_attr[:role] = get_userrole_role(ovirt_connection)
-        perm_attr[:user] = user
-        Print.std "  Adding permissions"
-        begin
-          perm_service.add OvirtSDK4::Permission.new(perm_attr)
-        rescue Exception => e
-          Print.err '****************************************** Skipping'
-          Print.err e.message
+          # add a permission for that user to use that VM
+          perm_attr = {}
+          perm_attr[:comment] = 'Automatic assignment'
+          perm_attr[:role] = get_userrole_role(ovirt_connection)
+          perm_attr[:user] = user
+          Print.std "  Adding permissions"
+          begin
+            perm_service.add OvirtSDK4::Permission.new(perm_attr)
+          rescue Exception => e
+            Print.err '****************************************** Skipping'
+            Print.err e.message
+          end
         end
       end
     else
