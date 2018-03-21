@@ -172,15 +172,14 @@ class OVirtFunctions
       vms = []
 
       ovirt_vm_names = build_ovirt_names(scenario_path, username, vm_names)
-      Print.std "Searching for VMs owned by #{username}"
+      Print.std "Searching for VMs owned by #{username} #{ovirt_vm_names}"
       ovirt_vm_names.each do |vm_name|
         vms << vms_service(ovirt_connection).list(search: "name=#{vm_name}")
       end
-      Print.std "Found VMs: #{vms}"
-      
+
       vms.each do |vm_list|
         vm_list.each do |vm|
-          Print.std " VM: #{vm.name}"
+          Print.std " Found VM: #{vm.name}"
 
           # find the service that manages that vm
           vm_service = vms_service(ovirt_connection).vm_service(vm.id)
