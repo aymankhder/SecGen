@@ -136,21 +136,77 @@ class OVirtFunctions
     failures.uniq
   end
 
-  def self.create_snapshot(options)
+  def self.create_snapshot(options, scenario_path, vm_names)
+    ovirt_connection = get_ovirt_connection(options)
+    ovirt_vm_names = build_ovirt_names(scenario_path, options[:prefix], vm_names)
+    ovirt_vm_names.each do |vm_name|
+      vms << vms_service(ovirt_connection).list(search: "name=#{vm_name}")
+    end
 
+    vms.each do |vm|
+      Print.std " VM: #{vm.name}"
+      # find the service that manages that vm
+      vm_service = vms_service(ovirt_connection).vm_service(vm.id)
+      Print.std "  Creating snapshot: #{vm.name}"
+      begin
+        vm_service.snapshots_service.add(
+            OvirtSDK4::Snapshot.new(
+                description: "Automated snapshot: #{Time.new.to_s}"
+            )
+        )
+      rescue Exception => e
+        Print.err '****************************************** Skipping'
+        Print.err e.message
+      end
+    end
   end
 
-  def self.assign_permissions(options)
+  def self.assign_permissions(options, scenario_path, vm_names)
+    ovirt_connection = get_ovirt_connection(options)
+    username = options[:prefix]
+    user = get_user(ovirt_connection, username)
+    if user
+      vms = []
+      
+      ovirt_vm_names = build_ovirt_names(scenario_path, username, vm_names)
+      ovirt_vm_names.each do |vm_name|
+        vms << vms_service(ovirt_connection).list(search: "name=#{vm_name}")
+      end
+      
+      vms.each do |vm|
+        Print.std " VM: #{vm.name}"
 
+        # find the service that manages that vm
+        vm_service = vms_service(ovirt_connection).vm_service(vm.id)
+
+        # find the service that manages the permissions of that vm
+        perm_service = vm_service.permissions_service
+
+        # add a permission for that user to use that VM
+        perm_attr = {}
+        perm_attr[:comment] = 'Automatic assignment'
+        perm_attr[:role] = get_userrole_role(ovirt_connection)
+        perm_attr[:user] = user
+        Print.std "  Adding permissions"
+        begin
+          perm_service.add OvirtSDK4::Permission.new(perm_attr)
+        rescue Exception => e
+          Print.err '****************************************** Skipping'
+          Print.err e.message
+        end
+      end
+    else
+      Print.info "No account with username #{username} found, skipping ..."
+    end
   end
 
     # @param [String] username
     # @return [OvirtUser]
-  def get_user(username)
+  def self.get_user(ovirt_connection, username)
     un = username.chomp
     search_string = "usrname=#{un}#{authz}"
     puts "Searching for VMs owned by #{un}"
-    user = users_service.list(search: search_string).first
+    user = users_service(ovirt_connection).list(search: search_string).first
     if user
       Print.std "Found user '#{un}' on oVirt"
       user

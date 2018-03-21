@@ -120,7 +120,8 @@ end
 
 # Builds the vm via the vagrant file in the project dir
 # @param project_dir
-def build_vms(scenario, project_dir, options)
+# TODO: Before merge to master, refactor me
+def build_vms(scenario, project_dir, options, systems)
 
   Print.info "Building project: #{project_dir}"
   system = ''
@@ -141,14 +142,15 @@ def build_vms(scenario, project_dir, options)
     if vagrant_output[:status] == 0
       Print.info 'VMs created.'
       successful_creation = true
-      if options[:shutdown]
+      if options[:shutdown] or OVirtFunctions::provider_ovirt?(options)
         Print.info 'Shutting down VMs.'
         sleep(30)
         GemExec.exe('vagrant', project_dir, 'halt')
-        # IF on ovirt, create snapshot and if prefix can be found (i.e. if it's a student number or username) assign UserRole permissions.
-        OVirtFunctions::create_snapshot(options)
-        OVirtFunctions::assign_permissions(options)
-
+      end
+      if OVirtFunctions::provider_ovirt?(options)
+        vm_names = get_vm_names(systems)
+        OVirtFunctions::assign_permissions(options, scenario, vm_names)
+        OVirtFunctions::create_snapshot(options, scenario, vm_names)
       end
     else
       if retry_count > 0
@@ -268,8 +270,8 @@ end
 
 # Runs methods to run and configure a new vm from the configuration file
 def run(scenario, project_dir, options)
-  build_config(scenario, project_dir, options)
-  build_vms(scenario, project_dir, options)
+  systems = build_config(scenario, project_dir, options)
+  build_vms(scenario, project_dir, options, systems)
 end
 
 def default_project_dir
@@ -301,6 +303,12 @@ end
 # @return [Void]
 def delete_all_projects
   FileUtils.rm_r(Dir.glob("#{PROJECTS_DIR}/*"))
+end
+
+def get_vm_names(systems)
+  vm_names = []
+  systems.each { |system| vm_names << system.name }
+  vm_names
 end
 
 # end of method declarations

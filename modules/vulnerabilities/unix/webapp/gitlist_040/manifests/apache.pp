@@ -14,6 +14,7 @@ class gitlist_040::apache {
     default_vhost => false,
     default_mods => ['rewrite', 'php'],
     overwrite_ports => false,
+    mpm_module => 'prefork'
   }
 
   ::apache::vhost { 'www-gitlist':

@@ -68,6 +68,10 @@
     Path traversal found in AttachFile module.
   </solution>
 
+  <conflict>
+    <name>Stretch</name>
+  </conflict>
+
   <requires>
     <module_path>.*apache</module_path>
     <type>httpd</type>
