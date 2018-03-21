@@ -96,7 +96,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 <% end %>
     <%  # Adds line that stops cloud-init from attempting to grab meta-data as eth0 is overwritten with provided networks.
         # TODO: Remove when mutli-network vagrant-plugin issue is resolved
-        if (@options.has_key? :ovirtuser) && (@options.has_key? :ovirtpass) -%>
+        if (@options.has_key? :ovirtuser) && (@options.has_key? :ovirtpass) &&  @ovirt_base_template != 'debian_stretch_cli'-%>
         <%= system.name %>.vm.provision 'shell', inline: "echo 'datasource_list: [ None ] '> /etc/cloud/cloud.cfg.d/90_dpkg.cfg"
     <%  end -%>
 

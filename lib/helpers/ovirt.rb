@@ -137,6 +137,7 @@ class OVirtFunctions
   end
 
   def self.create_snapshot(options, scenario_path, vm_names)
+    vms = []
     ovirt_connection = get_ovirt_connection(options)
     ovirt_vm_names = build_ovirt_names(scenario_path, options[:prefix], vm_names)
     ovirt_vm_names.each do |vm_name|
