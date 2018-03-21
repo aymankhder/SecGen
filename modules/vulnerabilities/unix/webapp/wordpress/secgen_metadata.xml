@@ -9,7 +9,8 @@
   <description>wordpress</description>
 
   <type>webapp</type>
-  <privilege>info_leak</privilege>
+  <type>in_the_wild</type>
+  <privilege>info_leak</privilege> <!-- TODO: Change me? Split this module out based on version. -->
   <access>remote</access>
   <platform>linux</platform>
 

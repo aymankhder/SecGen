@@ -9,6 +9,8 @@
   <description>Userspice PHP User Management Framework</description>
 
   <type>webapp</type>
+  <type>in_the_wild</type>
+
   <privilege>info_leak</privilege>
   <access>remote</access>
   <platform>linux</platform>
