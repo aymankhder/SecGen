@@ -36,7 +36,7 @@ class wordpress_2x {
     install_dir => '/var/www/wordpress',
     version => $version,
   } ~>
-  file { '/tmp/wordpress_conf.sh':
+  file { '/wordpress_conf.sh':
     owner   => 'root',
     group   => 'root',
     ensure  => present,
