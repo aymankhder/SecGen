@@ -28,7 +28,7 @@
   </default_input>
 
   <default_input into="version">
-    <value>4.9.4</value>
+    <generator type="wordpress_version"/>
   </default_input>
 
   <default_input into="IP_address">
