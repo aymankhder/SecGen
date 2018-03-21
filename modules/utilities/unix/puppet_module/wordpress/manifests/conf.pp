@@ -1,5 +1,5 @@
 class wordpress::conf ($version){
-  file { '/tmp/wordpress_conf.sh':
+  file { '/wordpress_conf.sh':
     owner   => 'root',
     group   => 'root',
     ensure  => present,
@@ -7,8 +7,8 @@ class wordpress::conf ($version){
     content => template('wordpress/wordpress_conf.sh.erb'),
   }
 
-  exec { 'run wordpress config script':
-    command => '/bin/bash /tmp/wordpress_conf.sh',
-    require => File['/tmp/wordpress_conf.sh'],
-  }
+#  exec { 'run wordpress config script':
+#    command => '/bin/bash /tmp/wordpress_conf.sh',
+#    require => File['/tmp/wordpress_conf.sh'],
+#  }
 }
