@@ -96,7 +96,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 <% end %>
     <%  # Adds line that stops cloud-init from attempting to grab meta-data as eth0 is overwritten with provided networks.
         # TODO: Remove when mutli-network vagrant-plugin issue is resolved
-        if (@options.has_key? :ovirtuser) && (@options.has_key? :ovirtpass) &&  @ovirt_base_template != 'debian_stretch_cli'-%>
+        if (@options.has_key? :ovirtuser) && (@options.has_key? :ovirtpass) -%>
         <%= system.name %>.vm.provision 'shell', inline: "echo 'datasource_list: [ None ] '> /etc/cloud/cloud.cfg.d/90_dpkg.cfg"
     <%  end -%>
 
@@ -137,10 +137,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   <%       end %>
 <%     else -%>
   <%       if (@options.has_key? :ovirtuser) && (@options.has_key? :ovirtpass) %>
-  <%         if @ovirt_template and (@ovirt_template.include? 'kali_linux_msf' or @ovirt_template.include? 'debian_stretch_server_n') %>
+  <%         if @ovirt_template and @ovirt_template.include? 'kali_linux_msf' %>
       <%= system.name %>.vm.provision 'shell', inline: "echo \"auto lo\niface lo inet loopback\n\nauto eth0\niface eth0 inet static\n\taddress <%= resolve_network(selected_module)%>\" > /etc/network/interfaces"
       <%= system.name %>.vm.provision 'shell', inline: "echo '' > /etc/environment"
-  <%         elsif @ovirt_template and @ovirt_template.include? 'debian_desktop_kde' %>
+  <%         elsif @ovirt_template and (@ovirt_template.include? 'debian_desktop_kde' or @ovirt_template.include? 'debian_stretch_server_n') %>
       <%= system.name %>.vm.provision 'shell', inline: "echo \"\nauto eth1\niface eth1 inet static\n\taddress <%= resolve_network(selected_module)%>\" >> /etc/network/interfaces"
       <%= system.name %>.vm.provision 'shell', inline: "echo '' > /etc/environment"
   <%         else %>
