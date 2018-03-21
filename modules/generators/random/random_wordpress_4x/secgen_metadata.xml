@@ -3,7 +3,7 @@
 <generator xmlns="http://www.github/cliffe/SecGen/generator"
                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                xsi:schemaLocation="http://www.github/cliffe/SecGen/generator">
-  <name>Random Wordpress Version Generator</name>
+  <name>Random Wordpress 4x Version Generator</name>
   <author>Thomas Shaw</author>
   <module_license>MIT</module_license>
   <description>Selects the version number of a random compatible WordPress version.</description>

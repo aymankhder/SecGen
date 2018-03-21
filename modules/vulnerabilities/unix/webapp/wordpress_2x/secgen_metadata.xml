@@ -3,14 +3,14 @@
                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                xsi:schemaLocation="http://www.github/cliffe/SecGen/vulnerability">
 
-  <name>WordPress</name>
+  <name>WordPress 2x</name>
   <author>Thomas Shaw</author>
   <module_license>MIT</module_license>
   <description>wordpress</description>
 
   <type>webapp</type>
   <type>in_the_wild</type>
-  <privilege>info_leak</privilege> <!-- TODO: Change me? Split this module out based on version. -->
+  <privilege>info_leak</privilege> <!-- TODO: Change me? -->
   <access>remote</access>
   <platform>linux</platform>
 
@@ -28,7 +28,7 @@
   </default_input>
 
   <default_input into="version">
-    <generator type="wordpress_version"/>
+    <generator module_path=".*wordpress_2x"/>
   </default_input>
 
   <default_input into="IP_address">
@@ -54,6 +54,14 @@
   <default_input into="username">
     <generator type="username_generator"/>
   </default_input>
+
+  <conflict>
+    <name>Stretch</name>
+  </conflict>
+
+  <requires>
+    <module_path>.*/puppet_module/wordpress</module_path>
+  </requires>
 
   <requires>
     <module_path>.*/handy_cli_tools</module_path>
