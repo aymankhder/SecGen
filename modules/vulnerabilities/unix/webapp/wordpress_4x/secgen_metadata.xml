@@ -24,8 +24,7 @@
   <read_fact>username</read_fact>
 
   <default_input into="https">
-    <!--<generator type="boolean_generator"/>-->
-    <value>true</value>
+    <generator type="boolean_generator"/>
   </default_input>
 
   <default_input into="version">
