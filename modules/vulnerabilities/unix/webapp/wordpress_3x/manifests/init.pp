@@ -42,9 +42,10 @@ class wordpress_3x {
     ensure  => present,
     mode    => '0755',
     content => template('wordpress/wordpress_conf.sh.erb'),
-  } ~>
-  exec { 'run wordpress config script':
-    command => '/bin/bash /tmp/wordpress_conf.sh',
-    require => File['/tmp/wordpress_conf.sh'],
   }
+  # ~>
+  # exec { 'run wordpress config script':
+  #   command => '/bin/bash /tmp/wordpress_conf.sh',
+  #   require => File['/tmp/wordpress_conf.sh'],
+  # }
 }
