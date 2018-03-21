@@ -20,7 +20,7 @@
     $params += '&language='
   end
 -%>
-curl -L <%= @https ? '-k ': '' %><%= $url_base %>
+sudo curl -L <%= @https ? '-k ': '' %><%= $url_base %>
 sleep 10
-curl -L --data '<%= $params %>' <%= @https ? '-k ': '' %><%= $url_base %>/wp-admin/install.php?step=2
+sudo curl -L --data '<%= $params %>' <%= @https ? '-k ': '' %><%= $url_base %>/wp-admin/install.php?step=2
 sleep 10
