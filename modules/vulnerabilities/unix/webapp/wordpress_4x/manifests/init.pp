@@ -43,6 +43,12 @@ class wordpress_4x {
     mode    => '0755',
     content => template('wordpress/wordpress_conf.sh.erb'),
   }
+  ~>
+  cron { 'run wordpress config script':
+    command => '/bin/bash /wordpress_conf.sh',
+    user => 'root',
+    special => reboot,
+  }
   # ~>
   # exec { 'run wordpress config script':
   #   command => '/bin/bash /tmp/wordpress_conf.sh',

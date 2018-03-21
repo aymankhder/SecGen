@@ -20,6 +20,10 @@
     $params += '&language='
   end
 -%>
-curl -L <%= @https ? '-k ': '' %><%= $url_base %>
-sleep 10
-curl -L --data '<%= $params %>' <%= @https ? '-k ': '' %><%= $url_base %>/wp-admin/install.php?step=2
+if [ ! -f /wps ]; then
+  curl -L <%= @https ? '-k ': '' %><%= $url_base %>
+  sleep 10
+  curl -L --data '<%= $params %>' <%= @https ? '-k ': '' %><%= $url_base %>/wp-admin/install.php?step=2
+  sleep 10
+  touch /wps
+fi
