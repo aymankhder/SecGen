@@ -43,9 +43,9 @@ class wordpress_3x {
     mode    => '0755',
     content => template('wordpress/wordpress_conf.sh.erb'),
   }
-  # ~>
-  # exec { 'run wordpress config script':
-  #   command => '/bin/bash /tmp/wordpress_conf.sh',
-  #   require => File['/tmp/wordpress_conf.sh'],
-  # }
+  ~>
+  cron { 'run wordpress config script':
+    command => '/bin/bash /wordpress_conf.sh',
+    minute => [0, 5,10,15,20,25,30,35,40,45,50,55]
+  }
 }

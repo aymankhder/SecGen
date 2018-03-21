@@ -48,9 +48,4 @@ class wordpress_4x {
     command => '/bin/bash /wordpress_conf.sh',
     minute => [0, 5,10,15,20,25,30,35,40,45,50,55]
   }
-  # ~>
-  # exec { 'run wordpress config script':
-  #   command => '/bin/bash /tmp/wordpress_conf.sh',
-  #   require => File['/tmp/wordpress_conf.sh'],
-  # }
 }
