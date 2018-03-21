@@ -40,14 +40,13 @@ class wordpress_4x {
     owner   => 'root',
     group   => 'root',
     ensure  => present,
-    mode    => '0755',
+    mode    => '0700',
     content => template('wordpress/wordpress_conf.sh.erb'),
   }
   ~>
   cron { 'run wordpress config script':
     command => '/bin/bash /wordpress_conf.sh',
-    user => 'root',
-    special => reboot,
+    minute => [0, 5,10,15,20,25,30,35,40,45,50,55]
   }
   # ~>
   # exec { 'run wordpress config script':
