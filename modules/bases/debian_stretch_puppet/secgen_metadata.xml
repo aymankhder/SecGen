@@ -15,7 +15,7 @@
   <platform>unix</platform>
   <distro>Debian 9 (stretch) TODO: 32-bit (i386)</distro>
   <url>https://app.vagrantup.com/summernguyen/boxes/debian-stretch-puppet/versions/1.0.0/providers/virtualbox.box</url>
-  <ovirt_template>debian_stretch_cli</ovirt_template>
+  <ovirt_template>debian_stretch_server</ovirt_template>
 
   <reference>https://atlas.hashicorp.com/puppetlabs</reference>
   <software_license>various</software_license>
