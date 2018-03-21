@@ -144,20 +144,22 @@ class OVirtFunctions
       vms << vms_service(ovirt_connection).list(search: "name=#{vm_name}")
     end
 
-    vms.each do |vm|
-      Print.std " VM: #{vm.name}"
-      # find the service that manages that vm
-      vm_service = vms_service(ovirt_connection).vm_service(vm.id)
-      Print.std "  Creating snapshot: #{vm.name}"
-      begin
-        vm_service.snapshots_service.add(
-            OvirtSDK4::Snapshot.new(
-                description: "Automated snapshot: #{Time.new.to_s}"
-            )
-        )
-      rescue Exception => e
-        Print.err '****************************************** Skipping'
-        Print.err e.message
+    vms.each do |vm_list|
+      vm_list.each do |vm|
+        Print.std " VM: #{vm.name}"
+        # find the service that manages that vm
+        vm_service = vms_service(ovirt_connection).vm_service(vm.id)
+        Print.std "  Creating snapshot: #{vm.name}"
+        begin
+          vm_service.snapshots_service.add(
+              OvirtSDK4::Snapshot.new(
+                  description: "Automated snapshot: #{Time.new.to_s}"
+              )
+          )
+        rescue Exception => e
+          Print.err '****************************************** Skipping'
+          Print.err e.message
+        end
       end
     end
   end
