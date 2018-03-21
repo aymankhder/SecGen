@@ -29,7 +29,7 @@
   </default_input>
 
   <default_input into="version">
-    <generator module_path=".*wordpress_3x"/>
+    <generator module_path=".*wordpress_4x"/>
   </default_input>
 
   <default_input into="IP_address">
