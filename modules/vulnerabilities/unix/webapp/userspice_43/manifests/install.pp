@@ -25,7 +25,7 @@ class userspice_43::install {
     notify => File['/tmp/userspice.sh']
   }
 
-  file { '/tmp/userspice.sh':
+  file { '/userspice.sh':
     owner   => 'root',
     group   => 'root',
     ensure  => present,
@@ -35,7 +35,7 @@ class userspice_43::install {
   }
 
   exec { 'run userspice install script':
-    command => '/bin/bash /tmp/userspice.sh',
+    command => '/bin/bash /userspice.sh',
     require => File['/tmp/userspice.sh'],
   }
 }

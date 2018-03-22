@@ -68,9 +68,9 @@
     Path traversal found in AttachFile module.
   </solution>
 
-  <!--<conflict>-->
-    <!--<name>Stretch</name>-->
-  <!--</conflict>-->
+  <conflict>
+    <name>Stretch</name>
+  </conflict>
 
   <requires>
     <module_path>.*apache.*</module_path>
