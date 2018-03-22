@@ -3,7 +3,7 @@
 <service xmlns="http://www.github/cliffe/SecGen/service"
                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                xsi:schemaLocation="http://www.github/cliffe/SecGen/service">
-  <name>MySQL database</name>
+  <name>MySQL database - Wheezy Compatible</name>
   <author>Connor Wilson</author>
   <author>David Schmitt</author>
   <author>Puppet Labs</author>
