@@ -68,7 +68,7 @@
   </requires>
 
   <requires>
-    <module_path>.*/mysql</module_path>
+    <module_path>.*/mysql_stretch.*</module_path>
   </requires>
 
 </vulnerability>
