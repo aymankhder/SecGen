@@ -60,6 +60,10 @@
   </conflict>
 
   <requires>
+    <module_path>.*/cron</module_path>
+  </requires>
+
+  <requires>
     <module_path>.*/puppet_module/wordpress</module_path>
   </requires>
 
