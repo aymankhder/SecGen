@@ -15,11 +15,16 @@
   <access>remote</access>
   <platform>linux</platform>
 
+  <read_fact>IP_address</read_fact>
   <read_fact>port</read_fact>
   <read_fact>dbname</read_fact>
   <read_fact>dbhost</read_fact>
   <read_fact>dbuser</read_fact>
   <read_fact>dbpass</read_fact>
+
+  <default_input into="IP_address">
+    <value>172.16.0.2</value>
+  </default_input>
 
   <default_input into="port">
     <value>80</value>

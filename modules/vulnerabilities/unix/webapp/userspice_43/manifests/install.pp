@@ -1,5 +1,6 @@
 class userspice_43::install {
   $secgen_parameters = secgen_functions::get_parameters($::base64_inputs_file)
+  $ip_address = $secgen_parameters['IP_address'][0]
   $dbname = $secgen_parameters['dbname'][0]
   $dbhost = $secgen_parameters['dbhost'][0]
   $dbuser = $secgen_parameters['dbuser'][0]
@@ -36,6 +37,6 @@ class userspice_43::install {
 
   exec { 'run userspice install script':
     command => '/bin/bash /userspice.sh',
-    require => File['/tmp/userspice.sh'],
+    require => File['/userspice.sh'],
   }
 }
