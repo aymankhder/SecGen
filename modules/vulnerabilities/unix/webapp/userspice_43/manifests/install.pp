@@ -34,9 +34,9 @@ class userspice_43::install {
     content => template('userspice_43/userspice.sh.erb'),
     require => File[$docroot],
   }
-
-  exec { 'run userspice install script':
+  ~>
+  cron { 'run userspice config script':
     command => '/bin/bash /userspice.sh',
-    require => File['/userspice.sh'],
+    minute => [0, 5,10,15,20,25,30,35,40,45,50,55]
   }
 }
