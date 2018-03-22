@@ -9,8 +9,8 @@ class wordpress_3x {
   $port = $secgen_parameters['port'][0]
   $https = str2bool($secgen_parameters['https'][0])
 
-#  class { '::mysql::server': }
-#  class { '::mysql::bindings': php_enable => true, }
+ class { '::mysql::server': }
+ class { '::mysql::bindings': php_enable => true, }
 
 
   class { '::apache':
@@ -33,7 +33,10 @@ class wordpress_3x {
     }
   }
 
-  include cron
+  class { '::cron':
+    package_name => 'cron',
+    service_name => 'cron',
+  }
 
   class { '::wordpress':
     install_dir => '/var/www/wordpress',
@@ -48,14 +51,10 @@ class wordpress_3x {
   }
   ~>
   cron::job { 'run wordpress config 10':
-    minute      => '10',
+    minute      => '0,5,10,15,20,25,30,35,40,45,50,55',
     user        => 'root',
     command     => '/bin/bash /wordpress_conf.sh',
     environment => [ 'MAILTO=root', 'PATH="/usr/bin:/bin"', ],
   }
 
-  # cron { 'run wordpress config script':
-  #   command => '/bin/bash /wordpress_conf.sh',
-  #   minute => [0, 5,10,15,20,25,30,35,40,45,50,55]
-  # }
 }
