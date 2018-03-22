@@ -56,7 +56,7 @@
   </default_input>
 
   <conflict>
-    <name>Stretch</name>
+    <name>Wheezy</name>
   </conflict>
 
   <requires>
@@ -72,7 +72,7 @@
   </requires>
 
   <requires>
-    <module_path>.*/mysql_wheezy.*</module_path>
+    <module_path>.*/mysql_stretch.*</module_path>
   </requires>
 
 </vulnerability>

@@ -6,18 +6,21 @@
 
 	<!-- an example remote storage system, with a remotely exploitable vulnerability that can then be escalated to root -->
 	<system>
-		<system_name>wnsb</system_name>
-		<base platform="linux" type="server" module_path=".*debian_puppet_32.*"/>
+		<system_name>wp4stretch</system_name>
+		<base platform="linux" type="server" />
 		<input into_datastore="IP_addresses">
 			<value>172.16.0.2</value>
 		</input>
 
-		<vulnerability module_path=".*wordpress_3.*" >
+		<vulnerability module_path=".*wordpress_4.*" >
 			<input into="IP_address">
 				<datastore access="0">IP_addresses</datastore>
 			</input>
 			<input into="https">
 				<value>false</value>
+			</input>
+			<input into="version">
+				<value>4.0</value>
 			</input>
 		</vulnerability>
 		<network type="private_network">

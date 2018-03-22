@@ -23,7 +23,7 @@ class userspice_43::install {
     password => $dbpass,
     host     => $dbhost,
     require  => File[$docroot],
-    notify => File['/tmp/userspice.sh']
+    notify => File['/userspice.sh']
   }
 
   file { '/userspice.sh':
