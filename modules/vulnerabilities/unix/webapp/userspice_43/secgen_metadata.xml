@@ -50,7 +50,7 @@
   <hint>The authors of this website forgot to sanitise their database inputs!</hint>
 
   <conflict>
-    <name>Wheezy</name>
+    <name>Stretch</name>
   </conflict>
 
   <requires>
