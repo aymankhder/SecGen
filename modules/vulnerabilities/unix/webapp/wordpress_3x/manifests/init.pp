@@ -9,8 +9,9 @@ class wordpress_3x {
   $port = $secgen_parameters['port'][0]
   $https = str2bool($secgen_parameters['https'][0])
 
-  class { '::mysql::server': }
-  class { '::mysql::bindings': php_enable => true, }
+#  class { '::mysql::server': }
+#  class { '::mysql::bindings': php_enable => true, }
+
 
   class { '::apache':
     default_vhost => false,
