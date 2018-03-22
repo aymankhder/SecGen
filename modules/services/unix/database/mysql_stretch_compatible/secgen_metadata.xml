@@ -3,7 +3,7 @@
 <service xmlns="http://www.github/cliffe/SecGen/service"
                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                xsi:schemaLocation="http://www.github/cliffe/SecGen/service">
-  <name>MySQL database</name>
+  <name>MySQL database - Stretch compatible</name>
   <author>Connor Wilson</author>
   <author>David Schmitt</author>
   <author>Puppet Labs</author>
@@ -19,6 +19,9 @@
   <software_name>mysql</software_name>
   <software_license>GPL v2</software_license>
 
+  <conflict>
+    <name>.*Wheezy.*</name>
+  </conflict>
   <!--Cannot co-exist with other MySQL installations-->
   <conflict>
     <software_name>mysql</software_name>
