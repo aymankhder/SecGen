@@ -23,7 +23,7 @@
   <read_fact>dbpass</read_fact>
 
   <default_input into="IP_address">
-    <value>172.16.0.2</value>
+    <value>localhost</value>
   </default_input>
 
   <default_input into="port">
