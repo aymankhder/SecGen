@@ -2,8 +2,10 @@ require 'erb'
 require_relative '../helpers/constants.rb'
 require_relative 'xml_scenario_generator.rb'
 require_relative 'xml_marker_generator.rb'
+require_relative 'ctfd_generator.rb'
 require 'fileutils'
 require 'librarian'
+require 'zip'
 
 class ProjectFilesCreator
 # Creates project directory, uses .erb files to create a report and the vagrant file that will be used
@@ -140,6 +142,41 @@ class ProjectFilesCreator
       Print.err "Error writing file: #{e.message}"
       abort
     end
+    
+    # Create the CTFd zip file for import
+    ctfdfile = "#{@out_dir}/CTFd_importable.zip"
+    Print.std "Creating CTFd configuration: #{ctfdfile}"
+    
+    ctfd_generator = CTFdGenerator.new(@systems, @scenario, @time)
+    ctfd_files = ctfd_generator.ctfd_files
+    
+    # Print.debug ctfd_files.to_s
+    
+            Print.debug ROOT_DIR + '/lib/resources/images/svg_icons/flag.svg'
+
+            
+    # zip up the CTFd export
+    begin
+      Zip::ZipFile.open(ctfdfile, Zip::ZipFile::CREATE) { |zipfile|
+        zipfile.mkdir("db")
+        ctfd_files.each do |ctfd_file_name, ctfd_file_content|
+          zipfile.get_output_stream("db/#{ctfd_file_name}") { |f|
+            f.puts ctfd_file_content
+          }
+        end
+        zipfile.mkdir("uploads")
+        zipfile.mkdir("uploads/fca9b07e1f3699e07870b86061815b1c")
+        zipfile.get_output_stream("uploads/fca9b07e1f3699e07870b86061815b1c/logo.svg") { |f|
+          f.puts File.readlines(ROOT_DIR + '/lib/resources/images/svg_icons/flag.svg')
+        }
+        zipfile.mkdir("uploads/uploads") # empty as in examples
+      }
+    rescue StandardError => e
+      Print.err "Error writing zip file: #{e.message}"
+      abort
+    end
+    
+    
     Print.std "VM(s) can be built using 'vagrant up' in #{@out_dir}"
 
   end
