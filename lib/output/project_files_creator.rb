@@ -5,7 +5,7 @@ require_relative 'xml_marker_generator.rb'
 require_relative 'ctfd_generator.rb'
 require 'fileutils'
 require 'librarian'
-require 'zip'
+require 'zip/zip'
 
 class ProjectFilesCreator
 # Creates project directory, uses .erb files to create a report and the vagrant file that will be used
@@ -152,7 +152,7 @@ class ProjectFilesCreator
     
     # Print.debug ctfd_files.to_s
     
-            Print.debug ROOT_DIR + '/lib/resources/images/svg_icons/flag.svg'
+#     Print.debug ROOT_DIR + '/lib/resources/images/svg_icons/flag.svg'
 
             
     # zip up the CTFd export
@@ -161,15 +161,15 @@ class ProjectFilesCreator
         zipfile.mkdir("db")
         ctfd_files.each do |ctfd_file_name, ctfd_file_content|
           zipfile.get_output_stream("db/#{ctfd_file_name}") { |f|
-            f.puts ctfd_file_content
+            f.print ctfd_file_content
           }
         end
         zipfile.mkdir("uploads")
+        zipfile.mkdir("uploads/uploads") # empty as in examples
         zipfile.mkdir("uploads/fca9b07e1f3699e07870b86061815b1c")
         zipfile.get_output_stream("uploads/fca9b07e1f3699e07870b86061815b1c/logo.svg") { |f|
-          f.puts File.readlines(ROOT_DIR + '/lib/resources/images/svg_icons/flag.svg')
+          f.print File.readlines(ROOT_DIR + '/lib/resources/images/svg_icons/flag.svg')
         }
-        zipfile.mkdir("uploads/uploads") # empty as in examples
       }
     rescue StandardError => e
       Print.err "Error writing zip file: #{e.message}"

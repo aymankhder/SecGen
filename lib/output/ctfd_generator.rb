@@ -2,8 +2,13 @@
 class CTFdGenerator
 
   POINTS_PER_FLAG = 100
+  FREE_POINTS = 200
+  
   # How much of the total reward is offset by the cost of all the hints for that flag
-  PERCENTAGE_COST_FOR_ALL_HINTS = 0.8
+  PERCENTAGE_COST_FOR_ALL_HINTS = 0.8 # 80 / number of hints
+  PERCENTAGE_COST_FOR_BIG_HINTS = 0.5 # 50% cost for a big hint
+  PERCENTAGE_COST_FOR_SOLUTION_HINTS = 0.8 # 80% cost for a solution
+
 
   # @param [Object] systems the list of systems
   # @param [Object] scenario the scenario file used to generate
@@ -22,12 +27,32 @@ class CTFdGenerator
     hints = []
     keys = []
     
+    # TODO REMOVE OFFSET WHEN WORKING?
+#     id_offset = rand(1000000000)
+    id_offset = 0
+    
+    challenges << {
+              "id"=> 1 + id_offset,
+              "name"=>"Free points", 
+              "description"=>"Some free points to get you started (and for purchasing hints)!\n Enter flag{FREEPOINTS}",
+              "max_attempts"=>0,
+              "value"=>FREE_POINTS,
+              "category"=>"Freebie",
+              "type"=>"standard",
+              "hidden"=>0}
+    keys << {
+              "id"=>1 + id_offset,
+              "chal"=>1 + id_offset,
+              "type"=>"static",
+              "flag"=>"flag{FREEPOINTS}",
+              "data"=>nil}
+
     @systems.each { |system|
       system.module_selections.each { |selected_module|
         # start by finding a flag, and work the way back providing hints
         selected_module.output.each { |output_value|
           if output_value.match(/^flag{.*$/)
-            challenge_id = challenges.length + 1
+            challenge_id = challenges.length + 1 + id_offset
             challenges << {
               "id"=> challenge_id,
               "name"=>"Find the flag", 
@@ -36,8 +61,8 @@ class CTFdGenerator
               "value"=>POINTS_PER_FLAG,
               "category"=>"#{system.name} VM (#{system.module_selections.first.attributes['platform'].first})",
               "type"=>"standard",
-              "hidden"=>false}
-            key_id =  keys.length + 1
+              "hidden"=>0}
+            key_id =  keys.length + 1 + id_offset
             keys << {
               "id"=>key_id,
               "chal"=>challenge_id,
@@ -53,14 +78,21 @@ class CTFdGenerator
             }
             
             collected_hints.each { |collected_hint|
-              hint_id = hints.length + 1
+              hint_id = hints.length + 1 + id_offset
+              # weight hints for big_hint
+              if collected_hint["hint_type"] == "solution"
+                cost=(POINTS_PER_FLAG * PERCENTAGE_COST_FOR_SOLUTION_HINTS).round
+              elsif collected_hint["hint_type"] == "big_hint"
+                cost=(POINTS_PER_FLAG * PERCENTAGE_COST_FOR_BIG_HINTS).round
+              else
+                cost=(POINTS_PER_FLAG * PERCENTAGE_COST_FOR_ALL_HINTS / collected_hints.length).round
+              end
               hints << {
                 "id"=> hint_id,
                 "type"=>0,
                 "chal"=>challenge_id,
                 "hint"=>collected_hint["hint_text"],
-                # TODO: weight hints for big_hint
-                "cost"=>(POINTS_PER_FLAG * PERCENTAGE_COST_FOR_ALL_HINTS / collected_hints.length).round
+                "cost"=>cost
               }
             }
           end
@@ -90,7 +122,7 @@ class CTFdGenerator
   end
   
   def files_json
-    return '{"count": 2, "results": [{"id": 1, "chal": null, "location": "fca9b07e1f3699e07870b86061815b1c/logo.svg"}], "meta": {}}'
+    return '{"count": 1, "results": [{"id": 1, "chal": null, "location": "fca9b07e1f3699e07870b86061815b1c/logo.svg"}], "meta": {}}'
   end
 
   def challenges_json(challenges)
@@ -335,7 +367,7 @@ class CTFdGenerator
         end
         if search_module_for_hints.attributes['solution']
           solution = search_module_for_hints.attributes['solution'].first
-          collected_hints = collect_hint(clean_hint(solution), "#{search_module_for_hints.unique_id}solution", "big_hint", collected_hints)
+          collected_hints = collect_hint(clean_hint(solution), "#{search_module_for_hints.unique_id}solution", "solution", collected_hints)
         end
         if search_module_for_hints.attributes['msf_module']
           collected_hints = collect_hint("Can be exploited using the Metasploit module: #{search_module_for_hints.attributes['msf_module'].first}", "#{search_module_for_hints.unique_id}msf_module", "big_hint", collected_hints)
@@ -358,7 +390,7 @@ class CTFdGenerator
         end
         if search_module_for_hints.attributes['solution']
           solution = search_module_for_hints.attributes['solution'].first
-          collected_hints = collect_hint(clean_hint(solution), "#{search_module_for_hints.unique_id}solution", "big_hint", collected_hints)
+          collected_hints = collect_hint(clean_hint(solution), "#{search_module_for_hints.unique_id}solution", "solution", collected_hints)
         end
       when "generator"
         if search_module_for_hints.attributes['hint']
@@ -368,7 +400,7 @@ class CTFdGenerator
         end
         if search_module_for_hints.attributes['solution']
           solution = search_module_for_hints.attributes['solution'].first
-          collected_hints = collect_hint(clean_hint(solution), "#{search_module_for_hints.unique_id}solution", "big_hint", collected_hints)
+          collected_hints = collect_hint(clean_hint(solution), "#{search_module_for_hints.unique_id}solution", "solution", collected_hints)
         end
     end
 
