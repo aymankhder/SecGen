@@ -55,7 +55,7 @@ define secgen_functions::install_setuid_root_binary (
   exec { "gcc_$challenge_name-$compile_directory":
     cwd     => $compile_directory,
     command => "/usr/bin/make",
-    require => [File["create_$challenge_directory", "create_$compile_directory"], Package['build-essential', 'gcc-multilib']]
+    require => [File["create_$compile_directory"], Package['build-essential', 'gcc-multilib']]
   }
 
   # Move the compiled binary into the challenge directory
