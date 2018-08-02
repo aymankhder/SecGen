@@ -19,7 +19,6 @@ define secgen_functions::install_setuid_root_binary (
     $storage_directory = $storage_dir[0]
     $leaked_filenames = ["$challenge_name-instructions"]
   } elsif $account {
-  if $account {
     $username = $account['username']
 
     ::accounts::user { $username:
@@ -28,12 +27,7 @@ define secgen_functions::install_setuid_root_binary (
       managehome => true,
       home_mode  => '0755',
     }
-
     $storage_directory = "/home/$username"
-
-  } elsif $storage_dir {
-    $storage_directory = $storage_dir
-
   } else {
     err('install: either account or storage_dir is required')
     fail
@@ -61,7 +55,7 @@ define secgen_functions::install_setuid_root_binary (
   exec { "gcc_$challenge_name-$compile_directory":
     cwd     => $compile_directory,
     command => "/usr/bin/make",
-    require => File["create_$compile_directory"]
+    require => [File["create_$challenge_directory", "create_$compile_directory"], Package['build-essential', 'gcc-multilib']]
   }
 
   # Move the compiled binary into the challenge directory
