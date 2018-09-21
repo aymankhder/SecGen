@@ -8,8 +8,7 @@
   <module_license>GPLv3</module_license>
   <description>For testing purposes, the default root password is puppet.</description>
   <cpu_word_size>64-bit</cpu_word_size>
-  <type>server</type>
-  <type>cli</type>
+  <type>desktop</type>
 
   <platform>linux</platform>
   <platform>unix</platform>
