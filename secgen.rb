@@ -208,6 +208,8 @@ def build_vms(scenario, project_dir, options, systems)
     if OVirtFunctions::provider_ovirt?(options)
       vm_names = get_vm_names(systems)
       OVirtFunctions::create_snapshot(options, scenario, vm_names)
+      Print.info 'Creating oVirt affinity group'
+      OVirtFunctions::create_affinity_group(options, scenario, vm_names)
     else
       GemExec.exe('vagrant', project_dir, 'snapshot push')
     end

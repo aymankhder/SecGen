@@ -164,6 +164,59 @@ class OVirtFunctions
     end
   end
 
+  def self.create_affinity_group(options, scenario_path, vm_names)
+    vms = []
+    ovirt_connection = get_ovirt_connection(options)
+
+    clusters_service = ovirt_connection.system_service.clusters_service
+    cluster = clusters_service.list(search='name=default')[0]
+    puts cluster.to_s
+
+    cluster_service = clusters_service.cluster_service(cluster.id)
+    cluster_affinitygroups_service = cluster_service.affinity_groups_service
+    puts cluster_affinitygroups_service.to_s
+
+    cluster_service = clusters_service.cluster_service(cluster.id)
+    cluster_affinitygroups_service = cluster_service.affinity_groups_service
+
+    puts cluster_affinitygroups_service.to_s
+    cluster_affinitygroups_service.add(
+         types.AffinityGroup(
+            name='new_affinity_label_secgen',
+            description='software defined',
+            vms_rule=types.AffinityRule(
+                 enabled=True,
+                 positive=True,
+                 enforcing=True,
+            ),
+         ),
+    )
+    #
+    # ovirt_vm_names = build_ovirt_names(scenario_path, options[:prefix], vm_names)
+    # ovirt_vm_names.each do |vm_name|
+    #   vms << vms_service(ovirt_connection).list(search: "name=#{vm_name}")
+    # end
+    #
+    # vms.each do |vm_list|
+    #   vm_list.each do |vm|
+    #     Print.std " VM: #{vm.name}"
+    #     # find the service that manages that vm
+    #     vm_service = vms_service(ovirt_connection).vm_service(vm.id)
+    #     Print.std "  Creating snapshot: #{vm.name}"
+    #     begin
+    #       vm_service.snapshots_service.add(
+    #           OvirtSDK4::Snapshot.new(
+    #               description: "Automated snapshot: #{Time.new.to_s}"
+    #           )
+    #       )
+    #     rescue Exception => e
+    #       Print.err '****************************************** Skipping'
+    #       Print.err e.message
+    #     end
+    #   end
+    # end
+  end
+
   def self.assign_permissions(options, scenario_path, vm_names)
     ovirt_connection = get_ovirt_connection(options)
     username = options[:prefix].chomp
