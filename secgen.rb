@@ -137,6 +137,13 @@ def build_vms(scenario, project_dir, options, systems)
   retry_count = OVirtFunctions::provider_ovirt?(options) ? 5 : 0  # TODO: Reset to 10 before merging
   successful_creation = false
 
+# TODO: REMOVEME
+# TODO: REMOVEME
+# TODO: REMOVEME
+# TODO: REMOVEME -- skips building
+  successful_creation = true
+
+
   while retry_count and !successful_creation
     vagrant_output = GemExec.exe('vagrant', project_dir, "#{command} #{system}")
     if vagrant_output[:status] == 0

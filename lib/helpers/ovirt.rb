@@ -169,7 +169,7 @@ class OVirtFunctions
     ovirt_connection = get_ovirt_connection(options)
 
     clusters_service = ovirt_connection.system_service.clusters_service
-    cluster = clusters_service.list(search='name=default')[0]
+    cluster = clusters_service.list(search: 'name=default')[0]
     puts cluster.to_s
 
     cluster_service = clusters_service.cluster_service(cluster.id)
