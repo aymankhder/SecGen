@@ -147,4 +147,8 @@
     <module_path>.*/mysql.*</module_path>
   </requires>
 
+  <requires>
+    <module_path>.*/php.*</module_path>
+  </requires>
+
 </vulnerability>
