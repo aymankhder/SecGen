@@ -5,19 +5,48 @@
           xsi:schemaLocation="http://www.github/cliffe/SecGen/scenario">
 
   <!-- an example remote storage system, with a remotely exploitable vulnerability that can then be escalated to root -->
+  <!--<system>-->
+    <!--<system_name>onlinestore</system_name>-->
+    <!--<base distro="Debian 9" type="server" name="Stretch"/>-->
+
+    <!--<input into_datastore="IP_addresses">-->
+      <!--<value>172.16.0.2</value>-->
+      <!--<value>172.16.0.3</value>-->
+    <!--</input>-->
+
+    <!--<service module_path=".*apache_stretch_compatible.*"/>-->
+    <!--<utility module_path=".*php_stretch_compatible.*"/>-->
+    <!--<service module_path=".*mysql_stretch_compatible.*"/>-->
+    <!--<vulnerability module_path=".*onlinestore"/>-->
+
+    <!--<network type="private_network">-->
+      <!--<input into="IP_address">-->
+        <!--<datastore access="0">IP_addresses</datastore>-->
+      <!--</input>-->
+    <!--</network>-->
+
+  <!--</system>-->
+
+  <!--<system>-->
+    <!--<system_name>desktop</system_name>-->
+    <!--<base distro="Debian 7.8" type="desktop" name="KDE"/>-->
+    <!--<network type="private_network">-->
+      <!--<input into="IP_address">-->
+        <!--<datastore access="1">IP_addresses</datastore>-->
+      <!--</input>-->
+    <!--</network>-->
+  <!--</system>-->
+
   <system>
     <system_name>onlinestore</system_name>
-    <base distro="Debian 9" type="server" name="Stretch"/>
+    <base distro="Debian 7.8" type="server" />
 
     <input into_datastore="IP_addresses">
       <value>172.16.0.2</value>
       <value>172.16.0.3</value>
     </input>
 
-    <service module_path=".*apache_stretch_compatible.*"/>
-    <utility module_path=".*php_stretch_compatible.*"/>
-    <service module_path=".*mysql_stretch_compatible.*"/>
-    <vulnerability module_path=".*onlinestore"/>
+    <vulnerability module_path=".*gitlist_040"/>
 
     <network type="private_network">
       <input into="IP_address">
@@ -29,12 +58,14 @@
 
   <system>
     <system_name>desktop</system_name>
-    <base distro="Debian 7.8" type="desktop" name="KDE"/>
+    <base distro="Debian 9" type="desktop" name="KDE"/>
     <network type="private_network">
       <input into="IP_address">
         <datastore access="1">IP_addresses</datastore>
       </input>
     </network>
   </system>
+
+
 
 </scenario>
