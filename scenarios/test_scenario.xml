@@ -15,7 +15,7 @@
     </input>
 
     <service module_path=".*apache_stretch_compatible.*"/>
-    <service module_path=".*php_stretch_compatible.*"/>
+    <utility module_path=".*php_stretch_compatible.*"/>
     <service module_path=".*mysql_stretch_compatible.*"/>
     <vulnerability module_path=".*onlinestore"/>
 
