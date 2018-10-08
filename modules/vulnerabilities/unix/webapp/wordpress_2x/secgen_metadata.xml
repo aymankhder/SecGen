@@ -10,7 +10,7 @@
 
   <type>webapp</type>
   <type>in_the_wild</type>
-  <privilege>info_leak</privilege> <!-- TODO: Change me? -->
+  <privilege>various</privilege>
   <access>remote</access>
   <platform>linux</platform>
 
