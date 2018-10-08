@@ -1,1 +1,3 @@
-include '::php'
+class { '::php':
+  apache_config => true,
+}
