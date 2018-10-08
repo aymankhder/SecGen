@@ -25,6 +25,6 @@
     <type>update</type>
   </requires>
   <requires>
-    <name>.*apache_stretch.*</name>
+    <module_path>.*apache_stretch.*</module_path>
   </requires>
 </service>
