@@ -58,7 +58,7 @@
   </requires>
 
   <requires>
-    <module_path>.*/apache_kali.*</module_path>
+    <module_path>.*/apache_stretch.*</module_path>
   </requires>
 
   <requires>

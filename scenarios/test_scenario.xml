@@ -9,9 +9,9 @@
 		<system_name>userspice</system_name>
 		<base distro="Debian 9" type="server" name="Stretch"/>
 
-		<service module_path=".*apache_kali_compatible.*"/>
+		<service module_path=".*apache_stretch_compatible.*"/>
 		<service module_path=".*mysql_stretch_compatible.*"/>
-		<service module_path=".*onlinestore"/>
+		<vulnerability module_path=".*onlinestore"/>
 
 		<network type="private_network">
 			<input into="IP_address">

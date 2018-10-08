@@ -29,7 +29,7 @@ class gitlist_040::install {
     mode => '777',
   }
 
-  # TODO: This should only be run on apache_kali_compat
+  # TODO: This should only be run on apache_stretch_compatible
   file { '/var/www/gitlist/.htaccess':
     require => Exec['unpack-gitlist'],
     ensure => present,
