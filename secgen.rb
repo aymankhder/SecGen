@@ -44,6 +44,7 @@ def usage
    --ovirt-url [ovirt_api_url]
    --ovirt-cluster [ovirt_cluster]
    --ovirt-network [ovirt_network_name]
+   --ovirt-single-host: Create an affinity group, all VMs in the scenario run on one host
 
    COMMANDS:
    run, r: Builds project and then builds the VMs
@@ -137,13 +138,6 @@ def build_vms(scenario, project_dir, options, systems)
   retry_count = OVirtFunctions::provider_ovirt?(options) ? 5 : 0  # TODO: Reset to 10 before merging
   successful_creation = false
 
-# TODO: REMOVEME
-# TODO: REMOVEME
-# TODO: REMOVEME
-# TODO: REMOVEME -- skips building
-  successful_creation = true
-
-
   while retry_count and !successful_creation
     vagrant_output = GemExec.exe('vagrant', project_dir, "#{command} #{system}")
     if vagrant_output[:status] == 0
@@ -210,15 +204,23 @@ def build_vms(scenario, project_dir, options, systems)
     retry_count -= 1
   end
 
-  if successful_creation && options[:snapshot]
-    Print.info 'Creating a snapshot of VM(s)'
-    if OVirtFunctions::provider_ovirt?(options)
-      vm_names = get_vm_names(systems)
-      OVirtFunctions::create_snapshot(options, scenario, vm_names)
-      Print.info 'Creating oVirt affinity group'
-      OVirtFunctions::create_affinity_group(options, scenario, vm_names)
-    else
-      GemExec.exe('vagrant', project_dir, 'snapshot push')
+  if successful_creation
+    if options[:snapshot]
+      Print.info 'Creating a snapshot of VM(s)'
+      if OVirtFunctions::provider_ovirt?(options)
+        vm_names = get_vm_names(systems)
+        OVirtFunctions::create_snapshot(options, scenario, vm_names)
+      else
+        GemExec.exe('vagrant', project_dir, 'snapshot push')
+      end
+    end
+    if options[:ovirtaffinity]
+      if OVirtFunctions::provider_ovirt?(options)
+        Print.info 'Creating oVirt affinity group'
+        OVirtFunctions::create_affinity_group(options, scenario, vm_names)
+      else
+        Print.err 'Not creating oVirt affinity group -- not configured for oVirt'
+      end
     end
   end
 end
@@ -455,6 +457,9 @@ opts.each do |opt, arg|
     when '--ovirt-network'
       Print.info "Ovirt Network Name : #{arg}"
       options[:ovirtnetwork] = arg
+    when '--ovirt-single-host'
+      Print.info "Ovirt Run On One Host (create an affinity group)"
+      options[:ovirtaffinity] = true
     when '--snapshot'
       Print.info "Taking snapshots when VMs are created"
       options[:snapshot] = true

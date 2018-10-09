@@ -2,6 +2,7 @@ require 'timeout'
 require 'rubygems'
 require 'process_helper'
 require 'ovirtsdk4'
+require 'securerandom'
 require_relative './print.rb'
 
 class OVirtFunctions
@@ -182,15 +183,15 @@ class OVirtFunctions
     puts cluster_affinitygroups_service.to_s
 
     begin
-      affinity_group_name = 'affinity_group_secgen'
+      affinity_group_name = "affinity_group_secgen_#{SecureRandom.alphanumeric(8)}"
       Print.std "  Creating affinity group: #{affinity_group_name}"
       new_group = OvirtSDK4::AffinityGroup.new(
          name: affinity_group_name,
          description: 'software defined',
          vms_rule: OvirtSDK4::AffinityRule.new(
-              enabled: True,
-              positive: True,
-              enforcing: True
+              enabled: true,
+              positive: true,
+              enforcing: true
          )
       )
 
@@ -199,6 +200,7 @@ class OVirtFunctions
       Print.err "Failed to create affinity group"
       Print.err e.message
     end
+
     ovirt_vm_names = build_ovirt_names(scenario_path, options[:prefix], vm_names)
     ovirt_vm_names.each do |vm_name|
       vms << vms_service(ovirt_connection).list(search: "name=#{vm_name}")
