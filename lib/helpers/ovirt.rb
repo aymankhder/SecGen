@@ -180,41 +180,63 @@ class OVirtFunctions
     cluster_affinitygroups_service = cluster_service.affinity_groups_service
 
     puts cluster_affinitygroups_service.to_s
-    cluster_affinitygroups_service.add(
-         types.AffinityGroup(
-            name='new_affinity_label_secgen',
-            description='software defined',
-            vms_rule=types.AffinityRule(
-                 enabled=True,
-                 positive=True,
-                 enforcing=True,
-            ),
-         ),
-    )
-    #
-    # ovirt_vm_names = build_ovirt_names(scenario_path, options[:prefix], vm_names)
-    # ovirt_vm_names.each do |vm_name|
-    #   vms << vms_service(ovirt_connection).list(search: "name=#{vm_name}")
-    # end
-    #
-    # vms.each do |vm_list|
-    #   vm_list.each do |vm|
-    #     Print.std " VM: #{vm.name}"
-    #     # find the service that manages that vm
-    #     vm_service = vms_service(ovirt_connection).vm_service(vm.id)
-    #     Print.std "  Creating snapshot: #{vm.name}"
-    #     begin
-    #       vm_service.snapshots_service.add(
-    #           OvirtSDK4::Snapshot.new(
-    #               description: "Automated snapshot: #{Time.new.to_s}"
-    #           )
-    #       )
-    #     rescue Exception => e
-    #       Print.err '****************************************** Skipping'
-    #       Print.err e.message
-    #     end
-    #   end
-    # end
+
+    begin
+      affinity_group_name = 'affinity_group_secgen'
+      Print.std "  Creating affinity group: #{affinity_group_name}"
+      new_group = OvirtSDK4::AffinityGroup.new(
+         name: affinity_group_name,
+         description: 'software defined',
+         vms_rule: OvirtSDK4::AffinityRule.new(
+              enabled: True,
+              positive: True,
+              enforcing: True
+         )
+      )
+
+      cluster_affinitygroups_service.add(new_group)
+    rescue Exception => e
+      Print.err "Failed to create affinity group"
+      Print.err e.message
+    end
+    ovirt_vm_names = build_ovirt_names(scenario_path, options[:prefix], vm_names)
+    ovirt_vm_names.each do |vm_name|
+      vms << vms_service(ovirt_connection).list(search: "name=#{vm_name}")
+    end
+
+
+# affinitygroups = cluster_affinitygroups_service.list()
+# for affinitygroup in affinitygroups:
+#     print ("Affinity_Group: %s Affnity_Group ID: %s Description: %s Comment: %s"%(affinitygroup.name,affinitygroup.id,affinitygroup.description,affinitygroup.comment))
+#     if affinitygroup.name == 'new_affinity_label':
+#         group_service=cluster_affinitygroups_service.group_service(affinitygroup.id)
+#         group_vms_service=group_service.vms_service()
+#         group_vms_service.add(
+#             vm=types.Vm(
+#                id=vm.id,
+#             )
+#         )
+
+    vms.each do |vm_list|
+      vm_list.each do |vm|
+        Print.std " VM: #{vm.name}"
+        # find the service that manages that vm
+        vm_service = vms_service(ovirt_connection).vm_service(vm.id)
+        Print.std "  Assigning affinity label: #{vm.name}"
+        begin
+
+          group_service = cluster_affinitygroups_service.group_service(new_group.id)
+          group_vms_service = group_service.vms_service
+          group_vms_service.add(
+              vm: vm
+          )
+
+        rescue Exception => e
+          Print.err "Failed to create and assign affinity group"
+          Print.err e.message
+        end
+      end
+    end
   end
 
   def self.assign_permissions(options, scenario_path, vm_names)
