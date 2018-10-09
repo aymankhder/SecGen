@@ -23,6 +23,9 @@ gem 'process_helper'
 gem 'ovirt-engine-sdk'
 gem 'duplicate'
 gem 'braille', :git => "http://github.com/nicanor/braille.git"
+gem 'bases'
+gem 'huffman'
+gem 'ruby-graphviz'
 
 #development only gems go here
 group :test, :development do
