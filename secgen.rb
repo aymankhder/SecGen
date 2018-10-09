@@ -372,6 +372,7 @@ opts = GetoptLong.new(
     ['--ovirt-url', GetoptLong::REQUIRED_ARGUMENT],
     ['--ovirt-cluster', GetoptLong::REQUIRED_ARGUMENT],
     ['--ovirt-network', GetoptLong::REQUIRED_ARGUMENT],
+    ['--ovirt-single-host', GetoptLong::NO_ARGUMENT],
     ['--snapshot', GetoptLong::NO_ARGUMENT],
 )
 
