@@ -55,6 +55,10 @@
     <generator type="username_generator"/>
   </default_input>
 
+  <conflict>
+    <name>Wheezy</name>
+  </conflict>
+
   <requires>
     <module_path>.*/puppet_module/wordpress</module_path>
   </requires>
@@ -64,11 +68,15 @@
   </requires>
 
   <requires>
-    <module_path>.*/apache.*</module_path>
+    <module_path>.*/apache_stretch.*</module_path>
   </requires>
 
   <requires>
     <module_path>.*/mysql_stretch.*</module_path>
+  </requires>
+
+  <requires>
+    <module_path>.*/php_stretch.*</module_path>
   </requires>
 
 </vulnerability>
