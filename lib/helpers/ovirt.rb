@@ -183,7 +183,7 @@ class OVirtFunctions
     puts cluster_affinitygroups_service.to_s
 
     begin
-      affinity_group_name = "affinity_group_secgen_#{SecureRandom.alphanumeric(8)}"
+      affinity_group_name = "affinity_group_secgen_#{SecureRandom.hex(10)}"
       Print.std "  Creating affinity group: #{affinity_group_name}"
       new_group = OvirtSDK4::AffinityGroup.new(
          name: affinity_group_name,
