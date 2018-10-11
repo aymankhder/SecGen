@@ -7,31 +7,25 @@
   <!-- an example remote storage system, with a remotely exploitable vulnerability that can then be escalated to root -->
   <system>
     <system_name>gitlist</system_name>
-    <base distro="Debian 7.8" type="server" />
+    <base distro="Debian 9" type="desktop"/>
 
-    <input into_datastore="IP_addresses">
-      <value>172.16.0.2</value>
-      <value>172.16.0.3</value>
+    <input into_datastore="huffman">
+        <encoder module_path=".*huffman">
+          <input into="strings_to_encode">
+            <value>TEST123</value>
+          </input>
+        </encoder>
     </input>
 
-    <vulnerability module_path=".*gitlist_040"/>
-
-    <network type="private_network">
-      <input into="IP_address">
-        <datastore access="0">IP_addresses</datastore>
+    <vulnerability read_fact="images_to_leak">
+      <input into="strings_to_leak">
+        <datastore access="0">huffman</datastore>
       </input>
-    </network>
-
-  </system>
-
-  <system>
-    <system_name>desktop</system_name>
-    <base distro="Debian 9" type="desktop" name="KDE"/>
-    <network type="private_network">
-      <input into="IP_address">
-        <datastore access="1">IP_addresses</datastore>
+      <input into="images_to_leak">
+        <datastore access="1">huffman</datastore>
       </input>
-    </network>
+    </vulnerability>
+
   </system>
 
 </scenario>
