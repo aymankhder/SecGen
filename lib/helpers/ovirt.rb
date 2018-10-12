@@ -7,10 +7,10 @@ require_relative './print.rb'
 
 class OVirtFunctions
 
-  # TODO supply this as a parameter/option instead
-  def self.authz
-    '@aet.leedsbeckett.ac.uk-authz'
-  end
+  # # TODO supply this as a parameter/option instead
+  # def self.authz
+  #   '@internal'
+  # end
 
   # @param [Hash] options -- command-line opts
   # @return [Boolean] is this secgen process using oVirt as the vagrant provider?
@@ -195,6 +195,7 @@ class OVirtFunctions
               enforcing: true
          )
       )
+      Print.std "  ..."
 
       cluster_affinitygroups_service.add(new_group)
     rescue Exception => e
@@ -288,7 +289,7 @@ class OVirtFunctions
     # @return [OvirtUser]
   def self.get_user(ovirt_connection, username)
     un = username.chomp
-    search_string = "usrname=#{un}#{authz}"
+    search_string = "usrname=#{un}"
     puts "Searching for VMs owned by #{un}"
     user = users_service(ovirt_connection).list(search: search_string).first
     if user
