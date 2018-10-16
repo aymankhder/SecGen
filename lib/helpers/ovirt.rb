@@ -170,7 +170,7 @@ class OVirtFunctions
     ovirt_connection = get_ovirt_connection(options)
 
     clusters_service = ovirt_connection.system_service.clusters_service
-    cluster = clusters_service.list(search: 'name=default')[0]
+    cluster = clusters_service.list(search: 'name=Default')[0]
     puts cluster.to_s
 
     cluster_service = clusters_service.cluster_service(cluster.id)
@@ -186,7 +186,6 @@ class OVirtFunctions
       affinity_group_name = "affinity_group_secgen_#{SecureRandom.hex(8)}"
       Print.std "  Creating affinity group: #{affinity_group_name}"
       new_group = OvirtSDK4::AffinityGroup.new(
-         cluster: cluster,
          name: affinity_group_name,
          description: 'software defined',
          vms_rule: OvirtSDK4::AffinityRule.new(
