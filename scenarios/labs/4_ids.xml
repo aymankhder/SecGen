@@ -209,7 +209,7 @@
 		<!--<service module_path=".*vsftpd"/>-->
 
 		<!--TODO: Fix the apache module -->
-		<service module_path=".*apache_stretch.*"/>
+		<service module_path=".*apache_wheezy.*"/>
 
 		<!--<service module_path="services/unix/http/parameterised_website">
 			<input into="organisation">
