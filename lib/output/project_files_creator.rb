@@ -239,7 +239,7 @@ class ProjectFilesCreator
   # Replace 'network' with 'snoop' where the system name contains snoop
   def get_ovirt_network_name(system_name, network_name)
     split_name = network_name.split('-')
-    split_name[1] = 'snoop' if system_name.contains? 'snoop'
+    split_name[1] = 'snoop' if system_name.include? 'snoop'
     split_name.join('-')
   end
 
