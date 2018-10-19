@@ -139,6 +139,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   <%       if (@options.has_key? :ovirtuser) && (@options.has_key? :ovirtpass) %>
   <%         if @ovirt_template and (@ovirt_template.include? 'kali_linux_msf' or @ovirt_template.include? 'debian_server' )%>
       <%= system.name %>.vm.network :<%= selected_module.attributes['type'].first %>, :ovirt__ip => "<%= resolve_network(selected_module)%>", :ovirt__network_name => '<%= "#{@options[:ovirtnetwork]}" %>'
+      <%= system.name %>.vm.network :<%= selected_module.attributes['type'].first %>, :ovirt__ip => "<%= resolve_network(selected_module)%>", :ovirt__network_name => '<%= "user-network-02" %>'
   <%         elsif @ovirt_template and @ovirt_template.include? 'debian_desktop_kde' %>
       <%= system.name %>.vm.provision 'shell', inline: "echo \"\nauto eth1\niface eth1 inet static\n\taddress <%= resolve_network(selected_module)%>\" >> /etc/network/interfaces"
       <%= system.name %>.vm.provision 'shell', inline: "echo '' > /etc/environment"
