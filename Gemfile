@@ -26,6 +26,7 @@ gem 'braille', :git => "http://github.com/nicanor/braille.git"
 gem 'bases'
 gem 'huffman'
 gem 'ruby-graphviz'
+gem 'smbhash'
 
 #development only gems go here
 group :test, :development do
