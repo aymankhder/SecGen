@@ -9,22 +9,28 @@
     <system_name>gitlist</system_name>
     <base distro="Debian 9" type="desktop"/>
 
-    <input into_datastore="huffman">
-        <encoder module_path=".*huffman">
-          <input into="strings_to_encode">
-            <value>TEST123</value>
+    <input into_datastore="rsa_test">
+        <generator module_path=".*rsa_challenge">
+          <input into="strings_to_encode" into_datastore="rsa_flag">
+            <generator type="number_generator">
+              <input into="minimum">
+                <value>1000000000000000000</value>
+              </input>
+              <input into="maximum">
+                <value>9999999999999999999</value>
+              </input>
+            </generator>
           </input>
-        </encoder>
+        </generator>
     </input>
 
-    <vulnerability read_fact="images_to_leak">
-      <input into="strings_to_leak">
-        <datastore access="0">huffman</datastore>
-      </input>
-      <input into="images_to_leak">
-        <datastore access="1">huffman</datastore>
-      </input>
-    </vulnerability>
+    <input into_datastore="wrapped_rsa_flag">
+      <generator type="concat_flag.*">
+        <input into="strings_to_join">
+          <datastore access="0">rsa_flag</datastore>
+        </input>
+      </generator>
+    </input>
 
   </system>
 
