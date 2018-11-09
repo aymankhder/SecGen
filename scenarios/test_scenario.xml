@@ -6,31 +6,66 @@
 
   <!-- an example remote storage system, with a remotely exploitable vulnerability that can then be escalated to root -->
   <system>
-    <system_name>gitlist</system_name>
+    <system_name>test</system_name>
     <base distro="Debian 9" type="desktop"/>
 
-    <input into_datastore="rsa_test">
-        <generator module_path=".*rsa_challenge">
-          <input into="strings_to_encode" into_datastore="rsa_flag">
-            <generator type="number_generator">
-              <input into="minimum">
-                <value>1000000000000000000</value>
+    <utility module_path=".*parameterised_accounts">
+      <input into="accounts" into_datastore="accounts">
+        <generator type="account">
+          <input into="username">
+            <value>challenger</value>
+          </input>
+          <input into="password">
+            <value>tiaspbiqe2r</value>
+          </input>
+          <input into="super_user">
+            <value>true</value>
+          </input>
+          <input into="data_to_leak">
+            <encoder module_path=".*simple_asym_decrypt">
+              <input into="strings_to_encode">
+                <generator type="flag_generator"/>
               </input>
-              <input into="maximum">
-                <value>9999999999999999999</value>
+              <input into="subdirectory">
+                <value>challenges/challenge_01</value>
               </input>
-            </generator>
+            </encoder>
+            <encoder type="compression" difficulty="high">
+              <input into="strings_to_encode">
+                <generator type="flag_generator"/>
+              </input>
+              <input into="subdirectory">
+                <value>challenges/challenge_02</value>
+              </input>
+            </encoder>
           </input>
         </generator>
-    </input>
+      </input>
+    </utility>
 
-    <input into_datastore="wrapped_rsa_flag">
-      <generator type="concat_flag.*">
-        <input into="strings_to_join">
-          <datastore access="0">rsa_flag</datastore>
-        </input>
-      </generator>
-    </input>
+    <!---->
+    <!--<input into_datastore="rsa_test">-->
+    <!--<generator module_path=".*rsa_challenge">-->
+    <!--<input into="strings_to_encode" into_datastore="rsa_flag">-->
+    <!--<generator type="number_generator">-->
+    <!--<input into="minimum">-->
+    <!--<value>1000000000000000000</value>-->
+    <!--</input>-->
+    <!--<input into="maximum">-->
+    <!--<value>9999999999999999999</value>-->
+    <!--</input>-->
+    <!--</generator>-->
+    <!--</input>-->
+    <!--</generator>-->
+    <!--</input>-->
+
+    <!--<input into_datastore="wrapped_rsa_flag">-->
+    <!--<generator type="concat_flag.*">-->
+    <!--<input into="strings_to_join">-->
+    <!--<datastore access="0">rsa_flag</datastore>-->
+    <!--</input>-->
+    <!--</generator>-->
+    <!--</input>-->
 
   </system>
 
