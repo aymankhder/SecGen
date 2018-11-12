@@ -10,37 +10,12 @@
     <base distro="Debian 9" type="desktop"/>
 
     <input into="test">
-      <encoder type="hash" difficulty="medium">
-        <input into="strings_to_encode" into_datastore="hash_flags">
-          <encoder type="string_selector">
-            <input into="strings_to_encode">
-              <generator type="random_word_generator">
-                <input into="min_length">
-                  <value>6</value>
-                </input>
-                <input into="max_length">
-                  <value>6</value>
-                </input>
-              </generator>
-              <generator type="crackable_password_generator"/>
-            </input>
-          </encoder>
+      <encoder module_path=".*simple_ssh.*" type="asymmetric_cipher" difficulty="low">
+        <input into="strings_to_encode">
+          <generator type="flag_generator"/>
         </input>
-        <input into="salt">
-          <generator type="random_number_generator">
-            <input into="minimum">
-              <value>0</value>
-            </input>
-            <input into="maximum">
-              <value>99</value>
-            </input>
-            <input into="zero_padding">
-              <value>true</value>
-            </input>
-          </generator>
-        </input>
-        <input into="return_salts">
-          <value>false</value>
+        <input into="subdirectory">
+          <value>challenges/challenge_03</value>
         </input>
       </encoder>
     </input>
