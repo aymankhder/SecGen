@@ -9,39 +9,75 @@
     <system_name>test</system_name>
     <base distro="Debian 9" type="desktop"/>
 
-    <utility module_path=".*parameterised_accounts">
-      <input into="accounts" into_datastore="accounts">
-        <generator type="account">
-          <input into="username">
-            <value>challenger</value>
-          </input>
-          <input into="password">
-            <value>tiaspbiqe2r</value>
-          </input>
-          <input into="super_user">
-            <value>true</value>
-          </input>
-          <input into="data_to_leak">
-            <encoder module_path=".*simple_asym_decrypt">
-              <input into="strings_to_encode">
-                <generator type="flag_generator"/>
-              </input>
-              <input into="subdirectory">
-                <value>challenges/challenge_01</value>
-              </input>
-            </encoder>
-            <encoder type="compression" difficulty="high">
-              <input into="strings_to_encode">
-                <generator type="flag_generator"/>
-              </input>
-              <input into="subdirectory">
-                <value>challenges/challenge_02</value>
-              </input>
-            </encoder>
-          </input>
-        </generator>
-      </input>
-    </utility>
+    <input into="test">
+      <encoder type="hash" difficulty="medium">
+        <input into="strings_to_encode" into_datastore="hash_flags">
+          <encoder type="string_selector">
+            <input into="strings_to_encode">
+              <generator type="random_word_generator">
+                <input into="min_length">
+                  <value>6</value>
+                </input>
+                <input into="max_length">
+                  <value>6</value>
+                </input>
+              </generator>
+              <generator type="crackable_password_generator"/>
+            </input>
+          </encoder>
+        </input>
+        <input into="salt">
+          <generator type="random_number_generator">
+            <input into="minimum">
+              <value>0</value>
+            </input>
+            <input into="maximum">
+              <value>99</value>
+            </input>
+            <input into="zero_padding">
+              <value>true</value>
+            </input>
+          </generator>
+        </input>
+        <input into="return_salts">
+          <value>false</value>
+        </input>
+      </encoder>
+    </input>
+
+    <!--<utility module_path=".*parameterised_accounts">-->
+      <!--<input into="accounts" into_datastore="accounts">-->
+        <!--<generator type="account">-->
+          <!--<input into="username">-->
+            <!--<value>challenger</value>-->
+          <!--</input>-->
+          <!--<input into="password">-->
+            <!--<value>tiaspbiqe2r</value>-->
+          <!--</input>-->
+          <!--<input into="super_user">-->
+            <!--<value>true</value>-->
+          <!--</input>-->
+          <!--<input into="data_to_leak">-->
+            <!--<encoder type="asymmetric_cipherw">-->
+              <!--<input into="strings_to_encode">-->
+                <!--<generator type="flag_generator"/>-->
+              <!--</input>-->
+              <!--<input into="subdirectory">-->
+                <!--<value>challenges/challenge_01</value>-->
+              <!--</input>-->
+            <!--</encoder>-->
+            <!--<encoder type="compression" difficulty="high">-->
+              <!--<input into="strings_to_encode">-->
+                <!--<generator type="flag_generator"/>-->
+              <!--</input>-->
+              <!--<input into="subdirectory">-->
+                <!--<value>challenges/challenge_02</value>-->
+              <!--</input>-->
+            <!--</encoder>-->
+          <!--</input>-->
+        <!--</generator>-->
+      <!--</input>-->
+    <!--</utility>-->
 
     <!---->
     <!--<input into_datastore="rsa_test">-->
