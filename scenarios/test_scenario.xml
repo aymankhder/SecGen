@@ -20,40 +20,6 @@
       </encoder>
     </input>
 
-    <!--<utility module_path=".*parameterised_accounts">-->
-      <!--<input into="accounts" into_datastore="accounts">-->
-        <!--<generator type="account">-->
-          <!--<input into="username">-->
-            <!--<value>challenger</value>-->
-          <!--</input>-->
-          <!--<input into="password">-->
-            <!--<value>tiaspbiqe2r</value>-->
-          <!--</input>-->
-          <!--<input into="super_user">-->
-            <!--<value>true</value>-->
-          <!--</input>-->
-          <!--<input into="data_to_leak">-->
-            <!--<encoder type="asymmetric_cipherw">-->
-              <!--<input into="strings_to_encode">-->
-                <!--<generator type="flag_generator"/>-->
-              <!--</input>-->
-              <!--<input into="subdirectory">-->
-                <!--<value>challenges/challenge_01</value>-->
-              <!--</input>-->
-            <!--</encoder>-->
-            <!--<encoder type="compression" difficulty="high">-->
-              <!--<input into="strings_to_encode">-->
-                <!--<generator type="flag_generator"/>-->
-              <!--</input>-->
-              <!--<input into="subdirectory">-->
-                <!--<value>challenges/challenge_02</value>-->
-              <!--</input>-->
-            <!--</encoder>-->
-          <!--</input>-->
-        <!--</generator>-->
-      <!--</input>-->
-    <!--</utility>-->
-
     <!---->
     <!--<input into_datastore="rsa_test">-->
     <!--<generator module_path=".*rsa_challenge">-->
