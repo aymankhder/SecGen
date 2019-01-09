@@ -6,14 +6,15 @@
 
 	<!-- an example remote storage system, with a remotely exploitable vulnerability that can then be escalated to root -->
 	<system>
-		<system_name>userspice</system_name>
-		<base distro="Debian 9" type="desktop" name="KDE"/>
+		<system_name>debian_server</system_name>
+		<base distro="Debian 9" type="server" />
 
-		<service module_path=".*samba"/>
-
+		<service/>
+		<vulnerability/>
+		<utility/>
 		<network type="private_network">
 			<input into="IP_address">
-				<value>172.16.0.3</value>
+				<value>172.16.0.2</value>
 			</input>
 		</network>
 
