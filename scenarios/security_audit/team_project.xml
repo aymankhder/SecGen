@@ -196,8 +196,10 @@
   </system>
 
   <system>
-    <system_name>attack_vm_1</system_name>
+    <system_name>attack_vm_1_web_tools</system_name>
     <base distro="Kali" name="MSF"/>
+    <utility module_path=".*kali_web"/>
+    <utility module_path=".*kali_top10"/>
     <network type="private_network">
       <input into="IP_address">
         <datastore access="next">IP_addresses</datastore>
@@ -209,6 +211,8 @@
   <system>
     <system_name>attack_vm_2</system_name>
     <base distro="Kali" name="MSF"/>
+    <utility module_path=".*kali_pwtools"/>
+    <utility module_path=".*kali_top10"/>
     <network type="private_network">
       <input into="IP_address">
         <datastore access="next">IP_addresses</datastore>
