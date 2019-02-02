@@ -5,7 +5,7 @@
 #
 # Test classes must: require_relative '../../../../../lib/post_provision_test'
 
-require_relative "../../../lib/helpers/print.rb"
+require_relative '../../../lib/helpers/print.rb'
 require 'json'
 require 'base64'
 
@@ -19,10 +19,6 @@ class PostProvisionTest
   attr_accessor :module_path
   attr_accessor :json_inputs
 
-  def initialize
-    # self.project_path =
-  end
-
   def run
     Print.info "Running tests for #{self.module_name}"
     test_module
@@ -32,18 +28,22 @@ class PostProvisionTest
     # Override me with testing details
   end
 
-  def get_system_ip(module_file_path)
-    # Get Vagrantfile
-
+  def get_system_ip
+    vagrant_file_path = "#{get_project_path}/Vagrantfile"
+    vagrantfile = File.read(vagrant_file_path)
+    ip_line = vagrantfile.split("\n").delete_if { |line| !line.include? "# ip_address_for_#{get_system_name}"}[0]
+    ip_address = ip_line.split('=')[-1]
+    if ip_address == "DHCP"
+      "FAILED: Cannot test against dynamic IPs" # TODO: fix this so that we grab dynamic IP address (maybe from vagrant?)
+    else
+      ip_address
+    end
   end
 
   def get_json_inputs
     json_inputs_path = "#{File.expand_path('../', self.module_path)}/secgen_functions/files/json_inputs/*"
-    Print.info "json_inputs_path: #{json_inputs_path}"
     json_inputs_files = Dir.glob(json_inputs_path)
-    Print.info "json_input_files (pre delete): #{json_inputs_files}"
     json_inputs_files.delete_if { |path| !path.include?(self.module_name) }
-    Print.info "json_input_files (post delete): #{json_inputs_files}"
     JSON.parse(Base64.strict_decode64(File.read(json_inputs_files.first)))
   end
 

@@ -1,11 +1,11 @@
 require_relative '../../../../../lib/post_provision_test'
 
-class Proftpd133cBackdoorTest < PostProvisionTest
+class VsftpdTest < PostProvisionTest
 
   attr_accessor :ftp_port
   def initialize
     super
-    self.module_name = 'proftpd_133c_backdoor'
+    self.module_name = 'vsftpd'
     self.module_path = get_module_path(__FILE__)
     self.json_inputs = get_json_inputs
     self.ftp_port = get_json_inputs['port'][0].to_i
@@ -21,4 +21,4 @@ class Proftpd133cBackdoorTest < PostProvisionTest
   end
 end
 
-Proftpd133cBackdoorTest.new.run
+VsftpdTest.new.run
