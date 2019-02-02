@@ -77,7 +77,7 @@ class PostProvisionTest
   end
 
   def get_port
-    if get_json_inputs != {}
+    if get_json_inputs != {} and get_json_inputs['port'] != nil
       get_json_inputs['port'][0].to_i
     else
       -1
