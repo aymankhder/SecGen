@@ -77,7 +77,7 @@ def build_config(scenario, out_dir, options)
 
   Print.info 'Resolving systems: randomising scenario...'
   # update systems with module selections
-  systems.map! { |system|
+  systems.map! {|system|
     system.module_selections = system.resolve_module_selection(all_available_modules, options)
     system
   }
@@ -115,10 +115,11 @@ def build_vms(scenario, project_dir, options)
   retry_count = OVirtFunctions::provider_ovirt?(options) ? 2 : 0
   successful_creation = false
 
-  while retry_count and !successful_creation
+  while retry_count >= 0 and !successful_creation
     vagrant_output = GemExec.exe('vagrant', project_dir, "#{command} #{system}")
     if vagrant_output[:status] == 0
-      shutdown_cycle(project_dir)
+      # if true
+      reboot_cycle(project_dir)
       if post_provision_tests(project_dir)
         Print.info 'VMs created.'
         successful_creation = true
@@ -127,8 +128,6 @@ def build_vms(scenario, project_dir, options)
           sleep(30)
           GemExec.exe('vagrant', project_dir, 'halt')
         end
-      else
-        Print.err 'Tests failed!'
       end
     else
       if retry_count > 0
@@ -146,7 +145,7 @@ def build_vms(scenario, project_dir, options)
             elsif match = line.match(/^([-a-zA-Z_0-9]+):[^:]+VM is not created/i)
               vm_not_to_destroy = match.captures[0]
               Print.err "Not going to destroy #{vm_not_to_destroy}, since it does not exist"
-              failures_to_destroy.delete_if {|x| x == vm_not_to_destroy }
+              failures_to_destroy.delete_if {|x| x == vm_not_to_destroy}
               # TODO: not sure if there is a need to remove_uncreated_vms() here too? (I don't think so?)
             end
           end
@@ -173,7 +172,7 @@ def build_vms(scenario, project_dir, options)
             end
             sleep(10)
           end
-        else   # TODO:  elsif vagrant_output[:exception].type == ProcessHelper::TimeoutError   >destroy individually broken vms as above?
+        else # TODO:  elsif vagrant_output[:exception].type == ProcessHelper::TimeoutError   >destroy individually broken vms as above?
           Print.err 'Vagrant up timeout, destroying VMs and retrying...'
           GemExec.exe('vagrant', project_dir, 'destroy -f')
         end
@@ -263,14 +262,14 @@ def make_forensic_image(project_dir, image_output_location, image_type)
   system "cd '#{project_dir}' && vagrant halt"
 
   case image_type.downcase
-    when 'raw', 'dd'
-      create_dd_image(drive_path, image_output_location)
+  when 'raw', 'dd'
+    create_dd_image(drive_path, image_output_location)
 
-    when 'ewf', 'e01'
-      create_ewf_image(drive_path, image_output_location)
+  when 'ewf', 'e01'
+    create_ewf_image(drive_path, image_output_location)
 
-    else
-      Print.info "The image type [#{image_type}] is not recognised."
+  else
+    Print.info "The image type [#{image_type}] is not recognised."
   end
 
 end
@@ -292,14 +291,14 @@ end
 
 def list_scenarios
   Print.std "Full paths to scenario files are displayed below"
-  Dir["#{ROOT_DIR}/scenarios/**/*"].select { |file| !File.directory? file }.each_with_index do |scenario_name, scenario_number|
+  Dir["#{ROOT_DIR}/scenarios/**/*"].select {|file| !File.directory? file}.each_with_index do |scenario_name, scenario_number|
     Print.std "#{scenario_number}) #{scenario_name}"
   end
 end
 
 def list_projects
   Print.std "Full paths to project directories are displayed below"
-  Dir["#{PROJECTS_DIR}/*"].select { |file| !File.file? file }.each_with_index do |scenario_name, scenario_number|
+  Dir["#{PROJECTS_DIR}/*"].select {|file| !File.file? file}.each_with_index do |scenario_name, scenario_number|
     Print.std "#{scenario_number}) #{scenario_name}"
   end
 end
@@ -334,37 +333,48 @@ def get_vm_names(scenario)
   vm_names
 end
 
-def shutdown_cycle(project_dir)
+def reboot_cycle(project_dir)
   Print.info 'Shutting down VMs.'
   sleep(30)
   GemExec.exe('vagrant', project_dir, 'halt')
   sleep 5
-  GemExec.exe('vagrant',project_dir,'up')
+  GemExec.exe('vagrant', project_dir, 'up --no-provision')
   sleep 30
 end
 
 def post_provision_tests(project_dir)
   Print.info 'Running post-provision tests...'
 
+  tests_passed = true
+  test_module_outputs = []
   test_script_paths = Dir.glob("#{project_dir}/puppet/*/modules/*/secgen_test/*.rb")
   test_script_paths.each do |test_file_path|
-    output = `bundle exec ruby #{test_file_path}`
-    Print.info output
-    if output.include? "FAILED"
-      Print.err "ERROR: Post provision failure!"
-      return false
+    test_script_output = `bundle exec ruby #{test_file_path}`
+    test_module_outputs << test_script_output.split("\n")
+  end
+  test_module_outputs.each do |output_lines|
+    output_lines.each do |line|
+      if line.include? "FAILED:"
+        tests_passed = false
+        Print.err line
+        Print.err "Post provision tests contained failures!"
+      elsif line.include? "PASSED:"
+        Print.info line
+      else
+        Print.std line
+      end
     end
   end
-  true
+  tests_passed
 end
 
 # end of method declarations
 # start of program execution
 
-Print.std '~'*47
+Print.std '~' * 47
 Print.std 'SecGen - Creates virtualised security scenarios'
 Print.std '            Licensed GPLv3 2014-18'
-Print.std '~'*47
+Print.std '~' * 47
 
 # Add read-options from config file (needs handling before options parsed by GetoptLong)
 if ARGV.include? '--read-options'
@@ -416,94 +426,94 @@ options = {}
 opts.each do |opt, arg|
   case opt
     # Main options
-    when '--help'
-      usage
-    when '--scenario'
-      scenario = arg;
-    when '--project'
-      project_dir = arg;
-    when '--prefix'
-      options[:prefix] = arg
-      project_dir = project_dir(arg)
+  when '--help'
+    usage
+  when '--scenario'
+    scenario = arg;
+  when '--project'
+    project_dir = arg;
+  when '--prefix'
+    options[:prefix] = arg
+    project_dir = project_dir(arg)
 
     # Additional options
-    when '--system'
-      Print.info "VM control (Vagrant) commands will only apply to system #{arg} (must match a system defined in the scenario)"
-      options[:system] = arg
-    when '--reload'
-      Print.info "Will reload and re-provision the VMs"
-      options[:reload] = true
-    when '--gui-output'
-      Print.info "Gui output set (virtual machines will be spawned)"
-      options[:gui_output] = true
-    when '--nopae'
-      Print.info "no pae"
-      options[:nopae] = true
-    when '--hwvirtex'
-      Print.info "with HW virtualisation"
-      options[:hwvirtex] = true
-    when '--vtxvpid'
-      Print.info "with VT support"
-      options[:vtxvpid] = true
-    when '--memory-per-vm'
-      if options.has_key? :total_memory
-        Print.info 'Total memory option specified before memory per vm option, defaulting to total memory value'
-      else
-        Print.info "Memory per vm set to #{arg}"
-        options[:memory_per_vm] = arg
-      end
-    when '--total-memory'
-      if options.has_key? :memory_per_vm
-        Print.info 'Memory per vm option specified before total memory option, defaulting to memory per vm value'
-      else
-        Print.info "Total memory to be used set to #{arg}"
-        options[:total_memory] = arg
-      end
-    when '--cpu-cores'
-      Print.info "Number of cpus to be used set to #{arg}"
-      options[:cpu_cores] = arg
-    when '--max-cpu-usage'
-      Print.info "Max CPU usage set to #{arg}"
-      options[:max_cpu_usage] = arg
-    when '--shutdown'
-      Print.info 'Shutdown VMs after provisioning'
-      options[:shutdown] = true
-    when '--network-ranges'
-      Print.info 'Overriding Network Ranges'
-      options[:ip_ranges] = arg.split(',')
-    when '--forensic-image-type'
-      Print.info "Image output type set to #{arg}"
-      options[:forensic_image_type] = arg
-
-    when '--ovirtuser'
-      Print.info "Ovirt Username : #{arg}"
-      options[:ovirtuser] = arg
-    when '--ovirtpass'
-      Print.info "Ovirt Password : ********"
-      options[:ovirtpass] = arg
-    when '--ovirt-url'
-      Print.info "Ovirt API url : #{arg}"
-      options[:ovirturl] = arg
-    when '--ovirtauthz'
-      Print.info "Ovirt Authz: #{arg}"
-      options[:ovirtauthz] = arg
-    when '--ovirt-cluster'
-      Print.info "Ovirt Cluster : #{arg}"
-      options[:ovirtcluster] = arg
-    when '--ovirt-network'
-      Print.info "Ovirt Network Name : #{arg}"
-      options[:ovirtnetwork] = arg
-    when '--ovirt-affinity-group'
-      Print.info "Ovirt Affinity Group : #{arg}"
-      options[:ovirtaffinitygroup] = arg
-    when '--snapshot'
-      Print.info "Taking snapshots when VMs are created"
-      options[:snapshot] = true
-
+  when '--system'
+    Print.info "VM control (Vagrant) commands will only apply to system #{arg} (must match a system defined in the scenario)"
+    options[:system] = arg
+  when '--reload'
+    Print.info "Will reload and re-provision the VMs"
+    options[:reload] = true
+  when '--gui-output'
+    Print.info "Gui output set (virtual machines will be spawned)"
+    options[:gui_output] = true
+  when '--nopae'
+    Print.info "no pae"
+    options[:nopae] = true
+  when '--hwvirtex'
+    Print.info "with HW virtualisation"
+    options[:hwvirtex] = true
+  when '--vtxvpid'
+    Print.info "with VT support"
+    options[:vtxvpid] = true
+  when '--memory-per-vm'
+    if options.has_key? :total_memory
+      Print.info 'Total memory option specified before memory per vm option, defaulting to total memory value'
     else
-      Print.err "Argument not valid: #{arg}"
-      usage
-      exit 1
+      Print.info "Memory per vm set to #{arg}"
+      options[:memory_per_vm] = arg
+    end
+  when '--total-memory'
+    if options.has_key? :memory_per_vm
+      Print.info 'Memory per vm option specified before total memory option, defaulting to memory per vm value'
+    else
+      Print.info "Total memory to be used set to #{arg}"
+      options[:total_memory] = arg
+    end
+  when '--cpu-cores'
+    Print.info "Number of cpus to be used set to #{arg}"
+    options[:cpu_cores] = arg
+  when '--max-cpu-usage'
+    Print.info "Max CPU usage set to #{arg}"
+    options[:max_cpu_usage] = arg
+  when '--shutdown'
+    Print.info 'Shutdown VMs after provisioning'
+    options[:shutdown] = true
+  when '--network-ranges'
+    Print.info 'Overriding Network Ranges'
+    options[:ip_ranges] = arg.split(',')
+  when '--forensic-image-type'
+    Print.info "Image output type set to #{arg}"
+    options[:forensic_image_type] = arg
+
+  when '--ovirtuser'
+    Print.info "Ovirt Username : #{arg}"
+    options[:ovirtuser] = arg
+  when '--ovirtpass'
+    Print.info "Ovirt Password : ********"
+    options[:ovirtpass] = arg
+  when '--ovirt-url'
+    Print.info "Ovirt API url : #{arg}"
+    options[:ovirturl] = arg
+  when '--ovirtauthz'
+    Print.info "Ovirt Authz: #{arg}"
+    options[:ovirtauthz] = arg
+  when '--ovirt-cluster'
+    Print.info "Ovirt Cluster : #{arg}"
+    options[:ovirtcluster] = arg
+  when '--ovirt-network'
+    Print.info "Ovirt Network Name : #{arg}"
+    options[:ovirtnetwork] = arg
+  when '--ovirt-affinity-group'
+    Print.info "Ovirt Affinity Group : #{arg}"
+    options[:ovirtaffinitygroup] = arg
+  when '--snapshot'
+    Print.info "Taking snapshots when VMs are created"
+    options[:snapshot] = true
+
+  else
+    Print.err "Argument not valid: #{arg}"
+    usage
+    exit 1
   end
 end
 
@@ -516,53 +526,53 @@ end
 
 # process command
 case ARGV[0]
-  when 'run', 'r'
-    project_dir = default_project_dir unless project_dir
-    run(scenario, project_dir, options)
-  when 'build-project', 'p'
-    project_dir = default_project_dir unless project_dir
-    build_config(scenario, project_dir, options)
-  when 'build-vms', 'v'
-    if project_dir
-      build_vms(scenario, project_dir, options)
-    else
-      Print.err 'Please specify project directory to read'
-      usage
-      exit 1
-    end
-
-  when 'create-forensic-image'
-    image_type = options.has_key?(:forensic_image_type) ? options[:forensic_image_type] : 'raw';
-
-    if project_dir
-      build_vms(scenario, project_dir, options)
-      make_forensic_image(project_dir, nil, image_type)
-    else
-      project_dir = default_project_dir unless project_dir
-      build_config(scenario, project_dir, options)
-      build_vms(scenario, project_dir, options)
-      make_forensic_image(project_dir, nil, image_type)
-    end
-
-  when 'ovirt-post-build'
-    ovirt_post_build(options, scenario, project_dir)
-    exit 0
-
-  when 'list-scenarios'
-    list_scenarios
-    exit 0
-
-  when 'list-projects'
-    list_projects
-    exit 0
-
-  when 'delete-all-projects'
-    delete_all_projects
-    Print.std 'All projects deleted'
-    exit 0
-
+when 'run', 'r'
+  project_dir = default_project_dir unless project_dir
+  run(scenario, project_dir, options)
+when 'build-project', 'p'
+  project_dir = default_project_dir unless project_dir
+  build_config(scenario, project_dir, options)
+when 'build-vms', 'v'
+  if project_dir
+    build_vms(scenario, project_dir, options)
   else
-    Print.err "Command not valid: #{ARGV[0]}"
+    Print.err 'Please specify project directory to read'
     usage
     exit 1
+  end
+
+when 'create-forensic-image'
+  image_type = options.has_key?(:forensic_image_type) ? options[:forensic_image_type] : 'raw';
+
+  if project_dir
+    build_vms(scenario, project_dir, options)
+    make_forensic_image(project_dir, nil, image_type)
+  else
+    project_dir = default_project_dir unless project_dir
+    build_config(scenario, project_dir, options)
+    build_vms(scenario, project_dir, options)
+    make_forensic_image(project_dir, nil, image_type)
+  end
+
+when 'ovirt-post-build'
+  ovirt_post_build(options, scenario, project_dir)
+  exit 0
+
+when 'list-scenarios'
+  list_scenarios
+  exit 0
+
+when 'list-projects'
+  list_projects
+  exit 0
+
+when 'delete-all-projects'
+  delete_all_projects
+  Print.std 'All projects deleted'
+  exit 0
+
+else
+  Print.err "Command not valid: #{ARGV[0]}"
+  usage
+  exit 1
 end

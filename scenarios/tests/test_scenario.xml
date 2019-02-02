@@ -7,10 +7,12 @@
     <system_name>proftpd_testing</system_name>
     <base platform="linux" distro="Debian 7.8" type="server"/>
 
-    <vulnerability module_path=".*proftpd_133c_backdoor"/>
+    <!--<service type="ftp"/>-->
+    <service module_path=".*nfs_share.*"/>
+    <!--<vulnerability module_path=".*unrealirc_3281.*"/>-->
 
     <input into_datastore="IP_addresses">
-      <value>172.16.0.5</value>
+      <value>172.16.0.17</value>
     </input>
 
     <network type="private_network">

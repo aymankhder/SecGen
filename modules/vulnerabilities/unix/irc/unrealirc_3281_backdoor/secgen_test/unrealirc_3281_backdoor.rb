@@ -1,8 +1,8 @@
 require_relative '../../../../../lib/post_provision_test'
 
-class ProftpdTest < PostProvisionTest
+class Unrealirc3281BackdoorTest < PostProvisionTest
   def initialize
-    self.module_name = 'proftpd'
+    self.module_name = 'unrealirc_3281_backdoor'
     self.module_path = get_module_path(__FILE__)
     super
   end
@@ -13,4 +13,4 @@ class ProftpdTest < PostProvisionTest
   end
 end
 
-ProftpdTest.new.run
+Unrealirc3281BackdoorTest.new.run

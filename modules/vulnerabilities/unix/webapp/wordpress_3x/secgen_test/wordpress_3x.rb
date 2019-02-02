@@ -1,8 +1,8 @@
 require_relative '../../../../../lib/post_provision_test'
 
-class ProftpdTest < PostProvisionTest
+class Wordpress3xTest < PostProvisionTest
   def initialize
-    self.module_name = 'proftpd'
+    self.module_name = 'wordpress_3x'
     self.module_path = get_module_path(__FILE__)
     super
   end
@@ -13,4 +13,4 @@ class ProftpdTest < PostProvisionTest
   end
 end
 
-ProftpdTest.new.run
+Wordpress3xTest.new.run
