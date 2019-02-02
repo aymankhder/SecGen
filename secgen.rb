@@ -118,6 +118,8 @@ def build_vms(scenario, project_dir, options)
   while retry_count and !successful_creation
     vagrant_output = GemExec.exe('vagrant', project_dir, "#{command} #{system}")
     if vagrant_output[:status] == 0
+      shutdown_cycle(project_dir)
+      post_provision_tests(project_dir)
       Print.info 'VMs created.'
       successful_creation = true
       if options[:shutdown] or OVirtFunctions::provider_ovirt?(options)
@@ -327,6 +329,32 @@ def get_vm_names(scenario)
   end
   Print.debug vm_names.to_s
   vm_names
+end
+
+def shutdown_cycle(project_dir)
+  Print.info 'Shutting down VMs.'
+  sleep(30)
+  GemExec.exe('vagrant', project_dir, 'halt')
+  sleep 5
+  GemExec.exe('vagrant',project_dir,'up')
+  sleep 30
+end
+
+def post_provision_tests(project_dir)
+  # Get project files
+  Print.err "project_dir: #{project_dir}"
+
+  # Get system names
+  test_script_paths = Dir.glob("#{project_dir}/puppet/*/modules/*/secgen_test/*.rb")
+
+  test_script_paths.each {|test_file_path|
+    output = `bundle exec ruby #{test_file_path}`
+    Print.info output
+    if output.include? "FAILED"
+      raise "Post provision failure!"
+    end
+  }
+  Print.info 'Running post-provision tests...'
 end
 
 # end of method declarations

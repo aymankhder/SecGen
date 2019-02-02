@@ -4,8 +4,10 @@
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://www.github/cliffe/SecGen/scenario">
   <system>
-    <system_name>empty_stretch</system_name>
-    <base platform="linux" distro="Debian 9" type="server"/>
+    <system_name>proftpd_testing</system_name>
+    <base platform="linux" distro="Debian 7.8" type="server"/>
+
+    <vulnerability module_path=".*proftpd_133c_backdoor"/>
 
     <input into_datastore="IP_addresses">
       <value>172.16.0.5</value>
