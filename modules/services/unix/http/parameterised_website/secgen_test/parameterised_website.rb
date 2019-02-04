@@ -28,20 +28,6 @@ class ParamWebsiteTest < PostProvisionTest
     test_service_up
   end
 
-  def test_html_returned_content(page, match_string)
-
-    begin
-      source = Net::HTTP.get(get_system_ip, page, self.port)
-    rescue SocketError
-      # do nothing
-    end
-
-    if source.include? match_string
-      self.outputs << "PASSED: Content #{match_string} is contained within #{page} at #{get_system_ip}:#{self.port} (#{get_system_name})!"
-    else
-      self.outputs << "FAILED: Content #{match_string} is contained within #{page} at #{get_system_ip}:#{self.port} (#{get_system_name})!"
-    end
-  end
 end
 
 ParamWebsiteTest.new.run

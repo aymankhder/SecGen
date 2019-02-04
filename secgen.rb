@@ -354,7 +354,7 @@ def post_provision_tests(project_dir)
   end
   test_module_outputs.each do |output_lines|
     output_lines.each do |line|
-      if line.include? "FAILED:"
+      if line.include? "FAILED:" # todo: read exit code instead
         tests_passed = false
         Print.err line
         Print.err "Post provision tests contained failures!"

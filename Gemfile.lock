@@ -85,6 +85,7 @@ GEM
     minitest (5.11.3)
     multi_json (1.13.1)
     multipart-post (2.0.0)
+    net-ntp (2.1.3)
     nio4r (2.3.1)
     nokogiri (1.8.4)
       mini_portile2 (~> 2.3.0)
@@ -159,6 +160,7 @@ DEPENDENCIES
   librarian-puppet
   mini_exiftool_vendored
   minitest
+  net-ntp
   nokogiri
   nori
   ovirt-engine-sdk
@@ -182,4 +184,4 @@ DEPENDENCIES
   zipruby
 
 BUNDLED WITH
-   1.16.1
+   2.0.0.pre.2

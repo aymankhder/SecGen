@@ -4,15 +4,14 @@
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://www.github/cliffe/SecGen/scenario">
   <system>
-    <system_name>proftpd_testing</system_name>
-    <base platform="linux" distro="Debian 7.8" type="server"/>
+    <system_name>testing</system_name>
+    <base platform="linux" distro="Debian 9" type="server"/>
 
-    <!--<service type="ftp"/>-->
-    <service module_path=".*nfs_share.*"/>
-    <!--<vulnerability module_path=".*unrealirc_3281.*"/>-->
+    <service type="ftp"/>
+    <service module_path=".*ntp.*"/>
 
     <input into_datastore="IP_addresses">
-      <value>172.16.0.17</value>
+      <value>172.16.0.13</value>
     </input>
 
     <network type="private_network">

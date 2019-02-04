@@ -33,6 +33,7 @@ gem 'ruby-graphviz'
 gem 'rsa'
 gem 'gpgmeh'
 gem 'digest-sha3', :git => "http://github.com/izetex/digest-sha3-ruby"
+gem 'net-ntp'
 
 #development only gems go here
 group :test, :development do
