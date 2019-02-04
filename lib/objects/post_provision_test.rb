@@ -47,6 +47,7 @@ class PostProvisionTest
       self.outputs << "PASSED: Port #{self.port} is open at #{get_system_ip} (#{get_system_name})!"
     else
       self.outputs << "FAILED: Port #{self.port} is closed at #{get_system_ip} (#{get_system_name})!"
+      exit(1)
     end
   end
 
@@ -63,6 +64,7 @@ class PostProvisionTest
       self.outputs << "PASSED: Content #{match_string} is contained within #{page} at #{get_system_ip}:#{self.port} (#{get_system_name})!"
     else
       self.outputs << "FAILED: Content #{match_string} is contained within #{page} at #{get_system_ip}:#{self.port} (#{get_system_name})!"
+      exit(1)
     end
   end
 

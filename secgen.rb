@@ -1,6 +1,7 @@
 require 'getoptlong'
 require 'fileutils'
 require 'nori'
+require 'open3'
 
 require_relative 'lib/helpers/constants.rb'
 require_relative 'lib/helpers/print.rb'
@@ -116,10 +117,10 @@ def build_vms(scenario, project_dir, options)
   successful_creation = false
 
   while retry_count >= 0 and !successful_creation
-    vagrant_output = GemExec.exe('vagrant', project_dir, "#{command} #{system}")
-    if vagrant_output[:status] == 0
-      # if true
-      reboot_cycle(project_dir)
+    # vagrant_output = GemExec.exe('vagrant', project_dir, "#{command} #{system}")
+    # if vagrant_output[:status] == 0
+    if true
+      # reboot_cycle(project_dir)
       if post_provision_tests(project_dir)
         Print.info 'VMs created.'
         successful_creation = true
@@ -349,20 +350,17 @@ def post_provision_tests(project_dir)
   test_module_outputs = []
   test_script_paths = Dir.glob("#{project_dir}/puppet/*/modules/*/secgen_test/*.rb")
   test_script_paths.each do |test_file_path|
-    test_script_output = `bundle exec ruby #{test_file_path}`
-    test_module_outputs << test_script_output.split("\n")
+    test_stdout, test_stderr, test_status = Open3.capture3("bundle exec ruby #{test_file_path}")
+    test_module_outputs << {:stdout => test_stdout.split("\n"), :stderr => test_stderr, :exit_status => test_status}
   end
-  test_module_outputs.each do |output_lines|
-    output_lines.each do |line|
-      if line.include? "FAILED:" # todo: read exit code instead
-        tests_passed = false
-        Print.err line
-        Print.err "Post provision tests contained failures!"
-      elsif line.include? "PASSED:"
-        Print.info line
-      else
-        Print.std line
-      end
+  test_module_outputs.each do |test_output|
+    if test_output[:exit_status].exitstatus != 0
+      tests_passed = false
+      Print.err test_output[:stdout].join("\n")
+      Print.err "Post provision tests contained failures!"
+      Print.err test_output[:stderr].join("\n")
+    else
+      Print.info test_output[:stdout].join("\n")
     end
   end
   tests_passed
