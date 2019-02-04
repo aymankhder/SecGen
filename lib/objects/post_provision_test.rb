@@ -19,17 +19,20 @@ class PostProvisionTest
   attr_accessor :json_inputs
   attr_accessor :port
   attr_accessor :outputs
+  attr_accessor :all_tests_passed
 
   def initialize
     self.system_ip = get_system_ip
     self.json_inputs = get_json_inputs
     self.port = get_port
     self.outputs = []
+    self.all_tests_passed = true
   end
 
   def run
     test_module
     puts self.outputs
+    exit(1) unless all_tests_passed
   end
 
   def test_module
@@ -47,7 +50,7 @@ class PostProvisionTest
       self.outputs << "PASSED: Port #{self.port} is open at #{get_system_ip} (#{get_system_name})!"
     else
       self.outputs << "FAILED: Port #{self.port} is closed at #{get_system_ip} (#{get_system_name})!"
-      exit(1)
+      self.all_tests_passed = false
     end
   end
 

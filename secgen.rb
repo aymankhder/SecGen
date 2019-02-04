@@ -358,7 +358,7 @@ def post_provision_tests(project_dir)
       tests_passed = false
       Print.err test_output[:stdout].join("\n")
       Print.err "Post provision tests contained failures!"
-      Print.err test_output[:stderr].join("\n")
+      Print.err test_output[:stderr].join("\n") if test_output[:stderr].length > 0
     else
       Print.info test_output[:stdout].join("\n")
     end
