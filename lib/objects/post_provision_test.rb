@@ -10,8 +10,7 @@ require 'base64'
 require 'socket'
 require 'timeout'
 require 'net/http'
-
-require_relative '../../../lib/helpers/gem_exec'
+require 'open3'
 
 class PostProvisionTest
   attr_accessor :project_path
