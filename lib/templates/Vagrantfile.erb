@@ -136,7 +136,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 <%       else %>
     <%= system.name %>.vm.network :<%= selected_module.attributes['type'].first %>, type: "dhcp", auto_config: false
 <%       end %>
-       # ip_address_for_<%= system.name %>=DHCP
+       <% # Below string is used within testing, do not delete. -%>
+     # ip_address_for_<%= system.name %>=DHCP
 <%     # Static networking -%>
 <%     else -%>
 <%      # Static oVirt networking -%>
@@ -151,7 +152,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 <%       # Static Virtualbox networking -%>
 <%       else -%>
   <%= system.name %>.vm.network :<%= selected_module.attributes['type'].first %>, ip: "<%= resolve_network(selected_module)%>"
-       # ip_address_for_<%= system.name %>=<%= resolve_network(selected_module)%>
+       <% # Below string is used within testing, do not delete. -%>
+     # ip_address_for_<%= system.name %>=<%= resolve_network(selected_module)%>
 <%       end -%>
 <%     end -%>
 <%   when 'vulnerability', 'service', 'utility', 'build' -%>

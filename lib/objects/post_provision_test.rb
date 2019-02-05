@@ -7,9 +7,10 @@
 
 require 'json'
 require 'base64'
-
 require 'socket'
 require 'timeout'
+
+require_relative '../../../lib/helpers/gem_exec'
 
 class PostProvisionTest
   attr_accessor :project_path
@@ -71,9 +72,27 @@ class PostProvisionTest
     end
   end
 
+  def test_local_command(test_output, local_command, match_string)
+    Dir.chdir(get_project_path) do
+      output = run_vagrant_ssh(local_command)
+      if output[:stdout].include? match_string or output[:stderr].include? match_string
+        self.outputs << "PASSED: #{test_output} local command (#{local_command}) matches with output (#{match_string}) on #{get_system_name}!"
+      else
+        self.outputs << "FAILED: #{test_output} local command (#{local_command}) matches with output (#{match_string}) on #{get_system_name}!"
+        self.outputs << output[:stderr]
+        self.all_tests_passed = false
+      end
+    end
+  end
+
   ##################
   # Misc Functions #
   ##################
+
+  def run_vagrant_ssh(args)
+    stdout, stderr, status = Open3.capture3("/usr/bin/vagrant ssh -c '#{args}'")
+    {:stdout => stdout, :stderr => stderr, :exit_status => status}
+  end
 
   def get_system_ip
     vagrant_file_path = "#{get_project_path}/Vagrantfile"

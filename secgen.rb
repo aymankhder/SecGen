@@ -117,10 +117,9 @@ def build_vms(scenario, project_dir, options)
   successful_creation = false
 
   while retry_count >= 0 and !successful_creation
-    # vagrant_output = GemExec.exe('vagrant', project_dir, "#{command} #{system}")
-    # if vagrant_output[:status] == 0
-    if true
-      # reboot_cycle(project_dir)
+    vagrant_output = GemExec.exe('vagrant', project_dir, "#{command} #{system}")
+    if vagrant_output[:status] == 0
+      reboot_cycle(project_dir)
       if post_provision_tests(project_dir)
         Print.info 'VMs created.'
         successful_creation = true
@@ -358,7 +357,7 @@ def post_provision_tests(project_dir)
       tests_passed = false
       Print.err test_output[:stdout].join("\n")
       Print.err "Post provision tests contained failures!"
-      Print.err test_output[:stderr].join("\n") if test_output[:stderr].length > 0
+      Print.err test_output[:stderr]
     else
       Print.info test_output[:stdout].join("\n")
     end

@@ -7,11 +7,10 @@
     <system_name>testing</system_name>
     <base platform="linux" distro="Debian 9" type="server"/>
 
-    <service type="ftp"/>
-    <service module_path=".*ntp.*"/>
+    <vulnerability module_path=".*setuid_nmap" />
 
     <input into_datastore="IP_addresses">
-      <value>172.16.0.13</value>
+      <value>172.16.0.12</value>
     </input>
 
     <network type="private_network">
