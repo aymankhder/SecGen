@@ -339,7 +339,7 @@ def reboot_cycle(project_dir)
   GemExec.exe('vagrant', project_dir, 'halt')
   sleep 5
   GemExec.exe('vagrant', project_dir, 'up --no-provision')
-  sleep 30
+  sleep 45
 end
 
 def post_provision_tests(project_dir)

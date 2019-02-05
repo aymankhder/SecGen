@@ -56,15 +56,15 @@ class PostProvisionTest
   end
 
   # example usage for page: /index.html
-  def test_html_returned_content(page, match_string, hide_content=false)
+  def test_html_returned_content(page, match_string, hide_content = false)
 
     begin
       source = Net::HTTP.get(get_system_ip, page, self.port)
-    rescue SocketError
+    rescue SocketError, Errno::ECONNREFUSED
       # do nothing
     end
 
-    if source.include? match_string
+    if source and source.include? match_string
       match_string = '<redacted>' if hide_content
       self.outputs << "PASSED: Content #{match_string} is contained within #{page} at #{get_system_ip}:#{self.port} (#{get_system_name})!"
     else
@@ -147,18 +147,22 @@ class PostProvisionTest
   end
 
   def is_port_open?(ip, port)
-    begin
-      Timeout::timeout(1) do
-        begin
-          s = TCPSocket.new(ip, port)
-          s.close
-          return true
-        rescue Errno::ECONNREFUSED, Errno::EHOSTUNREACH
-          return false
+    retries = 5
+    while retries > 0
+      begin
+        Timeout::timeout(2) do
+          begin
+            s = TCPSocket.new(ip, port)
+            s.close
+            return true
+          rescue Errno::ECONNREFUSED, Errno::EHOSTUNREACH
+            # do nothing
+          end
         end
+      rescue Timeout::Error
+        # ignored
       end
-    rescue Timeout::Error
-      # ignored
+      retries -= 1
     end
     false
   end
