@@ -56,7 +56,7 @@ class PostProvisionTest
   end
 
   # example usage for page: /index.html
-  def test_html_returned_content(page, match_string)
+  def test_html_returned_content(page, match_string, hide_content=false)
 
     begin
       source = Net::HTTP.get(get_system_ip, page, self.port)
@@ -65,6 +65,7 @@ class PostProvisionTest
     end
 
     if source.include? match_string
+      match_string = '<redacted>' if hide_content
       self.outputs << "PASSED: Content #{match_string} is contained within #{page} at #{get_system_ip}:#{self.port} (#{get_system_name})!"
     else
       self.outputs << "FAILED: Content #{match_string} is contained within #{page} at #{get_system_ip}:#{self.port} (#{get_system_name})!"
@@ -90,7 +91,7 @@ class PostProvisionTest
   ##################
 
   def run_vagrant_ssh(args)
-    stdout, stderr, status = Open3.capture3("/usr/bin/vagrant ssh -c '#{args}'")
+    stdout, stderr, status = Open3.capture3("/usr/bin/vagrant ssh #{get_system_name} -c '#{args}'")
     {:stdout => stdout, :stderr => stderr, :exit_status => status}
   end
 

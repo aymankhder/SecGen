@@ -5,12 +5,11 @@ class MySQLStretchTest < PostProvisionTest
     self.module_name = 'mysql_stretch_compatible'
     self.module_path = get_module_path(__FILE__)
     super
-    self.port = 3306
   end
 
   def test_module
     super
-    test_service_up
+    test_local_command('mysqld process running?', 'ps -ef | grep mysqld', '/usr/sbin/mysqld')
   end
 end
 

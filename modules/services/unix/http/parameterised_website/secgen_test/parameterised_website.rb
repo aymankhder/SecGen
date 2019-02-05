@@ -12,9 +12,19 @@ class ParamWebsiteTest < PostProvisionTest
   def test_module
     super
     json_inputs = get_json_inputs
-    css_theme = json_inputs['theme'][0]
 
-    if json_inputs['organisation']
+    test_organisation_functionality(json_inputs)
+    test_additional_page(json_inputs)
+    test_html_returned_content("/css/#{json_inputs['theme'][0]}", 'Bootswatch v4.0.0')
+
+    test_service_up
+  end
+
+  def test_organisation_functionality(json_inputs)
+    if json_inputs['organisation'] and
+       json_inputs['organisation'][0] and
+       json_inputs['organisation'][0] != ''
+
       organisation = JSON.parse(json_inputs['organisation'][0])
       employee_1 = organisation['employees'][0]
 
@@ -22,10 +32,21 @@ class ParamWebsiteTest < PostProvisionTest
       test_html_returned_content('/contact.html', organisation['business_moto'])
       test_html_returned_content('/contact.html', employee_1['name'])
     end
+  end
 
-    test_html_returned_content("/css/#{css_theme}", 'Bootswatch v4.0.0')
 
-    test_service_up
+  def test_additional_page(json_inputs)
+    if json_inputs['additional_page_filenames'] and
+       json_inputs['additional_page_filenames'][0] and
+       json_inputs['additional_page_filenames'][0].include? 'html' and
+       json_inputs['additional_pages'] and
+       json_inputs['additional_pages'][0]
+
+      page_name = json_inputs['additional_page_filenames'][0]
+      page_name = "/#{page_name}" if page_name.split[0] != '/'
+
+      test_html_returned_content(page_name, json_inputs['additional_pages'][0], true)
+    end
   end
 
 end

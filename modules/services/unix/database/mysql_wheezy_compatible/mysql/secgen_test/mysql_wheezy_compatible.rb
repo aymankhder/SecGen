@@ -10,7 +10,7 @@ class MySQLWheezyTest < PostProvisionTest
 
   def test_module
     super
-    test_service_up
+    test_local_command('mysqld process running?', 'ps -ef | grep mysqld', '/usr/bin/mysqld')
   end
 end
 
