@@ -9,6 +9,7 @@ require 'json'
 require 'base64'
 require 'socket'
 require 'timeout'
+require 'net/http'
 
 require_relative '../../../lib/helpers/gem_exec'
 
@@ -68,8 +69,8 @@ class PostProvisionTest
       match_string = '<redacted>' if hide_content
       self.outputs << "PASSED: Content #{match_string} is contained within #{page} at #{get_system_ip}:#{self.port} (#{get_system_name})!"
     else
-      self.outputs << "FAILED: Content #{match_string} is contained within #{page} at #{get_system_ip}:#{self.port} (#{get_system_name})!"
-      exit(1)
+      self.outputs << "FAILED: Content #{match_string} is not contained within #{page} at #{get_system_ip}:#{self.port} (#{get_system_name})!"
+      self.all_tests_passed = false
     end
   end
 

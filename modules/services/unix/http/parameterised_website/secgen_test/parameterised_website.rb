@@ -1,6 +1,5 @@
 require_relative '../../../../../lib/post_provision_test'
 require 'json'
-require 'net/http'
 
 class ParamWebsiteTest < PostProvisionTest
   def initialize
@@ -13,12 +12,12 @@ class ParamWebsiteTest < PostProvisionTest
     super
     json_inputs = get_json_inputs
     test_service_up
-    test_organisation_functionality(json_inputs)
+    test_org_functionality(json_inputs)
     test_additional_page(json_inputs)
     test_html_returned_content("/css/#{json_inputs['theme'][0]}", 'Bootswatch v4.0.0')
   end
 
-  def test_organisation_functionality(json_inputs)
+  def test_org_functionality(json_inputs)
     if json_inputs['organisation'] and
        json_inputs['organisation'][0] and
        json_inputs['organisation'][0] != ''
