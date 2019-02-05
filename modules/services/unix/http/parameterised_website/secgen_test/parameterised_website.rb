@@ -12,12 +12,10 @@ class ParamWebsiteTest < PostProvisionTest
   def test_module
     super
     json_inputs = get_json_inputs
-
+    test_service_up
     test_organisation_functionality(json_inputs)
     test_additional_page(json_inputs)
     test_html_returned_content("/css/#{json_inputs['theme'][0]}", 'Bootswatch v4.0.0')
-
-    test_service_up
   end
 
   def test_organisation_functionality(json_inputs)
