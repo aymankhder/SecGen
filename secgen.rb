@@ -147,7 +147,7 @@ def build_vms(scenario, project_dir, options)
               Print.err "Not going to destroy #{vm_not_to_destroy}, since it does not exist"
               failures_to_destroy.delete_if {|x| x == vm_not_to_destroy}
               # TODO: not sure if there is a need to remove_uncreated_vms() here too? (I don't think so?)
-            end
+            end  # TODO: Add another elsif here to check if any tests have failed, edit the output of the tests so that it has a unique string that captures the vm name
           end
 
           failures_to_destroy = failures_to_destroy.uniq

@@ -5,9 +5,9 @@
           xsi:schemaLocation="http://www.github/cliffe/SecGen/scenario">
   <system>
     <system_name>testing</system_name>
-    <base platform="linux" distro="Debian 9" type="server"/>
+    <base platform="linux" distro="Debian 7.8" type="server"/>
 
-    <vulnerability module_path=".*setuid_nmap" />
+    <vulnerability module_path=".*dirtycow.*"/>
 
     <input into_datastore="IP_addresses">
       <value>172.16.0.12</value>
