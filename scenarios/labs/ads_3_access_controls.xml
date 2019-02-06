@@ -191,6 +191,10 @@
 				<input into="super_user">
 					<value>false</value>
 				</input>
+				<input into="groups">
+					<value>staff</value>
+					<value>team_one</value>
+				</input>
 			</generator>
 			<!-- other users, with the SAME weak passwords, WITH flags -->
 			<generator type="account">
@@ -200,13 +204,10 @@
 				<input into="password">
 					<datastore access="0">weak_passwords</datastore>
 				</input>
-			</generator>
-			<generator type="account">
-				<input into="username">
-					<datastore access="next">usernames</datastore>
-				</input>
-				<input into="password">
-					<datastore access="next">weak_passwords</datastore>
+				<input into="groups">
+					<value>staff</value>
+					<value>team_one</value>
+					<value>team_two</value>
 				</input>
 			</generator>
 			<generator type="account">
@@ -216,6 +217,10 @@
 				<input into="password">
 					<datastore access="next">weak_passwords</datastore>
 				</input>
+				<input into="groups">
+					<value>staff</value>
+					<value>team_two</value>
+				</input>
 			</generator>
 			<generator type="account">
 				<input into="username">
@@ -223,6 +228,20 @@
 				</input>
 				<input into="password">
 					<datastore access="next">weak_passwords</datastore>
+				</input>
+				<input into="groups">
+					<value>staff</value>
+				</input>
+			</generator>
+			<generator type="account">
+				<input into="username">
+					<datastore access="next">usernames</datastore>
+				</input>
+				<input into="password">
+					<datastore access="next">weak_passwords</datastore>
+				</input>
+				<input into="groups">
+					<value>staff</value>
 				</input>
 			</generator>
 		</input>

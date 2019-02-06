@@ -1,0 +1,249 @@
+## Set UID (SUID)
+
+Sometimes a user needs to be able to do things that require permissions that they should not always have. For example, the passwd command is used to change your password. It needs read and write access to /etc/shadow. Clearly not every user should have that kind of access! Also, the ping command needs raw network access... Again not something that every user can do. The Unix solution is *set UID (SUID)*.
+
+Using SUID, processes can be given permission to run as another user. For example, when you run passwd, the program actually runs as root (on most Unix systems).
+
+In fact, every process actually has multiple identities, including:
+
+-   The real UID (RUID): the user who is running the command
+
+-   The effective UID (EUID): the way the process is treated
+
+List all processes real and effective UIDs:
+
+```bash
+ps -eo ruser,euser,comm
+```
+
+Look through the list of running processes. Most of the time the RUID and EUID matches. Are there any cases in the output where they do not?
+
+Take a look at how the effective UID is specified:
+
+```bash
+ls -l /usr/bin/passwd
+```
+
+`-rwsr-xr-x 1 root shadow 81792 Oct 29 18:26 /usr/bin/passwd`
+
+The `s` in the file permissions means that the file UID will be used as the effective UID.
+
+The SUID bit is stored in the first permission octet in the inode:
+
+```bash
+stat /usr/bin/passwd
+```
+
+> Note the octet representation of the file permissions.
+
+Start another Konsole, and open multiple tabs.
+
+In one tab run:
+
+```bash
+passwd
+```
+
+> (dont type anything, instead leave the prompt open)
+
+Switch to another tab and run:
+
+```bash
+ps -o ruser,euser,comm -C passwd
+```
+
+Make sure you understand the significance of the ruser and euser outputs not matching.
+
+Run this command to find all SUID programs on the system:
+
+```bash
+sudo find / -type d -name ".snapshots" -prune -o +AFw( -perm -004000 -o -perm -002000 +AFw) -type f -print
+```
+
+**Identify why each one requires SUID permissions.**
+
+> Hint: look up each command using man.
+
+## Writing a SUID program in C
+
+You are going to create a SUID program, to grant access to the contents of your "mysecret" file to anyone who runs the program, without sharing direct access to the file.
+
+Make sure "~/mysecrets" is only accessible by the owner: ls -la should show `rw-------` for that file.
+
+Create a C program by making a new file "accessmysecret.c":
+
+```bash
+vi accessmysecret.c
+```
+
+Remember, vi is modal. Press "i" to enter insert mode, then enter this code:
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <errno.h>
+
+int main()
+{
+  printf("      	UID         	GID +AFw-n"
+     	"Real  	%d  Real  	%d +AFw-n"
+     	"Effective %d  Effective %d +AFw-n",
+     	getuid (), 	getgid (),
+     	geteuid(), 	getegid());
+
+  FILE *fp = fopen("mysecrets", "r");
+  if (fp == NULL) {
+	printf("Error: Could not open file");
+	exit(EXIT_FAILURE);
+  }
+  char c;
+  while ((c=getc(fp)) != EOF) {
+    putchar(c);
+  }
+  putchar('+AFw-n');
+  return EXIT_SUCCESS;
+}
+```
+
+Save your changes and quit (Esc, ":wq").
+
+Compile the program (which uses the C code to create an executable):
+
+```bash
+gcc accessmysecrets.c -o accessmysecrets
+```
+
+Set the permissions for the file (using chmod) to setuid:
+
+```bash
+chmod u+s accessmysecrets
+```
+
+Check the permissions include SUID:
+
+```bash
+ls -l accessmysecrets
+```
+
+Run the program:
+
+```bash
+./accessmysecrets
+```
+
+Note that the program outputs its real and effective identity.
+
+Change to another user, and execute the program:
+
+```bash
+/home/student/accessmysecrets
+```
+
+Note that the effective ID is that of the owner of the program. You should also see the contents of the mysecrets file, even though you don't have access to the secrets file directly.
+
+Think about the security of this solution. How secure is it? Would it be safe for root to be the owner of this program? Why not?
+
+**Challenge**: switch to another user and use the SUID accessmysecrets program to get read access to any one of the owner user's files!
+
+> Hint: there is a security problem with this code.
+>
+> Another hint: think about hard links.
+
+**Solution:**
+
+**SPOILER ALERT! SPOILER ALERT! SPOILER ALERT!**
+
+There is a security problem caused by not using an absolute filename when opening the file, it opens "mysecrets" rather than "/home/user/mysecrets". Remember, any user can create a hard link to a file (therefore they can make a "copy" of the SUID program wherever they like).
+
+Make a hard link to the SUID program in a directory that the attacker can write to, then also make a hard link to any file the SUID user owns, and name it "mysecrets" in the same directory as the program, then when you execute the program it will write out the contents of the file.
+
+You can exploit this vulnerability as follows:
+
+```bash
+su - student
+
+ln /home/user/accessmysecrets /tmp/access
+
+ln /home/user/someotherfile /tmp/mysecrets
+
+/tmp/access
+```
+
+**SPOILER ALERT! SPOILER ALERT! SPOILER ALERT!**
+
+**Challenge**: Modify the program to correct the above vulnerability.
+
+**Challenge**: Modify the program so that only the first line of the mysecrets file is displayed to others.
+
+**Challenge**: Modify the program so that the script checks the UID and only continues for a specific user (for example, if the user is root).
+
+> Hint: `man getuid`
+
+## Linux Extended ACLs
+
+We have explored standard Unix permissions. Modern Linux systems (and some other Unix-based systems) now have more complete (and complicated) ACL support.
+
+As previously mentioned, an *access control list (ACL)* is attached to an object (resource) and lists all the subjects (users / active entities) that are allowed access, along with the kind of access that is authorised.
+
+Set a file ACL on your mysecrets file, using the setfacl command:
+
+```bash
+setfacl -m u:student:r ~/mysecrets
+```
+
+This grants the "student" user read access to the file.
+
+Note that the stat program is not usually ACL aware, so won't report anything out of the usual:
+
+```bash
+stat ~/mysecrets
+```
+
+The ls program can be used to detect File ACLs:
+
+```bash
+ls -la ~/mysecrets
+```
+`-rw-r-----+ 1 cliffe users 22 Feb 28 11:47 mysecrets`
+
+Note that the output includes a `+`. This indicates an ACL is in place.
+
+Use getfacl to display the permissions:
+
+```bash
+getfacl ~/mysecrets
+```
+
+Use Linux File ACLs to grant one or more specific users (other class members) read access to your mysecrets file.
+
+Using ACLs, grant any other group (you choose) read-write access to your mygroupshare file.
+
+Remove the group permission you just added.
+
+> Example: `setfacl -x g:staff file`
+
+## Conclusion
+
+At this point you have:
+
+-   Learned about file permissions, hard links, and inodes
+
+-   Learned about octal representations of permissions
+
+-   Changed Unix file permissions to grant access to specific users and groups, using chmod
+
+-   Used umask to change the permissions applied to new files
+
+-   Learned about Set UID (SUID), become more familiar with C, and compiled a SUID C program
+
+    -   You may have also done some more programming of your own, (congratulations, if you spotted and/or fixed the security problem)
+
+-   Used Linux Extended ACLs to configure more advanced security policies
+
+Well done!
+
+[^1]: The name `ls` is from the old Multix command which was named after "list segments", although it can be thought of as "list" (since the term "segment" is no longer meaningful for Unix), it is similar in use to the dir command on Windows.
+
+[^2]: The `~` character is interpreted by Bash as the location of your own home directory, such as /home/*dropbear*/
