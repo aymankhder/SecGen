@@ -4,7 +4,7 @@
 		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		xsi:schemaLocation="http://www.github/cliffe/SecGen/scenario">
 
-	<name>Pluggable Authentication Modules lab</name>
+	<name>Access Controls lab</name>
   <author>Z. Cliffe Schreuders</author>
   <description>A Hackerbot lab. Work through the labsheet, then when prompted interact with Hackerbot.</description>
 
@@ -14,7 +14,7 @@
   <difficulty>intermediate</difficulty>
 
 	<system>
-		<system_name>desktop</system_name>
+		<system_name>shared_desktop</system_name>
 		<base distro="Debian 9" type="desktop" name="KDE"/>
 
 		<input into_datastore="IP_addresses">
@@ -59,10 +59,10 @@
 
 		<!-- generate some passwords to be cracked -->
 		<input into_datastore="weak_passwords">
-			<generator type="weak_password_generator"/>
-			<generator type="weak_password_generator"/>
-			<generator type="weak_password_generator"/>
-			<generator type="weak_password_generator"/>
+			<generator type="medium_password_generator"/>
+			<generator type="strong_password_generator"/>
+			<generator type="strong_password_generator"/>
+			<generator type="strong_password_generator"/>
 		</input>
 
 		<!-- accounts on the desktop, with the main user as a sudoer, with no flags -->
@@ -263,7 +263,7 @@
 
 		<utility module_path=".*hackerbot">
 			<input into="hackerbot_configs">
-				<generator module_path=".*hbpam">
+				<generator module_path=".*hb_access_controls">
 					<input into="accounts">
 						<datastore>user_accounts_desktop</datastore>
 					</input>

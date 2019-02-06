@@ -8,13 +8,12 @@ An access control *mechanism* is the code or thing that enforces a policy. An ac
 
 The traditional Unix security model is based on the *discretionary access control (DAC)* model, which enables users to configure who can access the resources that they "own". Each user can control which other users can access the files that they create. This enables users to grant permissions, without involving a system admin. This is the type of security that has traditionally been built into most consumer OSs such as Windows and Unix.
 
-Unix file permissions uses an abbreviated (simplified) form of access control list (ACL). A (full) ACL involves attaching a list of every subject and what they can do to each file (this is how Windows manages file access). For example, a file may have this ACL: "Joe can read, Frank can write, Alice can read, and Eve can read". Unix simplifies permissions by only defining rules for these three kinds of subjects:
+Unix file permissions uses an abbreviated (simplified) form of access control list (ACL). A (full) ACL involves attaching a list of every subject and what they can do to each file (this is how Windows manages file access). For example, a file may have this ACL: "Joe can read, Frank can write, Alice can read, and Eve can read".
 
--   The user that owns the file (u)
-
--   The file's group (g)
-
--   Other users (o)
+Unix simplifies permissions by only defining rules for these three kinds of subjects:
+-   **u**: The **u**ser that owns the file
+-   **g**: The file's **g**roup
+-   **o**: All **o**ther users
 
 Open a terminal console.
 
@@ -43,7 +42,7 @@ For a directory:
 -   **r**: See what files are in the directory
 -   **w**: Add, rename, or delete names from the directory
 -   **x**: 'stat' the file (view the file owners and sizes, cd into the directory, and access files within)
--   **t** (instead of x), AKA the "sticky bit": write is not enough to delete a file from the directory, in this case you also need to own the file
+-   **t** (in place of x), AKA the "sticky bit": write is not enough to delete a file from the directory, in this case you also need to own the file
 
 The rest of the output from ls describes how many names/hard links the file has (1), who owns the file: the user (root) and group (root) associated with the file, the file size in bytes (130736 bytes in the example above), the last access date, and finally the path and name of the file.
 
@@ -95,7 +94,7 @@ ln -s /bin/ls /tmp/ls
 
 Unlike hard links, symbolic links do not contain the information of the file they are linked to; a symbolic link is similar to a Windows shortcut, it simply points to another file on the system - this allows them to link to directories and remote files, in a way that hard links cannot. If the original file is deleted, the symlink becomes unusual, whereas the data of the target file is preserved in the case of a hard link.
 
-View the details for this file:
+==View the details== for this file:
 
 ```bash
 ls -l /tmp/ls
@@ -109,7 +108,7 @@ Now, ==try to remove this symlink.==
 rm /tmp/ls
 ```
 
-Permission denied! Interestingly, in this case as a normal user we can create the symlink to /bin/ls, but cannot then delete that link since the sticky bit is set for the /tmp/ directory.
+Permission denied! Interestingly, in this case as a normal user we can create the symlink to /bin/ls, but cannot then delete that link since the sticky bit is set for the /tmp/ directory. ==Run:==
 
 ```bash
 ls -ld /tmp/
@@ -135,7 +134,9 @@ stat /bin/ls
 
 The output from stat includes the format that the information is stored as, along with a more "human readable" output. As we know, user accounts are referred to by UIDs by the system, in this case the UID is 0, as the file is owned by the root user. Similarly, groups are identified by GID, in this case also 0. The actual permissions are stored as four octets (digits 0-7), in this case `0755`. This translates to the (now familiar) human-friendly output, `-rwxr-xr-x`. For now we will ignore the first octet, this is normally 0, we will come back to the special meaning of this later.
 
-Each of the other three octets simply represents the binary for rwx, each represented as a 0 or a 1. The first of the three represents the **u**ser, then the **g**roup, then the **o**ther permission. An easy and quick way to do the conversion is to simply remember:
+Each of the other three octets simply represents the binary for rwx, each represented as a 0 or a 1. The first of the three represents the **u**ser, then the **g**roup, then the **o**ther permission.
+
+An easy and quick way to do the conversion is to simply remember:
 
 -   r = 4
 -   w = 2
@@ -149,32 +150,30 @@ Likewise, r-x = binary 101 = (4 + 1) = 5.
 
 Therefore, `-rwxr-xr-x` = 755.
 
-# Up to here!!!!!!!!!!!!!!!!!!!!!!!!!!
-# ------------------------------------
-
 ## Changing file permissions on a Linux system
 
-Login via ssh to a classmate's system by starting sshd with `sudo service sshd start` and sshing into a classmate's system (you can do this on your own computer, without ssh, or between two VMs if doing this outside of class):
+==Open a second console/Tab.==
+> In Konsole, press Ctrl+T to open another tab
+
+==Switch to your second user account:==
 
 ```bash
-ssh *yourusername*@*ipaddress*
+su - <%= $second_user %>
 ```
 
-> Do not login as root, instead use sudo as needed.
+> Do not login as root, instead use sudo or su as required.
 
-If you are doing these exercises by yourself, you could create a new user to use as your second user. You could simply open another console tab and `su - *USERNAME*`, and switch between users/tabs as needed.
-
-Create a file named "mysecrets" in your home directory:[^2]
+Create a file named "mysecrets" in your <%= $second_user %>'s home directory:[^2]
 
 ```bash
 cat > ~/mysecrets
 ```
 
-Enter a number of lines of content. Press Ctrl-D when finished entering a "secret" (that others may see).
+Enter a number of lines of content. Press Ctrl-D when finished entering a "secret".
 
 Your first aim is to ensure your "mysecrets" file is not visible to other users on the same system.
 
-First view the permissions of your newly created file:
+First ==view the permissions== of your newly created file:
 
 ```bash
 ls ~/mysecrets
@@ -202,7 +201,7 @@ Or you can make relative changes:
 >
 > Example: chmod o-w /home/tmp/somefile
 
-Use chmod to grant yourself read-write permission to your mysecrets file, and everyone else no permissions to the file:
+==Use chmod to grant yourself read-write permission to your mysecrets file, and everyone else no permissions to the file==:
 
 ```bash
 chmod *XXX* ~/mysecrets
@@ -210,37 +209,26 @@ chmod *XXX* ~/mysecrets
 
 > Where *XXX* is three octets that grants the appropriate access.
 
-Try to access anyone/everyone else's "mysecrets" files:
+> Test whether you have correctly set permissions. Switch back to the <%= $main_user %> console and test that <%= $main_user %> cannot access the file:
 
 ```bash
-less /home/*/mysecrets
+less /home/student/mysecrets`
 ```
 
-If they have protected their files correctly you won't be granted access (unless you access the file before they set permissions correctly).
-
-> You may wish to let them know that you have access to their secrets.
->
-> Test whether you have correctly set permissions. Either by asking a classmate to confirm that they cannot access the file, or by changing to another user:
->
-> `su - *username*`
->
-> `less /home/student/mysecrets`
->
-> exit
-
-Create a file "~/myshare", and grant everyone read-write access.
+# Up to here!!!!!!!!!!!!!!!!!!!!!!!!!!
+# ------------------------------------
+# CONVERT THESE INTO HB CHALLENGES
+==Create a file "~/myshare", and grant everyone read-write access.==
 
 > Test whether you have correctly set permissions.
 
-Create "mygroupshare", grant only read access to everyone in your group.
+==Create "mygroupshare", grant only read access to everyone in your group.==
 
 > Test whether you have correctly set permissions.
 
-Create a new group called "staff", and create a file that you and a fellow classmate (other user) can collaborate on (both edit).
+Create a new group called "staff", and create a file that you and the other user can collaborate on (both edit).
 
-> You can work on this problem with a classmate.
->
-> Hint, you should both be added to the group. You may require root access for this task. If you do not have root access to the system you are currently sshed to, you may have to complete this on your local system, after exiting the ssh connection. Your classmate may want to ssh to your system.
+> Hint, you should both be added to the group. You may require root access for this task. Your classmate may want to ssh to your system.
 >
 > Test whether you have correctly set permissions. Both users should be able to edit the file, yet other users should not have write access.
 
@@ -299,6 +287,8 @@ Figure out how to (and do) make that setting apply every time you login.
 > Hint: try Googling bash login or startup config
 
 What would be a safe umask for a shared Linux system? Justify your decision.
+
+# CUT HERE -------------------------------------------
 
 ## Set UID (SUID)
 
