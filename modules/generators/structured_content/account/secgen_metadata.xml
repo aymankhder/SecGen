@@ -28,8 +28,8 @@
   <default_input into="password">
     <generator type="password_generator"/>
   </default_input>
-  <!-- <default_input into="groups">
-  </default_input> -->
+  <default_input into="groups">
+  </default_input>
   <default_input into="super_user">
     <value>false</value>
   </default_input>

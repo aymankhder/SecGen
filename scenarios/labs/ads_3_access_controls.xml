@@ -65,6 +65,13 @@
 			<generator type="strong_password_generator"/>
 		</input>
 
+		<input into_datastore="groups">
+			<value>staff</value>
+			<value>team_one</value>
+			<value>team_two</value>
+		</input>
+
+
 		<!-- accounts on the desktop, with the main user as a sudoer, with no flags -->
 		<input into_datastore="user_accounts_desktop">
 			<!-- main user, sudoer -->
@@ -118,6 +125,12 @@
 			<generator type="strong_password_generator"/>
 		</input>
 
+		<!--Create the groups-->
+		<utility module_path=".*groups">
+			<input into="groups">
+				<datastore>groups</datastore>
+			</input>
+		</utility>
 		<!--Create the users-->
 		<utility module_path=".*parameterised_accounts">
 			<input into="accounts">
@@ -246,6 +259,12 @@
 			</generator>
 		</input>
 
+		<!--Create the groups-->
+		<utility module_path=".*groups">
+			<input into="groups">
+				<datastore>groups</datastore>
+			</input>
+		</utility>
 		<!--Create the users-->
 		<utility module_path=".*parameterised_accounts">
 			<input into="accounts">
