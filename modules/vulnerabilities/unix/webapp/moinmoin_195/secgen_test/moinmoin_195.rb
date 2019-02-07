@@ -10,6 +10,7 @@ class MoinMoin195Test < PostProvisionTest
   def test_module
     super
     test_service_up
+    test_html_returned_content('/index.html','<script type="text/javascript" src="/moin_static195/common/js/common.js"></script>')
   end
 end
 

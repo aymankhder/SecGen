@@ -15,10 +15,21 @@ class NTPTest < PostProvisionTest
   end
 
   def test_ntp_query
-    begin
-      time_response = Net::NTP.get(system_ip, port).time
+    time_response = ''
+    retries = 5
+    while retries > 0
+      begin
+        time_response = Net::NTP.get(system_ip, port).time
+        break
+      rescue Errno::ECONNREFUSED, Timeout::Error
+        # do nothing
+      end
+      sleep 2
+      retries = -1
+    end
+    if time_response != ''
       self.outputs << "PASSED: NTP responded on UDP port #{port} with #{time_response}"
-    rescue Errno::ECONNREFUSED
+    else
       self.outputs << "FAILED: unable to connect to #{module_name} on UDP port #{port}"
       self.all_tests_passed = false
     end

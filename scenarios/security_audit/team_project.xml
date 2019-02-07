@@ -19,7 +19,7 @@
   <!-- Web Server on NIC1 and NIC2 -->
   <system>
     <system_name>web</system_name>
-    <base platform="linux" distro="Debian 7.8" type="server"/>
+    <base platform="linux" type="server"/>
 
     <input into_datastore="IP_addresses">
       <value>172.10.0.2</value>

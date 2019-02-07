@@ -10,7 +10,7 @@
     <vulnerability module_path=".*dirtycow.*"/>
 
     <input into_datastore="IP_addresses">
-      <value>172.16.0.12</value>
+      <value>172.16.0.14</value>
     </input>
 
     <network type="private_network">
