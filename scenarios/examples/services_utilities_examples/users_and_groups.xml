@@ -54,8 +54,8 @@
 
 			<input into_datastore="groups">
 				<value>staff</value>
-				<value>team2</value>
 				<value>team1</value>
+				<value>team2</value>
 			</input>
 
 	 		<!-- accounts on the desktop, with the main user as a sudoer, with no flags -->
