@@ -14,7 +14,7 @@ class AccountGenerator < StringEncoder
     self.module_name = 'Account Generator / Builder'
     self.username = ''
     self.password = ''
-    self.groups = ''
+    self.groups = []
     self.super_user = ''
     self.strings_to_leak = []
     self.data_to_leak = []
@@ -25,7 +25,7 @@ class AccountGenerator < StringEncoder
     account_hash = {}
     account_hash['username'] = self.username
     account_hash['password'] = self.password
-    account_hash['groups'] = self.password
+    account_hash['groups'] = self.groups
     account_hash['super_user'] = self.super_user
     account_hash['strings_to_leak'] = self.strings_to_leak
     account_hash['leaked_filenames'] = self.leaked_filenames

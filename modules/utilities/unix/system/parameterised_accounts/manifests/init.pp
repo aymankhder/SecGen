@@ -9,7 +9,7 @@ class parameterised_accounts::init {
       parameterised_accounts::account { "parameterised_user_$username":
         username        => $username,
         password        => $account['password'],
-        groups        => $account['groups'],
+        groups          => $account['groups'],
         super_user      => str2bool($account['super_user']),
         strings_to_leak => $account['strings_to_leak'],
         leaked_filenames => $account['leaked_filenames'],
