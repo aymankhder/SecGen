@@ -56,7 +56,7 @@ define parameterised_accounts::account (
     leaked_filenames  => $leaked_filenames,
     owner             => $username,
     group             => $username,
-    mode              => '0444',
+    mode              => '0400',
     leaked_from       => "accounts_$username",
   }
 
@@ -66,7 +66,7 @@ define parameterised_accounts::account (
       data_to_leak      => $data_to_leak,
       owner             => $username,
       group             => $username,
-      mode              => '0444',
+      mode              => '0400',
       leaked_from       => "accounts_$username",
     }
   }

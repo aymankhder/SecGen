@@ -58,7 +58,7 @@
 		</input>
 
 		<!-- generate some passwords to be cracked -->
-		<input into_datastore="weak_passwords">
+		<input into_datastore="passwords">
 			<generator type="medium_password_generator"/>
 			<generator type="strong_password_generator"/>
 			<generator type="strong_password_generator"/>
@@ -92,7 +92,7 @@
 					<datastore access="next">usernames</datastore>
 				</input>
 				<input into="password">
-					<datastore access="0">weak_passwords</datastore>
+					<datastore access="0">passwords</datastore>
 				</input>
 			</generator>
 			<generator type="account">
@@ -100,7 +100,7 @@
 					<datastore access="next">usernames</datastore>
 				</input>
 				<input into="password">
-					<datastore access="next">weak_passwords</datastore>
+					<datastore access="next">passwords</datastore>
 				</input>
 			</generator>
 			<generator type="account">
@@ -108,7 +108,7 @@
 					<datastore access="next">usernames</datastore>
 				</input>
 				<input into="password">
-					<datastore access="next">weak_passwords</datastore>
+					<datastore access="next">passwords</datastore>
 				</input>
 			</generator>
 			<generator type="account">
@@ -116,7 +116,7 @@
 					<datastore access="next">usernames</datastore>
 				</input>
 				<input into="password">
-					<datastore access="next">weak_passwords</datastore>
+					<datastore access="next">passwords</datastore>
 				</input>
 			</generator>
 		</input>
@@ -215,7 +215,7 @@
 					<datastore access="next">usernames</datastore>
 				</input>
 				<input into="password">
-					<datastore access="0">weak_passwords</datastore>
+					<datastore access="0">passwords</datastore>
 				</input>
 				<input into="groups">
 					<value>staff</value>
@@ -228,7 +228,7 @@
 					<datastore access="next">usernames</datastore>
 				</input>
 				<input into="password">
-					<datastore access="next">weak_passwords</datastore>
+					<datastore access="next">passwords</datastore>
 				</input>
 				<input into="groups">
 					<value>staff</value>
@@ -240,7 +240,7 @@
 					<datastore access="next">usernames</datastore>
 				</input>
 				<input into="password">
-					<datastore access="next">weak_passwords</datastore>
+					<datastore access="next">passwords</datastore>
 				</input>
 				<input into="groups">
 					<value>staff</value>
@@ -251,11 +251,19 @@
 					<datastore access="next">usernames</datastore>
 				</input>
 				<input into="password">
-					<datastore access="next">weak_passwords</datastore>
+					<datastore access="next">passwords</datastore>
 				</input>
 				<input into="groups">
 					<value>staff</value>
 				</input>
+				<input into="leaked_filenames">
+					<value>flags</value>
+				</input>
+				<input into="strings_to_leak">
+					<generator type="flag_generator" />
+					<generator type="flag_generator" />
+				</input>
+
 			</generator>
 		</input>
 
@@ -273,6 +281,8 @@
 		</utility>
 
 		<utility module_path=".*handy_cli_tools"/>
+
+		<vulnerability module_path=".*writable_passwd|.*writable_shadow"/>
 
 		<vulnerability module_path=".*ssh_root_login">
 			<input into="root_password">
