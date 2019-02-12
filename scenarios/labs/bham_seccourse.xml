@@ -53,7 +53,7 @@
 				</generator>
 			</input>
 		</vulnerability>
-		
+
 		<vulnerability module_path=".*two_shell_calls">
 			<input into="accounts">
 				<generator type="account">

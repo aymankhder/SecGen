@@ -290,6 +290,41 @@
 
 		<vulnerability type="suid_root_editor"/>
 
+<!-- TODO move to another server? -->
+		<vulnerability module_path=".*two_shell_calls">
+			<input into="accounts">
+				<generator type="account">
+					<input into="username">
+						<value>jakkinkade</value>
+					</input>
+					<input into="password">
+						<generator module_path="modules/generators/random/random_base64"/>
+					</input>
+					<input into="leaked_filenames">
+						<value>flag.txt</value>
+					</input>
+						<input into="strings_to_leak">
+							<generator module_path="modules/generators/random/random_base64"/>
+						</input>
+				</generator>
+				<generator type="account">
+					<input into="username">
+						<value>nickadler</value>
+					</input>
+					<input into="password">
+						<generator module_path="modules/generators/random/random_base64"/>
+					</input>
+					<input into="strings_to_leak">
+						<value>none</value>
+					</input>
+					<input into="leaked_filenames">
+						<value></value>
+					</input>
+				</generator>
+			</input>
+		</vulnerability>
+
+
 		<network type="private_network">
 			<input into="IP_address">
 				<datastore access="1">IP_addresses</datastore>
