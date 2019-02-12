@@ -7,10 +7,9 @@ Using SUID, processes can be given permission to run as another user. For exampl
 In fact, every process actually has multiple identities, including:
 
 -   The real UID (RUID): the user who is running the command
-
 -   The effective UID (EUID): the way the process is treated
 
-List all processes real and effective UIDs:
+==List all processes real and effective UIDs:==
 
 ```bash
 ps -eo ruser,euser,comm
@@ -18,7 +17,7 @@ ps -eo ruser,euser,comm
 
 Look through the list of running processes. Most of the time the RUID and EUID matches. Are there any cases in the output where they do not?
 
-Take a look at how the effective UID is specified:
+Take a look at how the effective UID is specified. ==Run:==
 
 ```bash
 ls -l /usr/bin/passwd
@@ -28,7 +27,7 @@ ls -l /usr/bin/passwd
 
 The `s` in the file permissions means that the file UID will be used as the effective UID.
 
-The SUID bit is stored in the first permission octet in the inode:
+The SUID bit is stored in the first permission octet in the inode. ==Run:==
 
 ```bash
 stat /usr/bin/passwd
@@ -36,9 +35,9 @@ stat /usr/bin/passwd
 
 > Note the octet representation of the file permissions.
 
-Start another Konsole, and open multiple tabs.
+In your terminal console, open multiple tabs.
 
-In one tab run:
+==In one tab run:==
 
 ```bash
 passwd
@@ -46,10 +45,16 @@ passwd
 
 > (dont type anything, instead leave the prompt open)
 
-Switch to another tab and run:
+==Switch to another tab and run:==
 
 ```bash
 ps -o ruser,euser,comm -C passwd
+```
+
+Or you can filter it down to *any* lines where the first two entries (ruid and euid) don't match:
+
+```bash
+ps -o ruser,euser,comm | awk '$1 != $2'
 ```
 
 Make sure you understand the significance of the ruser and euser outputs not matching.
@@ -60,7 +65,7 @@ Run this command to find all SUID programs on the system:
 sudo find / -type d -name ".snapshots" -prune -o +AFw( -perm -004000 -o -perm -002000 +AFw) -type f -print
 ```
 
-**Identify why each one requires SUID permissions.**
+**Lab Book Question: Document why each one requires SUID permissions.**
 
 > Hint: look up each command using man.
 
@@ -228,22 +233,10 @@ Remove the group permission you just added.
 
 At this point you have:
 
--   Learned about file permissions, hard links, and inodes
-
--   Learned about octal representations of permissions
-
--   Changed Unix file permissions to grant access to specific users and groups, using chmod
-
--   Used umask to change the permissions applied to new files
-
 -   Learned about Set UID (SUID), become more familiar with C, and compiled a SUID C program
 
-    -   You may have also done some more programming of your own, (congratulations, if you spotted and/or fixed the security problem)
+-   You may have also done some more programming of your own, (congratulations, if you spotted and/or fixed the security problem)
 
 -   Used Linux Extended ACLs to configure more advanced security policies
 
 Well done!
-
-[^1]: The name `ls` is from the old Multix command which was named after "list segments", although it can be thought of as "list" (since the term "segment" is no longer meaningful for Unix), it is similar in use to the dir command on Windows.
-
-[^2]: The `~` character is interpreted by Bash as the location of your own home directory, such as /home/*dropbear*/
