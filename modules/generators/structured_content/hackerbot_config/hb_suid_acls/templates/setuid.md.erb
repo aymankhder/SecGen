@@ -98,10 +98,10 @@ int main()
      	getuid (), 	getgid (),
      	geteuid(), 	getegid());
 
-  FILE *fp = fopen("mysecrets", "r");
+  FILE *fp = fopen("flag1", "r");
   if (fp == NULL) {
-	printf("Error: Could not open file");
-	exit(EXIT_FAILURE);
+  	printf("Error: Could not open file");
+  	exit(EXIT_FAILURE);
   }
   char c;
   while ((c=getc(fp)) != EOF) {
@@ -152,35 +152,7 @@ Think about the security of this solution. How secure is it? Would it be safe fo
 
 **Challenge**: switch to another user and use the SUID accessmysecrets program to get read access to any one of the owner user's files!
 
-> Hint: there is a security problem with this code.
->
-> Another hint: think about hard links.
-
-**Solution:**
-
-**SPOILER ALERT! SPOILER ALERT! SPOILER ALERT!**
-
-There is a security problem caused by not using an absolute filename when opening the file, it opens "mysecrets" rather than "/home/user/mysecrets". Remember, any user can create a hard link to a file (therefore they can make a "copy" of the SUID program wherever they like).
-
-Make a hard link to the SUID program in a directory that the attacker can write to, then also make a hard link to any file the SUID user owns, and name it "mysecrets" in the same directory as the program, then when you execute the program it will write out the contents of the file.
-
-You can exploit this vulnerability as follows:
-
-```bash
-su - student
-
-ln /home/user/accessmysecrets /tmp/access
-
-ln /home/user/someotherfile /tmp/mysecrets
-
-/tmp/access
-```
-
-**SPOILER ALERT! SPOILER ALERT! SPOILER ALERT!**
-
 **Challenge**: Modify the program to correct the above vulnerability.
-
-**Challenge**: Modify the program so that only the first line of the mysecrets file is displayed to others.
 
 **Challenge**: Modify the program so that the script checks the UID and only continues for a specific user (for example, if the user is root).
 
@@ -211,6 +183,7 @@ The ls program can be used to detect File ACLs:
 ```bash
 ls -la ~/mysecrets
 ```
+
 `-rw-r-----+ 1 cliffe users 22 Feb 28 11:47 mysecrets`
 
 Note that the output includes a `+`. This indicates an ACL is in place.

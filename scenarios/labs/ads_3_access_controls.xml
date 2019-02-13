@@ -288,6 +288,8 @@
 			</input>
 		</vulnerability>
 
+		<!-- This needs to come after the above to work -->
+		<!-- TODO: enforce order in the module metadata somehow? -->
 		<vulnerability module_path=".*writable_passwd|.*writable_shadow"/>
 
 		<network type="private_network">
