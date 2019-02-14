@@ -3,12 +3,11 @@
 <vulnerability xmlns="http://www.github/cliffe/SecGen/vulnerability"
                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                xsi:schemaLocation="http://www.github/cliffe/SecGen/vulnerability">
-  <name>2x Shell Module</name>
-  <author>Mihai Ordean</author>
-  <author>Puppet Labs</author>
+  <name>Relative path setuid access</name>
+  <author>Z. Cliffe Schreuders</author>
   <module_license>Apache v2</module_license>
-  <description>Creates a C file and a shell executable with permissions within two user directories. Drops a flag in a
-    user's home directory.
+  <description>A setuid program feeds the user a flag from it's home directory.
+    A second flag is available via hardlink trickery.
   </description>
 
   <type>system</type>
@@ -30,30 +29,20 @@
         <generator type="strong_password_generator"/>
       </input>
       <input into="leaked_filenames">
-        <value>flag.txt</value>
+        <value>flag1</value>
+        <value>flag2</value>
       </input>
       <input into="strings_to_leak">
+        <generator type="flag_generator"/>
         <generator type="flag_generator"/>
       </input>
     </generator>
 
-    <generator type="account">
-      <input into="password">
-        <generator type="strong_password_generator"/>
-      </input>
-      <input into="leaked_filenames">
-        <value/>
-      </input>
-      <input into="strings_to_leak">
-        <!-- String 'none' used for setting permissions on 'shell' binary in puppet. -->
-        <value>none</value>
-      </input>
-    </generator>
   </default_input>
 
   <!--optional details-->
-  <hint>Find the 2 user accounts with '~/shell' binaries, investigate the shell.c code and their permissions. </hint>
-  <solution>Try to combine the two binaries to make something interesting happen.</solution>
+  <hint>There is a security problem caused by not using an absolute filename when opening the file, it opens "flag1" rather than "/home/user/flag1". Remember, any user can create a hard link to a file (therefore they can make a "copy" of the SUID program wherever they like).</hint>
+  <solution>Make a hard link to the SUID program in a directory that the attacker can write to, then also make a hard link to any file the SUID user owns, and name it "flag1" in the same directory as the program, then when you execute the program it will write out the contents of the file.</solution>
 
   <requires>
     <type>update</type>

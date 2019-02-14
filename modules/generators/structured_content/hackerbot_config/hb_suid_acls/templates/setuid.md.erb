@@ -1,6 +1,6 @@
-## Set UID (SUID)
+## Special File Permissions and Set UID (SUID)
 
-Sometimes a user needs to be able to do things that require permissions that they should not always have. For example, the passwd command is used to change your password. It needs read and write access to /etc/shadow. Clearly not every user should have that kind of access! Also, the ping command needs raw network access... Again not something that every user can do. The Unix solution is *set UID (SUID)*.
+Sometimes a user needs to be able to do things that require permissions that they should not always have. For example, the passwd command is used to change your password. When it runs it needs read and write access to /etc/shadow. Clearly not every user should have that kind of access! Also, the ping command needs raw network access... Again not something that every user can do. The Unix solution is *set UID (SUID)*.
 
 Using SUID, processes can be given permission to run as another user. For example, when you run passwd, the program actually runs as root (on most Unix systems).
 
@@ -25,17 +25,18 @@ ls -l /usr/bin/passwd
 
 `-rwsr-xr-x 1 root shadow 81792 Oct 29 18:26 /usr/bin/passwd`
 
-The `s` in the file permissions means that the file UID will be used as the effective UID.
+The `s` in the file permissions (where you would normally see an x for execute permission) means that when this program is started the file UID will be used as the effective UID.
 
 The SUID bit is stored in the first permission octet in the inode. ==Run:==
 
 ```bash
 stat /usr/bin/passwd
 ```
+`Access: (4755/-rwsr-xr-x)  Uid: (    0/    root)   Gid: (    0/    root)`
 
-> Note the octet representation of the file permissions.
+Note the octet representation of the file permissions: 4755. Make sure you understand how this results in the permissions "rwsr-xr-x".
 
-In your terminal console, open multiple tabs.
+In your terminal console, ==open multiple tabs==.
 
 ==In one tab run:==
 
@@ -51,54 +52,81 @@ passwd
 ps -o ruser,euser,comm -C passwd
 ```
 
-Or you can filter it down to *any* lines where the first two entries (ruid and euid) don't match:
+Or you can list all processes (-e) and use awk to filter it down to *any* lines where the first two entries (ruid and euid) don't match:
 
 ```bash
-ps -o ruser,euser,comm | awk '$1 != $2'
+ps -eo ruser,euser,comm | awk '$1 != $2'
 ```
 
 Make sure you understand the significance of the ruser and euser outputs not matching.
 
-Run this command to find all SUID programs on the system:
+==Run this== command to find all SUID programs on the system:
 
 ```bash
-sudo find / -type d -name ".snapshots" -prune -o +AFw( -perm -004000 -o -perm -002000 +AFw) -type f -print
+sudo find / -type f -perm -4000 -exec ls -ldb {} \;
 ```
 
-**Lab Book Question: Document why each one requires SUID permissions.**
+**Lab Book Question: Document why each SUID program on your desktop requires SUID permissions.**
 
 > Hint: look up each command using man.
 
-## Writing a SUID program in C
+## Set GID (SUID)
 
-You are going to create a SUID program, to grant access to the contents of your "mysecret" file to anyone who runs the program, without sharing direct access to the file.
+Set GID (SUID) is similar to SUID, except it is the effective group (EGID) that is changed. The EGID is changed to the group assigned to the executable file.
 
-Make sure "~/mysecrets" is only accessible by the owner: ls -la should show `rw-------` for that file.
+==Run:==
+```bash
+ls -la /usr/bin/wall
+```
+`-rwxr-sr-x 1 root tty 27448 Mar  7  2018 /usr/bin/wall`
 
-Create a C program by making a new file "accessmysecret.c":
+==Start wall in a separate tab, and run:==
 
 ```bash
-vi accessmysecret.c
+ps -o ruser,euser,rgroup,egroup,comm -C wall
 ```
 
-Remember, vi is modal. Press "i" to enter insert mode, then enter this code:
+**Lab Book Question: Document why the `wall` program requires SGID permissions.**
+
+
+==Search for all programs on your system that have SGID set.==
+
+> Hint: try modifying the above command.
+
+## Trust boundaries and SUID risks
+
+Every time SUID/SGID is used it respresents a security risk, because that program acts as a **trust boundary** (where execution changes its level of "trust") because the process attains an increased privilege level. A vulnerability in a SUID/SGID program could result in the user gaining escalated privileges.
+
+## Writing a SUID program in C
+
+You are going to compile a SUID program, to grant access to the contents of your "mysecret" file to anyone who runs the program, without sharing direct access to the file.
+
+==Use file permissions== to make "~/mysecret" only accessible by the owner: ls -la should show `rw-------` for that file.
+
+Create a C program by compiling "access_my_secrets.c". ==View the program code:==
+
+```bash
+vi access_my_secrets.c
+```
+
+The file should contain:
 
 ```c
-#include <stdio.h>
-#include <stdlib.h>
-#include <sys/types.h>
-#include <unistd.h>
-#include <errno.h>
+ #include \<stdio.h>
+ #include \<stdlib.h>
+ #include \<sys/types.h>
+ #include \<unistd.h>
+ #include \<errno.h>
 
 int main()
 {
-  printf("      	UID         	GID +AFw-n"
-     	"Real  	%d  Real  	%d +AFw-n"
-     	"Effective %d  Effective %d +AFw-n",
+  printf("      	UID         	GID \n"
+     	"Real  	%d  Real  	%d \n"
+     	"Effective %d  Effective %d \n",
      	getuid (), 	getgid (),
      	geteuid(), 	getegid());
 
-  FILE *fp = fopen("flag1", "r");
+  FILE *fp = fopen("mysecret", "r");
   if (fp == NULL) {
   	printf("Error: Could not open file");
   	exit(EXIT_FAILURE);
@@ -107,109 +135,69 @@ int main()
   while ((c=getc(fp)) != EOF) {
     putchar(c);
   }
-  putchar('+AFw-n');
+  putchar('\n');
   return EXIT_SUCCESS;
 }
 ```
 
-Save your changes and quit (Esc, ":wq").
+==Save any changes and quit== (Esc, ":wq").
 
-Compile the program (which uses the C code to create an executable):
+==Compile the program== (which uses the C code to create an executable):
 
 ```bash
-gcc accessmysecrets.c -o accessmysecrets
+gcc access_my_secrets.c -o access_my_secrets
 ```
 
-Set the permissions for the file (using chmod) to setuid:
+==Run the program, and make sure it prints the contents of mysecret.==
+
+==Set the permissions for the file== (using chmod) to setuid:
 
 ```bash
-chmod u+s accessmysecrets
+chmod u+s access_my_secrets
 ```
 
 Check the permissions include SUID:
 
 ```bash
-ls -l accessmysecrets
+ls -l access_my_secrets
 ```
 
-Run the program:
+Run the program again:
 
 ```bash
-./accessmysecrets
+./access_my_secrets
 ```
 
 Note that the program outputs its real and effective identity.
 
-Change to another user, and execute the program:
+Change to another <%= $second_user %>, and execute the program:
 
 ```bash
-/home/student/accessmysecrets
+su <%= $second_user %> -
+cd /home/<%= $main_user %>
+./access_my_secrets
 ```
 
-Note that the effective ID is that of the owner of the program. You should also see the contents of the mysecrets file, even though you don't have access to the secrets file directly.
+> You may need to ==change the permissions on your home directory to enable other users to list your files==.
 
-Think about the security of this solution. How secure is it? Would it be safe for root to be the owner of this program? Why not?
+Note that the effective ID is that of the owner of the program. You should also see the contents of the mysecret file, even though you don't have access to the secrets file directly.
 
-**Challenge**: switch to another user and use the SUID accessmysecrets program to get read access to any one of the owner user's files!
+Think about the security of this solution. How secure is it? Would it be safe for root to be the owner of this program? Why not? (You will come back to this.)
 
-**Challenge**: Modify the program to correct the above vulnerability.
+==**Recommended AFTER completing all the flags:**==
 
-**Challenge**: Modify the program so that the script checks the UID and only continues for a specific user (for example, if the user is root).
+==Lab Book Question:== It is possible to use this SUID program to get read access to **any** one of the owner user's files! Modify the program to correct the above vulnerability.
+
+==Lab Book Question:== Modify the program so that the script checks the UID and only continues for a specific user (for example, if the user is root).
 
 > Hint: `man getuid`
 
-## Linux Extended ACLs
-
-We have explored standard Unix permissions. Modern Linux systems (and some other Unix-based systems) now have more complete (and complicated) ACL support.
-
-As previously mentioned, an *access control list (ACL)* is attached to an object (resource) and lists all the subjects (users / active entities) that are allowed access, along with the kind of access that is authorised.
-
-Set a file ACL on your mysecrets file, using the setfacl command:
-
-```bash
-setfacl -m u:student:r ~/mysecrets
-```
-
-This grants the "student" user read access to the file.
-
-Note that the stat program is not usually ACL aware, so won't report anything out of the usual:
-
-```bash
-stat ~/mysecrets
-```
-
-The ls program can be used to detect File ACLs:
-
-```bash
-ls -la ~/mysecrets
-```
-
-`-rw-r-----+ 1 cliffe users 22 Feb 28 11:47 mysecrets`
-
-Note that the output includes a `+`. This indicates an ACL is in place.
-
-Use getfacl to display the permissions:
-
-```bash
-getfacl ~/mysecrets
-```
-
-Use Linux File ACLs to grant one or more specific users (other class members) read access to your mysecrets file.
-
-Using ACLs, grant any other group (you choose) read-write access to your mygroupshare file.
-
-Remove the group permission you just added.
-
-> Example: `setfacl -x g:staff file`
 
 ## Conclusion
 
 At this point you have:
 
 -   Learned about Set UID (SUID), become more familiar with C, and compiled a SUID C program
-
--   You may have also done some more programming of your own, (congratulations, if you spotted and/or fixed the security problem)
-
--   Used Linux Extended ACLs to configure more advanced security policies
+-   Working with C code to compile, edit, and correct security vulnerabilities
 
 Well done!

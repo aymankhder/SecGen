@@ -1,0 +1,1 @@
+Usually SecGen modules can be used without dependencies on anything else in the scenario. However, Hackerbot configs are closely tied to their scenarios (as Hackerbot interacts with multiple VMs expecting specific modules to be deployed, and so on).

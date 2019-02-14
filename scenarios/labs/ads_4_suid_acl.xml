@@ -4,7 +4,7 @@
 		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		xsi:schemaLocation="http://www.github/cliffe/SecGen/scenario">
 
-	<name>Set UID and Access Control Lists lab</name>
+	<name>Set User ID lab</name>
   <author>Z. Cliffe Schreuders</author>
   <description>A Hackerbot lab. Work through the labsheet, then when prompted interact with Hackerbot.</description>
 
@@ -34,22 +34,7 @@
 					<value>mythical_creatures</value>
 				</input>
 			</generator>
-			<!-- 4 other users -->
-			<generator type="random_word_generator">
-				<input into="wordlist">
-					<value>mythical_creatures</value>
-				</input>
-			</generator>
-			<generator type="random_word_generator">
-				<input into="wordlist">
-					<value>mythical_creatures</value>
-				</input>
-			</generator>
-			<generator type="random_word_generator">
-				<input into="wordlist">
-					<value>mythical_creatures</value>
-				</input>
-			</generator>
+			<!-- other user -->
 			<generator type="random_word_generator">
 				<input into="wordlist">
 					<value>mythical_creatures</value>
@@ -57,12 +42,9 @@
 			</generator>
 		</input>
 
-		<!-- generate some passwords to be cracked -->
+		<!-- generate some passwords to use -->
 		<input into_datastore="passwords">
 			<generator type="medium_password_generator"/>
-			<generator type="strong_password_generator"/>
-			<generator type="strong_password_generator"/>
-			<generator type="strong_password_generator"/>
 		</input>
 
 		<input into_datastore="groups">
@@ -71,8 +53,7 @@
 			<value>team_two</value>
 		</input>
 
-
-		<!-- accounts on the desktop, with the main user as a sudoer, with no flags -->
+		<!-- accounts on the desktop, with the main user as a sudoer -->
 		<input into_datastore="user_accounts_desktop">
 			<!-- main user, sudoer -->
 			<generator type="account">
@@ -82,11 +63,51 @@
 				<input into="password">
 					<value>tiaspbiqe2r</value>
 				</input>
+				<input into="leaked_filenames">
+					<value>access_my_secrets.c</value>
+					<value>mysecret</value>
+				</input>
+				<input into="strings_to_leak">
+					<value>
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;sys/types.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;errno.h&gt;
+
+int main()
+{
+  printf(&quot;      	UID         	GID +AFw-n&quot;
+     	&quot;Real  	%d  Real  	%d +AFw-n&quot;
+     	&quot;Effective %d  Effective %d +AFw-n&quot;,
+     	getuid (), 	getgid (),
+     	geteuid(), 	getegid());
+
+  FILE *fp = fopen(&quot;mysecret&quot;, &quot;r&quot;);
+  if (fp == NULL) {
+  	printf(&quot;Error: Could not open file&quot;);
+  	exit(EXIT_FAILURE);
+  }
+  char c;
+  while ((c=getc(fp)) != EOF) {
+    putchar(c);
+  }
+  putchar(&apos;+AFw-n&apos;);
+  return EXIT_SUCCESS;
+}
+					</value>
+					<generator type="random_line_generator">
+						<input into="linelist">
+							<value>secrets</value>
+						</input>
+					</generator>
+
+				</input>
 				<input into="super_user">
 					<value>true</value>
 				</input>
 			</generator>
-			<!-- other users, with weak passwords, no flags -->
+			<!-- other user, no flags -->
 			<generator type="account">
 				<input into="username">
 					<datastore access="next">usernames</datastore>
@@ -95,30 +116,7 @@
 					<datastore access="0">passwords</datastore>
 				</input>
 			</generator>
-			<generator type="account">
-				<input into="username">
-					<datastore access="next">usernames</datastore>
-				</input>
-				<input into="password">
-					<datastore access="next">passwords</datastore>
-				</input>
-			</generator>
-			<generator type="account">
-				<input into="username">
-					<datastore access="next">usernames</datastore>
-				</input>
-				<input into="password">
-					<datastore access="next">passwords</datastore>
-				</input>
-			</generator>
-			<generator type="account">
-				<input into="username">
-					<datastore access="next">usernames</datastore>
-				</input>
-				<input into="password">
-					<datastore access="next">passwords</datastore>
-				</input>
-			</generator>
+
 		</input>
 
 		<input into_datastore="desktop_root_password">
@@ -150,8 +148,6 @@
 			</input>
 		</utility>
 		<utility module_path=".*handy_cli_tools"/>
-		<utility module_path=".*hash_tools"/>
-		<utility module_path=".*pam_modules"/>
 
 		<utility module_path=".*iceweasel">
 			<input into="accounts">
@@ -209,7 +205,7 @@
 					<value>team_one</value>
 				</input>
 			</generator>
-			<!-- other users, with the SAME weak passwords, WITH flags -->
+			<!-- other users, with the SAME passwords -->
 			<generator type="account">
 				<input into="username">
 					<datastore access="next">usernames</datastore>
@@ -223,48 +219,7 @@
 					<value>team_two</value>
 				</input>
 			</generator>
-			<generator type="account">
-				<input into="username">
-					<datastore access="next">usernames</datastore>
-				</input>
-				<input into="password">
-					<datastore access="next">passwords</datastore>
-				</input>
-				<input into="groups">
-					<value>staff</value>
-					<value>team_two</value>
-				</input>
-			</generator>
-			<generator type="account">
-				<input into="username">
-					<datastore access="next">usernames</datastore>
-				</input>
-				<input into="password">
-					<datastore access="next">passwords</datastore>
-				</input>
-				<input into="groups">
-					<value>staff</value>
-				</input>
-			</generator>
-			<generator type="account">
-				<input into="username">
-					<datastore access="next">usernames</datastore>
-				</input>
-				<input into="password">
-					<datastore access="next">passwords</datastore>
-				</input>
-				<input into="groups">
-					<value>staff</value>
-				</input>
-				<input into="leaked_filenames">
-					<value>flags</value>
-				</input>
-				<input into="strings_to_leak">
-					<generator type="flag_generator" />
-					<generator type="flag_generator" />
-				</input>
 
-			</generator>
 		</input>
 
 		<!--Create the groups-->
@@ -288,11 +243,12 @@
 			</input>
 		</vulnerability>
 
-		<vulnerability type="suid_root_editor"/>
+		<!-- TODO include on another server? -->
+		<!-- <vulnerability type="suid_root_editor"/> -->
 
-<!-- TODO move to another server? -->
-		<vulnerability module_path=".*two_shell_calls">
-			<input into="accounts">
+		<vulnerability module_path=".*relative_path_suid_hardlinks"/>
+		<vulnerability module_path=".*two_shell_calls"/>
+			<!-- <input into="accounts">
 				<generator type="account">
 					<input into="username">
 						<value>jakkinkade</value>
@@ -322,7 +278,7 @@
 					</input>
 				</generator>
 			</input>
-		</vulnerability>
+		</vulnerability> -->
 
 
 		<network type="private_network">
