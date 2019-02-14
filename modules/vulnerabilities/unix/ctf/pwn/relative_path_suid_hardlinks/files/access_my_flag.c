@@ -6,9 +6,9 @@
 
 int main()
 {
-  printf("      	UID         	GID +AFw-n"
-     	"Real  	%d  Real  	%d +AFw-n"
-     	"Effective %d  Effective %d +AFw-n",
+  printf("      	UID         	GID \n"
+     	"Real  	%d  Real  	%d \n"
+     	"Effective %d  Effective %d \n",
      	getuid (), 	getgid (),
      	geteuid(), 	getegid());
 
@@ -21,6 +21,6 @@ int main()
   while ((c=getc(fp)) != EOF) {
     putchar(c);
   }
-  putchar('+AFw-n');
+  putchar('\n');
   return EXIT_SUCCESS;
 }

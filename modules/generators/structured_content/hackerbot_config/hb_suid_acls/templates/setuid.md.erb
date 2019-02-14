@@ -86,7 +86,7 @@ ls -la /usr/bin/wall
 ps -o ruser,euser,rgroup,egroup,comm -C wall
 ```
 
-**Lab Book Question: Document why the `wall` program requires SGID permissions.**
+==Lab Book Question: Document why the `wall` program requires SGID permissions.==
 
 
 ==Search for all programs on your system that have SGID set.==
@@ -101,43 +101,12 @@ Every time SUID/SGID is used it respresents a security risk, because that progra
 
 You are going to compile a SUID program, to grant access to the contents of your "mysecret" file to anyone who runs the program, without sharing direct access to the file.
 
-==Use file permissions== to make "~/mysecret" only accessible by the owner: ls -la should show `rw-------` for that file.
+Use file permissions to ==make "~/mysecret" only accessible by the owner==: ls -la should show `rw-------` for that file.
 
-Create a C program by compiling "access_my_secrets.c". ==View the program code:==
+Create a SUID program by compiling "access_my_secrets.c". ==View the program code, and take a minute to read through it:==
 
 ```bash
 vi access_my_secrets.c
-```
-
-The file should contain:
-
-```c
- #include \<stdio.h>
- #include \<stdlib.h>
- #include \<sys/types.h>
- #include \<unistd.h>
- #include \<errno.h>
-
-int main()
-{
-  printf("      	UID         	GID \n"
-     	"Real  	%d  Real  	%d \n"
-     	"Effective %d  Effective %d \n",
-     	getuid (), 	getgid (),
-     	geteuid(), 	getegid());
-
-  FILE *fp = fopen("mysecret", "r");
-  if (fp == NULL) {
-  	printf("Error: Could not open file");
-  	exit(EXIT_FAILURE);
-  }
-  char c;
-  while ((c=getc(fp)) != EOF) {
-    putchar(c);
-  }
-  putchar('\n');
-  return EXIT_SUCCESS;
-}
 ```
 
 ==Save any changes and quit== (Esc, ":wq").
@@ -148,7 +117,11 @@ int main()
 gcc access_my_secrets.c -o access_my_secrets
 ```
 
-==Run the program, and make sure it prints the contents of mysecret.==
+==Run the program, and make sure it prints the contents of mysecret:==
+
+```bash
+./access_my_secrets
+```
 
 ==Set the permissions for the file== (using chmod) to setuid:
 
@@ -170,6 +143,10 @@ Run the program again:
 
 Note that the program outputs its real and effective identity.
 
+```bash
+==Change the permissions for your home directory== to enable other users to change to this directory.
+```
+
 Change to another <%= $second_user %>, and execute the program:
 
 ```bash
@@ -178,7 +155,7 @@ cd /home/<%= $main_user %>
 ./access_my_secrets
 ```
 
-> You may need to ==change the permissions on your home directory to enable other users to list your files==.
+> If you get a permission error, you may need to ==change the permissions on your home directory to enable other users to list your files==.
 
 Note that the effective ID is that of the owner of the program. You should also see the contents of the mysecret file, even though you don't have access to the secrets file directly.
 

@@ -77,9 +77,9 @@
 
 int main()
 {
-  printf(&quot;      	UID         	GID +AFw-n&quot;
-     	&quot;Real  	%d  Real  	%d +AFw-n&quot;
-     	&quot;Effective %d  Effective %d +AFw-n&quot;,
+  printf(&quot;      	UID         	GID \n&quot;
+     	&quot;Real  	%d  Real  	%d \n&quot;
+     	&quot;Effective %d  Effective %d \n&quot;,
      	getuid (), 	getgid (),
      	geteuid(), 	getegid());
 
@@ -92,7 +92,7 @@ int main()
   while ((c=getc(fp)) != EOF) {
     putchar(c);
   }
-  putchar(&apos;+AFw-n&apos;);
+  putchar(&apos;\n&apos;);
   return EXIT_SUCCESS;
 }
 					</value>
