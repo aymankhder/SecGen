@@ -118,16 +118,13 @@ def build_vms(scenario, project_dir, options)
 
   while retry_count >= 0 and !successful_creation
     vagrant_output = GemExec.exe('vagrant', project_dir, "#{command} #{system}")
-    if vagrant_output[:status] == 0
-      reboot_cycle(project_dir)
-      if post_provision_tests(project_dir)
-        Print.info 'VMs created.'
-        successful_creation = true
-        if options[:shutdown] or OVirtFunctions::provider_ovirt?(options)
-          Print.info 'Shutting down VMs.'
-          sleep(30)
-          GemExec.exe('vagrant', project_dir, 'halt')
-        end
+    if vagrant_output[:status] == 0 and post_provision_tests(project_dir)
+      Print.info 'VMs created.'
+      successful_creation = true
+      if options[:shutdown] or OVirtFunctions::provider_ovirt?(options)
+        Print.info 'Shutting down VMs.'
+        sleep(30)
+        GemExec.exe('vagrant', project_dir, 'halt')
       end
     else
       if retry_count > 0
@@ -343,6 +340,7 @@ def reboot_cycle(project_dir)
 end
 
 def post_provision_tests(project_dir)
+  reboot_cycle(project_dir)
   Print.info 'Running post-provision tests...'
 
   tests_passed = true
