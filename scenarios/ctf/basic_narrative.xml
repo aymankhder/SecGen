@@ -439,7 +439,7 @@
 
     <network type="private_network">
       <input into="IP_address">
-        <datastore access="next">IP_addresses</datastore>
+        <datastore access="0">IP_addresses</datastore>
       </input>
     </network>
 
@@ -454,9 +454,22 @@
     <system_name>attack_vm</system_name>
     <base distro="Kali" name="MSF"/>
     <utility module_path=".*kali_top10"/>
+
+    <utility module_path=".*iceweasel">
+      <input into="accounts">
+        <value>{"username":"root","password":"toor","super_user":"","strings_to_leak":[],"leaked_filenames":[]}</value>
+      </input>
+      <input into="autostart">
+        <value>true</value>
+      </input>
+      <input into="start_page">
+        <datastore access="0">IP_addresses</datastore>
+      </input>
+    </utility>
+
     <network type="private_network">
       <input into="IP_address">
-        <datastore access="next">IP_addresses</datastore>
+        <datastore access="1">IP_addresses</datastore>
       </input>
     </network>
   </system>
