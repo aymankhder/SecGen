@@ -453,7 +453,6 @@
   <system>
     <system_name>attack_vm</system_name>
     <base distro="Kali" name="MSF"/>
-    <utility module_path=".*kali_top10"/>
 
     <utility module_path=".*iceweasel">
       <input into="accounts">

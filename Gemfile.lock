@@ -147,6 +147,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  CFPropertyList
   bases
   bcrypt
   braille!
@@ -187,4 +188,4 @@ DEPENDENCIES
   zipruby
 
 BUNDLED WITH
-   1.11.2
+   2.0.0.pre.2
