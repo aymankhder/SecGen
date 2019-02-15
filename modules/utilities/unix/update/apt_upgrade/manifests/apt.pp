@@ -17,7 +17,7 @@ class apt_upgrade::apt {
           try_sleep => 30,
           timeout => 0,
           logoutput   => true,
-          require => Exec['hold puppet agent'],
+          require => Exec['hold puppet-agent'],
         }
       }
       'Ubuntu': {
