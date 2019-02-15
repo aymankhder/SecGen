@@ -9,7 +9,7 @@ class apt_upgrade::apt {
       'Debian': {
         # can't upgrade puppet agent mid-provision or it breaks on oVirt.
         exec { 'hold puppet-agent':
-          command => '/usr/bin/apt hold puppet-agent'
+          command => '/usr/bin/apt-mark hold puppet-agent'
         }
         exec { 'update':
           command   => "/usr/bin/apt-get -y upgrade",
