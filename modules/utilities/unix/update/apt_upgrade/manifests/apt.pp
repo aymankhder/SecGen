@@ -7,12 +7,17 @@ class apt_upgrade::apt {
   } else {
     case $operatingsystem {
       'Debian': {
+        # can't upgrade puppet agent mid-provision or it breaks on oVirt.
+        exec { 'hold puppet-agent':
+          command => '/usr/bin/apt hold puppet-agent'
+        }
         exec { 'update':
           command   => "/usr/bin/apt-get -y upgrade",
           tries     => 5,
           try_sleep => 30,
           timeout => 0,
           logoutput   => true,
+          require => Exec['hold puppet agent'],
         }
       }
       'Ubuntu': {
