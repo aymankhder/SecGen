@@ -31,6 +31,7 @@ def usage
    --help, -h: Shows this usage information
    --system, -y [system_name]: Only build this system_name from the scenario
    --snapshot: Creates a snapshot of VMs once built
+   --no-tests: Prevent post-provisioning tests from running.
 
    VIRTUALBOX OPTIONS:
    --gui-output, -g: Show the running VM (not headless)
@@ -118,7 +119,7 @@ def build_vms(scenario, project_dir, options)
 
   while retry_count >= 0 and !successful_creation
     vagrant_output = GemExec.exe('vagrant', project_dir, "#{command} #{system}")
-    if vagrant_output[:status] == 0 and post_provision_tests(project_dir)
+    if vagrant_output[:status] == 0 and post_provision_tests(project_dir, options)
       Print.info 'VMs created.'
       successful_creation = true
       if options[:shutdown] or OVirtFunctions::provider_ovirt?(options)
@@ -339,25 +340,27 @@ def reboot_cycle(project_dir)
   sleep 45
 end
 
-def post_provision_tests(project_dir)
-  reboot_cycle(project_dir)
-  Print.info 'Running post-provision tests...'
-
+def post_provision_tests(project_dir, options)
   tests_passed = true
-  test_module_outputs = []
-  test_script_paths = Dir.glob("#{project_dir}/puppet/*/modules/*/secgen_test/*.rb")
-  test_script_paths.each do |test_file_path|
-    test_stdout, test_stderr, test_status = Open3.capture3("bundle exec ruby #{test_file_path}")
-    test_module_outputs << {:stdout => test_stdout.split("\n"), :stderr => test_stderr, :exit_status => test_status}
-  end
-  test_module_outputs.each do |test_output|
-    if test_output[:exit_status].exitstatus != 0
-      tests_passed = false
-      Print.err test_output[:stdout].join("\n")
-      Print.err "Post provision tests contained failures!"
-      Print.err test_output[:stderr]
-    else
-      Print.info test_output[:stdout].join("\n")
+  unless options[:notests]
+    reboot_cycle(project_dir)
+    Print.info 'Running post-provision tests...'
+
+    test_module_outputs = []
+    test_script_paths = Dir.glob("#{project_dir}/puppet/*/modules/*/secgen_test/*.rb")
+    test_script_paths.each do |test_file_path|
+      test_stdout, test_stderr, test_status = Open3.capture3("bundle exec ruby #{test_file_path}")
+      test_module_outputs << {:stdout => test_stdout.split("\n"), :stderr => test_stderr, :exit_status => test_status}
+    end
+    test_module_outputs.each do |test_output|
+      if test_output[:exit_status].exitstatus != 0
+        tests_passed = false
+        Print.err test_output[:stdout].join("\n")
+        Print.err "Post provision tests contained failures!"
+        Print.err test_output[:stderr]
+      else
+        Print.info test_output[:stdout].join("\n")
+      end
     end
   end
   tests_passed
@@ -411,6 +414,7 @@ opts = GetoptLong.new(
     ['--ovirt-network', GetoptLong::REQUIRED_ARGUMENT],
     ['--ovirt-affinity-group', GetoptLong::REQUIRED_ARGUMENT],
     ['--snapshot', GetoptLong::NO_ARGUMENT],
+    ['--no-tests', GetoptLong::NO_ARGUMENT],
 )
 
 scenario = SCENARIO_XML
@@ -479,6 +483,9 @@ opts.each do |opt, arg|
   when '--forensic-image-type'
     Print.info "Image output type set to #{arg}"
     options[:forensic_image_type] = arg
+  when '--no-tests'
+    Print.info "Not running post-provision tests"
+    options[:notests] = true
 
   when '--ovirtuser'
     Print.info "Ovirt Username : #{arg}"
