@@ -11,6 +11,7 @@ class OnlineStoreTest < PostProvisionTest
     super
     test_service_up
     test_html_returned_content('/index.php', '<title>Welcome to furniture!</title>')
+    test_local_command('Users table populated?',"mysql -u csecvm --password=#{json_inputs['db_password'][0]} -D csecvm -e \"SELECT * FROM users;\"", JSON.parse(json_inputs['accounts'][1])['name'])
   end
 end
 
