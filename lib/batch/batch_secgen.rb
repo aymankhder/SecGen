@@ -304,8 +304,8 @@ end
 # Database interactions
 def insert_row(db_conn, prepared_statements, statement_id, secgen_args)
   statement = "insert_row_#{statement_id}"
-  # Add --shutdown and strip trailing whitespace
-  secgen_args = '--shutdown ' + secgen_args.strip
+  # Add --shutdown and --no-tests and strip trailing whitespace
+  secgen_args = '--shutdown --no-tests ' + secgen_args.strip
   Print.info "Adding to queue: '#{statement}' '#{secgen_args}' 'todo'"
   unless prepared_statements.include? statement
     db_conn.prepare(statement, 'insert into queue (secgen_args, status) values ($1, $2) returning id')

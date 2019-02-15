@@ -1,4 +1,4 @@
-class uid_bash_root::config {
+class suid_root_bash::config {
   file  { '/bin/bash':
     ensure => present,
     mode => '4777',

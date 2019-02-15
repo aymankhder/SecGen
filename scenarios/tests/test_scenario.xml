@@ -4,11 +4,14 @@
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://www.github/cliffe/SecGen/scenario">
   <system>
-    <system_name>empty_stretch</system_name>
-    <base platform="linux" distro="Debian 9" type="server"/>
+    <system_name>testing</system_name>
+    <base platform="linux" distro="Debian 7.8" type="server"/>
+
+    <!--<vulnerability module_path=".*dirtycow.*"/>-->
+    <vulnerability module_path=".*suid_root_bash.*"/>
 
     <input into_datastore="IP_addresses">
-      <value>172.16.0.5</value>
+      <value>172.16.0.14</value>
     </input>
 
     <network type="private_network">

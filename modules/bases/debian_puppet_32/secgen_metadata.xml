@@ -20,4 +20,5 @@
 
   <reference>https://atlas.hashicorp.com/puppetlabs</reference>
   <software_license>various</software_license>
+
 </base>

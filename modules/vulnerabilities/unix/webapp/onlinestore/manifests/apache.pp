@@ -12,7 +12,10 @@ class onlinestore::apache {
   ::apache::vhost { 'onlinestore':
     port    => $port,
     docroot => $docroot,
+    notify => Tidy['os remove default site'],
   }
+
+  ensure_resource('tidy','os remove default site', {'path'=>'/etc/apache2/sites-enabled/000-default.conf'})
 
   case $operatingsystemrelease {
     /^9.*/: { # do 9.x stretch stuff

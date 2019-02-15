@@ -15,4 +15,8 @@
 
   <hint>Shell permission misconfiguration</hint>
   <solution>Bash shell running with root permissions due to suid bit set (try /bin/bash -cp "some_command")</solution>
+
+  <conflict>
+    <module_path>.*shellshock.*</module_path>
+  </conflict>
 </vulnerability>
