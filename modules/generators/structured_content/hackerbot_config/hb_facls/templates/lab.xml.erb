@@ -17,6 +17,9 @@
   $second_user = $second_account['username'].to_s
   $second_password = $second_account['password'].to_s
 
+  $third_account = JSON.parse(self.accounts[2])
+  $third_user = $third_account['username'].to_s
+  $third_password = $third_account['password'].to_s
 
   $server_ip = self.server_ip.first
   $root_password = self.root_password
