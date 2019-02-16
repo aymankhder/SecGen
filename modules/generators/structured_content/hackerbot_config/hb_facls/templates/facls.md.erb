@@ -1,0 +1,47 @@
+## Linux Extended ACLs
+
+An *access control list (ACL)* is attached to an object (resource) and lists all the subjects (users / active entities) that are allowed access, along with the kind of access that is authorised.
+
+We have explored standard Unix (POSIX) file permissions, which is an abbreviated (simplified) ACL. Modern Linux systems (and some other Unix-based systems) now have more complete (and complicated) **extended** ACL support, enabling .
+
+Todo: windows includes deny rules
+
+Set a file ACL on your mysecrets file, using the setfacl command:
+
+```bash
+setfacl -m u:student:r ~/mysecret
+```
+
+This grants the "student" user read access to the file.
+
+Note that the stat program is not usually ACL aware, so won't report anything out of the usual:
+
+```bash
+stat ~/mysecret
+```
+
+The ls program can be used to detect File ACLs:
+
+```bash
+ls -la ~/mysecret
+```
+
+`-rw-r-----+ 1 cliffe users 22 Feb 28 11:47 mysecrets`
+
+Note that the output includes a `+`. This indicates an ACL is in place.
+
+Use getfacl to display the permissions:
+
+```bash
+getfacl ~/mysecret
+```
+
+Use Linux File ACLs to grant one or more specific users (other class members) read access to your mysecrets file.
+
+Using ACLs, grant any other group (you choose) read-write access to your mygroupshare file.
+
+Remove the group permission you just added.
+
+> Example: `setfacl -x g:staff file`
+
+TODO: Setting ACL defaults

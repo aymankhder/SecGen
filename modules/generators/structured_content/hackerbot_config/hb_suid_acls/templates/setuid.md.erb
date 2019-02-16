@@ -161,6 +161,8 @@ Note that the effective ID is that of the owner of the program. You should also 
 
 Think about the security of this solution. How secure is it? Would it be safe for root to be the owner of this program? Why not? (You will come back to this.)
 
+> Hint: the system will be particularly vulnerable when fs.protected_hardlinks = 0 (you can run `echo 0 | sudo tee /proc/sys/fs/protected_hardlinks` to disable hardlink protection, as is the case on some Unix/Linux systems).
+
 ==**Recommended AFTER completing all the flags:**==
 
 ==Lab Book Question:== It is possible to use this SUID program to get read access to **any** one of the owner user's files! Modify the program to correct the above vulnerability.
