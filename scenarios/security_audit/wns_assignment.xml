@@ -4,7 +4,7 @@
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://www.github/cliffe/SecGen/scenario">
 
-  <!-- Security audit of an in the wild web application -->
+  <!-- Security audit of an in the wild web application that uses a database -->
   <system>
     <system_name>web_server</system_name>
     <base platform="linux" type="server" module_path=".*stretch.*"/>
@@ -13,7 +13,7 @@
       <value>172.16.0.2</value>
     </input>
 
-    <vulnerability type="in_the_wild" module_path=".*webapp.*">
+    <vulnerability type="webapp_with_db" module_path=".*webapp.*">
       <input into="IP_address">
         <datastore access="0">IP_addresses</datastore>
       </input>
