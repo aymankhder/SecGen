@@ -399,5 +399,4 @@ class apache (
   # This anchor can be used as a reference point for things that need to happen *after*
   # all modules have been put in place.
   anchor { '::apache::modules_set_up': }
-  ensure_resource('tidy','apache remove default site', {'path'=>'/etc/apache2/sites-enabled/000-default.conf'})
 }
