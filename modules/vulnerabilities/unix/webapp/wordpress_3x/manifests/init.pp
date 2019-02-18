@@ -71,11 +71,8 @@ class wordpress_3x {
     content => template('wordpress/wordpress_conf.sh.erb'),
   }
   ~>
-  cron::job { 'run wordpress config 10':
-    minute      => '0,5,10,15,20,25,30,35,40,45,50,55',
-    user        => 'root',
-    command     => '/bin/bash /wordpress_conf.sh',
-    environment => [ 'MAILTO=root', 'PATH="/usr/bin:/bin"', ],
+  cron { 'run wordpress config script':
+    command => '/bin/bash /wordpress_conf.sh',
+    minute => [0, 5,10,15,20,25,30,35,40,45,50,55]
   }
-
 }
