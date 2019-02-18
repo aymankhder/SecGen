@@ -25,11 +25,14 @@ define relative_path_suid_hardlinks::account($username, $password, $strings_to_l
     source => 'puppet:///modules/relative_path_suid_hardlinks/access_my_flag.c',
   }
 
+  file { '/etc/sysctl.d/hardlinks.conf':
+    content => "fs.protected_hardlinks = 0",
+  }
+
   exec { "$username-compileandsetup2":
     cwd     => "/home/$username/",
-    command => "gcc -o access_my_flag access_my_flag.c && sudo chown $username access_my_flag && sudo chmod 4750 access_my_flag",
+    command => "gcc -o access_my_flag access_my_flag.c && sudo chown $username access_my_flag && sudo chmod 4755 access_my_flag",
     path    => [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/' ],
-    require => Package['build-essential', 'gcc-multilib']
   }
 
 }

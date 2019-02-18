@@ -7,7 +7,7 @@
   <author>Z. Cliffe Schreuders</author>
   <module_license>Apache v2</module_license>
   <description>A setuid program feeds the user a flag from it's home directory.
-    A second flag is available via hardlink trickery.
+    A second flag is available via hardlink trickery (possible due to disabled newer protections).
   </description>
 
   <type>system</type>
