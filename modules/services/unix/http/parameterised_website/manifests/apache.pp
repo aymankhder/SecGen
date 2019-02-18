@@ -5,10 +5,14 @@ class parameterised_website::apache {
   class { '::apache':
     default_vhost => false,
     overwrite_ports => false,
+    mpm_module => 'prefork',
   }
 
-  apache::vhost { 'vhost.test.com':
+  apache::vhost { 'parameterised.website':
     port    => $port,
     docroot => '/var/www/parameterised_website',
+    notify => Tidy['pws remove default site'],
   }
+
+  ensure_resource('tidy','pws remove default site', {'path'=>'/etc/apache2/sites-enabled/000-default.conf'})
 }

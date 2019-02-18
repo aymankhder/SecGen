@@ -14,6 +14,7 @@
 
   <type>webapp</type>
   <type>in_the_wild</type>
+  <type>webapp_with_db</type>
   <privilege>user_rwx</privilege>
   <access>remote</access>
   <platform>linux</platform>

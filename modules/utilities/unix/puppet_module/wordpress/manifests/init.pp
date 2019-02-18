@@ -136,4 +136,5 @@ class wordpress (
     wp_debug_log         => $wp_debug_log,
     wp_debug_display     => $wp_debug_display,
   }
+  ensure_resource('tidy','wp remove default site', {'path'=>'/etc/apache2/sites-enabled/000-default.conf'})
 }
