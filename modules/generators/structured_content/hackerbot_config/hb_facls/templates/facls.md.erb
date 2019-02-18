@@ -6,7 +6,7 @@ We have explored standard Unix file permissions, which is an abbreviated (simpli
 
 The Unix file permissions (0664) `-rw-rw-r-- 1 user1 group1 5 Feb 5 test` can be thought of as a simplified ACL with:
 
-Subject | Permission 
+Subject | Permission
 --- | ---
 user1 | read, write
 members of group1 | read, write
@@ -14,11 +14,11 @@ everyone else | read
 
 While this is an effective way of representing permissions, and is often adequate, using traditional file permissions there is no way of representing more complicated rules, such as also granting specific users access to write the file without making them members of group1.
 
-Modern systems (Windows, Linux, and some other Unix-based systems) now have more complete (and complicated) ACL support, enabling more fine-grained control over authorisation. 
+Modern systems (Windows, Linux, and some other Unix-based systems) now have more complete (and complicated) ACL support, enabling more fine-grained control over authorisation.
 
 A more expressive ACL for a file can represent a state such as:
 
-Subject | Permission 
+Subject | Permission
 --- | ---
 user1 | read, write
 user2 | read, write
@@ -32,7 +32,7 @@ Linux now has support for full ACLs (known as Linux ACLs or POSIX ACLs). Linux A
 
 ACLs require compatible filesystems so that they can be stored. Linux ACLs are saved as extended attributes (EA), which is used to associate metadata with files.
 
-Linux ACLs that are equivalent with Unix file permissions are known as **minimal ACLs**. Linux ACLs with more than these three entries (owner user, owner group, and others) are known as **extended ACLs**. 
+Linux ACLs that are equivalent with Unix file permissions are known as **minimal ACLs**. Linux ACLs with more than these three entries (owner user, owner group, and others) are known as **extended ACLs**.
 
 Subject type | Text representation
 --- | ---
@@ -91,7 +91,7 @@ getfacl ~/mysecret
 
 ## Mask
 
-Extended ACLs contain a mask entry that defines the upper bound (maximum permissions) that can be assigned by the ACL rules that apply to any named users or groups. This mask (mask::xxx) is typically automatically updated to the union (maximum) of all permissions granted, and automatically synced with the value of the group Unix file permission bits. 
+Extended ACLs contain a mask entry that defines the upper bound (maximum permissions) that can be assigned by the ACL rules that apply to any named users or groups. This mask (mask::xxx) is typically automatically updated to the union (maximum) of all permissions granted, and automatically synced with the value of the group Unix file permission bits.
 
 ==Grant full rwx permission to user2:==
 
@@ -105,7 +105,7 @@ setfacl -m u:user2:rwx ~/mysecret
 ls -la ~/mysecret
 ```
 
-Note that the group file permission has changed (in addition to the `+`, this helps to show the level of permission that can result from the new ACL rule. 
+Note that the group file permission has changed (in addition to the `+`, this helps to show the level of permission that can result from the new ACL rule.
 
 Again ==use getfacl to display the ACL rules:==
 
@@ -155,7 +155,7 @@ Quoted from (Grünbacher, 2003) [^1]
 
 ## Default ACLs
 
-Directories can have two kinds of ACLs: **access ACLs** (which define the actual rules applied -- this is what we have been using so far), and **default ACLs**. 
+Directories can have two kinds of ACLs: **access ACLs** (which define the actual rules applied -- this is what we have been using so far), and **default ACLs**.
 
 Default ACLs set the ACL rules that are applied to any new files created in the directory. Directories created inherit the default ACL, as the new access ACL and default ACL.
 
@@ -182,6 +182,7 @@ Windows has lots more kinds of access that can be assigned (including append and
 
 Linux ACLs use local UIDs and GIDs to assign identity to all subjects (even when authenticating against remote servers, local UIDs are generated). Windows uses global security identifers (SIDs) that can be local or for domain users (authenticated against a domain controller, the global SID is used on ACLs).
 
+==Log Book Question: Describe the differences between how Linux ACLs and Windows ACLs will grant permissions on files inside nested directories that have inherited ACLs ==
 
 ## Hackerbot challenges
 ## ---------------
@@ -192,4 +193,3 @@ Using ACLs, grant any other group (you choose) read-write access to your mygroup
 Remove the group permission you just added.
 
 > Example: `setfacl -x g:staff file`
-
