@@ -45,7 +45,7 @@ class dvwa::apache {
   ::apache::vhost { 'dvwa':
     port    => $port,
     docroot => $docroot,
-
+    notify => Tidy['dvwa remove default site']
   } ->
 
   exec { 'enable php module':

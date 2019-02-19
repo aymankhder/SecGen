@@ -13,6 +13,7 @@ class gitlist_040::apache {
   ::apache::vhost { 'www-gitlist':
     port    => $port,
     docroot => $docroot,
+    notify => Tidy['gl remove default site']
   }
 
   ensure_resource('tidy','gl remove default site', {'path'=>'/etc/apache2/sites-enabled/000-default.conf'})
