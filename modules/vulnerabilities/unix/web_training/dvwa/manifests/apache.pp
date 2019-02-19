@@ -72,4 +72,6 @@ class dvwa::apache {
 #    privileges => ['ALL'],
 #  }
 
+  ensure_resource('tidy','dvwa remove default site', {'path'=>'/etc/apache2/sites-enabled/000-default.conf'})
+
 }

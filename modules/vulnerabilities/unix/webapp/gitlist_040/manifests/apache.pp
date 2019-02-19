@@ -14,4 +14,6 @@ class gitlist_040::apache {
     port    => $port,
     docroot => $docroot,
   }
+
+  ensure_resource('tidy','gl remove default site', {'path'=>'/etc/apache2/sites-enabled/000-default.conf'})
 }

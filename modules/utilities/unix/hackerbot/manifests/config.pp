@@ -43,5 +43,6 @@ class hackerbot::config{
     docroot => '/var/www/labs',
   }
 
+  ensure_resource('tidy','hb remove default site', {'path'=>'/etc/apache2/sites-enabled/000-default.conf'})
 
 }
