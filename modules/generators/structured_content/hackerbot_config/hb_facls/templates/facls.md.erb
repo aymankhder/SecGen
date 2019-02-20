@@ -2,7 +2,7 @@
 
 An *access control list (ACL)* is attached to an object (resource) and lists all the subjects (users / active entities) that are allowed access, along with the kind of access that is authorised.
 
-We have explored standard Unix file permissions, which is an abbreviated (simplified) ACL. With standard Unix file permissions all authorisation is defined in terms of the owning user (u), groups (g), and others (o), and the type of access that can be granted are read (r), write (r), and execute (x) -- along with some special permission flags, SUID, SGID, and stickybit, which change the meaning of these.
+We have explored standard Unix file permissions, which is an abbreviated (simplified) form of ACL. With standard Unix file permissions all authorisation is defined in terms of the owning user (u), groups (g), and others (o), and the type of access that can be granted are read (r), write (r), and execute (x) -- along with some special permission flags, SUID, SGID, and stickybit, which change the meaning of these.
 
 The Unix file permissions (0664) `-rw-rw-r-- 1 user1 group1 5 Feb 5 test` can be thought of as a simplified ACL with:
 
@@ -12,7 +12,7 @@ user1 | read, write
 members of group1 | read, write
 everyone else | read
 
-While this is an effective way of representing permissions, and is often adequate, using traditional file permissions there is no way of representing more complicated rules, such as also granting specific users access to write the file without making them members of group1.
+While this is an effective way of representing permissions, and is often adequate, using these traditional Unix file permissions there is no way of representing more complicated rules, such as also granting specific users access to write the file without making them members of group1.
 
 Modern systems (Windows, Linux, and some other Unix-based systems) now have more complete (and complicated) ACL support, enabling more fine-grained control over authorisation.
 
@@ -30,9 +30,9 @@ everyone else | nothing
 
 Linux now has support for full ACLs (known as Linux ACLs or POSIX ACLs). Linux ACLs can include entries for named users and named groups.
 
-ACLs require compatible filesystems so that they can be stored. Linux ACLs are saved as extended attributes (EA), which is used to associate metadata with files.
+ACLs require compatible filesystems so that they can be stored. Linux ACLs are saved as extended attributes (EA), which are used to associate metadata with files.
 
-Linux ACLs that are equivalent with Unix file permissions are known as **minimal ACLs**. Linux ACLs with more than these three entries (owner user, owner group, and others) are known as **extended ACLs**.
+Linux ACLs that are equivalent with Unix file permissions are known as **minimal ACLs**. Linux ACLs with more than these three entries (owner user, owner group, and others) are known as **extended ACLs**. Below is a table showing the types of subjects present in Linux ACLs.
 
 Subject type | Text representation
 --- | ---
@@ -43,7 +43,7 @@ Named group | group:name:rwx
 Mask | mask::rwx
 Other | other::rwx
 
-The Owner (user::xxx) and Other (other:xxx) permissions are automatically synced to the Unix file permission bits.
+The Owner (user::xxx) and Other (other:xxx) permissions are automatically synced to the matching Unix file permission bits.
 
 ==Set a file ACL on your mysecret file==, using the setfacl command:
 
