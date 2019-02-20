@@ -4,13 +4,13 @@ After=postgresql.service
 
 [Service]
 EnvironmentFile=/etc/environment
-ExecStart=/usr/bin/ruby /home/secgen/SecGen/lib/batch/batch_secgen.rb start
+ExecStart=/usr/bin/ruby /home/deploy/SecGen/lib/batch/batch_secgen.rb start
 ExecReload=/bin/kill -HUP $MAINPID
 KillMode=process
-WorkingDirectory=/home/secgen/SecGen/
+WorkingDirectory=/home/deploy/SecGen/
 Restart=always
-User=secgen
-Group=secgen
+User=deploy
+Group=deploy
 
 [Install]
 WantedBy=multi-user.target
