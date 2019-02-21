@@ -4,7 +4,7 @@
 		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		xsi:schemaLocation="http://www.github/cliffe/SecGen/scenario">
 
-	<name>Access Control Lists lab</name>
+	<name>Access Control Lists (ACLs) lab</name>
   <author>Z. Cliffe Schreuders</author>
   <description>A Hackerbot lab. Work through the labsheet, then when prompted interact with Hackerbot.</description>
 
@@ -253,16 +253,13 @@
 				<input into="password">
 					<datastore access="next">passwords</datastore>
 				</input>
-				<input into="groups">
-					<value>staff</value>
-				</input>
-				<!-- <input into="leaked_filenames">
+				<input into="leaked_filenames">
 					<value>flags</value>
 				</input>
 				<input into="strings_to_leak">
 					<generator type="flag_generator" />
 					<generator type="flag_generator" />
-				</input> -->
+				</input>
 
 			</generator>
 		</input>
@@ -287,6 +284,9 @@
 				<datastore>desktop_root_password</datastore>
 			</input>
 		</vulnerability>
+
+		<!-- exposes the flags -->
+		<vulnerability type="suid_root_editor"/>
 
 		<network type="private_network">
 			<input into="IP_address">

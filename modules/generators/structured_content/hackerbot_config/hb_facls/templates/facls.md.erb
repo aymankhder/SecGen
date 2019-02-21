@@ -182,14 +182,5 @@ Windows has lots more kinds of access that can be assigned (including append and
 
 Linux ACLs use local UIDs and GIDs to assign identity to all subjects (even when authenticating against remote servers, local UIDs are generated). Windows uses global security identifers (SIDs) that can be local or for domain users (authenticated against a domain controller, the global SID is used on ACLs).
 
-==Log Book Question: Describe the differences between how Linux ACLs and Windows ACLs will grant permissions on files inside nested directories that have inherited ACLs ==
-
-## Hackerbot challenges
-## ---------------
-Use Linux File ACLs to grant one or more specific users (other class members) read access to your mysecrets file.
-
-Using ACLs, grant any other group (you choose) read-write access to your mygroupshare file.
-
-Remove the group permission you just added.
-
-> Example: `setfacl -x g:staff file`
+==Log Book Question: Describe an example of how the results would differ between how Linux ACLs and Windows ACLs grant permissions.==
+> Consider how permissions work for files inside nested directories that have inherited ACLs, and whether Linux ACLs include deny rules.==
