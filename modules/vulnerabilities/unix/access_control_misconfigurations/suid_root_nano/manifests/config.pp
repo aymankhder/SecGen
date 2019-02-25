@@ -1,5 +1,10 @@
-'suid_root_nano::change_uid_permissions':
-  file_input => {
-    '/bin/nano' => '4755',
-    '/usr/bin/nano' => '4755',
+class suid_root_nano::config {
+  file { '/bin/nano':
+    mode => "4755",
+    owner => "root",
   }
+  file { '/usr/bin/nano':
+    mode => "4755",
+    owner => "root",
+  }
+}
