@@ -1,4 +1,9 @@
 class mail::init {
+
+  package { 'mailutils':
+    ensure => installed,
+  }
+
   $secgen_parameters = secgen_functions::get_parameters($::base64_inputs_file)
 
   $mail = $secgen_parameters['mail']
