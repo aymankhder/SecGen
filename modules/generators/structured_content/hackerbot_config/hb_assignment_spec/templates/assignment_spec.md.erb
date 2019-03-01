@@ -6,7 +6,7 @@ You need to make your actual system configuration changes to the VMs you are pro
 
 The systems you are provided with includes insecure settings and/or software.
 
-In report's contents should follow the structure of the below headings (plus executive summary, limitations, conclusion, and references) to describe the changes you have made, including describing any insecure settings or software you find and fix in the systems you have been provided.
+In report's contents should follow the structure of the below headings (plus executive summary, limitations, conclusion, and references) to describe the changes you have made, including describing any insecure settings or software you find and fix in the systems you have been provided. Describe every change that was necessary, with screenshots showing the changes and demonstrating whether the security works as intended.
 
 ## Users
 username: user1
@@ -35,7 +35,7 @@ group: staff,developer
 
 username: user5
 password: password5
-Metadata: room number 3
+Metadata: room number 4
 Phone extension: 2344
 group: staff,developer
 
@@ -44,10 +44,12 @@ You need to use authentication of your choice to enable these Users to log into 
 
 In your report describe what it would take for a new user to be added, or for a user to change their password. Describe the affect of network eavesdropping on the authentication.
 
+**SSH settings:** Disable SSH access for user1, user2, user3, user4, and user5, on the server and desktop VMs. This change is important to make as soon as you add these users to your VMs. Leave the SSH access settings otherwise unchanged; for example, <%= $main_user %> should be able to SSH to these VMs. (When marking your work we may SSH to your VMs).
+
 ## Systems
 You are provided with VMs, which you are required to configure, and leave in a state for review (with persistent settings that survive reboot).
 
-Each VM has access to the Internet, so you can install additional software via `apt-get` as required.
+**To install software:** For temporary access to the Internet, run `sudo dhclient ens3` so you can install additional software via `apt-get` as required. Then run `sudo service networking restart` to reset your IP address which will restore access to your other VMs.
 
 ### server
 **Web server**

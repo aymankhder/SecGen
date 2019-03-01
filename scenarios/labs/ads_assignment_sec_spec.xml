@@ -6,7 +6,7 @@
 
 	<name>ADS Assignment with Security Spec</name>
   <author>Z. Cliffe Schreuders</author>
-  <description>Your task is to design and implement technical security defenses, to achieve the required functionality as specified below in the included requirements specification.</description>
+  <description>Your task is to design and implement technical security defenses, to achieve the required functionality as specified in the included requirements specification, which is displayed on the desktop.</description>
 
   <type>hackerbot-lab</type>
   <type>lab-sheet</type>
@@ -62,10 +62,10 @@
 
 		<utility module_path=".*kde_minimal">
 			<input into="autologin_user">
-				<datastore access="0" access_json="['username']">accounts</datastore>
+				<datastore access="0" access_json="['username']">user_accounts</datastore>
 			</input>
 			<input into="accounts">
-				<datastore>user_accounts_desktop</datastore>
+				<datastore>user_accounts</datastore>
 			</input>
 			<input into="autostart_konsole">
 				<value>true</value>
@@ -77,7 +77,7 @@
 
 		<utility module_path=".*iceweasel">
 			<input into="accounts">
-				<datastore>user_accounts_desktop</datastore>
+				<datastore>user_accounts</datastore>
 			</input>
 			<input into="autostart">
 				<value>true</value>
@@ -87,14 +87,14 @@
 			</input>
 		</utility>
 
-		<utility module_path=".*pidgin">
+		<!-- <utility module_path=".*pidgin">
 			<input into="server_ip">
 				<datastore access="2">IP_addresses</datastore>
 			</input>
 			<input into="accounts">
-				<datastore access="0">user_accounts_desktop</datastore>
+				<datastore access="0">user_accounts</datastore>
 			</input>
-		</utility>
+		</utility> -->
 
 		<vulnerability module_path=".*ssh_root_login">
 			<input into="root_password">
@@ -125,10 +125,10 @@
 
 		<utility module_path=".*kde_minimal">
 			<input into="autologin_user">
-				<datastore access="0" access_json="['username']">accounts</datastore>
+				<datastore access="0" access_json="['username']">user_accounts</datastore>
 			</input>
 			<input into="accounts">
-				<datastore>user_accounts_desktop</datastore>
+				<datastore>user_accounts</datastore>
 			</input>
 			<input into="autostart_konsole">
 				<value>true</value>
@@ -140,7 +140,7 @@
 
 		<utility module_path=".*iceweasel">
 			<input into="accounts">
-				<datastore>user_accounts_desktop</datastore>
+				<datastore>user_accounts</datastore>
 			</input>
 			<input into="autostart">
 				<value>true</value>
@@ -150,14 +150,14 @@
 			</input>
 		</utility>
 
-		<utility module_path=".*pidgin">
+		<!-- <utility module_path=".*pidgin">
 			<input into="server_ip">
 				<datastore access="2">IP_addresses</datastore>
 			</input>
 			<input into="accounts">
-				<datastore access="0">user_accounts_desktop</datastore>
+				<datastore access="0">user_accounts</datastore>
 			</input>
-		</utility>
+		</utility> -->
 
 		<vulnerability module_path=".*ssh_root_login">
 			<input into="root_password">
@@ -187,7 +187,7 @@
 		<utility module_path=".*handy_cli_tools"/>
 
 		<vulnerability type="ftp"/>
-		<vulnerability type="smb"/>
+		<!-- TODO <service type="smb"/> -->
 
 
 		<vulnerability module_path=".*ssh_root_login">
@@ -234,7 +234,7 @@
 	</system>
 
 	<system>
-		<system_name>hackerbot_server</system_name>
+		<system_name>sec_spec_server</system_name>
 		<base distro="Kali" name="MSF"/>
 
 		<service type="ircd"/>
