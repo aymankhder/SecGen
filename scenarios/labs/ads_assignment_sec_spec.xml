@@ -75,17 +75,17 @@
 		<utility module_path=".*hash_tools"/>
 		<utility module_path=".*pam_modules"/>
 
-		<utility module_path=".*iceweasel"/>
-			<!-- <input into="accounts">
+		<utility module_path=".*iceweasel">
+			<input into="accounts">
 				<datastore>user_accounts</datastore>
 			</input>
 			<input into="autostart">
 				<value>true</value>
 			</input>
 			<input into="start_page">
-				<datastore access="2">IP_addresses</datastore>
+				<datastore access="1">IP_addresses</datastore>
 			</input>
-		</utility> -->
+		</utility>
 
 		<!-- <utility module_path=".*pidgin">
 			<input into="server_ip">
@@ -138,17 +138,17 @@
 		<utility module_path=".*hash_tools"/>
 		<utility module_path=".*pam_modules"/>
 
-		<utility module_path=".*iceweasel"/>
-			<!-- <input into="accounts">
+		<utility module_path=".*iceweasel">
+			<input into="accounts">
 				<datastore>user_accounts</datastore>
 			</input>
 			<input into="autostart">
 				<value>true</value>
 			</input>
 			<input into="start_page">
-				<datastore access="2">IP_addresses</datastore>
+				<datastore access="1">IP_addresses</datastore>
 			</input>
-		</utility> -->
+		</utility>
 
 		<!-- <utility module_path=".*pidgin">
 			<input into="server_ip">
@@ -188,6 +188,19 @@
 
 		<vulnerability type="ftp"/>
 		<!-- TODO <service type="smb"/> -->
+
+		<service module_path="services/unix/http/parameterised_website">
+      <input into="organisation" into_datastore="organisation">
+        <encoder type="line_selector">
+          <input into="file_path">
+            <value>lib/resources/structured_content/organisations/json_organisations</value>
+          </input>
+        </encoder>
+      </input>
+      <input into="theme" into_datastore="theme">
+        <generator type="website_theme"/>
+      </input>
+    </service>
 
 
 		<vulnerability module_path=".*ssh_root_login">
