@@ -75,8 +75,8 @@
 		<utility module_path=".*hash_tools"/>
 		<utility module_path=".*pam_modules"/>
 
-		<utility module_path=".*iceweasel">
-			<input into="accounts">
+		<utility module_path=".*iceweasel"/>
+			<!-- <input into="accounts">
 				<datastore>user_accounts</datastore>
 			</input>
 			<input into="autostart">
@@ -85,7 +85,7 @@
 			<input into="start_page">
 				<datastore access="2">IP_addresses</datastore>
 			</input>
-		</utility>
+		</utility> -->
 
 		<!-- <utility module_path=".*pidgin">
 			<input into="server_ip">
@@ -138,8 +138,8 @@
 		<utility module_path=".*hash_tools"/>
 		<utility module_path=".*pam_modules"/>
 
-		<utility module_path=".*iceweasel">
-			<input into="accounts">
+		<utility module_path=".*iceweasel"/>
+			<!-- <input into="accounts">
 				<datastore>user_accounts</datastore>
 			</input>
 			<input into="autostart">
@@ -148,7 +148,7 @@
 			<input into="start_page">
 				<datastore access="2">IP_addresses</datastore>
 			</input>
-		</utility>
+		</utility> -->
 
 		<!-- <utility module_path=".*pidgin">
 			<input into="server_ip">
@@ -233,7 +233,7 @@
 		</network>
 	</system>
 
-	<system>
+	<!-- <system>
 		<system_name>sec_spec_server</system_name>
 		<base distro="Kali" name="MSF"/>
 
@@ -272,6 +272,6 @@
 				<generator type="strong_password_generator"/>
 			</input>
 		</build>
-	</system>
+	</system> -->
 
 </scenario>
