@@ -16,6 +16,16 @@
   <!--optional details-->
   <reference>https://forge.puppet.com/puppetlabs/docker</reference>
 
+  <!-- downloads 'pull's these images -->
+  <read_fact>images</read_fact>
+
+  <default_input into="images">
+    <!-- <value>ubuntu:xenial</value> -->
+    <!-- <value>debian:stretch</value> -->
+    <value>busybox</value>
+  </default_input>
+
+
   <software_name>docker</software_name>
   <software_license>Apache v2</software_license>
 
