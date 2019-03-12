@@ -13,6 +13,9 @@
   <access>remote</access>
   <platform>linux</platform>
 
+  <challenge_type>pwn</challenge_type>
+  <challenge_subtype>others</challenge_subtype>
+
   <read_fact>strings_to_leak</read_fact>
   <read_fact>root_password</read_fact>
   <read_fact>leaked_filenames</read_fact>
@@ -38,4 +41,7 @@
   <!--</attack>-->
   <!--<attack_command>sshpass -p {{root_password}} ssh -oStrictHostKeyChecking=no root@{{IP_address}}</attack_command>-->
 
+  <requires>
+    <type>update</type>
+  </requires>
 </vulnerability>

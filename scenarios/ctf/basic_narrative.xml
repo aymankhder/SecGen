@@ -15,8 +15,13 @@
   <difficulty>intermediate</difficulty>
 
   <system>
-    <system_name>system</system_name>
-    <base platform="linux" type="server"/>
+    <system_name>target</system_name>
+    <base distro="Debian 7.8" platform="linux" type="server"/>
+
+    <input into_datastore="IP_addresses">
+      <value>172.10.0.2</value>
+      <value>172.10.0.3</value>
+    </input>
 
     <input into_datastore="accounts">
       <!-- [0]: Entry account -->
@@ -233,6 +238,9 @@
     </vulnerability>
 
     <service name="Random Parameterised Website">
+      <input into="theme">
+        <value>journal.min.css</value>
+      </input>
       <input into="main_page_paragraph_content">
         <generator type="html_snippet_generator">
           <input into="heading">
@@ -429,14 +437,27 @@
       </input>
     </vulnerability>
 
-    <utility module_path=".*sqlmap.*"/>
+    <network type="private_network">
+      <input into="IP_address">
+        <datastore access="next">IP_addresses</datastore>
+      </input>
+    </network>
 
-    <network module_path=".*private_network_1"/>
     <build type="cleanup">
       <input into="root_password">
         <generator type="strong_password_generator"/>
       </input>
     </build>
+  </system>
+
+  <system>
+    <system_name>attack_vm</system_name>
+    <base distro="Kali" name="MSF"/>
+    <network type="private_network">
+      <input into="IP_address">
+        <datastore access="next">IP_addresses</datastore>
+      </input>
+    </network>
   </system>
 
 </scenario>

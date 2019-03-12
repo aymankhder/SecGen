@@ -208,37 +208,42 @@ class System
             datastore_access = datastore_variablename_and_access_type['access']
             datastore_variablename = datastore_variablename_and_access_type['variablename']
             datastore_retrieved = []
-            if datastore_access == 'first'
-              datastore_retrieved = [$datastore[datastore_variablename].first]
-            elsif datastore_access == 'next'
-              last_accessed = $datastore_iterators[datastore_variablename]
-              # first use? start at beginning
-              if last_accessed == nil
-                index_to_access = 0
+            begin
+              if datastore_access == 'first'
+                datastore_retrieved = [$datastore[datastore_variablename].first]
+              elsif datastore_access == 'next'
+                last_accessed = $datastore_iterators[datastore_variablename]
+                # first use? start at beginning
+                if last_accessed == nil
+                  index_to_access = 0
+                else
+                  index_to_access = last_accessed + 1
+                end
+                $datastore_iterators[datastore_variablename] = index_to_access
+                datastore_retrieved = [$datastore[datastore_variablename][index_to_access]]
+              elsif datastore_access == 'previous'
+                last_accessed = $datastore_iterators[datastore_variablename]
+                # first use? start at end
+                if last_accessed == nil
+                  index_to_access = $datastore[datastore_variablename].size - 1
+                else
+                  index_to_access = last_accessed - 1
+                end
+                $datastore_iterators[datastore_variablename] = index_to_access
+                datastore_retrieved = [$datastore[datastore_variablename][index_to_access]]
+              elsif datastore_access.to_s == datastore_access.to_i.to_s
+                # Test for a valid element key (integer)
+                index_to_access = datastore_access.to_i
+                $datastore_iterators[datastore_variablename] = index_to_access
+                datastore_retrieved = [$datastore[datastore_variablename][index_to_access]]
+              elsif datastore_access == "all"
+                datastore_retrieved = $datastore[datastore_variablename]
               else
-                index_to_access = last_accessed + 1
+                Print.err "Error: invalid access value (#{datastore_access})"
+                raise 'failed'
               end
-              $datastore_iterators[datastore_variablename] = index_to_access
-              datastore_retrieved = [$datastore[datastore_variablename][index_to_access]]
-            elsif datastore_access == 'previous'
-              last_accessed = $datastore_iterators[datastore_variablename]
-              # first use? start at end
-              if last_accessed == nil
-                index_to_access = $datastore[datastore_variablename].size - 1
-              else
-                index_to_access = last_accessed - 1
-              end
-              $datastore_iterators[datastore_variablename] = index_to_access
-              datastore_retrieved = [$datastore[datastore_variablename][index_to_access]]
-            elsif datastore_access.to_s == datastore_access.to_i.to_s
-              # Test for a valid element key (integer)
-              index_to_access = datastore_access.to_i
-              $datastore_iterators[datastore_variablename] = index_to_access
-              datastore_retrieved = [$datastore[datastore_variablename][index_to_access]]
-            elsif datastore_access == "all"
-              datastore_retrieved = $datastore[datastore_variablename]
-            else
-              Print.err "Error: invalid access value (#{datastore_access})"
+            rescue NoMethodError, SyntaxError => err
+              Print.err "Error accessing element (#{datastore_access}) from datastore (#{datastore_variablename}): #{err}"
               raise 'failed'
             end
             if datastore_retrieved && datastore_retrieved != [nil]
@@ -306,28 +311,31 @@ class System
       if selected.local_calc_file
         Print.verbose 'Module includes local calculation of output. Processing...'
         # build arguments
-        args_string = '--b64 ' # Sets the flag for decoding base64
+        args_string = "--b64 " # Sets the flag for decoding base64
         selected.received_inputs.each do |input_key, input_values|
           puts input_values.inspect
           input_values.each do |input_element|
             if input_key == ''
               Print.warn "Warning: output values not directed to module input"
             else
-              args_string += "'--#{input_key}=#{Base64.strict_encode64(input_element)}' "
+              args_string += "--#{input_key}=#{Base64.strict_encode64(input_element)} "
             end
           end
         end
         # execute calculation script and format output to an array of Base64 strings
-        command = "ruby #{selected.local_calc_file} #{args_string}"
-        Print.verbose "Running: #{command}"
-        outputs = `#{command}`.chomp
-        unless $?.success?
+        Print.verbose "Running: ruby #{selected.local_calc_file} #{args_string[0..200]} ..."
+        command = "bundle exec ruby #{selected.local_calc_file}"
+        stdout, stderr, status = Open3.capture3(command, :stdin_data => args_string)
+        puts stderr
+        outputs = stdout.chomp
+
+        unless status
           Print.err "Module failed to run (#{command})"
           # TODO: this works, but subsequent attempts at resolving the scenario always fail ("Error can't add no data...")
           raise 'failed'
         end
         output_array = outputs.split("\n")
-        selected.output = output_array.map { |o| Base64.strict_decode64 o }
+        selected.output = output_array.map { |o| (Base64.strict_decode64 o).force_encoding('UTF-8') }
       end
 
       # store the output of the module into a datastore, if specified

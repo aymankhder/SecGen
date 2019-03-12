@@ -1,5 +1,6 @@
 require 'getoptlong'
 require_relative '../helpers/constants'
+require_relative './local_encoding_functions.rb'
 require 'json'
 require 'base64'
 
@@ -40,6 +41,21 @@ class StringEncoder
 
   def read_arguments
     # Get command line arguments
+    Print.local 'Reading args from STDIN'
+    if ARGV.size == 0
+      begin
+        args_array = []
+        ARGF.each do |arg|
+          arg.strip.split(' ').each do |split|
+            args_array << split
+          end
+        end
+        ARGV.unshift(*args_array)
+      rescue
+        # Do nothing...
+      end
+    end
+
     opts = get_options
 
     # process option arguments
@@ -101,6 +117,7 @@ class StringEncoder
     Print.local module_name
 
     read_arguments
+    enforce_utf8
 
     Print.local_verbose "Encoding '#{encoding_print_string}'"
     encode_all
@@ -115,7 +132,26 @@ class StringEncoder
       Print.local_verbose "(Displaying 1000/#{length} length output)"
     end
 
-    puts has_base64_inputs ? base64_encode_outputs : self.outputs
+    enforce_utf8
+    print_outputs if has_base64_inputs
+  end
+
+  # Encode local instance variables as UTF-8
+  def enforce_utf8
+    self.instance_variables.each do |iv|
+      iv_value = self.instance_variable_get(iv)
+      if iv_value.is_a? Array
+        self.instance_variable_set(iv, EncodingFunctions::array_to_utf8(iv_value))
+      elsif iv_value.is_a? Hash
+        self.instance_variable_set(iv, EncodingFunctions::hash_to_utf8(iv_value))
+      elsif iv_value.is_a? String
+        self.instance_variable_set(iv, EncodingFunctions::string_to_utf8(iv_value))
+      end
+    end
+  end
+
+  def print_outputs
+    puts base64_encode_outputs
   end
 
   def base64_encode_outputs

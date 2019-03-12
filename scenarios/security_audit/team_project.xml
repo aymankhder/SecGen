@@ -14,16 +14,19 @@
   <type>blind-audit</type>
   <difficulty>intermediate</difficulty>
 
+  <!-- TODO: update the oVirt plugin to work with multiple NICs and re-introduce pivoting -->
+
   <!-- Web Server on NIC1 and NIC2 -->
   <system>
-    <system_name>web_server</system_name>
-    <base module_path=".*debian_puppet_32"/>
+    <system_name>web</system_name>
+    <base platform="linux" distro="Debian 7.8" type="server"/>
 
     <input into_datastore="IP_addresses">
-      <value>172.10.0.1</value>
       <value>172.10.0.2</value>
       <value>172.10.0.3</value>
       <value>172.10.0.4</value>
+      <value>172.10.0.5</value>
+      <value>172.10.0.6</value>
     </input>
 
     <service module_path="services/unix/http/parameterised_website">
@@ -39,26 +42,21 @@
       </input>
     </service>
 
-    <vulnerability privilege="user_rwx" access="remote" type="^((?!webapp).)*$">
-      <input into="business_domain">
-        <datastore access_json="['domain']">organisation</datastore>
+    <vulnerability module_path="" privilege="user_rwx" access="remote" type="(?!.*webapp).*">
+      <input into="organisation">
+        <datastore>organisation</datastore>
       </input>
-      <input into="business_name">
-        <datastore access_json="['business_name']">organisation</datastore>
-      </input>
-      <input into="person">
-        <datastore access_json="['manager']">organisation</datastore>
+      <input into="strings_to_leak">
+        <value/>
       </input>
     </vulnerability>
+
     <vulnerability privilege="root_rwx" access="local">
-      <input into="business_domain">
-        <datastore access_json="['domain']">organisation</datastore>
+      <input into="organisation">
+        <datastore >organisation</datastore>
       </input>
-      <input into="business_name">
-        <datastore access_json="['business_name']">organisation</datastore>
-      </input>
-      <input into="person">
-        <datastore access_json="['manager']">organisation</datastore>
+      <input into="strings_to_leak">
+        <value/>
       </input>
     </vulnerability>
 
@@ -73,13 +71,14 @@
         <datastore access="next">IP_addresses</datastore>
       </input>
     </network>
+    <!--<network module_path=".*private_network_1"/>-->
+    <!--<network module_path=".*private_network_2"/>-->
   </system>
 
   <!-- Intranet Server on NIC 2 -->
   <system>
-    <system_name>intranet_server</system_name>
-    <base module_path=".*debian_puppet_32"/>
-
+    <system_name>intranet</system_name>
+    <base platform="linux" type="server"/>
 
     <!-- Web server hosting acceptable use policy and security audit remit -->
     <service module_path="services/unix/http/parameterised_website">
@@ -131,32 +130,26 @@
       </input>
     </utility>
 
-    <service/>
-    <service/>
-
-    <vulnerability access="remote" type="^((?!webapp).)*$">
-      <input into="business_domain">
-        <datastore access_json="['domain']">organisation</datastore>
+    <vulnerability access="remote" type="(?!.*webapp).*">
+    <input into="organisation">
+        <datastore>organisation</datastore>
       </input>
-      <input into="business_name">
-        <datastore access_json="['business_name']">organisation</datastore>
-      </input>
-      <input into="person">
-        <datastore access_json="['manager']">organisation</datastore>
+      <input into="strings_to_leak">
+        <value/>
       </input>
     </vulnerability>
 
-    <vulnerability type="^((?!webapp).)*$">
-      <input into="business_domain">
-        <datastore access_json="['domain']">organisation</datastore>
+    <vulnerability type="(?!.*webapp).*">
+      <input into="organisation" >
+        <datastore>organisation</datastore>
       </input>
-      <input into="business_name">
-        <datastore access_json="['business_name']">organisation</datastore>
-      </input>
-      <input into="person">
-        <datastore access_json="['manager']">organisation</datastore>
+      <input into="strings_to_leak">
+        <value/>
       </input>
     </vulnerability>
+
+    <service/>
+    <service/>
 
     <build type="cleanup">
       <input into="root_password">
@@ -169,12 +162,14 @@
         <datastore access="next">IP_addresses</datastore>
       </input>
     </network>
+    <!--<network module_path=".*private_network_2"/>-->
   </system>
 
-  <!-- Desktop Client on NIC2 -->
+   <!--Desktop Client on NIC2 -->
   <system>
     <system_name>desktop</system_name>
-    <base platform="linux" type="server"/>
+    <!-- Starts as a server base, and installs XFCE via a vulnerability -->
+    <base platform="linux" distro="Debian 9" type="server"/>
 
     <utility module_path=".*parameterised_accounts">
       <input into="accounts">
@@ -183,28 +178,43 @@
     </utility>
 
     <vulnerability module_path=".*xfce_lightdm_root_login"/>
-    <utility module_path=".*iceweasel" >
-    <input into="accounts">
-      <datastore access_json="['manager']">organisation</datastore>
-    </input>
+
+    <utility module_path=".*iceweasel">
+      <input into="accounts">
+        <datastore access_json="['manager']">organisation</datastore>
+      </input>
     </utility>
+
     <utility module_path=".*handy_cli_tools"/>
+
     <network type="private_network">
       <input into="IP_address">
         <datastore access="next">IP_addresses</datastore>
       </input>
     </network>
-
+    <!--<network module_path=".*private_network_2"/>-->
   </system>
 
   <system>
-    <system_name>attack_vm</system_name>
+    <system_name>attack_vm_1</system_name>
     <base distro="Kali" name="MSF"/>
     <network type="private_network">
       <input into="IP_address">
         <datastore access="next">IP_addresses</datastore>
       </input>
     </network>
+  <!--<network module_path=".*private_network_2"/>-->
+  </system>
+
+  <system>
+    <system_name>attack_vm_2</system_name>
+    <base distro="Kali" name="MSF"/>
+    <network type="private_network">
+      <input into="IP_address">
+        <datastore access="next">IP_addresses</datastore>
+      </input>
+    </network>
+  <!--<network module_path=".*private_network_2"/>-->
   </system>
 
 </scenario>

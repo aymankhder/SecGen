@@ -41,9 +41,12 @@ DOCUMENTATION_DIR = "#{ROOT_DIR}/documentation/yard/doc"
 
 # Path to resources
 WORDLISTS_DIR = "#{ROOT_DIR}/lib/resources/wordlists"
+LINELISTS_DIR = "#{ROOT_DIR}/lib/resources/linelists"
+BLACKLISTED_WORDS_FILE = "#{ROOT_DIR}/lib/resources/blacklisted_words/blacklist.txt"
 IMAGES_DIR = "#{ROOT_DIR}/lib/resources/images"
 
-# Path to secgen_functions puppet module
+# Path to build puppet modules
+STDLIB_PUPPET_DIR = "#{MODULES_DIR}build/puppet/stdlib"
 SECGEN_FUNCTIONS_PUPPET_DIR = "#{MODULES_DIR}build/puppet/secgen_functions"
 
 ## PACKER CONSTANTS ##
