@@ -13,7 +13,14 @@
   <type>docker</type>
   <platform>linux</platform>
 
-  <!-- downloads 'pull's these images -->
+  <!--optional details-->
+  <reference>https://forge.puppet.com/puppetlabs/docker</reference>
+
+  <software_name>docker</software_name>
+  <software_license>Apache v2</software_license>
+
+
+  <!-- 'pull's these images for offline use of docker -->
   <read_fact>images</read_fact>
 
   <default_input into="images">
@@ -22,12 +29,6 @@
     <value>busybox</value>
   </default_input>
 
-
-  <!--optional details-->
-  <reference>https://forge.puppet.com/puppetlabs/docker</reference>
-
-  <software_name>docker</software_name>
-  <software_license>Apache v2</software_license>
 
   <requires>
     <type>update</type>
