@@ -6,7 +6,9 @@
   <name>Zip File</name>
   <author>Jason Zeller</author>
   <module_license>MIT</module_license>
-  <description>Release a zip file with a flag. Password optional.</description>
+  <description>Release a zip file with a flag. Password optional.
+  Can specify an account file is owned by or defaults to root.
+  </description>
 
   <type>zip_file</type>
   <type>system</type>

@@ -6,7 +6,9 @@
   <name>pcap file</name>
   <author>Jason Zeller</author>
   <module_license>MIT</module_license>
-  <description>Release a pcap file with a flag generated somewhere.</description>
+  <description>Release a pcap file with a flag, into storage_directory.
+    Can specify an account file is owned by or defaults to root.
+  </description>
 
   <type>pcap</type>
   <type>system</type>
