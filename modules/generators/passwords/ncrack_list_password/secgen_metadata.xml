@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<generator xmlns="http://www.github/cliffe/SecGen/generator"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.github/cliffe/SecGen/generator">
+  <name>nCrack Password List Generator</name>
+  <author>Jason Zeller</author>
+  <module_license>MIT</module_license>
+  <description>Password randomly selected from nCrack default.pwd password file from Kali 2018.3, located at:
+    /usr/share/ncrack/default.pwd
+  </description>
+
+  <type>password_generator</type>
+  <type>ncrack_password</type>
+  <platform>linux</platform>
+  <platform>windows</platform>
+
+  <output_type>generated_passwords</output_type>
+
+</generator>
