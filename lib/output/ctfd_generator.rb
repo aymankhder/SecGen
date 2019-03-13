@@ -323,7 +323,11 @@ class CTFdGenerator
   end
 
   def users_json
-    
+    # Default admin username: adminusername
+    # Default admin password: adminpassword
+    # To use an alternate password, utilize the lib/output/sha256_password.py script.
+    # This ensures compatibility with CTFd v2.0.2+
+
     users_json_hash = {
       "count" => 1,
       "results" => [
@@ -331,7 +335,7 @@ class CTFdGenerator
           "id"=>1,
           "oauth_id"=>nil,
           "name"=>"adminusername",
-          "password"=>password_hash_string("adminpassword"),
+          "password"=>"$bcrypt-sha256$2b,12$Fh9KaueZuSEK5YzSdTbcI.$cbJCW5wGDNBX0/C/xDvMhnv8X3vqI92",
           "email"=>"admin@email.com",
           "type"=>"admin",
           "secret"=>nil,
@@ -351,13 +355,6 @@ class CTFdGenerator
     
     users_json_hash.to_json
     
-  end
-
-  # Ruby bcrypt does not support 2b variant. Used same python libarary as CTFd for compatability.
-  def password_hash_string(password)
-    script = ROOT_DIR + "/lib/output/sha256_password.py"
-    hash_pw = `python3 #{script} #{password}`
-    hash_pw
   end
 
   def get_module_hints(search_module_for_hints, collected_hints, all_module_selections)
