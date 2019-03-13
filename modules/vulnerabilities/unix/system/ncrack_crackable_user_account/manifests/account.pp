@@ -1,4 +1,4 @@
-define ncrack_user_account::account($username, $password, $super_user, $strings_to_leak, $leaked_filenames) {
+define ncrack_crackable_user_account::account($username, $password, $super_user, $strings_to_leak, $leaked_filenames) {
   # ::accounts::user changes permissions on group, passwd, shadow etc. so needs to run before
   if defined('writable_groups::config') {
     include ::writable_groups::config

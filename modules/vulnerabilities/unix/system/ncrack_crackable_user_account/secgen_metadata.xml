@@ -3,7 +3,7 @@
 <vulnerability xmlns="http://www.github/cliffe/SecGen/vulnerability"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://www.github/cliffe/SecGen/vulnerability">
-  <name>Crackable User Account</name>
+  <name>NCRACK Crackable User Account</name>
   <author>Jason Zeller</author>
   <module_license>MIT</module_license>
   <description>Unprivileged user account with a password from nCrack dictionary.</description>
