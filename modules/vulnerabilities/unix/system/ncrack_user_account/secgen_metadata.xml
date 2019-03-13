@@ -3,12 +3,10 @@
 <vulnerability xmlns="http://www.github/cliffe/SecGen/vulnerability"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://www.github/cliffe/SecGen/vulnerability">
-  <name>JtR Crackable User Account</name>
+  <name>Crackable User Account</name>
   <author>Jason Zeller</author>
   <module_license>MIT</module_license>
-  <description>Unprivileged user account with a password from John the Ripper default dictionary.
-    For use with training specifically on John the Ripper.
-  </description>
+  <description>Unprivileged user account with a password from nCrack dictionary.</description>
 
   <type>system</type>
   <privilege>user_rwx</privilege>
@@ -20,6 +18,7 @@
   <read_fact>account</read_fact>
   <read_fact>password</read_fact>
   <read_fact>flag_password</read_fact>
+  <read_fact>username</read_fact>
 
   <default_input into="leaked_filenames">
     <generator type="filename"/>
@@ -28,7 +27,7 @@
   <default_input into="password">
     <generator type="custom_list_password">
       <input into="list_name">
-        <value>jtrpassword.lst</value>
+        <value>ncrackpassword.lst</value>
       </input>
     </generator>
   </default_input>
@@ -43,9 +42,9 @@
     <generator type="account"/>
   </default_input>
 
-  <hint>Password is susceptible to cracking. Try to obtain /etc/passwd and /etc/shadow.</hint>
-  <hint>Use John the Ripper to crack password.</hint>
-  <solution>Use the following command: 'john -wordlist=/usr/share/john/password.lst yourhashfile'</solution>
+  <hint>Password is susceptible to cracking.</hint>
+  <hint>Use nCrack to crack password. If you don't know the username, try using the /usr/share/ncrack/minimal.usr dictionary.</hint>
+  <solution>Use the following command: 'ncrack -v --user username -P /usr/share/ncrack/default.pwd host_ip:22'</solution>
 
   <requires>
     <module_path>utilities/unix/system/accounts</module_path>
