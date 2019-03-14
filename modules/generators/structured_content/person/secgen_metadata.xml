@@ -19,6 +19,8 @@
   <read_fact>email_address</read_fact>
   <read_fact>username</read_fact>
   <read_fact>password</read_fact>
+  <read_fact>age</read_fact>
+  <read_fact>profession</read_fact>
 
   <!-- Takes account as a non-default value and fills in the missing fields with the randomly generated data. -->
   <read_fact>account</read_fact>
@@ -46,6 +48,19 @@
   </default_input>
   <default_input into="national_insurance_number">
     <generator type="national_insurance_number_generator"/>
+  </default_input>
+    <default_input into="age">
+    <generator type="number_range">
+      <input into="lower_bound">
+        <value>18</value>
+      </input>
+      <input into="upper_bound">
+        <value>85</value>
+      </input>
+    </generator>
+  </default_input>
+  <default_input into="profession">
+    <generator type="profession"/>
   </default_input>
 
   <output_type>person</output_type>
