@@ -113,7 +113,14 @@
 		<utility module_path=".*handy_cli_tools"/>
 		<utility module_path=".*nmap"/>
 
-		<utility module_path=".*iceweasel"/>
+		<utility module_path=".*iceweasel">
+			<input into="accounts">
+				<datastore>accounts</datastore>
+			</input>
+			<input into="autostart">
+				<value>false</value>
+			</input>
+		</utility>
 
 		<utility module_path=".*docker">
 			<input into="images">
