@@ -191,14 +191,14 @@ def build_vms(scenario, project_dir, options)
   end
   if successful_creation
     ovirt_post_build(options, scenario, project_dir) if OVirtFunctions.provider_ovirt?(options)
-        if options[:snapshot]
-        Print.info 'Creating a snapshot of VM(s)'
-        sleep(20) # give oVirt/Virtualbox a chance to save any VM config changes before creating the snapshot
-        if OVirtFunctions::provider_ovirt?(options)
-            OVirtFunctions::create_snapshot(options, scenario, get_vm_names(scenario))
-        else
-            GemExec.exe('vagrant', project_dir, 'snapshot push')
-        end
+    if options[:snapshot]
+      Print.info 'Creating a snapshot of VM(s)'
+      sleep(20) # give oVirt/Virtualbox a chance to save any VM config changes before creating the snapshot
+      if OVirtFunctions::provider_ovirt?(options)
+        OVirtFunctions::create_snapshot(options, scenario, get_vm_names(scenario))
+      else
+        GemExec.exe('vagrant', project_dir, 'snapshot push')
+      end
     end
   else
     Print.err "Failed to build VMs"
@@ -484,7 +484,7 @@ opts.each do |opt, arg|
     when '--snapshot'
       Print.info "Taking snapshots when VMs are created"
       options[:snapshot] = true
-    
+
     when '--esxiuser'
       Print.info "ESXi Username : #{arg}"
       options[:esxiuser] = arg
@@ -554,7 +554,7 @@ case ARGV[0]
   when 'esxi-post-build'
     esxi_post_build(options, scenario, project_dir)
     exit 0
-  
+
   when 'ovirt-post-build'
     ovirt_post_build(options, scenario, project_dir)
     exit 0

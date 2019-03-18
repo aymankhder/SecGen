@@ -18,7 +18,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       if selected_module.module_type == 'base'
         @base_type = selected_module.attributes['type']
         @ovirt_template = selected_module.attributes['ovirt_template']
-	@esxi_url = selected_module.attributes['esxi_url']
+        @esxi_url = selected_module.attributes['esxi_url']
         @cpu_word_size = selected_module.attributes['cpu_word_size'].first.downcase
         if (@options.has_key? :ovirtuser) && (@options.has_key? :ovirtpass)
           @ovirt_base_template = selected_module.attributes['ovirt_template'].first
@@ -59,12 +59,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         ovirt.debug = true
     end
     # oVirt provider end
-	
+
 <% elsif (@options.has_key? :esxiuser) && (@options.has_key? :esxipass) %>
     # vmware_esxi provider begin
-    <%= system.name %>.vm.provider :vmware_esxi do |esxi|        
+    <%= system.name %>.vm.provider :vmware_esxi do |esxi|
 <%=
-"	esxi.esxi_hostname = '#{@options[:esxiurl]}'       
+"	esxi.esxi_hostname = '#{@options[:esxiurl]}'
 	esxi.esxi_username = '#{@options[:esxiuser]}'
         esxi.esxi_password = '#{@options[:esxipass]}' "
 		%>
@@ -82,7 +82,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 "       esxi.guest_numvcpus = #{@options[:cpu_cores]}\n"
         end -%>
 end
-	# End ESXi provider	
+	# End ESXi provider
 <%
   else %>
     config.vm.provider :virtualbox do |vb|
