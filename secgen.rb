@@ -345,6 +345,8 @@ Print.std '~'*47
 Print.std 'SecGen - Creates virtualised security scenarios'
 Print.std '            Licensed GPLv3 2014-18'
 Print.std '~'*47
+Print.debug "\nPlease take a minute to tell us how you are using SecGen:"
+Print.debug "https://tinyurl.com/SecGenFeedback\n"
 
 # Add read-options from config file (needs handling before options parsed by GetoptLong)
 if ARGV.include? '--read-options'
