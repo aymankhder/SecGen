@@ -66,7 +66,7 @@ class CTFdGenerator
             flag_id =  flags.length + 1
             flags << {
               "id"=>flag_id,
-              "chal"=>challenge_id,
+              "challenge_id"=>challenge_id,
               "type"=>"static",
               "content"=>output_value,
               "data"=>nil}
