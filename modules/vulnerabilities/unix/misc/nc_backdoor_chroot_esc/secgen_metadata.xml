@@ -3,12 +3,12 @@
 <vulnerability xmlns="http://www.github/cliffe/SecGen/vulnerability"
                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                xsi:schemaLocation="http://www.github/cliffe/SecGen/vulnerability">
-  <name>Netcat Backdoor</name>
+  <name>Netcat Backdoor Chroot Escape</name>
   <author>Z. Cliffe Schreuders</author>
   <module_license>MIT</module_license>
-  <description>A netcat backdoor (acts as a bind shell -- listens on a port and serves a shell). Strings are leaked to /root/.</description>
+  <description>A netcat backdoor (acts as a bind shell -- listens on a port and serves a shell). The shell is running in a chroot that can be escaped. Strings are leaked to /root/ in the host filesystem.</description>
 
-  <type>simple_backdoor</type>
+  <type>container_escape</type>
   <type>bind_shell</type>
   <privilege>root_rwx</privilege>
   <access>remote</access>
@@ -39,8 +39,8 @@
   <software_name>nc</software_name>
 
   <!--optional hints-->
-  <hint>Connect to a port</hint>
-  <solution>Simply connecting to the right port will give you a root shell.</solution>
+  <hint>Connect to a port, you will find yourself in a chroot.</hint>
+  <solution>Connecting to the right port will give you a root shell. You can misuse /proc to escape.</solution>
 
   <requires>
     <type>update</type>
