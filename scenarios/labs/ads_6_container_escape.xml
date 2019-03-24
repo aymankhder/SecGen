@@ -4,7 +4,7 @@
 		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		xsi:schemaLocation="http://www.github/cliffe/SecGen/scenario">
 
-	<name>Containers lab</name>
+	<name>Containers escape lab</name>
   <author>Z. Cliffe Schreuders</author>
   <description>A Hackerbot lab. Work through the labsheet, then when prompted interact with Hackerbot. </description>
 
@@ -134,7 +134,7 @@
 		  <input into="leaked_filenames">
 		    <value>docker_flag</value>
 		  </input>
-		</vulnerablity>
+		</vulnerability>
 
 		<vulnerability module_path=".*ssh_root_login">
 			<input into="root_password">
@@ -170,7 +170,7 @@
 		  <input into="leaked_filenames">
 		    <value>chroot_flag</value>
 		  </input>
-		</vulnerablity>
+		</vulnerability>
 
 		<vulnerability module_path=".*ssh_root_login">
 			<input into="root_password">
