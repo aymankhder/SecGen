@@ -1,5 +1,3 @@
-require 'bcrypt'
-
 # Convert systems objects into a format that can be imported into CTFd
 class CTFdGenerator
 
@@ -30,7 +28,7 @@ class CTFdGenerator
     
     challenges = []
     hints = []
-    keys = []
+    flags = []
     
     challenges << {
               "id"=> 1,
@@ -40,12 +38,13 @@ class CTFdGenerator
               "value"=>FREE_POINTS,
               "category"=>"Freebie",
               "type"=>"standard",
-              "hidden"=>0}
-    keys << {
+              "state"=>"visible",
+              "requirements"=>"null"}
+    flags << {
               "id"=>1,
-              "chal"=>1,
+              "challenge_id"=>1,
               "type"=>"static",
-              "flag"=>"flag{FREEPOINTS}",
+              "content"=>"flag{FREEPOINTS}",
               "data"=>nil}
 
     @systems.each { |system|
@@ -56,19 +55,20 @@ class CTFdGenerator
             challenge_id = challenges.length + 1
             challenges << {
               "id"=> challenge_id,
-              "name"=>"", 
+              "name"=>"Challenge ##{challenge_id}",
               "description"=>"Remember, search for text in the format of flag{SOMETHING}, and submit it for points. If you are stuck a hint may help!",
               "max_attempts"=>0,
               "value"=>POINTS_PER_FLAG,
               "category"=>"#{system.name} VM (#{system.module_selections.first.attributes['platform'].first})",
               "type"=>"standard",
-              "hidden"=>0}
-            key_id =  keys.length + 1
-            keys << {
-              "id"=>key_id,
-              "chal"=>challenge_id,
+              "state"=>"visible",
+              "requirements"=>"null"}
+            flag_id =  flags.length + 1
+            flags << {
+              "id"=>flag_id,
+              "challenge_id"=>challenge_id,
               "type"=>"static",
-              "flag"=>output_value,
+              "content"=>output_value,
               "data"=>nil}
 
             collected_hints = []
@@ -92,10 +92,11 @@ class CTFdGenerator
               end
               hints << {
                 "id"=> hint_id,
-                "type"=>0,
-                "chal"=>challenge_id,
-                "hint"=>collected_hint["hint_text"],
-                "cost"=>cost
+                "type"=>"standard",
+                "challenge_id"=>challenge_id,
+                "content"=>collected_hint["hint_text"],
+                "cost"=>cost,
+                "requirements"=>nil
               }
             }
           end
@@ -104,26 +105,43 @@ class CTFdGenerator
     }
     
     output_hash = {
-      "alembic_version.json" => "",
+      "alembic_version.json" => alembic_version_json(),
       "awards.json" => "",
       "challenges.json" => challenges_json(challenges),
       "config.json" => config_json(),
+      "dynamic_challenge.json" => "",
       "files.json" => files_json(),
+      "flags.json" => flags_json(flags),
       "hints.json" => hints_json(hints),
-      "keys.json" => keys_json(keys),
+      "notifications.json" => "",
       "pages.json" => pages_json(),
       "solves.json" => "",
+      "submissions.json" => "",
       "tags.json" => "",
-      "teams.json" => teams_json(),
+      "teams.json" => "",
       "tracking.json" => "",
       "unlocks.json" => "",
-      "wrong_keys.json" => "",
+      "users.json" => users_json(),
     }
     
     output_hash
 
   end
-  
+
+  def alembic_version_json
+    alembic_version_json_hash = {
+      "count" => 1,
+      "results" => [
+        {
+          "version_num"=>"8369118943a1"
+        }
+      ],
+      "meta"=>{}
+    }
+
+    alembic_version_json_hash.to_json
+  end
+
   def files_json
     return ''
   end
@@ -137,47 +155,47 @@ class CTFdGenerator
   
   def config_json
     config_json_hash = {
-      "count" => 31,
+      "count" => 23,
       "results" => [
         {
           "id"=>1,
-          "key"=>"next_update_check",
-          "value"=>"1529096764"
+          "key"=>"ctf_version",
+          "value"=>"2.0.2"
         },
         {
           "id"=>2,
-          "key"=>"ctf_version",
-          "value"=>"1.2.0"
-        },
-        {
-          "id"=>3,
           "key"=>"ctf_theme",
           "value"=>"core"
         },
         {
-          "id"=>4,
+          "id"=>3,
           "key"=>"ctf_name",
           "value"=>"SecGenCTF"
         },
         {
+          "id"=>4,
+          "key"=>"user_mode",
+          "value"=>"users"
+        },
+        {
           "id"=>5,
-          "key"=>"ctf_logo",
-          "value"=>nil #"fca9b07e1f3699e07870b86061815b1c/logo.svg"
+          "key"=>"challenge_visibility",
+          "value"=>"private"
         },
         {
           "id"=>6,
-          "key"=>"workshop_mode",
-          "value"=>"0"
+          "key"=>"score_visibility",
+          "value"=>"public"
         },
         {
           "id"=>7,
-          "key"=>"hide_scores",
-          "value"=>"0"
+          "key"=>"account_visibility",
+          "value"=>"public"
         },
         {
           "id"=>8,
-          "key"=>"prevent_registration",
-          "value"=>"0"
+          "key"=>"registration_visibility",
+          "value"=>"public"
         },
         {
           "id"=>9,
@@ -186,113 +204,73 @@ class CTFdGenerator
         },
         {
           "id"=>10,
-          "key"=>"max_tries",
-          "value"=>"0"
-        },
-        {
-          "id"=>11,
           "key"=>"end",
           "value"=>nil
         },
         {
-          "id"=>12,
+          "id"=>11,
           "key"=>"freeze",
           "value"=>nil
         },
         {
-          "id"=>13,
-          "key"=>"view_challenges_unregistered",
-          "value"=>"0"
-        },
-        {
-          "id"=>14,
+          "id"=>12,
           "key"=>"verify_emails",
-          "value"=>"0"
+          "value"=>nil
         },
         {
-          "id"=>15,
+          "id"=>13,
           "key"=>"mail_server",
           "value"=>nil
         },
         {
-          "id"=>16,
+          "id"=>14,
           "key"=>"mail_port",
           "value"=>nil
         },
         {
-          "id"=>17,
+          "id"=>15,
           "key"=>"mail_tls",
-          "value"=>"0"
+          "value"=>nil
         },
         {
-          "id"=>18,
+          "id"=>16,
           "key"=>"mail_ssl",
-          "value"=>"0"
+          "value"=>nil
         },
         {
-          "id"=>19,
+          "id"=>17,
           "key"=>"mail_username",
           "value"=>nil
         },
         {
-          "id"=>20,
+          "id"=>18,
           "key"=>"mail_password",
           "value"=>nil
         },
         {
-          "id"=>21,
+          "id"=>19,
           "key"=>"mail_useauth",
-          "value"=>"0"
+          "value"=>nil
+        },
+        {
+          "id"=>20,
+          "key"=>"setup",
+          "value"=>"true"
+        },
+        {
+          "id"=>21,
+          "key"=>"paused",
+          "value"=>"false"
         },
         {
           "id"=>22,
-          "key"=>"setup",
-          "value"=>"1"
-        },
-        {
-          "id"=>23,
           "key"=>"css",
           "value"=>File.read(ROOT_DIR + '/lib/templates/CTFd/css.css')
         },
         {
-          "id"=>24,
-          "key"=>"view_scoreboard_if_authed",
-          "value"=>"0"
-        },
-        {
-          "id"=>25,
-          "key"=>"prevent_name_change",
-          "value"=>"1"
-        },
-        {
-          "id"=>26,
-          "key"=>"version_latest",
-          "value"=>nil
-        },
-        {
-          "id"=>27,
-          "key"=>"mailfrom_addr",
-          "value"=>nil
-        },
-        {
-          "id"=>28,
-          "key"=>"mg_api_key",
-          "value"=>nil
-        },
-        {
-          "id"=>29,
-          "key"=>"mg_base_url",
-          "value"=>nil
-        },
-        {
-          "id"=>30,
-          "key"=>"view_after_ctf",
-          "value"=>"1"
-        },
-        {
-          "id"=>31,
-          "key"=>"paused",
-          "value"=>"0"
+          "id"=>23,
+          "key"=>"ctf_logo",
+          "value"=>nil #"fca9b07e1f3699e07870b86061815b1c/logo.svg"
         }
       ],
       "meta"=>{}
@@ -308,9 +286,9 @@ class CTFdGenerator
     }.to_json
   end
 
-  def keys_json(keys)
-    {"count"=>keys.length,
-     "results"=>keys,
+  def flags_json(flags)
+    {"count"=>flags.length,
+     "results"=>flags,
      "meta"=>{}
     }.to_json
   end
@@ -321,19 +299,21 @@ class CTFdGenerator
       "results" => [
         {
           "id"=>1,
+          "title"=>"Welcome",
           "route"=>"index",
-          "html"=>File.read(ROOT_DIR + '/lib/templates/CTFd/index.html'),
-          "auth_required"=>0,
-          "draft"=>0,
-          "title"=>"Welcome"
+          "content"=>File.read(ROOT_DIR + '/lib/templates/CTFd/index.html'),
+          "draft"=>false,
+          "hidden"=>false,
+          "auth_required"=>false
         },
         {
           "id"=>2,
+          "title"=>"Flag Submission",
           "route"=>"submit",
-          "html"=>File.read(ROOT_DIR + '/lib/templates/CTFd/submit.html'),
-          "auth_required"=>0,
-          "draft"=>0,
-          "title"=>"Flag submission"
+          "content"=>File.read(ROOT_DIR + '/lib/templates/CTFd/submit.html'),
+          "draft"=>false,
+          "hidden"=>false,
+          "auth_required"=>true
         }
       ],
       "meta"=>{}
@@ -342,54 +322,39 @@ class CTFdGenerator
     pages_json_hash.to_json
   end
 
-  def teams_json
-    
-    teams_json_hash = {
-      "count" => 2,
+  def users_json
+    # Default admin username: adminusername
+    # Default admin password: adminpassword
+    # To use an alternate password, utilize the lib/output/sha256_password.py script.
+    # This ensures compatibility with CTFd v2.0.2+
+
+    users_json_hash = {
+      "count" => 1,
       "results" => [
         {
           "id"=>1,
+          "oauth_id"=>nil,
           "name"=>"adminusername",
+          "password"=>"$bcrypt-sha256$2b,12$Fh9KaueZuSEK5YzSdTbcI.$cbJCW5wGDNBX0/C/xDvMhnv8X3vqI92",
           "email"=>"admin@email.com",
-          "password"=>password_hash_string("adminpassword"),
+          "type"=>"admin",
+          "secret"=>nil,
           "website"=>nil,
           "affiliation"=>nil,
           "country"=>nil,
           "bracket"=>nil,
-          "banned"=>0,
-          "verified"=>1,
-          "admin"=>1,
-          "joined"=>"2018-06-22T10:46:26"
+          "hidden"=>true,
+          "banned"=>false,
+          "verified"=>true,
+          "team_id"=>nil,
+          "created"=>"2019-02-01T20:13:03.80374"
         },
-        {
-          "id"=>2,
-          "name"=>"Me",
-          "email"=>"email@email.com",
-          "password"=>password_hash_string("mypassword"),
-          "website"=>nil,
-          "affiliation"=>nil,
-          "country"=>nil,
-          "bracket"=>nil,
-          "banned"=>0,
-          "verified"=>1,
-          "admin"=>1,
-          "joined"=>"2018-06-22T10:46:26"
-        }
       ],
       "meta"=>{}
     }
     
-    teams_json_hash.to_json
+    users_json_hash.to_json
     
-  end
-
-  # fix difference between ruby and python bcrypt formats used by libraries
-  # $bcrypt-sha256$variant,rounds$salt$checksum
-  # python lib used by CTFd expects , between variant and rounds, the ruby lib puts a $ there...
-  def password_hash_string(pass)
-    hash_string = "$bcrypt-sha256" + BCrypt::Password.create(pass)
-    hash_string[17]= ","
-    hash_string
   end
 
   def get_module_hints(search_module_for_hints, collected_hints, all_module_selections)

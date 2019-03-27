@@ -40,8 +40,7 @@ Install all the required packages:
 wget https://releases.hashicorp.com/vagrant/1.9.8/vagrant_1.9.8_x86_64.deb
 sudo apt install ./vagrant_1.9.8_x86_64.deb
 # install other required packages via repos
-sudo apt-get install ruby-dev zlib1g-dev liblzma-dev build-essential patch virtualbox ruby-bundler imagemagick libmagickwand-dev exiftool libpq-dev libcurl4-openssl-dev libxml2-dev graphviz graphviz-dev
-```
+sudo apt-get install ruby-dev zlib1g-dev liblzma-dev build-essential patch virtualbox ruby-bundler imagemagick libmagickwand-dev exiftool libpq-dev libcurl4-openssl-dev libxml2-dev graphviz graphviz-dev python3.6 python3-passlib
 
 Copy SecGen to a directory of your choosing, such as */home/user/bin/SecGen*
 
@@ -117,7 +116,7 @@ Scenarios can be found in the scenarios/ directory. For example, to spin up a VM
 ```bash
    ruby secgen.rb --scenario scenarios/examples/remotely_exploitable_user_vulnerability.xml run
 ```
-![gify goodness](lib/resources/images/readme_gifs/secgen_random_example.gif  "Remotly exploitable example where an attacker ends up with user-level access")
+![gify goodness](lib/resources/images/readme_gifs/secgen_random_example.gif  "Remotely exploitable example where an attacker ends up with user-level access")
 
 #### VMs for a security audit of an organisation
 To generate a set of VMs for a randomly generated fictional organisation, with a desktop system, webserver, and intranet server:
@@ -132,6 +131,11 @@ To generate a set of VMs for a CTF competition:
    ruby secgen.rb --scenario scenarios/ctf/flawed_fortress_1.xml run
 ```
 Note that a 'CTFd_importable.zip' file is also generated, containing all the flags and hints, which you can import into the [CTFd scoreboard frontend](https://github.com/CTFd/CTFd).
+This is compatible with CTFd v2.0.2 and newer.
+
+**Default admin account:**
+Username: adminusername
+Password: adminpassword
 
 ### Defining new scenarios
 Writing your own scenarios enables you to define a VM or set of VMs with a configuration as specific or general as desired.
