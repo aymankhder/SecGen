@@ -7,6 +7,11 @@ class apparmor::install {
     ensure => 'installed',
   } ->
 
+  # the default pidgin AppArmor profile breaks our pidgin module (images etc)
+  file { "/etc/apparmor.d/usr.bin.pidgin":
+    ensure => 'absent',
+  } ->
+
   file { "/etc/default/grub.d":
     ensure => 'directory',
   } ->
