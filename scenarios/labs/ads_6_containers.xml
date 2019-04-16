@@ -6,7 +6,18 @@
 
 	<name>Containers lab</name>
   <author>Z. Cliffe Schreuders</author>
-  <description>A Hackerbot lab. Work through the labsheet, then when prompted interact with Hackerbot. </description>
+  <description>
+# Lecture
+[Sandboxing](https://leedsbeckettreplay.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=836b7804-9c5c-4ddb-a938-aa0800a7bd14)
+
+[Slides here](http://z.cliffe.schreuders.org/presentations/slides/slides_out_sandboxing/ADS_PDS_Lectures_8_Sandboxes_and_Virtualisation.html)
+
+# Reading
+[Chapters 3 "Policies and Guidelines" and 4 "Users, Passwords, and Authentication": Garfinkel, S. Spafford, G. and Schwartz, A. (2003), Practical Unix and Internet Security, O'Reilly. (ISBN-10: 0596003234)](https://www-dawsonera-com.ezproxy.leedsbeckett.ac.uk/abstract/9781449310325)
+
+# Lab
+A Hackerbot lab. Work through the labsheet, then when prompted interact with Hackerbot.
+	</description>
 
   <type>ctf-lab</type>
   <type>hackerbot-lab</type>
