@@ -1,6 +1,6 @@
 ## Introduction to Sandboxing and Isolation
 
-There are many reasons for not trusting software: the authors may have been designed the software to act maliciously (malware) or they may have made some design or implementation mistakes that make the software vulnerable to attack. This is where access controls come in. Access controls restrict what each *subject* on a system is authorised to do. Traditionally access controls (such as Unix file permissions, which are user-oriented) have focussed on restricting what each user on a system can do. However, over time this has proven to be insufficient since this means that every program on a system is trusted with all of a user’s authorisation: any program can read or delete all of a user’s personal documents, Web history, and so on.
+There are many reasons for not trusting software: the authors may have been designed the software to act maliciously (malware) or they may have made some design or implementation mistakes that make the software vulnerable to attack. This is where access controls come in. Access controls restrict what each *subject* on a system is authorised to do. Traditionally access controls (such as Unix file permissions, which are user-oriented) have focussed on restricting what each user on a system can do. However, over time this has proven to be insufficient since this means that every program on a system is trusted with all of a user's authorisation: any program can read or delete all of a user's personal documents, Web history, and so on.
 
 *Sandboxing* (or application-oriented access controls) involves restricting what a program or group of programs can do. This can significantly improve the security of a system since a rogue program can do far less damage to the system if it is restricted to only the permissions it requires to function correctly.
 
@@ -87,7 +87,7 @@ Run ls in the chroot, and attempt to view the root (/) directory:
 sudo chroot /opt/chrootdir/ /bin/ls /
 ```
 
-Note that again, as far as anything in the chrooted program is concerned, what the rest of the system calls "/opt/chrootdir/", it sees as "/". This is referred to as the program’s *namespace*.
+Note that again, as far as anything in the chrooted program is concerned, what the rest of the system calls "/opt/chrootdir/", it sees as "/". This is referred to as the program's *namespace*.
 
 Create a more complete chroot environment, for running command line programs, including bash (the Linux shell command prompt).
 
@@ -151,13 +151,13 @@ In general, we would typically create a minimal install for a chroot environment
 
 ## Docker
 
-Docker builds on chroot, and additional virtualisation features to automate the creation and deployment of containerised OS’s and applications. Docker improves security compared to chroot, using LXC (and others, such as libcontainer) to provide added isolation by making use of Linux kernel cgroups to limit resources such as CPU, memory, block I/O, network. Compared to chroot Docker provides some additional protection against root users escaping confinement.
+Docker builds on chroot, and additional virtualisation features to automate the creation and deployment of containerised OS's and applications. Docker improves security compared to chroot, using LXC (and others, such as libcontainer) to provide added isolation by making use of Linux kernel cgroups to limit resources such as CPU, memory, block I/O, network. Compared to chroot Docker provides some additional protection against root users escaping confinement.
 
 Docker is portable across Linux systems, and makes use of reusable base images, and automated approaches for automating building containers to specifications.
 
 Docker *images* are reusable bases that can be used to create *containers*, and can be downloaded via the docker command, and can be browsed online at Docker Hub: [*https://hub.docker.com/*](https://hub.docker.com/)
 
-If you had an Internet connection you could run a command such as \`docker pull ubuntu\` to download an image based on Ubuntu Linux.
+If you had an Internet connection you could run a command such as `docker pull ubuntu` to download an image based on Ubuntu Linux.
 
 We have prepared an isolated environment for you, with some bases already downloaded for you to use.
 
@@ -240,7 +240,7 @@ Attempt to write to the file within the container.
 
 > Press Ctrl-D to exit the container.
 
-==Lab Book Question: How does Docker’s file sharing feature work?==
+==Lab Book Question: How does Docker's file sharing feature work?==
 
 Note that our various containers are still running:
 

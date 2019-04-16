@@ -7,8 +7,8 @@ class HB < HackerbotConfigGenerator
 
   def initialize
     super
-    self.module_name = 'Hackerbot Config Generator Authentication'
-    self.title = 'Authentication'
+    self.module_name = 'Hackerbot Config Generator'
+    self.title = 'Lab'
 
     self.local_dir = File.expand_path('../../',__FILE__)
     self.templates_path = "#{self.local_dir}/templates/"
