@@ -8,7 +8,6 @@
   <author>Z. Cliffe Schreuders</author>
   <description>
 # Lecture
-
 [Click here to watch the lecture authentication part 1](https://leedsbeckettreplay.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=c5ea9ea3-b8c2-4949-a251-a9e500ad23f4)
 
 [Click here to watch authentication part 2](https://leedsbeckettreplay.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=c49f1c3a-1688-4013-b1a8-a9ec00a5a30f)
@@ -16,13 +15,10 @@
 [Slides here](http://z.cliffe.schreuders.org/presentations/slides/1718/ADS_slides_out_week_6/WNS_ADS_Lectures_5_Authentication.html)
 
 # Reading
-
 [Chapter 11 "Authentication": Bishop, M. (2004), Introduction to Computer Security, Addison-Wesley. (ISBN-10:  0321247442)](https://my.leedsbeckett.ac.uk/bbcswebdav/pid-2221598-dt-content-rid-4451698_1/institution/Online%20Learning/AET/CT/MSc%20Computer%20Security/Principles%20of%20Digital%20Security/Readings/Week%205/DCS-85139%20%281%29.pdf)
 
 # Lab
-
 A Hackerbot lab. Work through the lab instructions, then when prompted interact with Hackerbot.
-
 	</description>
 
   <type>ctf-lab</type>

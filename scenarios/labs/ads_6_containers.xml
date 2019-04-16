@@ -13,7 +13,7 @@
 [Slides here](http://z.cliffe.schreuders.org/presentations/slides/slides_out_sandboxing/ADS_PDS_Lectures_8_Sandboxes_and_Virtualisation.html)
 
 # Reading
-[Chapters 3 "Policies and Guidelines" and 4 "Users, Passwords, and Authentication": Garfinkel, S. Spafford, G. and Schwartz, A. (2003), Practical Unix and Internet Security, O'Reilly. (ISBN-10: 0596003234)](https://www-dawsonera-com.ezproxy.leedsbeckett.ac.uk/abstract/9781449310325)
+[Z. C. Schreuders, T. McGill, and C. Payne, "The State of the Art of Application Restrictions and Sandboxes: A Survey of Application-oriented Access Controls and their Shortfalls," Computers and Security, Volume 32, Elsevier B.V., 2013. DOI: 10.1016/j.cose.2012.09.007](http://z.cliffe.schreuders.org/publications/Computers&Security%20-%20The%20State%20of%20the%20Art%20of%20Application%20Restrictions%20and%20Sandboxes%20-%20Author%20Version.pdf)
 
 # Lab
 A Hackerbot lab. Work through the labsheet, then when prompted interact with Hackerbot.
