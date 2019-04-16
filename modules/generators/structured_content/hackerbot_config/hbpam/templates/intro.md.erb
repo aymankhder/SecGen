@@ -135,7 +135,7 @@ Note that this indicates that PAM will apply the password rules in "common-passw
 sudo vi /etc/pam.d/common-password
 ```
 
-==Add this line before other password lines:==
+==Edit the pam_pwquality line, so it reads:==
 
 ```
 password requisite pam_pwquality.so minlen=10

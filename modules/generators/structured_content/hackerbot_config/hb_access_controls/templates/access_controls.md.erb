@@ -102,13 +102,13 @@ ls -l /tmp/ls
 
 The first letter is an `l` where it hand been an `-` before, representing the fact that this file is a symbolic link file. The very last part indicates what this file is linked to (in this case, /bin/ls)
 
-Now, ==try to remove this symlink.==
+Now, ==try to remove this symlink as another user.==
 
 ```bash
-rm /tmp/ls
+sudo -u <%= $second_user %> rm /tmp/ls
 ```
 
-Permission denied! Interestingly, in this case as a normal user we can create the symlink to /bin/ls, but cannot then delete that link since the sticky bit is set for the /tmp/ directory. ==Run:==
+Permission denied! Interestingly, in this case as a normal user we can create the symlink to /bin/ls in the shared directory, but other user cannot then delete that link since the sticky bit is set for the /tmp/ directory. ==Run:==
 
 ```bash
 ls -ld /tmp/

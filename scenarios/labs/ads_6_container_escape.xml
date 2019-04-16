@@ -6,7 +6,7 @@
 
 	<name>Containers escape lab</name>
   <author>Z. Cliffe Schreuders</author>
-  <description>A Hackerbot lab. Work through the labsheet, then when prompted interact with Hackerbot. </description>
+  <description>An "escape room" -- you need to find a way into then escape to root a docker container and a chroot container. Hints: the flags are stored in /root/ on the two VMs but you first need to find your way in, and then escape confinement. Good luck!</description>
 
   <type>ctf-lab</type>
   <type>hackerbot-lab</type>

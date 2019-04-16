@@ -6,7 +6,7 @@
 
 	<name>ADS Assignment with Security Spec</name>
   <author>Z. Cliffe Schreuders</author>
-  <description>Your task is to design and implement technical security defenses, to achieve the required functionality as specified in the included requirements specification, which is displayed on the desktop.</description>
+  <description>Your task is to design and implement technical security defenses, to achieve the required functionality as specified in the separately provided requirements specification: https://tinyurl.com/y3rcarp9.</description>
 
   <type>hackerbot-lab</type>
   <type>lab-sheet</type>

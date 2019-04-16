@@ -119,6 +119,18 @@
 		<utility module_path=".*handy_cli_tools"/>
 		<utility module_path=".*nmap"/>
 
+		<utility module_path=".*iceweasel">
+			<input into="accounts">
+				<datastore>accounts</datastore>
+			</input>
+			<input into="autostart">
+				<value>true</value>
+			</input>
+			<input into="start_page">
+				<datastore access="1">IP_addresses</datastore>
+			</input>
+		</utility>
+
 		<utility module_path=".*docker">
 			<input into="images">
 				<value>ubuntu:xenial</value>
@@ -164,6 +176,45 @@
 				<datastore access="0">IP_addresses</datastore>
 			</input>
 		</network>
+	</system>
+
+
+	<system>
+		<system_name>hackerbot_server</system_name>
+		<base distro="Kali" name="MSF"/>
+
+		<service type="ircd"/>
+
+		<utility module_path=".*metasploit_framework"/>
+		<utility module_path=".*nmap"/>
+		<utility module_path=".*handy_cli_tools"/>
+
+		<service type="httpd"/>
+
+		<utility module_path=".*hackerbot">
+			<input into="hackerbot_configs">
+				<generator module_path=".*hb_containers">
+					<input into="accounts">
+						<datastore>accounts</datastore>
+					</input>
+					<input into="root_password">
+						<datastore>hackerbot_access_root_password</datastore>
+					</input>
+				</generator>
+			</input>
+		</utility>
+
+    <network type="private_network" >
+     	<input into="IP_address">
+    		<datastore access="1">IP_addresses</datastore>
+     	</input>
+    </network>
+
+		<build type="cleanup">
+			<input into="root_password">
+				<generator type="strong_password_generator"/>
+			</input>
+		</build>
 	</system>
 
 </scenario>
