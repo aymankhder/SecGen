@@ -231,7 +231,6 @@ Diner's Club	3000 0000 0000 04</value>
 				<generator type="strong_password_generator"/>
 			</input>
 		</build>
-		<!--TODO: reboot VM to fix networking?-->
 	</system>
 
 </scenario>
