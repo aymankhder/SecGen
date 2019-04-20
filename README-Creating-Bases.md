@@ -45,5 +45,5 @@ history -c
 history -w
 ```
 
-Finally package to upload:
-vagrant package --base vmname --output packaged.box
+Finally, on the host, package to upload:
+`vagrant package --base vmname --output packaged.box`
