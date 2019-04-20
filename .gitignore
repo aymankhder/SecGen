@@ -15,3 +15,5 @@ secgen.conf
 modules/encoders/compression/huffman/tmp
 .rakeTasks
 modules/**/Gemfile.lock
+modules/generators/network/pcap/files/packet.pcap
+lib/resources/images/scenario
