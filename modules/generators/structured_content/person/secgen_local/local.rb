@@ -12,6 +12,8 @@ class PersonHashBuilder < StringEncoder
   attr_accessor :account
   attr_accessor :credit_card
   attr_accessor :national_insurance_number
+  attr_accessor :age
+  attr_accessor :profession
 
   def initialize
     super
@@ -25,6 +27,8 @@ class PersonHashBuilder < StringEncoder
     self.credit_card = ''
     self.national_insurance_number = ''
     self.account = []
+    self.age = ''
+    self.profession = ''
   end
 
   def encode_all
@@ -35,6 +39,8 @@ class PersonHashBuilder < StringEncoder
     person_hash['email_address'] = self.email_address
     person_hash['credit_card'] = self.credit_card
     person_hash['national_insurance_number'] = self.national_insurance_number
+    person_hash['age'] = self.age
+    person_hash['profession'] = self.profession
 
     if self.account != []
       account = JSON.parse(self.account[0])
@@ -57,7 +63,9 @@ class PersonHashBuilder < StringEncoder
              ['--password', GetoptLong::REQUIRED_ARGUMENT],
              ['--credit_card', GetoptLong::REQUIRED_ARGUMENT],
              ['--national_insurance_number', GetoptLong::REQUIRED_ARGUMENT],
-             ['--account', GetoptLong::OPTIONAL_ARGUMENT]]
+             ['--account', GetoptLong::OPTIONAL_ARGUMENT],
+             ['--age', GetoptLong::REQUIRED_ARGUMENT],
+             ['--profession', GetoptLong::REQUIRED_ARGUMENT]]
   end
 
   def process_options(opt, arg)
@@ -81,6 +89,10 @@ class PersonHashBuilder < StringEncoder
         self.national_insurance_number << arg;
       when '--account'
         self.account << arg;
+      when '--age'
+        self.age << arg;
+      when '--profession'
+        self.profession << arg;
     end
   end
 
@@ -93,6 +105,8 @@ class PersonHashBuilder < StringEncoder
     'password: ' + self.password.to_s + print_string_padding +
     'credit_card: ' + self.credit_card.to_s + print_string_padding +
     'national_insurance_number: ' + self.national_insurance_number.to_s + print_string_padding +
+    'age: ' + self.age.to_s + print_string_padding +
+    'profession: ' + self.profession.to_s + print_string_padding +
     'account: ' + self.account.to_s
   end
 end

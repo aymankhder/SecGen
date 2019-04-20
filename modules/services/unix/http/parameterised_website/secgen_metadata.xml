@@ -28,6 +28,9 @@
   <read_fact>visible_tabs</read_fact>
   <read_fact>hidden_tabs</read_fact>
 
+  <!-- Allows you to set mode of images_to_leak -->
+  <read_fact>images_mode</read_fact>
+
   <read_fact>port</read_fact>
   <read_fact>theme</read_fact>
 
