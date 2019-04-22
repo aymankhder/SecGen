@@ -495,7 +495,7 @@ opts.each do |opt, arg|
       options[:esxipass] = arg
     when '--esxi-url'
       Print.info "ESXi host url : #{arg}"
-      options[:esxiurl] = arg
+      options[:esxi_url] = arg
     when '--esxi-datastore'
       Print.info "ESXi datastore: #{arg}"
       options[:esxidatastore] = arg
