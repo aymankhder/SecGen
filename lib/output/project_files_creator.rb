@@ -32,6 +32,9 @@ class ProjectFilesCreator
     @options = options
     @scenario_networks = Hash.new { |h, k| h[k] = 1 }
     @option_range_map = {}
+
+    # Packer builder type
+    @builder_type = @options.has_key?(:esxi_url) ? :vmware_iso : :virtualbox_iso
   end
 
 # Generate all relevant files for the project
@@ -73,7 +76,7 @@ class ProjectFilesCreator
       system.module_selections.each do |selected_module|
 
         if selected_module.module_type == 'base'
-          url = selected_module.attributes['url'].first
+          url = @builder_type == :vmware_iso ? selected_module.attributes['esxi_url'].first : selected_module.attributes['url'].first
 
           unless url.nil? || url =~ /^http*/
             Print.std "Checking to see if local basebox #{url.split('/').last} exists"
@@ -92,12 +95,15 @@ class ProjectFilesCreator
                 template_based_file_write(packerfile_path, packerfile_path.split(/.erb$/).first)
                 template_based_file_write(autounattend_path, autounattend_path.split(/.erb$/).first)
                 system "cd '#{packerfile_path.split(/\/[^\/]*.erb$/).first}' && packer build Packerfile && cd '#{ROOT_DIR}'"
+                selected_module.attributes['url'][0] = "#{VAGRANT_BASEBOX_STORAGE}/#{url}"
+                selected_module.attributes['esxi_url'][0] = "#{VAGRANT_BASEBOX_STORAGE}/#{url}"
               else
                 Print.err "Packerfile not found, vagrant error may occur, please check the secgen metadata for the base module #{selected_module.name} for errors";
               end
             else
               Print.std "Vagrant basebox #{url.split('/').last} exists"
               selected_module.attributes['url'][0] = "#{VAGRANT_BASEBOX_STORAGE}/#{url}"
+              selected_module.attributes['esxi_url'][0] = "#{VAGRANT_BASEBOX_STORAGE}/#{url}"
             end
           end
         end

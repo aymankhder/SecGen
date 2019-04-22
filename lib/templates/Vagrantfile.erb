@@ -64,7 +64,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # vmware_esxi provider begin
     <%= system.name %>.vm.provider :vmware_esxi do |esxi|
 <%=
-"	esxi.esxi_hostname = '#{@options[:esxiurl]}'
+"	esxi.esxi_hostname = '#{@options[:esxi_url]}'
 	esxi.esxi_username = '#{@options[:esxiuser]}'
         esxi.esxi_password = '#{@options[:esxipass]}' "
 		%>
@@ -156,6 +156,7 @@ end
     <%= system.name %>.vm.guest = :windows
     <%= system.name %>.vm.network :forwarded_port, guest: 3389, host: 3389
     <%= system.name %>.vm.network :forwarded_port, guest: 5985, host: 5985, id: "winrm", auto_correct: true
+    storage_server.vm.synced_folder '.', '/vagrant', disabled: true
     <% end %>
 <%   when 'network' -%>
 <%     # DHCP networking -%>
@@ -203,6 +204,7 @@ end
       <%=module_name%>.module_path = "<%="puppet/#{system.name}/modules"%>"
       <%=module_name%>.environment_path = "environments/"
       <%=module_name%>.environment = "production"
+
       <%=module_name%>.synced_folder_type = "rsync"
       <%=module_name%>.manifests_path = "<%="puppet/#{system.name}/modules/#{selected_module.module_path_end}"%>"
       <%=module_name%>.manifest_file = "<%="#{selected_module.module_path_end}.pp"%>"
