@@ -17,7 +17,7 @@ $done = false;
 if($_POST) {
   // csrf check?
   if($_SESSION["csrf"] == $_POST["csrf"]) {
-    $target = "/var/www/html/img/uploads/" . basename($_POST["filename"]);
+    $target = "/var/www/onlinestore/img/uploads/" . basename($_POST["filename"]);
     //quick error check: this makes sure that the uploaded file
     //has the same extension as the new file name we generate for this
     if(@pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION)
@@ -55,7 +55,7 @@ if($_POST) {
 //we need to make sure that the uploaded file does not have the same
 //name as a file we already have. Therefore this generates a new 
 //random name for the file
-$file = basename(@tempnam("/var/www/html/img/uploads", strftime("%Y-%m-%d_", time())));
+$file = basename(@tempnam("/var/www/onlinestore/img/uploads", strftime("%Y-%m-%d_", time())));
 $file .= ".jpg";
 
 // refresh csrf token

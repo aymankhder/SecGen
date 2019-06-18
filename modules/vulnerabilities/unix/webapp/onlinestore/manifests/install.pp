@@ -4,9 +4,10 @@ class onlinestore::install {
   # Parse out parameters
   $db_flag = $secgen_parameters['strings_to_leak'][0]
   $admin_flag = $secgen_parameters['strings_to_leak'][1]
-  $root_file_flag = $secgen_parameters['strings_to_leak'][2]
+  $command_injection_flag = $secgen_parameters['strings_to_leak'][2]
   $black_market_flag = $secgen_parameters['strings_to_leak'][3]
   $admin_token_flag = $secgen_parameters['strings_to_leak'][4]
+  $pony_products_flag = $secgen_parameters['strings_to_leak'][5]
   $accounts = $secgen_parameters['accounts']
   $domain = $secgen_parameters['domain'][0]
   $dealer_id = $secgen_parameters['dealer_id'][0]
@@ -84,13 +85,13 @@ class onlinestore::install {
     cwd     => "/tmp",
     command => "sudo ./mysql_setup.sh $db_username $db_password $db_flag",
     path    => [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/' ],
-    notify => Exec['create_root_flag'],
+    notify => Exec['create_command_injection_flag'],
   }
 
   # Add flags
-  exec { 'create_root_flag':
-    cwd     => "/home/vagrant",
-    command => "echo '$root_file_flag' > /webroot && chown -f root:root /webroot && chmod -f 0600 /webroot",
+  exec { 'create_command_injection_flag':
+    cwd     => "$docroot/",
+    command => "echo '$command_injection_flag' > /injectionToken && chown -f www-data:www-data /injectionToken && chmod -f 0600 /injectionToken",
     notify => Exec['create_admin_flag'],
   }
 

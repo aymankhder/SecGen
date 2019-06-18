@@ -178,6 +178,10 @@ class ProjectFilesCreator
       abort
     end
 
+    # Copy the test superclass into the project/lib directory
+    Print.std "Copying post-provision testing class"
+    FileUtils.mkdir("#{@out_dir}/lib")
+    FileUtils.cp("#{ROOT_DIR}/lib/objects/post_provision_test.rb", "#{@out_dir}/lib/post_provision_test.rb")
 
     Print.std "VM(s) can be built using 'vagrant up' in #{@out_dir}"
 

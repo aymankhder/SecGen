@@ -6,7 +6,7 @@
   <name>Netcat Backdoor</name>
   <author>Z. Cliffe Schreuders</author>
   <module_license>MIT</module_license>
-  <description>A netcat backdoor (acts as a bind shell -- listens on a port and serves a shell).</description>
+  <description>A netcat backdoor (acts as a bind shell -- listens on a port and serves a shell). Strings are leaked to /root/.</description>
 
   <type>simple_backdoor</type>
   <type>bind_shell</type>

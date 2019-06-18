@@ -9,6 +9,7 @@
   <description>wordpress</description>
 
   <type>webapp</type>
+  <type>webapp_with_db</type>
   <type>in_the_wild</type>
   <privilege>various</privilege>
   <access>remote</access>

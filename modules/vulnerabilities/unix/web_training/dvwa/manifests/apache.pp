@@ -45,7 +45,7 @@ class dvwa::apache {
   ::apache::vhost { 'dvwa':
     port    => $port,
     docroot => $docroot,
-
+    notify => Tidy['dvwa remove default site']
   } ->
 
   exec { 'enable php module':
@@ -71,5 +71,7 @@ class dvwa::apache {
 #    table      => 'dvwa_database.*',
 #    privileges => ['ALL'],
 #  }
+
+  ensure_resource('tidy','dvwa remove default site', {'path'=>'/etc/apache2/sites-enabled/000-default.conf'})
 
 }

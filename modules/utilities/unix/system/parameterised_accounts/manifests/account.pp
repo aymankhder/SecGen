@@ -1,6 +1,7 @@
 define parameterised_accounts::account (
   $username,
   $password,
+  $groups,
   $super_user,
   $strings_to_leak,
   $leaked_filenames,
@@ -27,6 +28,7 @@ define parameterised_accounts::account (
   # Add user account
   ::accounts::user { $username:
     shell      => '/bin/bash',
+    groups     => $groups,
     password   => pw_hash($password, 'SHA-512', 'mysalt'),
     managehome => true,
     before     => $misconfigurations,
@@ -54,7 +56,7 @@ define parameterised_accounts::account (
     leaked_filenames  => $leaked_filenames,
     owner             => $username,
     group             => $username,
-    mode              => '0444',
+    mode              => '0600',
     leaked_from       => "accounts_$username",
   }
 
@@ -64,7 +66,7 @@ define parameterised_accounts::account (
       data_to_leak      => $data_to_leak,
       owner             => $username,
       group             => $username,
-      mode              => '0444',
+      mode              => '0600',
       leaked_from       => "accounts_$username",
     }
   }

@@ -10,6 +10,7 @@
 
   <type>webapp</type>
   <type>in_the_wild</type>
+  <type>webapp_with_db</type>
   <privilege>various</privilege>
   <access>remote</access>
   <platform>linux</platform>
