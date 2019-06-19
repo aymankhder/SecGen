@@ -426,12 +426,12 @@ opts = GetoptLong.new(
     ['--ovirt-network', GetoptLong::REQUIRED_ARGUMENT],
     ['--ovirt-affinity-group', GetoptLong::REQUIRED_ARGUMENT],
     ['--snapshot', GetoptLong::NO_ARGUMENT],
+    ['--no-tests', GetoptLong::NO_ARGUMENT],
     ['--esxiuser', GetoptLong::REQUIRED_ARGUMENT],
     ['--esxipass', GetoptLong::REQUIRED_ARGUMENT],
     ['--esxi-url', GetoptLong::REQUIRED_ARGUMENT],
     ['--esxi-datastore', GetoptLong::REQUIRED_ARGUMENT],
     ['--esxi-network', GetoptLong::REQUIRED_ARGUMENT],
-    ['--no-tests', GetoptLong::NO_ARGUMENT],
 )
 
 scenario = SCENARIO_XML

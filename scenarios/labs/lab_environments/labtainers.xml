@@ -69,7 +69,6 @@
       </input>
     </utility>
     <utility module_path=".*handy_cli_tools"/>
-    <utility module_path=".*hash_tools"/>
 
     <utility module_path=".*iceweasel">
       <input into="accounts">
