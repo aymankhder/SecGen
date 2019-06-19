@@ -4,8 +4,9 @@ class labtainers::config{
   $secgen_parameters = secgen_functions::get_parameters($::base64_inputs_file)
   $lab = $secgen_parameters['lab'][0]
 
+  # TODO: don't raise an error for now
   exec { 'start lab':
-    command  => "/opt/labtainers/labtainer-student/labtainer $lab",
+    command  => "/opt/labtainers/labtainer-student/labtainer $lab | true",
     provider => shell,
   }
 

@@ -13,14 +13,19 @@ class labtainers::install{
   file { '/opt/labtainers':
     ensure => directory,
     recurse => true,
-    source => 'puppet:///modules/labtainers/labtainer.files',
+    source => 'puppet:///modules/labtainers/Labtainer-master',
     mode   => '0766',
     owner => 'root',
     group => 'root',
   } ->
-
+  file { '/opt/labtainers/setup_scripts/modified-install-docker-debian.sh':
+    source => 'puppet:///modules/labtainers/labtainer.files/modified-install-docker-debian.sh',
+    mode   => '0766',
+    owner => 'root',
+    group => 'root',
+  } ->
   exec { 'install script':
-    command  => '/opt/labtainers/install-labtainer.sh',
+    command  => '/opt/labtainers/setup_scripts/modified-install-docker-debian.sh',
     provider => shell,
   }
 
