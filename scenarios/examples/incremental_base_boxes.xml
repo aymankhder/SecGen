@@ -6,14 +6,14 @@
 
 	<system>
 		<system_name>debian_desktop_base</system_name>
-		<base platform="linux" distro="Debian 7.8"/>
+		<base type="server" distro="Debian 7.8"/>
 
 		<utility module_path=".*kde_minimal"/>
-		<utility module_path=".*iceweasel"/>
+		<!-- <utility module_path=".*iceweasel"/> -->
 		<utility module_path=".*handy_cli_tools"/>
 	</system>
 
-	<system>
+<!--	<system>
 		<system_name>debian_server_base</system_name>
 		<base platform="linux" distro="Debian 7.8"/>
 
@@ -28,5 +28,5 @@
 		<utility module_path=".*nmap"/>
 		<utility module_path=".*handy_cli_tools"/>
 	</system>
-
+-->
 </scenario>

@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <errno.h>
+
+int main()
+{
+  printf("      	UID         	GID \n"
+     	"Real  	%d  Real  	%d \n"
+     	"Effective %d  Effective %d \n",
+     	getuid (), 	getgid (),
+     	geteuid(), 	getegid());
+
+  system("<%= ['ls -la', 'ls', 'stat', 'lsattr', 'getfacl', 'dir -l'].sample %> /home/<%= @username %>/flag");
+  return EXIT_SUCCESS;
+}
