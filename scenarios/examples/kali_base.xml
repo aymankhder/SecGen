@@ -4,7 +4,7 @@
 		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		xsi:schemaLocation="http://www.github/cliffe/SecGen/scenario">
 
-	<name>Integrity protection Hackerbot lab</name>
+	<name>Kali base box</name>
   <author>Z. Cliffe Schreuders</author>
   <description>Kali base box.</description>
 
