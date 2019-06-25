@@ -1,4 +1,7 @@
 define bash_path_env_suid::account($username, $password, $strings_to_leak, $leaked_filenames) {
+  # for template
+  $secgen_parameters = secgen_functions::get_parameters($::base64_inputs_file)
+
   ::accounts::user { $username:
     shell      => '/bin/bash',
     password   => pw_hash($password, 'SHA-512', 'mysalt'),

@@ -20,6 +20,7 @@
   <difficulty>medium</difficulty>
 
   <read_fact>accounts</read_fact>
+  <read_fact>bash_command</read_fact>
 
   <default_input into="accounts">
 
@@ -37,8 +38,21 @@
 
   </default_input>
 
+  <default_input into="bash_command">
+    <encoder type="string_selector">
+      <input into="strings_to_encode">
+        <value>ls -la</value>
+        <value>ls</value>
+        <value>stat</value>
+        <value>lsattr</value>
+        <value>getfacl</value>
+        <value>dir -l</value>
+      </input>
+    </encoder>
+  </default_input>
+
   <!--optional details-->
-  <hint>There is a security problem caused by not using an absolute filename when executing a command.</hint>
+  <hint>There is a security problem caused by not using an absolute filename when executing a command on a sensitive file.</hint>
   <solution>Set your PATH env to a directory where you have a cat command named the command being executed.</solution>
 
   <requires>

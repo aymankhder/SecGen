@@ -12,6 +12,6 @@ int main()
      	getuid (), 	getgid (),
      	geteuid(), 	getegid());
 
-  system("<%= ['ls -la', 'ls', 'stat', 'lsattr', 'getfacl', 'dir -l'].sample %> /home/<%= @username %>/flag");
+  system("<%= @secgen_parameters['bash_command'].first %> /home/<%= @username %>/flag");
   return EXIT_SUCCESS;
 }
