@@ -25,6 +25,7 @@
             <value>SecGen</value>
           </input>
         </encoder>
+        <generator type="ascii_art_generator"/>
         <value>Welcome! You are logged in.</value>
       </input>
     </utility>

@@ -44,6 +44,7 @@ WORDLISTS_DIR = "#{ROOT_DIR}/lib/resources/wordlists"
 LINELISTS_DIR = "#{ROOT_DIR}/lib/resources/linelists"
 BLACKLISTED_WORDS_FILE = "#{ROOT_DIR}/lib/resources/blacklisted_words/blacklist.txt"
 IMAGES_DIR = "#{ROOT_DIR}/lib/resources/images"
+ASCII_ART_DIR = "#{ROOT_DIR}/lib/resources/ascii_art"
 PASSWORDLISTS_DIR = "#{ROOT_DIR}/lib/resources/passwordlists"
 
 # Path to build puppet modules
