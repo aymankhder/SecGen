@@ -1,14 +1,14 @@
 class before_login_message::init {
 
   $secgen_parameters = secgen_functions::get_parameters($::base64_inputs_file)
-  $leaked_strings = join($secgen_parameters['$leaked_strings'], "/n")
- 
-  file_line { "$leaked_strings leak":
+  $strings_to_leak = join($secgen_parameters['strings_to_leak'], "\n")
+
+  file_line { "$strings_to_leak leak":
     path => '/etc/issue',
-    line => $leaked_strings,
+    line => $strings_to_leak,
  }
- file_line { "$leaked_strings net leak":
+ file_line { "$strings_to_leak net leak":
     path => '/etc/issue.net',
-    line => $leaked_strings,
+    line => $strings_to_leak,
  }
 }
