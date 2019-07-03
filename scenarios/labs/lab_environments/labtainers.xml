@@ -37,6 +37,9 @@
         <input into="super_user">
           <value>true</value>
         </input>
+        <input into="groups">
+					<value>docker</value>
+				</input>
         <input into="leaked_filenames">
           <value></value>
         </input>
@@ -50,7 +53,12 @@
       <generator type="strong_password_generator"/>
     </input>
 
-    <!--Create the users-->
+    <!--Create the groups-->
+		<utility module_path=".*groups">
+			<input into="groups">
+				<value>docker</value>
+			</input>
+		</utility>    <!--Create the users-->
     <utility module_path=".*parameterised_accounts">
       <input into="accounts">
         <datastore>accounts</datastore>
@@ -91,6 +99,9 @@
     <utility module_path=".*labtainers">
       <input into="lab">
         <value>shellbasics</value>
+      </input>
+      <input into="accounts">
+        <datastore>accounts</datastore>
       </input>
     </utility>
 

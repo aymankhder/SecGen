@@ -32,8 +32,8 @@ END
 # sudo apt-get -y --allow-unauthenticated install docker-ce
 
 #gives user access to docker commands
-sudo groupadd docker
-sudo usermod -aG docker $USER
+# sudo groupadd docker
+# sudo usermod -aG docker $USER
 
 #enables and starts docker
 # sudo systemctl start docker

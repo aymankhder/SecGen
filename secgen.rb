@@ -544,7 +544,9 @@ opts.each do |opt, arg|
   when '--esxi-disktype'
     Print.info "ESXi disk type : #{arg}"
     options[:esxidisktype] = arg
-
+  when '--no-tests'
+    Print.info "Not running post-provision tests"
+    options[:notests] = true
   else
     Print.err "Argument not valid: #{arg}"
     usage

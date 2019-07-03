@@ -16,6 +16,7 @@
   <software_license>public domain</software_license>
 
   <read_fact>lab</read_fact>
+  <read_fact>accounts</read_fact>
 
   <default_input into="lab">
     <value>shellbasics</value>
