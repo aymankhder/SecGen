@@ -14,9 +14,14 @@ class labtainers::install{
     ensure => directory,
     recurse => true,
     source => 'puppet:///modules/labtainers/Labtainers-master',
-    mode   => '0777',
+    mode   => '0755',
     owner => 'root',
     group => 'root',
+  } ->
+  # Set permissions to enable creation of log files etc
+  exec { 'permissions for logging':
+    command  => "/bin/chmod a+rwt /opt/labtainers/scripts/labtainer-student/ /opt/labtainers/scripts/labtainer-instructor/ /opt/labtainers/setup_scripts/",
+    provider => shell,
   } ->
 
   # not sure why this is required in our environment, but this fixes the script on our VM builds
@@ -31,6 +36,9 @@ class labtainers::install{
     provider => shell,
     cwd => "/opt/labtainers/tool-src/capinout"
   }
+
+  # pull the grading image
+  docker::image { "mfthomps/labtainer.grader:latest": }
 
   # TODO: users added to docker group?
 

@@ -32,7 +32,7 @@ class labtainers::config{
 
       file_line { 'patch_path_labtainers':
         path  => "$home_dir/.profile",
-        line  => 'export PATH=/opt/labtainers/scripts/labtainer-student/bin:/opt/labtainers/scripts/labtainer-student/lab-bin/:/opt/labtainers/setup_scripts/trunk/scripts/designer/bin:$PATH',
+        line  => 'export PATH=/opt/labtainers/scripts/labtainer-student/bin:/opt/labtainers/scripts/labtainer-instructor/bin:/opt/labtainers/scripts/labtainer-student/lab-bin/:/opt/labtainers/setup_scripts/trunk/scripts/designer/bin:$PATH',
       }
       file_line { 'patch_path_labtainers_dir':
         path  => "$home_dir/.bashrc",
