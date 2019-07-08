@@ -42,6 +42,11 @@
   <hint>Connect to a port, you will find yourself in a chroot.</hint>
   <solution>Connecting to the right port will give you a root shell. You can misuse /proc to escape.</solution>
 
+  <!-- TODO TEST -->
+  <requires>
+    <module_path>.*chroot_debootstrap</module_path>
+  </requires>
+
   <requires>
     <type>update</type>
   </requires>

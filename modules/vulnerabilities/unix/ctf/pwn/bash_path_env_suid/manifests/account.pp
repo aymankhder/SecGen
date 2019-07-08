@@ -1,4 +1,7 @@
-define relative_path_suid_hardlinks::account($username, $password, $strings_to_leak, $leaked_filenames) {
+define bash_path_env_suid::account($username, $password, $strings_to_leak, $leaked_filenames) {
+  # for template
+  $secgen_parameters = secgen_functions::get_parameters($::base64_inputs_file)
+
   ::accounts::user { $username:
     shell      => '/bin/bash',
     password   => pw_hash($password, 'SHA-512', 'mysalt'),
@@ -22,17 +25,13 @@ define relative_path_suid_hardlinks::account($username, $password, $strings_to_l
     group  => $username,
     mode   => '0644',
     ensure => file,
-    source => 'puppet:///modules/relative_path_suid_hardlinks/access_my_flag.c',
+    content => template('bash_path_env_suid/access_my_flag.c.erb'),
   } ->
 
-  exec { "$username-compileandsetup2":
+  exec { "$username-compileandsetup_bash_path_env_suid":
     cwd     => "/home/$username/",
     command => "gcc -o access_my_flag access_my_flag.c && sudo chown $username access_my_flag && sudo chmod 4755 access_my_flag",
     path    => [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/' ],
-  }
-
-  file { '/etc/sysctl.d/hardlinks.conf':
-    content => "fs.protected_hardlinks = 0",
   }
 
 }
