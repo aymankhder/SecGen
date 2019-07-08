@@ -2,7 +2,7 @@
 Name=Lab
 GenericName=Labtainer lab autostart
 Comment=Autostart script
-Exec=/opt/labtainers/labtainer-student/labtainer <%= @lab %>
+Exec=bash -c 'cd /opt/labtainers/scripts/labtainer-student/; echo "Running lab <%= @lab %>"; echo -e '/n'|labtainer <%= @lab %>; bash'
 Terminal=true
 Type=Application
 X-GNOME-Autostart-enabled=true
