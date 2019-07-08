@@ -105,6 +105,30 @@
       </input>
     </utility>
 
+    <service type="ircd"/>
+
+    <utility module_path=".*hackerbot">
+      <!-- <input into="hackerbot_configs">
+        <generator module_path=".*integrity_protection">
+          <input into="accounts">
+            <datastore>accounts</datastore>
+          </input>
+          <input into="root_password">
+            <value>removeme</value>
+          </input>
+        </generator>
+      </input> -->
+    </utility>
+
+		<utility module_path=".*pidgin">
+			<input into="server_ip">
+				<value>localhost</value>
+			</input>
+			<input into="accounts">
+				<datastore access="0">accounts</datastore>
+			</input>
+		</utility>
+
     <network type="private_network">
       <input into="IP_address">
         <datastore access="0">IP_addresses</datastore>

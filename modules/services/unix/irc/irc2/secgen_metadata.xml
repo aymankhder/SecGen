@@ -19,9 +19,9 @@
   <conflict>
     <type>ircd</type>
   </conflict>
-  <conflict>
+  <!-- <conflict>
     <name>.*Debian.*Stretch.*</name>
-  </conflict>
+  </conflict> -->
   <requires>
     <type>update</type>
   </requires>
