@@ -29,7 +29,14 @@
       <value>172.16.0.5</value>
     </input>
 
-    <utility module_path=".*iceweasel"/>
+    <utility module_path=".*iceweasel">
+      <input into="accounts">
+        <value>{"username":"root","password":"toor","super_user":"","strings_to_leak":[],"leaked_filenames":[]}</value>
+      </input>
+      <input into="autostart">
+        <value>false</value>
+      </input>
+    </utility>
 
     <utility module_path=".*kali_top10"/>
     <network type="private_network">
@@ -143,11 +150,8 @@
       </input>
     </vulnerability>
 
-    <vulnerability read_fact="strings_to_leak" privilege="none" access="local" type="ctf_challenge" difficulty="medium">
-      <input into="strings_to_leak">
-        <generator type="flag_generator" />
-      </input>
-    </vulnerability>
+    <!-- CTF challenge generates it's own flag -->
+    <vulnerability privilege="none" access="local" type="ctf_challenge" challenge_type="pwn" difficulty="medium"/>
 
     <service/>
 
