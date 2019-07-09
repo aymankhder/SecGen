@@ -44,6 +44,10 @@ sudo rm -f /EMPTY
 history -c
 history -w
 ```
+And in oVirt we also:
+```bash
+sudo rm /etc/udev/rules.d/70-persistent-net.rules
+```
 
 Finally, on the host, package to upload:
 `vagrant package --base vmname --output packaged.box`
