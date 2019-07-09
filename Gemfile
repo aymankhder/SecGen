@@ -34,6 +34,8 @@ gem 'rsa'
 gem 'gpgmeh'
 gem 'digest-sha3', :git => "http://github.com/izetex/digest-sha3-ruby"
 gem 'packetfu'
+gem 'net-ntp'
+gem 'CFPropertyList'
 
 #development only gems go here
 group :test, :development do

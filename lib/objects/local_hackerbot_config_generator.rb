@@ -58,33 +58,36 @@ class HackerbotConfigGenerator < StringGenerator
     begin
       doc = Nokogiri::XML(xml_config)
     rescue
-      Print.err "Failed to process hackerbot config"
-      exit
+      abort "Failed to process hackerbot config"
     end
-    # remove xml namespaces for ease of processing
-    doc.remove_namespaces!
-    # for each element in the vulnerability
-    hackerbot = doc.xpath("/hackerbot")
-    name = hackerbot.xpath("name").first.content
-    lab_sheet += hackerbot.xpath("tutorial_info/tutorial").first.content + "\n"
+    begin
+      # remove xml namespaces for ease of processing
+      doc.remove_namespaces!
+      # for each element in the vulnerability
+      hackerbot = doc.xpath("/hackerbot")
+      name = hackerbot.xpath("name").first.content
+      lab_sheet += hackerbot.xpath("tutorial_info/tutorial").first.content + "\n"
 
-    doc.xpath("//attack").each_with_index do |attack, index|
-      attack.xpath("tutorial").each do |tutorial_snippet|
-        lab_sheet += tutorial_snippet.content + "\n"
-      end
+      doc.xpath("//attack").each_with_index do |attack, index|
+        attack.xpath("tutorial").each do |tutorial_snippet|
+          lab_sheet += tutorial_snippet.content + "\n"
+        end
 
-      lab_sheet += "#### #{name} Attack ##{index + 1}\n"
-      lab_sheet += "Use what you have learned to complete the bot's challenge. You can skip the bot to here, by saying '**goto #{index + 1}**'\n\n"
-      lab_sheet += "> #{name}: \"#{attack.xpath('prompt').first.content}\" \n\n"
-      lab_sheet += "Do any necessary preparation, then when you are ready for the bot to complete the action/attack, ==say 'ready'==\n\n"
-      if attack.xpath("quiz").size > 0
-        lab_sheet += "There is a quiz to complete. Once Hackerbot asks you the question you can =='answer *YOURANSWER*'==\n\n"
+        lab_sheet += "#### #{name} Attack ##{index + 1}\n"
+        lab_sheet += "Use what you have learned to complete the bot's challenge. You can skip the bot to here, by saying '**goto #{index + 1}**'\n\n"
+        lab_sheet += "> #{name}: \"#{attack.xpath('prompt').first.content}\" \n\n"
+        lab_sheet += "Do any necessary preparation, then when you are ready for the bot to complete the action/attack, ==say 'ready'==\n\n"
+        if attack.xpath("quiz").size > 0
+          lab_sheet += "There is a quiz to complete. Once Hackerbot asks you the question you can =='answer *YOURANSWER*'==\n\n"
+        end
+        lab_sheet += "Don't forget to ==save and submit any flags!==\n\n"
       end
-      lab_sheet += "Don't forget to ==save and submit any flags!==\n\n"
+      lab_sheet += hackerbot.xpath("tutorial_info/footer").first.content + "\n"
+
+      lab_sheet
+    rescue Exception => e
+      abort "Failed to generate lab sheet:  #{e.message}\n#{e.backtrace}"
     end
-    lab_sheet += hackerbot.xpath("tutorial_info/footer").first.content + "\n"
-
-    lab_sheet
   end
 
   def generate

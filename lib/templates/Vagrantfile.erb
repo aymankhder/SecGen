@@ -166,20 +166,26 @@ end
 <%       else %>
     <%= system.name %>.vm.network :<%= selected_module.attributes['type'].first %>, type: "dhcp", auto_config: false
 <%       end %>
+       <% # Below string is used within testing, do not delete. -%>
+     # ip_address_for_<%= system.name %>=DHCP
 <%     # Static networking -%>
 <%     else -%>
 <%      # Static oVirt networking -%>
 <%       if (@options.has_key? :ovirtuser) && (@options.has_key? :ovirtpass) -%>
 <%         interface = 'ens3' -%>
-<%         if @ovirt_base_template and @ovirt_base_template =~ /kali|debian_desktop_kde/ -%>
+<%         if @ovirt_base_template and @ovirt_base_template =~ /kali|debian_desktop_kde|debian_server/ -%>
 <%          interface = 'eth0' -%>
 <%         end -%>
            # use some shell scripting to identify the name of the network interface (eth0/ens3/...), and set the IP address statically
            <%= system.name %>.vm.provision 'shell', inline: "echo -e \"auto lo\niface lo inet loopback\n\nauto <%= interface %>\niface <%= interface %> inet static\n\taddress <%= resolve_network(selected_module)%>\" > /etc/network/interfaces"
            <%= system.name %>.vm.provision 'shell', inline: "echo '' > /etc/environment"
-<%       # Static Virtualbox networking -%>
+          <% # Below string is used within testing, do not delete. -%>
+          # ip_address_for_<%= system.name %>=<%= resolve_network(selected_module)%>
+          <%       # Static Virtualbox networking -%>
 <%       else -%>
   <%= system.name %>.vm.network :<%= selected_module.attributes['type'].first %>, ip: "<%= resolve_network(selected_module)%>"
+       <% # Below string is used within testing, do not delete. -%>
+     # ip_address_for_<%= system.name %>=<%= resolve_network(selected_module)%>
 <%       end -%>
 <%     end -%>
 <%   when 'vulnerability', 'service', 'utility', 'build' -%>
@@ -191,14 +197,14 @@ end
          b64_json_inputs = Base64.strict_encode64(json_inputs)
          # save the inputs in a randomly named file in the
          #   project out directory of the secgen_functions module
-         rand = SecureRandom.hex().to_s
+         json_inputs_filename = "#{selected_module.module_path_end}_#{SecureRandom.hex(15).to_s}"
          dir = "#{@out_dir}/puppet/#{system.name}/modules/secgen_functions/files/json_inputs"
          FileUtils.mkdir_p(dir) unless File.exists?(dir)
-         Print.verbose "Writing #{selected_module.module_path_name} input to: #{dir}/#{rand}"
-         File.write("#{dir}/#{rand}", b64_json_inputs)
+         Print.verbose "Writing #{selected_module.module_path_name} input to: #{dir}/#{json_inputs_filename}"
+         File.write("#{dir}/#{json_inputs_filename}", b64_json_inputs)
       -%>
 <%=   module_name%>.facter = {
-        "base64_inputs_file" => '<%= rand %>',
+        "base64_inputs_file" => '<%= json_inputs_filename %>',
       }
 <%    end -%>
       <%=module_name%>.module_path = "<%="puppet/#{system.name}/modules"%>"

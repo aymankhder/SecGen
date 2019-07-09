@@ -29,20 +29,20 @@ define apache::mpm (
       }
     }
   } else {
-      if versioncmp($apache_version, '2.4') >= 0 {
-        file { "${mod_dir}/${mpm}.load":
-          ensure  => file,
-          path    => "${mod_dir}/${mpm}.load",
-          content => "LoadModule ${_id} ${_path}\n",
-          require => [
-            Package['httpd'],
-            Exec["mkdir ${mod_dir}"],
-          ],
-          before  => File[$mod_dir],
-          notify  => Class['apache::service'],
-        }
+    if versioncmp($apache_version, '2.4') >= 0 {
+      file { "${mod_dir}/${mpm}.load":
+        ensure  => file,
+        path    => "${mod_dir}/${mpm}.load",
+        content => "LoadModule ${_id} ${_path}\n",
+        require => [
+          Package['httpd'],
+          Exec["mkdir ${mod_dir}"],
+        ],
+        before  => File[$mod_dir],
+        notify  => Class['apache::service'],
       }
     }
+  }
 
   case $::osfamily {
     'debian': {
@@ -73,20 +73,25 @@ define apache::mpm (
         }
       }
 
-      if $mpm == 'itk' and $::operatingsystem == 'Ubuntu' and $::operatingsystemrelease == '14.04' {
-        # workaround https://bugs.launchpad.net/ubuntu/+source/mpm-itk/+bug/1286882
-        exec {
-          '/usr/sbin/a2dismod mpm_event':
-            onlyif  => '/usr/bin/test -e /etc/apache2/mods-enabled/mpm_event.load',
-            require => Package['httpd'],
-            before  => Package['apache2-mpm-itk'],
-        }
-      }
-
-      if $mpm == 'itk' and $::operatingsystem == 'Ubuntu' and $::operatingsystemrelease == '16.04' {
+      if $mpm == 'itk' and ( ( $::operatingsystem == 'Ubuntu' and $::operatingsystemrelease == '16.04' ) or ( $::operatingsystem == 'Debian' and versioncmp($::operatingsystemrelease, '9.0.0') >= 0 ) ) {
         $packagename = 'libapache2-mpm-itk'
       } else {
         $packagename = "apache2-mpm-${mpm}"
+      }
+
+      $mod_enabled_dir = $::apache::mod_enable_dir
+
+      if $mpm == 'prefork' and ( $::operatingsystem == 'Debian' and versioncmp($::operatingsystemrelease, '9.0.0') >= 0 ) {
+        exec { '/usr/sbin/a2dismod mpm_event':
+          onlyif  => "/usr/bin/test -e ${mod_enabled_dir}/mpm_event.load",
+        }
+      }
+
+      if $mpm == 'itk' and ( ( $::operatingsystem == 'Ubuntu' and $::operatingsystemrelease == '14.04' ) or ($::operatingsystem == 'Debian' and versioncmp($::operatingsystemrelease, '9.0.0') >= 0 ) ) {
+        # workaround https://bugs.launchpad.net/ubuntu/+source/mpm-itk/+bug/1286882
+        exec { '/usr/sbin/a2dismod mpm_event':
+          onlyif  => "/usr/bin/test -e ${mod_enabled_dir}/mpm_event.load",
+        }
       }
 
       if versioncmp($apache_version, '2.4') < 0 or $mpm == 'itk' {

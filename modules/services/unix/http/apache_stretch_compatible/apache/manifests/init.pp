@@ -34,7 +34,7 @@ class apache (
   Boolean $service_manage                                        = true,
   $service_ensure                                                = 'running',
   $service_restart                                               = undef,
-  $purge_configs                                                 = true,
+  $purge_configs                                                 = false,
   $purge_vhost_dir                                               = undef,
   $purge_vdir                                                    = false,
   $serveradmin                                                   = 'root@localhost',
@@ -90,7 +90,7 @@ class apache (
   $error_log                                                     = $::apache::params::error_log,
   $scriptalias                                                   = $::apache::params::scriptalias,
   $access_log_file                                               = $::apache::params::access_log_file,
-  $overwrite_ports                                               = false, # TODO: Implement this as in wheezy apache
+  $overwrite_ports                                               = true, # TODO: Implement this as in wheezy apache
 ) inherits ::apache::params {
 
   $valid_mpms_re = $apache_version ? {
@@ -256,17 +256,19 @@ class apache (
     $vhost_load_dir = $vhost_dir
   }
 
-  concat { $ports_file:
-    ensure  => present,
-    owner   => 'root',
-    group   => $::apache::params::root_group,
-    mode    => $::apache::file_mode,
-    notify  => Class['Apache::Service'],
-    require => Package['httpd'],
-  }
-  concat::fragment { 'Apache ports header':
-    target  => $ports_file,
-    content => template('apache/ports_header.erb'),
+  if $overwrite_ports {
+    concat { $ports_file:
+      ensure  => present,
+      owner   => 'root',
+      group   => $::apache::params::root_group,
+      mode    => $::apache::file_mode,
+      notify  => Class['Apache::Service'],
+      require => Package['httpd'],
+    }
+    concat::fragment { 'Apache ports header':
+      target  => $ports_file,
+      content => template('apache/ports_header.erb'),
+    }
   }
 
   if $::apache::conf_dir and $::apache::params::conf_file {
@@ -332,7 +334,7 @@ class apache (
       ensure  => file,
       content => template($conf_template),
       notify  => Class['Apache::Service'],
-      require => [Package['httpd'], Concat[$ports_file]],
+      require => [Package['httpd']],
     }
 
     # preserve back-wards compatibility to the times when default_mods was

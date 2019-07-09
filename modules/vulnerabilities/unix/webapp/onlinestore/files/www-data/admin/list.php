@@ -69,7 +69,7 @@
     <div class="container">
       <h1>Image Uploads</h1>
       <p class="pull-right"><a href="/admin">Back to admin</a></p>
-      <p>Files are uploaded to <code>/var/www/html/img/uploads</code>.</p>
+      <p>Files are uploaded to <code>/var/www/onlinestore/img/uploads</code>.</p>
       <form action="#" method="get" class="form-inline">
         <div class="input-append">
           <span class="add-on">Change path:</span>

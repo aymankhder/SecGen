@@ -84,9 +84,9 @@
   <software_name>unrealircd</software_name>
   <software_license>MIT</software_license>
 
-  <conflict>
-    <name>.*Stretch.*</name>
-  </conflict>
+  <!--<conflict>-->
+    <!--<name>.*Stretch.*</name>-->
+  <!--</conflict>-->
   <conflict>
     <name>.*Kali.*</name>
   </conflict>

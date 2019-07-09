@@ -41,7 +41,9 @@ class hackerbot::config{
   apache::vhost { 'vhost.labs.com':
     port    => "$port",
     docroot => '/var/www/labs',
+    notify => Tidy['hb remove default site']
   }
 
+  ensure_resource('tidy','hb remove default site', {'path'=>'/etc/apache2/sites-enabled/000-default.conf'})
 
 }

@@ -238,7 +238,7 @@ We encourage contributions to the project.
 Briefly, please fork from http://github.com/cliffe/SecGen/, create a branch, make and commit your changes, then create a pull request.
 
 ## Resources
-Paper: [Z.C. Schreuders, T. Shaw, A. Mac Muireadhaigh, and P. Staniforth, “Hackerbot: Attacker Chatbots for Randomised and Interactive Security Labs, Using SecGen and oVirt,” USENIX Workshop on Advances in Security Education (ASE'18), Baltimore, MD, USA. USENIX Association, 2017.](https://www.usenix.org/conference/ase18/presentation/schreuders) (This paper describes Hackerbot and how we use SecGen with oVirt.)
+Paper: [Z.C. Schreuders, T. Shaw, A. Mac Muireadhaigh, and P. Staniforth, “Hackerbot: Attacker Chatbots for Randomised and Interactive Security Labs, Using SecGen and oVirt,” USENIX Workshop on Advances in Security Education (ASE'18), Baltimore, MD, USA. USENIX Association, 2018.](https://www.usenix.org/conference/ase18/presentation/schreuders) (This paper describes Hackerbot and how we use SecGen with oVirt.)
 
 Paper: [Z.C. Schreuders, T. Shaw, M. Shan-A-Khuda, G. Ravichandran, J. Keighley, and M. Ordean, “Security Scenario Generator (SecGen): A Framework for Generating Randomly Vulnerable Rich-scenario VMs for Learning Computer Security and Hosting CTF Events,” USENIX Workshop on Advances in Security Education (ASE'17), Vancouver, BC, Canada. USENIX Association, 2017.](https://www.usenix.org/conference/ase17/workshop-program/presentation/schreuders) (This paper provides a good overview of SecGen.)
 

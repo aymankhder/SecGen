@@ -25,8 +25,9 @@ class gitlist_040::configure {
 
   $flag = [$strings_to_leak[0]]
   $flag_filename = [$leaked_filenames[0]]
-  $public_strings_to_leak = delete_at($strings_to_leak, 0)
-  $public_strings_to_leak_filename = delete_at($leaked_filenames, 0)
+  # all but the first elements (used above already)
+  $public_strings_to_leak = $strings_to_leak[1, -1]
+  $public_strings_to_leak_filename = $leaked_filenames[1, -1]
 
   ::secgen_functions::leak_files { 'gitlist_040-flag-leak':
     storage_directory => '/home/git',

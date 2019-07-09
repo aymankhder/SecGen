@@ -16,6 +16,7 @@
 
   <read_fact>username</read_fact>
   <read_fact>password</read_fact>
+  <read_fact>groups</read_fact>
   <read_fact>super_user</read_fact>
   <read_fact>strings_to_leak</read_fact>
   <read_fact>leaked_filenames</read_fact>
@@ -26,6 +27,8 @@
   </default_input>
   <default_input into="password">
     <generator type="password_generator"/>
+  </default_input>
+  <default_input into="groups">
   </default_input>
   <default_input into="super_user">
     <value>false</value>

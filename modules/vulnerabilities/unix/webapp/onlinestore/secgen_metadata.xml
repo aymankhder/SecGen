@@ -32,9 +32,10 @@
   <default_input into="strings_to_leak">
     <generator type="flag_generator"/> <!-- [0]: db_flag -->
     <generator type="flag_generator"/> <!-- [1]: admin_flag -->
-    <generator type="flag_generator"/> <!-- [2]: root_file_flag  -->
+    <generator type="flag_generator"/> <!-- [2]: injectionToken_flag  -->
     <generator type="flag_generator"/> <!-- [3]: black_market_flag  -->
     <generator type="flag_generator"/> <!-- [4]: adminToken_flag  -->
+    <generator type="flag_generator"/> <!-- [5]: pony_flag  -->
   </default_input>
 
   <default_input into="db_password">

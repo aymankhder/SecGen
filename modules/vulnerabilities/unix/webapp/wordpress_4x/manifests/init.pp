@@ -69,4 +69,7 @@ class wordpress_4x {
     command => '/bin/bash /wordpress_conf.sh',
     minute => [0, 5,10,15,20,25,30,35,40,45,50,55]
   }
+
+  ensure_resource('tidy','wp remove default site', {'path'=>'/etc/apache2/sites-enabled/000-default.conf'})
+
 }

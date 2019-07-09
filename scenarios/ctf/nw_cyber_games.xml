@@ -4,7 +4,7 @@
 		  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		  xsi:schemaLocation="http://www.github/cliffe/SecGen/scenario">
 
-	<name>Basic Narrative</name>
+	<name>Decoding</name>
   <author>Thomas Shaw</author>
   <description>Some basic decoding challenges.
 		The challenges are presented on a website on one of these VMs, separate from the CTF scoring.

@@ -6,7 +6,7 @@
 
   <name>Basic Narrative</name>
   <author>Thomas Shaw</author>
-  <description>Single system narrative-based CTF challenge.
+  <description>Single system CLI narrative-based CTF challenge.
   </description>
 
   <type>ctf</type>
@@ -15,8 +15,8 @@
   <difficulty>intermediate</difficulty>
 
   <system>
-    <system_name>target</system_name>
-    <base distro="Debian 7.8" platform="linux" type="server"/>
+    <system_name>target_server</system_name>
+    <base distro="Debian 9" platform="linux" type="server"/>
 
     <input into_datastore="IP_addresses">
       <value>172.10.0.2</value>
@@ -439,7 +439,7 @@
 
     <network type="private_network">
       <input into="IP_address">
-        <datastore access="next">IP_addresses</datastore>
+        <datastore access="0">IP_addresses</datastore>
       </input>
     </network>
 
@@ -453,9 +453,23 @@
   <system>
     <system_name>attack_vm</system_name>
     <base distro="Kali" name="MSF"/>
+
+    <utility module_path=".*iceweasel">
+      <input into="accounts">
+        <value>{"username":"root","password":"toor","super_user":"","strings_to_leak":[],"leaked_filenames":[]}</value>
+      </input>
+      <input into="autostart">
+        <value>true</value>
+      </input>
+      <input into="start_page">
+        <datastore access="0">IP_addresses</datastore>
+      </input>
+    </utility>
+
+    <utility module_path=".*kali_top10"/>
     <network type="private_network">
       <input into="IP_address">
-        <datastore access="next">IP_addresses</datastore>
+        <datastore access="1">IP_addresses</datastore>
       </input>
     </network>
   </system>
