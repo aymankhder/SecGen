@@ -323,7 +323,7 @@ def get_vm_names(scenario)
   vm_names = []
   parser = Nori.new
   scenario_hash = parser.parse(File.read(scenario))
-  Print.debug "scenario_hash: #{scenario_hash}"
+  # Print.debug "scenario_hash: #{scenario_hash}"
   if scenario_hash.key?('scenario') # work around for a parsing quirk
     scenario_hash = scenario_hash['scenario']
   end
@@ -336,7 +336,6 @@ def get_vm_names(scenario)
   else
     Print.debug "Not an array or hash?: #{scenario_hash['system']}"
   end
-  Print.debug vm_names.to_s
   vm_names
 end
 
