@@ -115,7 +115,7 @@ class onlinestore::install {
 
   exec { 'setup_mysql':
     cwd     => "/tmp",
-    command => "sudo ./mysql_setup.sh $db_username $db_password $db_flag",
+    command => "sudo ./mysql_setup.sh $db_username $db_password",
     path    => [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/' ],
     notify => Exec['create_command_injection_flag'],
   }
