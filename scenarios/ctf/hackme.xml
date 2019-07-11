@@ -7,6 +7,10 @@
   <name>Hackme</name>
   <author>Z. Cliffe Schreuders</author>
   <description>A bunch of servers for you to hack.
+
+Login to the attack VM with user: root, password: toor. There are three servers for you to attack (same IP address range, ending in .3,.4,.5), and flags are often found in home directories (/home/, /root/). Beware of red herrings.
+
+Happy hacking!
   </description>
 
   <type>ctf</type>
