@@ -329,7 +329,8 @@ class System
         puts stderr
         outputs = stdout.chomp
 
-        unless status
+        # stop if any generators/encoders fail to execute
+        unless status == 0
           Print.err "Module failed to run (#{command})"
           # TODO: this works, but subsequent attempts at resolving the scenario always fail ("Error can't add no data...")
           raise 'failed'
