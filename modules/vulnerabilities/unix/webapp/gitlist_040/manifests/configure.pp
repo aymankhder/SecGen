@@ -5,6 +5,33 @@ class gitlist_040::configure {
   $images_to_leak = $secgen_parameters['images_to_leak']
   $leaked_files_path = '/home/git/repositories/secret_files'
 
+  # when there are multiple strings to leak:
+  #   leak the first one as a flag, requiring exploitation to access;
+  #   leak the subsequent ones publically through the website;
+
+  if $strings_to_leak.length == 0 {
+    warning('No strings_to_leak provided!')
+  } elsif $strings_to_leak.length == 1 {
+    warning("Only one string to leak provided, publically showing a default message.")
+
+    $flag = [$strings_to_leak[0]]
+    $flag_filename = [$leaked_filenames[0]]
+
+    $public_strings_to_leak = ["Nothing to see here."]
+    $public_strings_to_leak_filename = $leaked_filenames[1, -1]
+  } else { # more than 1 strings_to_leak
+    warning("One string to leak will require exploitation, others will be publically shown.")
+    $flag = [$strings_to_leak[0]]
+    $flag_filename = [$leaked_filenames[0]]
+    
+    # all but the first elements (used above already)
+    $public_strings_to_leak = $strings_to_leak[1, -1]
+    $public_strings_to_leak_filename = $leaked_filenames[1, -1]
+  }
+
+
+  $git_args = '-c user.name="gitlist" -c user.email="git@list.com"'
+
   Exec { path => ['/bin', '/usr/bin', '/usr/local/bin', '/sbin', '/usr/sbin'] }
 
   # Create /home/git/repositories
@@ -22,12 +49,6 @@ class gitlist_040::configure {
     cwd     => $leaked_files_path,
     command => "git init",
   }
-
-  $flag = [$strings_to_leak[0]]
-  $flag_filename = [$leaked_filenames[0]]
-  # all but the first elements (used above already)
-  $public_strings_to_leak = $strings_to_leak[1, -1]
-  $public_strings_to_leak_filename = $leaked_filenames[1, -1]
 
   ::secgen_functions::leak_files { 'gitlist_040-flag-leak':
     storage_directory => '/home/git',
@@ -49,8 +70,6 @@ class gitlist_040::configure {
     leaked_from       => 'gitlist_040',
     before            => Exec['initial_commit_leaked_files_repo']
   }
-
-  $git_args = '-c user.name="gitlist" -c user.email="git@list.com"'
 
   exec { 'initial_commit_leaked_files_repo':
     cwd     => $leaked_files_path,
