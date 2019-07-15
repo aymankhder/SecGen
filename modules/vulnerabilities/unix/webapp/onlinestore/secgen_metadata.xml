@@ -143,6 +143,11 @@
     <module_path>modules/bases/kali.*</module_path>
   </conflict>
 
+  <!-- can't live alongside other web sites, since they it accepts any virtual host name -->
+  <conflict>
+    <type>webapp</type>
+  </conflict>
+
   <requires>
     <module_path>.*apache.*compatible.*</module_path>
   </requires>
