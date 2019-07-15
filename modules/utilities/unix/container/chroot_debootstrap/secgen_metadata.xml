@@ -17,6 +17,11 @@
     <value>/opt/chroot</value>
   </default_input>
 
+  <conflict>
+    <!-- On Wheezy: Could not find init script for 'chroot' -->
+    <name>.*Debian.*Wheezy.*</name>
+  </conflict>
+
   <requires>
     <type>update</type>
   </requires>
