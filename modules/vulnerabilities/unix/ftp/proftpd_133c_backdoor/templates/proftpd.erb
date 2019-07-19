@@ -40,7 +40,7 @@ ListOptions                	"-l"
 
 DenyFilter			\*.*/
 
-AccessGrantMsg			"<%=$welcome_msg%>
+AccessGrantMsg			"<%=$welcome_msg.gsub("\n", '\n')%>"
 
 # Use this to jail all users in their homes
 # DefaultRoot			~

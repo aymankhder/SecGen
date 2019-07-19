@@ -29,8 +29,13 @@
     <value>busybox</value>
   </default_input>
 
+  <conflict>
+    <!-- fails to add a required repo key in Wheezy -->
+    <name>.*Debian.*Wheezy.*</name>
+  </conflict>
 
   <requires>
     <type>update</type>
   </requires>
+
 </utility>

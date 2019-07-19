@@ -323,7 +323,7 @@ def get_vm_names(scenario)
   vm_names = []
   parser = Nori.new
   scenario_hash = parser.parse(File.read(scenario))
-  Print.debug "scenario_hash: #{scenario_hash}"
+  # Print.debug "scenario_hash: #{scenario_hash}"
   if scenario_hash.key?('scenario') # work around for a parsing quirk
     scenario_hash = scenario_hash['scenario']
   end
@@ -336,7 +336,6 @@ def get_vm_names(scenario)
   else
     Print.debug "Not an array or hash?: #{scenario_hash['system']}"
   end
-  Print.debug vm_names.to_s
   vm_names
 end
 
@@ -426,12 +425,12 @@ opts = GetoptLong.new(
     ['--ovirt-network', GetoptLong::REQUIRED_ARGUMENT],
     ['--ovirt-affinity-group', GetoptLong::REQUIRED_ARGUMENT],
     ['--snapshot', GetoptLong::NO_ARGUMENT],
+    ['--no-tests', GetoptLong::NO_ARGUMENT],
     ['--esxiuser', GetoptLong::REQUIRED_ARGUMENT],
     ['--esxipass', GetoptLong::REQUIRED_ARGUMENT],
     ['--esxi-url', GetoptLong::REQUIRED_ARGUMENT],
     ['--esxi-datastore', GetoptLong::REQUIRED_ARGUMENT],
     ['--esxi-network', GetoptLong::REQUIRED_ARGUMENT],
-    ['--no-tests', GetoptLong::NO_ARGUMENT],
 )
 
 scenario = SCENARIO_XML
@@ -544,7 +543,9 @@ opts.each do |opt, arg|
   when '--esxi-disktype'
     Print.info "ESXi disk type : #{arg}"
     options[:esxidisktype] = arg
-
+  when '--no-tests'
+    Print.info "Not running post-provision tests"
+    options[:notests] = true
   else
     Print.err "Argument not valid: #{arg}"
     usage

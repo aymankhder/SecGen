@@ -111,7 +111,10 @@ class PostProvisionTest
   def get_json_inputs
     json_inputs_path = "#{File.expand_path('../', self.module_path)}/secgen_functions/files/json_inputs/*"
     json_inputs_files = Dir.glob(json_inputs_path)
-    json_inputs_files.delete_if {|path| !path.include?(self.module_name)}
+    json_inputs_files.delete_if do |path|
+      end_path = path.split('/')[-1]
+      !end_path.include?(self.module_name)
+    end
     if json_inputs_files.size > 0
       return JSON.parse(Base64.strict_decode64(File.read(json_inputs_files.first)))
     end

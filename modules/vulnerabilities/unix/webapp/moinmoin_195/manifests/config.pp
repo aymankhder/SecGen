@@ -52,6 +52,7 @@ class moinmoin_195::config {
     storage_directory => "/usr/local/share/moin/data/pages/$default_page/attachments",
     images_to_leak => $images_to_leak,
     leaked_from => "moinmoin_195",
+    owner => "www-data"
   }
 
 

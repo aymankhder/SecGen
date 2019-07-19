@@ -33,9 +33,9 @@ class ZipGenerator < StringEncoder
         zip_file.get_output_stream(self.file_name) { |os|
           os.write data
         }
-        file_contents = File.binread(zip_file_path)
-        FileUtils.rm(zip_file_path)
       end
+      file_contents = File.binread(zip_file_path)
+      FileUtils.rm(zip_file_path)
     end
     self.outputs << Base64.strict_encode64(file_contents)
   end

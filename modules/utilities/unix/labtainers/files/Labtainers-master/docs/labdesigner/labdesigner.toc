@@ -1,0 +1,83 @@
+\contentsline {section}{\numberline {1}Introduction}{3}{section.1}
+\contentsline {subsection}{\numberline {1.1}Benefits of Labtainers}{3}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Obtaining the Labtainer development kit}{3}{subsection.1.2}
+\contentsline {subsection}{\numberline {1.3}Content of this guide}{4}{subsection.1.3}
+\contentsline {section}{\numberline {2}Overview of the student environment and workflow}{5}{section.2}
+\contentsline {section}{\numberline {3}Creating new labs}{6}{section.3}
+\contentsline {subsection}{\numberline {3.1}Create the first lab computer}{6}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Testing the new lab}{7}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Multiple containers}{8}{subsection.3.3}
+\contentsline {section}{\numberline {4}Defining the lab execution environment}{8}{section.4}
+\contentsline {subsection}{\numberline {4.1}Docker files}{8}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Container definitions in start.config}{9}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Lab-specific files in the student's home directory}{11}{subsection.4.3}
+\contentsline {subsubsection}{\numberline {4.3.1}Large or numerous files in the home directory}{12}{subsubsection.4.3.1}
+\contentsline {subsection}{\numberline {4.4}Lab-specific system files}{12}{subsection.4.4}
+\contentsline {subsection}{\numberline {4.5}System services}{13}{subsection.4.5}
+\contentsline {subsection}{\numberline {4.6}Instructions for Students}{13}{subsection.4.6}
+\contentsline {subsection}{\numberline {4.7}Running programs in Virtual Terminals}{13}{subsection.4.7}
+\contentsline {subsection}{\numberline {4.8}Final lab environment fixup}{14}{subsection.4.8}
+\contentsline {subsection}{\numberline {4.9}Automatic copying files from containers to the host}{14}{subsection.4.9}
+\contentsline {section}{\numberline {5}Parameterizing a lab}{15}{section.5}
+\contentsline {subsection}{\numberline {5.1}Parameterization configuration file syntax}{15}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Synchronizing startup and parameterization}{17}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Parameterizing start.config}{17}{subsection.5.3}
+\contentsline {subsection}{\numberline {5.4}Simple Parameterization for Checking Own-work}{17}{subsection.5.4}
+\contentsline {section}{\numberline {6}Automated assessment of student labs}{17}{section.6}
+\contentsline {subsection}{\numberline {6.1}Artifact files}{18}{subsection.6.1}
+\contentsline {subsubsection}{\numberline {6.1.1}Capturing stdin and stdout}{18}{subsubsection.6.1.1}
+\contentsline {subsubsection}{\numberline {6.1.2}Capturing program file output}{19}{subsubsection.6.1.2}
+\contentsline {subsubsection}{\numberline {6.1.3}Bash History}{19}{subsubsection.6.1.3}
+\contentsline {subsubsection}{\numberline {6.1.4}System logs}{19}{subsubsection.6.1.4}
+\contentsline {subsubsection}{\numberline {6.1.5}Capturing information about the environment}{19}{subsubsection.6.1.5}
+\contentsline {subsubsection}{\numberline {6.1.6}Capturing file access events}{20}{subsubsection.6.1.6}
+\contentsline {subsubsection}{\numberline {6.1.7}Generating results upon stopping the lab}{21}{subsubsection.6.1.7}
+\contentsline {subsubsection}{\numberline {6.1.8}Artifact archives}{21}{subsubsection.6.1.8}
+\contentsline {subsection}{\numberline {6.2}Artifact result values}{21}{subsection.6.2}
+\contentsline {subsubsection}{\numberline {6.2.1}Converting artifact file formats}{24}{subsubsection.6.2.1}
+\contentsline {subsection}{\numberline {6.3}Evaluating results}{24}{subsection.6.3}
+\contentsline {subsubsection}{\numberline {6.3.1}Assessment Report}{28}{subsubsection.6.3.1}
+\contentsline {subsubsection}{\numberline {6.3.2}Document the meaning of goals}{28}{subsubsection.6.3.2}
+\contentsline {subsection}{\numberline {6.4}Assessment examples}{28}{subsection.6.4}
+\contentsline {subsubsection}{\numberline {6.4.1}Do artifact files contain specific strings?}{29}{subsubsection.6.4.1}
+\contentsline {subsubsection}{\numberline {6.4.2}Compare value of a field from a selected line in an artifact file}{29}{subsubsection.6.4.2}
+\contentsline {subsubsection}{\numberline {6.4.3}My desired artifacts are not in stdin or stdout, the program outputs a file}{29}{subsubsection.6.4.3}
+\contentsline {subsubsection}{\numberline {6.4.4}Distinguish log file entries generated before and after configuration changes}{29}{subsubsection.6.4.4}
+\contentsline {subsubsection}{\numberline {6.4.5}Delimiting logs by starting services}{30}{subsubsection.6.4.5}
+\contentsline {subsubsection}{\numberline {6.4.6}Delimiting time using log file entries}{31}{subsubsection.6.4.6}
+\contentsline {subsection}{\numberline {6.5}Debugging automated assessment in labs}{31}{subsection.6.5}
+\contentsline {section}{\numberline {7}Networking}{31}{section.7}
+\contentsline {subsection}{\numberline {7.1}Realistic Network Routing and DNS}{32}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Communicating with external hosts or VMs}{32}{subsection.7.2}
+\contentsline {section}{\numberline {8}Building, Maintaining and Publishing Labs}{33}{section.8}
+\contentsline {subsection}{\numberline {8.1}NPS Development Operations}{34}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.2}Alternate registry for testing}{35}{subsection.8.2}
+\contentsline {subsection}{\numberline {8.3}Reuse of large file sets}{35}{subsection.8.3}
+\contentsline {subsection}{\numberline {8.4}Package sources for apt and yum}{35}{subsection.8.4}
+\contentsline {subsection}{\numberline {8.5}Locale settings}{35}{subsection.8.5}
+\contentsline {subsection}{\numberline {8.6}Lab versions}{36}{subsection.8.6}
+\contentsline {section}{\numberline {9}Multi-user Labtainers}{36}{section.9}
+\contentsline {subsubsection}{\numberline {9.0.1}Multi-user Labtainers, one Labtainer VM per student}{37}{subsubsection.9.0.1}
+\contentsline {subsubsection}{\numberline {9.0.2}Single Labtainers VM with multiple students}{38}{subsubsection.9.0.2}
+\contentsline {subsection}{\numberline {9.1}Creating conformant multi-user labs}{38}{subsection.9.1}
+\contentsline {section}{\numberline {10}Limitations}{40}{section.10}
+\contentsline {section}{\numberline {11}Notes}{40}{section.11}
+\contentsline {subsection}{\numberline {11.1}Firefox}{40}{subsection.11.1}
+\contentsline {subsection}{\numberline {11.2}Wireshark}{40}{subsection.11.2}
+\contentsline {subsection}{\numberline {11.3}Elgg}{41}{subsection.11.3}
+\contentsline {subsection}{\numberline {11.4}Host OS dependencies}{41}{subsection.11.4}
+\contentsline {subsection}{\numberline {11.5}Login Prompts}{41}{subsection.11.5}
+\contentsline {subsection}{\numberline {11.6}Networking Notes}{41}{subsection.11.6}
+\contentsline {subsubsection}{\numberline {11.6.1}SSH}{41}{subsubsection.11.6.1}
+\contentsline {subsubsection}{\numberline {11.6.2}X11 over SSH}{41}{subsubsection.11.6.2}
+\contentsline {subsubsection}{\numberline {11.6.3}Traffic mirroring}{41}{subsubsection.11.6.3}
+\contentsline {subsubsection}{\numberline {11.6.4}DNS}{42}{subsubsection.11.6.4}
+\contentsline {subsubsection}{\numberline {11.6.5}Overriding Docker routing and DNS}{42}{subsubsection.11.6.5}
+\contentsline {subsection}{\numberline {11.7}User management and sudo}{42}{subsection.11.7}
+\contentsline {subsection}{\numberline {11.8}Suggestions for Developers}{42}{subsection.11.8}
+\contentsline {subsection}{\numberline {11.9}Container isolation}{43}{subsection.11.9}
+\contentsline {subsection}{\numberline {11.10}Student self assessment}{43}{subsection.11.10}
+\contentsline {section}{\numberline {A}\\SimLab for testing labs}{44}{appendix.A}
+\contentsline {subsection}{\numberline {A.1}SimLab Directives}{44}{subsection.A.1}
+\contentsline {subsection}{\numberline {A.2}SimLab spplication notes}{45}{subsection.A.2}
+\contentsline {subsection}{\numberline {A.3}Regression testing with smoketest.py}{45}{subsection.A.3}

@@ -1,6 +1,7 @@
 #!/usr/bin/ruby
 require 'base64'
 require 'rmagick'
+require 'fileutils'
 require_relative '../../../../../lib/objects/local_string_encoder.rb'
 class ImageGenerator < StringEncoder
   attr_accessor :selected_image_path
@@ -23,6 +24,7 @@ class ImageGenerator < StringEncoder
     image.write(tmp_file_path)
 
     self.outputs << Base64.strict_encode64(File.binread(tmp_file_path))
+    FileUtils.rm(tmp_file_path)
   end
 
   def encoding_print_string

@@ -33,6 +33,7 @@
     <value>80</value>
   </default_input>
 
+  <!-- TODO: should strings_to_leak be hidden away on the server, so the exploit needs exploiting before getting to the files, at the moment browsing to the website reveals the files -->
   <default_input into="strings_to_leak">
     <value>This is some leaked data.</value>
     <generator type="message_generator"/>
@@ -68,6 +69,11 @@
     Remote code execution possible in twikidraw and anywikidraw modules.
     Path traversal found in AttachFile module.
   </solution>
+
+  <!-- can't live alongside other web sites, since they it accepts any virtual host name -->
+  <conflict>
+    <type>webapp</type>
+  </conflict>
 
   <conflict>
     <name>.*Stretch.*</name>

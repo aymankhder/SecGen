@@ -41,7 +41,7 @@
     <generator type="username_generator"/>
   </default_input>
   <default_input into="password">
-    <generator type="password_generator"/>
+    <generator type="strong_password_generator"/>
   </default_input>
   <default_input into="credit_card">
     <generator type="credit_card_generator"/>

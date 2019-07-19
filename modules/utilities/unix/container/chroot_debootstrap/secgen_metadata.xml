@@ -14,8 +14,13 @@
   <read_fact>chroot_dir</read_fact>
 
   <default_input into="chroot_dir">
-    <value>/srv/chroot</value>
+    <value>/opt/chroot</value>
   </default_input>
+
+  <conflict>
+    <!-- On Wheezy: Could not find init script for 'chroot' -->
+    <name>.*Debian.*Wheezy.*</name>
+  </conflict>
 
   <requires>
     <type>update</type>
