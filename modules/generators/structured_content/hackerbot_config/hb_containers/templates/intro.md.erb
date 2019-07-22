@@ -6,9 +6,16 @@
 ==Start these VMs== (if you haven't already):
 - hackerbot_server (leave it running, you don't log into this)
 - desktop (you can sudo to get superuser access)
-- server (<%= $server_ip %>, you can ssh to this machine, but you don't have superuser access)
+<% if $server_ip
+   str = '"desktop" and "server" VMs'
+   else
+   str = '"desktop" VM'
+   end %>
+<%= if $server_ip
+   "- server (#{$server_ip}), you can ssh to this machine, but you don't have superuser access)"
+ end %>
 
-### Your login details for the "desktop" and "server" VMs
+### Your login details for the <%= str %>
 User: <%= $main_user %>
 Password: tiaspbiqe2r (**t**his **i**s **a** **s**ecure **p**assword **b**ut **i**s **q**uite **e**asy **2** **r**emember)
 

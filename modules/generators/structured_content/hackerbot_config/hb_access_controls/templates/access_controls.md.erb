@@ -92,7 +92,7 @@ In addition to hard links, there are also symbolic or soft links. ==Let's create
 ln -s /bin/ls /tmp/ls
 ```
 
-Unlike hard links, symbolic links do not contain the information of the file they are linked to; a symbolic link is similar to a Windows shortcut, it simply points to another file on the system - this allows them to link to directories and remote files, in a way that hard links cannot. If the original file is deleted, the symlink becomes unusual, whereas the data of the target file is preserved in the case of a hard link.
+Unlike hard links, symbolic links do not contain the information of the file they are linked to; a symbolic link is similar to a Windows shortcut, it simply points to another file on the system - this allows them to link to directories and remote files, in a way that hard links cannot. If the original file is deleted, the symlink becomes unusable, whereas the data of the target file is preserved in the case of a hard link.
 
 ==View the details== for this file:
 
@@ -153,7 +153,7 @@ Therefore, `-rwxr-xr-x` = 755.
 ## Changing file permissions on a Linux system
 
 ==Open a second console/Tab.==
-> In Konsole, press Ctrl+T to open another tab
+> In Konsole, press Ctrl+Shift+T to open another tab
 
 ==Switch to your second user account:==
 
@@ -176,7 +176,7 @@ Your first aim is to ensure your "mysecrets" file is not visible to other users 
 First ==view the permissions== of your newly created file:
 
 ```bash
-ls ~/mysecrets
+ls -l ~/mysecrets
 ```
 
 Oh no! It's not so secret!
@@ -212,12 +212,59 @@ chmod *XXX* ~/mysecrets
 > Test whether you have correctly set permissions. Switch back to the <%= $main_user %> console and test that <%= $main_user %> cannot access the file:
 
 ```bash
-less /home/student/mysecrets`
+less /home/<%= $second_user %>/mysecrets
 ```
+
+Permission denied.
+
+==Create a file that should be readable by all users on the system==:
+
+```bash
+echo "Readable!" > ~/readable
+chmod 0644 ~/readable
+```
+
+```bash
+less /home/<%= $second_user %>/readable
+```
+
+Permission denied.
+
+Why is the readable file, which has read permissions for all users, inaccessible by <%= $main_user %>?
+
+> Investigate the directory level permissions.
+
+```bash
+ls -la /home/ | grep <%= $second_user %>
+```
+
+Other users do not have permission to interact with files within at the directory level. The permissions of a directory determine what a subject can do with the files within the directory.
+
+==Grant permissions on the /home/<%= $second_user %>/ directory to other users==:
+
+> Switch back to your <%= $second_user %> console and modify their home directory permissions to grant all other users read and execute access
+
+```bash
+chmod *XXX* ~
+```
+
+> Where *XXX* is three octets that grants the appropriate access. Alternatively use the relative change syntax described above.
+
+```bash
+cat /home/<%= $second_user %>/readable
+```
+
+You should see the string "Readable!"
+
+```bash
+cat /home/<%= $second_user %>/mysecrets
+```
+
+Permission denied, as expected.
 
 ## `umask`
 
-Remember that our newly created file started with permissions that meant that everyone could read the file. This can be avoided by setting the **u**ser file-creation mode **mask** (**umask**). Every process has a umask: an octal that determines the permissions of newly created files. It works by removing permissions from the default `666` for files and `777` for new executables (based on a logical NOT). That is, a umask of `000` would result in new files with permissions `666`. A umask of `022` (which is the default value) gives `644`, that is `rw- -r- -r-`.
+Remember that our newly created file started with permissions that meant that everyone could read the file. This can be avoided by setting the **u**ser file-creation mode **mask** (**umask**). Every process has a umask: an octal that determines the permissions of newly created files. It works by removing permissions from the default `666` for files and `777` for new executables (based on a logical NOT). That is, a umask of `000` would result in new files with permissions `666`. A umask of `022` (which is the default value) gives `644`, that is `rw- r-- r--`.
 
 The umask Bash built in (or system call) can be used to set the umask for the current process.
 
