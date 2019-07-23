@@ -225,9 +225,9 @@ Docker can grant containers to access files or the network.
 Run a container with access to a secret file:
 
 ```bash
-echo "my secret" &gt; \~/mysecret
+echo "my secret" &gt; ~/mysecret
 
-sudo docker run -v \$HOME/mysecret:/srv/mysecret:ro -it ubuntu:xenial sh
+sudo docker run -v $HOME/mysecret:/srv/mysecret:ro -it ubuntu:xenial sh
 ```
 
 Access the file within the container:
