@@ -121,7 +121,7 @@ end
 <% end %>
     <%  # Adds line that stops cloud-init from attempting to grab meta-data as eth0 is overwritten with provided networks.
         # TODO: Remove when mutli-network vagrant-plugin issue is resolved
-        if (@options.has_key? :ovirtuser) && (@options.has_key? :ovirtpass) -%>
+        if (@options.has_key? :ovirtuser) && (@options.has_key? :ovirtpass)  && @ovirt_base_template && @ovirt_base_template !~ /windows/ -%>
         <%= system.name %>.vm.provision 'shell', inline: "echo 'datasource_list: [ None ] '> /etc/cloud/cloud.cfg.d/90_dpkg.cfg"
     <%  end -%>
 
@@ -140,9 +140,12 @@ end
 <%   case selected_module.module_type
      when 'base' -%>
     <% if (@options.has_key? :ovirtuser) && (@options.has_key? :ovirtpass) %>   # TODO
-    <%= system.name %>.vm.hostname = '<%= "#{prefix}#{system.name}".tr('_', '-') %>'
-    <%= system.name %>.vm.box = 'ovirt4'
-    <%= system.name %>.vm.box_url = 'https://github.com/myoung34/vagrant-ovirt4/blob/master/example_box/dummy.box?raw=true'
+      <%# if selected_module.attributes['platform'].first.downcase != 'windows' %>
+      <%# gets stuck setting host name on Windows XP %>
+        <%= system.name %>.vm.hostname = '<%= "#{prefix}#{system.name}".tr('_', '-') %>'
+      <%# end %>
+      <%= system.name %>.vm.box = 'ovirt4'
+      <%= system.name %>.vm.box_url = 'https://github.com/myoung34/vagrant-ovirt4/blob/master/example_box/dummy.box?raw=true'
     <% elsif (@options.has_key? :esxiuser) && (@options.has_key? :esxipass) %>
     <%= system.name %>.vm.hostname = '<%= "#{prefix}#{system.name}".tr('_', '-') %>'
     <%= system.name %>.vm.box = "<%= selected_module.module_path_name %>"
@@ -156,7 +159,7 @@ end
     <%= system.name %>.vm.guest = :windows
     <%= system.name %>.vm.network :forwarded_port, guest: 3389, host: 3389
     <%= system.name %>.vm.network :forwarded_port, guest: 5985, host: 5985, id: "winrm", auto_correct: true
-    storage_server.vm.synced_folder '.', '/vagrant', disabled: true
+    <%= system.name %>.vm.synced_folder '.', '/vagrant', disabled: true
     <% end %>
 <%   when 'network' -%>
 <%     # DHCP networking -%>
@@ -171,9 +174,9 @@ end
 <%     # Static networking -%>
 <%     else -%>
 <%      # Static oVirt networking -%>
-<%       if (@options.has_key? :ovirtuser) && (@options.has_key? :ovirtpass) -%>
+<%       if (@options.has_key? :ovirtuser) && (@options.has_key? :ovirtpass) && @ovirt_base_template && @ovirt_base_template !~ /windows/ -%>
 <%         interface = 'ens3' -%>
-<%         if @ovirt_base_template and @ovirt_base_template =~ /kali|debian_desktop_kde|debian_wheezy_server/ -%>
+<%         if @ovirt_base_template =~ /kali|debian_desktop_kde|debian_wheezy_server/ -%>
 <%          interface = 'eth0' -%>
 <%         end -%>
            # use some shell scripting to identify the name of the network interface (eth0/ens3/...), and set the IP address statically
@@ -182,7 +185,7 @@ end
           <% # Below string is used within testing, do not delete. -%>
           # ip_address_for_<%= system.name %>=<%= resolve_network(selected_module)%>
           <%       # Static Virtualbox networking -%>
-<%       else -%>
+<%       else # not windows or not ovirt -%>
   <%= system.name %>.vm.network :<%= selected_module.attributes['type'].first %>, ip: "<%= resolve_network(selected_module)%>"
        <% # Below string is used within testing, do not delete. -%>
      # ip_address_for_<%= system.name %>=<%= resolve_network(selected_module)%>
