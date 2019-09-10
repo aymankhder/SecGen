@@ -15,4 +15,10 @@
   <!--optional details-->
   <reference>https://forge.puppet.com/puppetlabs/accounts</reference>
 
+  <!-- for now we just make all windows modules conflict with linux bases -->
+  <conflict>
+    <module_path>bases/.*</module_path>
+    <platform>linux</platform>
+  </conflict>
+
 </utility>

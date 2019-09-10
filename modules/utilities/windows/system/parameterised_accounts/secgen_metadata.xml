@@ -19,8 +19,10 @@
 
   <read_fact>accounts</read_fact>
 
+  <!-- for now we just make all windows modules conflict with linux bases -->
   <conflict>
-    <module_path>bases/(debian|kali|ubuntu).*</module_path>
+    <module_path>bases/.*</module_path>
+    <platform>linux</platform>
   </conflict>
 
   <requires>
