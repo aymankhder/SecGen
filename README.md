@@ -51,6 +51,16 @@ cd /home/user/bin/SecGen
 bundle install
 ```
 
+To use the Windows basesboxes you will need to install Packer. Use the following command:
+```bash
+curl -SL https://releases.hashicorp.com/packer/1.3.2/packer_1.3.2_linux_amd64.zip -o packer_1.3.2_linux_amd64.zip
+unzip packer_1.3.2_linux_amd64.zip
+sudo mv packer /usr/local/
+sudo bash -c 'echo "export PATH=\"\$PATH:/usr/local/\"" >> /etc/environment'
+sudo vagrant plugin install winrm
+sudo vagrant plugin install winrm-fs
+```
+
 ## Usage
 Basic usage:
 ```bash

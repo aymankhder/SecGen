@@ -21,8 +21,7 @@
     This defaults to $null.
 #>
 param(
-   # [string]$MsiUrl = "https://downloads.puppetlabs.com/windows/puppet-3.3.2.msi"
-   [string]$MsiUrl = "https://downloads.puppetlabs.com/windows/puppet-3.8.7.msi"
+   [string]$MsiUrl = "https://downloads.puppetlabs.com/windows/puppet6/puppet-agent-x64-latest.msi"
   ,[string]$PuppetVersion = $null
 )
 
@@ -51,7 +50,7 @@ if (!($PuppetInstalled)) {
   }
 
   # Install it - msiexec will download from the url
-  $install_args = @("/qn", "/norestart","/i", $MsiUrl)
+  $install_args = @("/i", $MsiUrl,"/qn", "/norestart")
   Write-Host "Installing Puppet. Running msiexec.exe $install_args"
   $process = Start-Process -FilePath msiexec.exe -ArgumentList $install_args -Wait -PassThru
   if ($process.ExitCode -ne 0) {

@@ -211,11 +211,12 @@ end
       }
 <%    end -%>
       <%=module_name%>.module_path = "<%="puppet/#{system.name}/modules"%>"
-      <%=module_name%>.environment_path = "environments/"
-      <%=module_name%>.environment = "production"
-
-      <%=module_name%>.synced_folder_type = "rsync"
-      <%=module_name%>.manifests_path = "<%="puppet/#{system.name}/modules/#{selected_module.module_path_end}"%>"
+      <% if selected_module.attributes['platform'].first.downcase != 'windows' %>
+        <%=module_name%>.environment_path = "environments/"
+        <%=module_name%>.environment = "production"
+        <%=module_name%>.synced_folder_type = "rsync"
+      <% end %>
+    <%=module_name%>.manifests_path = "<%="puppet/#{system.name}/modules/#{selected_module.module_path_end}"%>"
       <%=module_name%>.manifest_file = "<%="#{selected_module.module_path_end}.pp"%>"
     end
 <%   end -%>

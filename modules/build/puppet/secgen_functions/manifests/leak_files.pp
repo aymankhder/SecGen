@@ -17,6 +17,7 @@ define secgen_functions::leak_files($leaked_filenames=[], $storage_directory, $s
         storage_directory        => $storage_directory,
         strings_to_leak          => $leaked_strings,
         owner                    => $owner,
+        group                    => $group,
         mode                     => $mode,
       }
     } else {
@@ -28,6 +29,7 @@ define secgen_functions::leak_files($leaked_filenames=[], $storage_directory, $s
         storage_directory        => $storage_directory,
         strings_to_leak          => $leaked_strings,
         owner                    => $owner,
+        group                    => $group,
         mode                     => $mode,
         leaked_from              => $leaked_file_resource,  # pass this in when appending to avoid resource clashes
       }
