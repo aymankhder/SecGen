@@ -185,7 +185,7 @@ end
           <%       # Static Virtualbox networking -%>
 <%       elsif (@options.has_key? :ovirtuser) && (@options.has_key? :ovirtpass) && @ovirt_base_template && @ovirt_base_template =~ /win/ -%>
 <%        # Windows on oVirt -- change network on reboot via scheduled task%>
-          <%= system.name %>windows.vm.provision 'shell', inline: "schtasks /create /rl HIGHEST /ru system /sc ONSTART /tn \"network settings\" /tr \"netsh interface ip set address 'Local Area Connection' static <%= resolve_network(selected_module) %> 255.0.0.0\" < nul", upload_path: "c:/windows/temp/ipconf.bat"
+          <%= system.name %>.vm.provision 'shell', inline: "schtasks /create /rl HIGHEST /ru system /sc ONSTART /tn \"network settings\" /tr \"netsh interface ip set address 'Local Area Connection' static <%= resolve_network(selected_module) %> 255.0.0.0\" < nul", upload_path: "c:/windows/temp/ipconf.bat"
 <%       else # not windows or not ovirt -%>
   <%= system.name %>.vm.network :<%= selected_module.attributes['type'].first %>, ip: "<%= resolve_network(selected_module)%>"
        <% # Below string is used within testing, do not delete. -%>
