@@ -182,13 +182,16 @@ end
            <%= system.name %>.vm.provision 'shell', inline: "echo '' > /etc/environment"
           <% # Below string is used within testing, do not delete. -%>
           # ip_address_for_<%= system.name %>=<%= resolve_network(selected_module)%>
-          <%       # Static Virtualbox networking -%>
+<%         # Static Virtualbox networking -%>
 <%       elsif (@options.has_key? :ovirtuser) && (@options.has_key? :ovirtpass) && @ovirt_base_template && @ovirt_base_template =~ /win/ -%>
-<%        # Windows on oVirt -- change network on reboot via scheduled task%>
-          <%= system.name %>.vm.provision 'shell', inline: "schtasks /create /rl HIGHEST /ru system /sc ONSTART /tn \"network settings\" /tr \"netsh interface ip set address 'Local Area Connection' static <%= resolve_network(selected_module) %> 255.0.0.0\" < nul", upload_path: "c:/windows/temp/ipconf.bat"
+<%         # Windows on oVirt -- change network on reboot via scheduled task, so that it gets the new IP on reboot (not mid-provision)%>
+<%         # TODO: use some clever scripting to identify the network name : $interface = $(wmic.exe nic where "NetConnectionStatus=2" get NetConnectionID | findstr Local).Trim(); schtasks /create /rl HIGHEST /ru system /sc ONSTART /tn networksettings /f /tr "netsh interface ip set address '$interface' static IPADDRESS 255.0.0.0" %>
+          <%= system.name %>.vm.provision 'shell', inline: 'schtasks /create /rl HIGHEST /ru system /sc ONSTART /tn networksettings1 /f /tr "netsh interface ip set address \'Local Area Connection\' static <%= resolve_network(selected_module)%> 255.0.0.0\" '
+          <%= system.name %>.vm.provision 'shell', inline: 'schtasks /create /rl HIGHEST /ru system /sc ONSTART /tn networksettings2 /f /tr "netsh interface ip set address \'Local Area Connection 2\' static <%= resolve_network(selected_module)%> 255.0.0.0\" '
+          <%= system.name %>.vm.provision 'shell', inline: 'schtasks /create /rl HIGHEST /ru system /sc ONSTART /tn networksettings3 /f /tr "netsh interface ip set address \'Local Area Connection 3\' static <%= resolve_network(selected_module)%> 255.0.0.0\" '
 <%       else # not windows or not ovirt -%>
   <%= system.name %>.vm.network :<%= selected_module.attributes['type'].first %>, ip: "<%= resolve_network(selected_module)%>"
-       <% # Below string is used within testing, do not delete. -%>
+<%       # Below string is used within testing, do not delete. -%>
      # ip_address_for_<%= system.name %>=<%= resolve_network(selected_module)%>
 <%       end -%>
 <%     end -%>
@@ -217,7 +220,7 @@ end
         <%=module_name%>.environment = "production"
         <%=module_name%>.synced_folder_type = "rsync"
       <% end %>
-    <%=module_name%>.manifests_path = "<%="puppet/#{system.name}/modules/#{selected_module.module_path_end}"%>"
+      <%=module_name%>.manifests_path = "<%="puppet/#{system.name}/modules/#{selected_module.module_path_end}"%>"
       <%=module_name%>.manifest_file = "<%="#{selected_module.module_path_end}.pp"%>"
     end
 <%   end -%>

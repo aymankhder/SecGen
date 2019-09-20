@@ -6,7 +6,7 @@
   <name>Windows 7, SSH, Puppet: OVIRT ONLY</name>
   <author>Z. Cliffe Schreuders</author>
   <module_license>GPLv3</module_license>
-  <description>Windows 7 with SSH and Puppet. CURRENTLY ONLY WORKS WITH OVIRT.</description>
+  <description>Windows 7 with OpenSSH, Chocolate, Rsync, and Puppet. CURRENTLY ONLY WORKS WITH OVIRT.</description>
   <cpu_word_size>64-bit</cpu_word_size>
   <type>desktop</type>
 
@@ -14,7 +14,7 @@
   <distro>7</distro>
   <url>http://TODO</url>
   <esxi_url></esxi_url>
-  <ovirt_template>win7-vagrant-8</ovirt_template>
+  <ovirt_template>win7-vagrant-11</ovirt_template>
 
   <software_license>various</software_license>
 
