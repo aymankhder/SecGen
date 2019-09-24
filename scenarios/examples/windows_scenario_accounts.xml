@@ -50,7 +50,7 @@
 						<value>false</value>
 					</input>
 					<input into="strings_to_leak">
-						<<datastore>emails</datastore>
+						<datastore>emails</datastore>
 					</input>
 					<input into="leaked_filenames">
 						<value>test.txt</value>
