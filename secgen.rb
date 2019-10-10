@@ -375,6 +375,22 @@ def post_provision_tests(project_dir, options)
   tests_passed
 end
 
+def show_running_time(beginning_time)
+  finish_time = Time.now
+  lapsed_time = finish_time - beginning_time
+  remainder, secs = lapsed_time.divmod(60)
+  remainder, mins = remainder.divmod(60)
+  days, hours = remainder.divmod(24)
+
+  printable = ""
+  printable << "#{days}d " if days > 0
+  printable << "#{hours}h " if hours > 0
+  printable << "#{mins}m " if mins > 0
+  printable << "#{secs.round}s"
+
+  Print.info "Completed in #{printable}"
+end
+
 # end of method declarations
 # start of program execution
 
@@ -384,6 +400,8 @@ Print.std '            Licensed GPLv3 2014-19'
 Print.std '~'*47
 Print.debug "\nPlease take a minute to tell us how you are using SecGen:"
 Print.debug "https://tinyurl.com/SecGenFeedback\n"
+
+beginning_time = Time.now
 
 # Add read-options from config file (needs handling before options parsed by GetoptLong)
 if ARGV.include? '--read-options'
@@ -592,14 +610,9 @@ when 'create-forensic-image'
 
 when 'esxi-post-build'
   esxi_post_build(options, scenario, project_dir)
-  exit 0
 
 when 'ovirt-post-build'
   ovirt_post_build(options, scenario, project_dir)
-  exit 0
-when 'ovirt-post-build'
-  ovirt_post_build(options, scenario, project_dir)
-  exit 0
 
 when 'list-scenarios'
   list_scenarios
@@ -619,3 +632,5 @@ else
   usage
   exit 1
 end
+
+show_running_time(beginning_time)
