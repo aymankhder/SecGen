@@ -86,6 +86,9 @@ This week we will cover one of the major threats in computer security: software 
 			<input into="strings_to_leak">
         <generator type="flag_generator" />
       </input>
+			<input into="leaked_filenames">
+				<value>flag</value>
+			</input>
 		</vulnerability>
 
 		<network type="private_network">
