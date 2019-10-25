@@ -41,7 +41,7 @@ Snort should now be running, monitoring network traffic for activity.
 ==Do an nmap port scan of the web_server== VM (from the desktop VM):
 
 ```bash
-nmap -sX <%= $web_server_ip %>
+sudo nmap -sX <%= $web_server_ip %>
 ```
 
 This should trigger a logged alert from Snort, which is stored in an alerts log file.
@@ -76,7 +76,7 @@ You can use tcpdump's various flags to change the way it is displayed, or you co
 **On the ids_snoop**, ==edit /etc/snort/snort.conf==; for example:
 
 ```bash
-vi /etc/snort/snort.conf
+sudo vi /etc/snort/snort.conf
 ```
 > (Remember: editing using vi involves pressing "i" to insert/edit text, then *Esc*, ":wq" to write changes and quit)
 
@@ -117,7 +117,7 @@ sudo vi /etc/snort/rules/my.rules
 
 ==Add this line (*with your own name*), and save your changes:==
 
-`alert icmp any any ->any any (msg: "*Your-name*: ICMP Packet found"; sid:1000000; rev:1;)`
+`alert icmp any any -> any any (msg: "*Your-name*: ICMP Packet found"; sid:1000000; rev:1;)`
 
 > For example, `alert icmp any any -> any any (msg: "**Cliffe**: ICMP Packet found"; sid:1000000; rev:1;)`
 

@@ -267,7 +267,7 @@ I'm about to attack your system, use Snort to detect the method of attack.
 		<prompt>Your webserver is about to be scanned/attacked. Use Tcpdump and/or Wireshark to view the behaviour of the attacker. There is a flag to be found over the wire. </prompt>
 
 		<condition>
-			<output_matches>0</output_matches>
+			<output_matches>0|Find</output_matches>
 			<message>Hope you caught that.</message>
 			<trigger_next_attack />
 		</condition>
