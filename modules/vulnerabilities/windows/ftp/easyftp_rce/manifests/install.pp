@@ -42,9 +42,11 @@ class easyftp_rce::install {
    #   creates => 'C:/Users/vagrant/Downloads/easyftp/Ftpconsole.exe',
    #   logoutput => true,
    # } ->
-   exec { "7z e $zipfile -o$install_path -y":
+   exec { "&7z e $zipfile -o$install_path -y":
      provider     => 'powershell',
      creates => "$install_path/Ftpconsole.exe",
+     logoutput => true,
+     # returns => [0,1],
    } ->
 
    # exec { "C:\Users\vagrant\Downloads\easyftp\ftpbasicsvr.exe":
@@ -60,7 +62,7 @@ class easyftp_rce::install {
    } ->
 
    # allow through firewall
-   exec { 'netsh advfirewall firewall add rule name="easyftp" dir=in action=allow program="C:\Users\vagrant\Downloads\easyftp\Ftpconsole.exe" enable=yes':
+   exec { 'netsh advfirewall firewall add rule name="easyftp" dir=in action=allow program="C:\Users\vagrant\Downloads\easyftp\ftpbasicsvr.exe" enable=yes':
      provider     => 'powershell',
      logoutput => true,
    }
