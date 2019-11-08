@@ -56,13 +56,18 @@ class easyftp_rce::install {
    # } ->
 
    # run service on boot
-   exec { 'schtasks /create /rl HIGHEST /ru system /sc ONSTART /tn easyftp /f /tr "C:\Users\vagrant\Downloads\easyftp\Ftpconsole.exe" ':
+   exec { 'schtasks /create /rl HIGHEST /ru system /sc ONSTART /tn easyftp /f /tr C:\Users\vagrant\Downloads\easyftp\Ftpconsole.exe ':
      provider     => 'powershell',
      logoutput => true,
    } ->
 
-   # allow through firewall
-   exec { 'netsh advfirewall firewall add rule name="easyftp" dir=in action=allow program="C:\Users\vagrant\Downloads\easyftp\ftpbasicsvr.exe" enable=yes':
+   # allow this ftp server program through the firewall
+   exec { 'netsh advfirewall firewall add rule name=easyftp dir=in action=allow program=C:\Users\vagrant\Downloads\easyftp\ftpbasicsvr.exe enable=yes':
+     provider     => 'powershell',
+     logoutput => true,
+   } ->
+   # improve reliability by adding the firewall rule (again) everytime the VM boots -- messy but works?
+   exec { 'schtasks /create /rl HIGHEST /ru system /sc ONSTART /tn easyftpfirewall /f /tr "netsh advfirewall firewall add rule name=easyftp dir=in action=allow program=C:\Users\vagrant\Downloads\easyftp\ftpbasicsvr.exe enable=yes" ':
      provider     => 'powershell',
      logoutput => true,
    }
