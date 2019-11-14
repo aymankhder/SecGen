@@ -33,6 +33,35 @@ tmpfs    /tmp    tmpfs    defaults,noatime   0  0
 tmpfs    /vagrant    tmpfs    defaults,noatime   0  0
 ```
 
+## Behind a proxy
+If you need to modify your base boxes to connect to the Internet via proxy, you can create these files (replacing the IP address with your own proxy):
+
+```
+/etc/systemd/system/docker.service.d/https-proxy.conf
+
+Environment="HTTPS_PROXY=http://192.168.201.51:3128/"
+
+/etc/systemd/system/docker.service.d/http-proxy.conf
+
+Environment="HTTP_PROXY=http://192.168.201.51:3128/"
+
+/etc/environment
+http_proxy="http://192.168.201.51:3128"
+https_proxy="http://192.168.201.51:3128"
+ftp_proxy="ftp://192.168.201.51:3128"
+socks_proxy="socks://192.168.201.51:3128"
+HTTP_PROXY="http://192.168.201.51:3128"
+HTTPS_PROXY="http://192.168.201.51:3128"
+
+/etc/apt/apt.conf
+
+Acquire::http::Proxy "http://192.168.201.51:3128";
+
+/etc/security/pam_env.conf
+
+HTTP_PROXY      DEFAULT="192.168.201.51:3128"
+```
+
 ## After making changes
 
 In the VM:
