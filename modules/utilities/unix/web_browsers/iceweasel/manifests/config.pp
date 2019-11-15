@@ -30,6 +30,12 @@ class iceweasel::config {
       owner  => $username,
       group  => $username,
     }->
+    file { "$home_dir/.mozilla/firefox/installs.ini":
+      ensure => file,
+      source => 'puppet:///modules/iceweasel/installs.ini',
+      owner  => $username,
+      group  => $username,
+    }->
 
     # set start page via template:
     file { "$home_dir/.mozilla/firefox/user.default/user.js":
