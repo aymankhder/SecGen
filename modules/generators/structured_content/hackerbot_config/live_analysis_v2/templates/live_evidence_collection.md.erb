@@ -286,7 +286,7 @@ echo $PATH
 Set the \$PATH environment variable to use our static binaries wherever possible, so that when chkrootkit calls external programs it will (wherever possible) use the ones stored on the IR disk:
 
 ```bash
-export PATH=$static:$PATH
+export PATH=/media/cdrom0/statbins:$PATH
 ```
 
 Confirm that now if we were to run less, we would be running the static version:
@@ -300,7 +300,7 @@ This should report the path to our static binary on the FIRE disk.
 It is now safe to run chkrootkit[^1]:
 
 ```bash
-ssh <%= $compromised_server_ip %> "PATH=$static:$PATH sudo /media/cdrom0/statbins/chkrootkit-linux/chkrootkit" | tee evidence/chkrootkit_out
+ssh -t <%= $compromised_server_ip %> "PATH=/media/cdrom0/statbins:$PATH sudo /media/cdrom0/statbins/chkrootkit-linux/chkrootkit" | tee evidence/chkrootkit_out
 ```
 > Help: you may get a message in the terminal before you type the password. You should still type the password for the script to run. The script should not take long to run.
 
@@ -310,9 +310,9 @@ ssh <%= $compromised_server_ip %> "PATH=$static:$PATH sudo /media/cdrom0/statbin
 less /home/<%= $main_user %>/evidence/chkrootkit_out
 ```
 
-From the output, identify files or directories reported as "INFECTED", or suspicious.
+From the output, identify any files or directories reported as "INFECTED", or suspicious.
 
-At this stage you should be convinced that this system is compromised, and infected with some form of rootkit.
+If this is an unknown rootkit there may not be anything detected by chkrootkit; however, at this stage you should be convinced that this system is compromised, and infected with some form of rootkit.
 
 **On the compromised_server VM (ssh console tab)**
 
