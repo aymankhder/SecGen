@@ -24,12 +24,12 @@
 			<value>{"username":"root","password":"toor","super_user":"","strings_to_leak":[],"leaked_filenames":[]}</value>
 		</input>
 
-		<utility module_path=".*kali_web"/>
-		<utility module_path=".*metasploit_framework"/>
-		<utility module_path=".*handy_cli_tools"/>
-		<utility module_path=".*nmap"/>
+		<utility module_path=".*/kali_web"/>
+		<utility module_path=".*/metasploit_framework"/>
+		<utility module_path=".*/handy_cli_tools"/>
+		<utility module_path=".*/nmap"/>
 
-		<utility module_path=".*iceweasel">
+		<utility module_path=".*/iceweasel">
 			<input into="accounts">
 				<datastore>kali_root_account</datastore>
 			</input>
@@ -41,7 +41,7 @@
 			</input>
 		</utility>
 
-		<vulnerability module_path=".*dvwa" />
+		<vulnerability module_path=".*/dvwa" />
 
 		<network type="private_network" >
 			<input into="IP_address">

@@ -51,6 +51,9 @@ PASSWORDLISTS_DIR = "#{ROOT_DIR}/lib/resources/passwordlists"
 STDLIB_PUPPET_DIR = "#{MODULES_DIR}build/puppet/stdlib"
 SECGEN_FUNCTIONS_PUPPET_DIR = "#{MODULES_DIR}build/puppet/secgen_functions"
 
+# Filename for flags
+FLAGS_FILENAME = "flag_hints.xml"
+
 ## PACKER CONSTANTS ##
 
 # Path to Packerfile.erb file

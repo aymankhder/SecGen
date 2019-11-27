@@ -29,7 +29,8 @@ OPTIONS="<% if @root_dir %><%= @root_dir_flag %> <%= @root_dir %><% end -%>
 <% if @labels %><% @labels_array.each do |label| %> --label <%= label %><% end %><% end -%>
 <% if @extra_parameters %><% @extra_parameters_array.each do |param| %> <%= param %><% end %><% end -%>"
 
-<% if @proxy %>http_proxy='<%= @proxy %>'
+<%# SecGen edit %>
+<% if @proxy and @proxy != ''%>http_proxy='<%= @proxy %>'
   https_proxy='<%= @proxy %>'<% end %>
 <% if @no_proxy %>no_proxy='<%= @no_proxy %>'<% end %>
 # This is also a handy place to tweak where Docker's temporary files go.

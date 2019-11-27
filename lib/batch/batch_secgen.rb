@@ -237,9 +237,11 @@ def start(options)
         log.write(stderr)
         log.close
 
-        # Back up project and log file
-        FileUtils.cp_r(project_path, backup_path)
-        FileUtils.cp(log_path, (backup_path + project_id + '/' + log_name))
+        # Back up project flags, scenario, and log file
+        FileUtils.cp(log_path, ("#{backup_path}#{project_id}/" + log_name))
+        FileUtils.cp("#{project_path}/#{FLAGS_FILENAME}", "#{backup_path}#{project_id}/")
+        FileUtils.cp("#{project_path}/scenario.xml", "#{backup_path}#{project_id}/")
+        FileUtils.cp("#{project_path}/Vagrantfile", "#{backup_path}#{project_id}/")
 
         db_conn.finish
       }

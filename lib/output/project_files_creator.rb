@@ -135,7 +135,7 @@ class ProjectFilesCreator
     end
 
     # Create the marker xml file
-    x2file = "#{@out_dir}/flag_hints.xml"
+    x2file = "#{@out_dir}/#{FLAGS_FILENAME}"
 
     xml_marker_generator = XmlMarkerGenerator.new(@systems, @scenario, @time)
     xml = xml_marker_generator.output
