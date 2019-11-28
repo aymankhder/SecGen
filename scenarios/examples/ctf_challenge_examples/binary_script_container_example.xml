@@ -10,7 +10,7 @@
 		<system_name>challenge_server</system_name>
 		<base platform="linux" type="server"/>
 
-		<utility module_path=".*binary_script_container"/>
+		<utility module_path=".*/binary_script_container"/>
 
 		<network type="private_network" range="dhcp" />
 	</system>

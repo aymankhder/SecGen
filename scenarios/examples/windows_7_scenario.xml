@@ -8,7 +8,7 @@
 		<system_name>windows</system_name>
 		<base platform="windows" distro="7"/>
 
-		<utility module_path=".*parameterised_accounts" platform="windows">
+		<utility module_path=".*/parameterised_accounts" platform="windows">
 			<input into="accounts" into_datastore="accounts">
 				<generator type="account">
 					<input into="username">

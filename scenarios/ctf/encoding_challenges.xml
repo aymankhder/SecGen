@@ -260,7 +260,7 @@ A flag has been encoded with a simple encoding method that you may be able to re
     </input>
 
     <!-- Local challenges -->
-    <utility module_path=".*parameterised_accounts">
+    <utility module_path=".*/parameterised_accounts">
       <input into="accounts" into_datastore="accounts">
         <generator type="account">
           <input into="username">
@@ -505,12 +505,12 @@ Good luck and have fun!
       </input>
     </utility>
 
-    <utility module_path=".*handy_cli_tools"/>
-    <utility module_path=".*hash_tools"/>
-    <utility module_path=".*hashcat"/>
-    <utility module_path=".*johntheripper"/>
+    <utility module_path=".*/handy_cli_tools"/>
+    <utility module_path=".*/hash_tools"/>
+    <utility module_path=".*/hashcat"/>
+    <utility module_path=".*/johntheripper"/>
 
-    <utility module_path=".*iceweasel">
+    <utility module_path=".*/iceweasel">
       <input into="accounts">
         <datastore>accounts</datastore>
       </input>
@@ -522,7 +522,7 @@ Good luck and have fun!
       </input>
     </utility>
 
-    <utility module_path=".*kde_minimal">
+    <utility module_path=".*/kde_minimal">
       <input into="accounts">
         <datastore>accounts</datastore>
       </input>

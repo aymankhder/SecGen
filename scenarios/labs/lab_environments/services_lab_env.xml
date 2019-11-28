@@ -94,7 +94,7 @@
 		</input>
 
 		<!--Create the users-->
-		<utility module_path=".*parameterised_accounts">
+		<utility module_path=".*/parameterised_accounts">
 			<input into="accounts">
 				<datastore>accounts</datastore>
 			</input>
@@ -103,7 +103,7 @@
 			</input>
 		</utility>
 
-		<utility module_path=".*kde_minimal">
+		<utility module_path=".*/kde_minimal">
 			<input into="autologin_user">
 				<datastore access="0" access_json="['username']">accounts</datastore>
 			</input>
@@ -114,11 +114,11 @@
 				<value>true</value>
 			</input>
 		</utility>
-		<utility module_path=".*handy_cli_tools"/>
-		<utility module_path=".*nmap"/>
+		<utility module_path=".*/handy_cli_tools"/>
+		<utility module_path=".*/nmap"/>
 
 
-		<utility module_path=".*iceweasel">
+		<utility module_path=".*/iceweasel">
 			<input into="accounts">
 				<datastore>accounts</datastore>
 			</input>
@@ -131,7 +131,7 @@
 		</utility>
 
 
-		<!-- <utility module_path=".*pidgin">
+		<!-- <utility module_path=".*/pidgin">
 			<input into="server_ip">
 				<datastore access="1">IP_addresses</datastore>
 			</input>
@@ -142,7 +142,7 @@
 
 
 
-		<vulnerability module_path=".*ssh_root_login">
+		<vulnerability module_path=".*/ssh_root_login">
 			<input into="root_password">
 				<datastore>hackerbot_access_root_password</datastore>
 			</input>
@@ -160,13 +160,13 @@
 		<base distro="Debian 9" type="desktop"/>
 
 		<!--Create the users-->
-		<utility module_path=".*parameterised_accounts">
+		<utility module_path=".*/parameterised_accounts">
 			<input into="accounts">
 				<datastore>accounts</datastore>
 			</input>
 		</utility>
 
-		<utility module_path=".*kde_minimal">
+		<utility module_path=".*/kde_minimal">
 			<input into="autologin_user">
 				<datastore access="0" access_json="['username']">accounts</datastore>
 			</input>
@@ -178,7 +178,7 @@
 			</input>
 		</utility>
 
-		<utility module_path=".*iceweasel">
+		<utility module_path=".*/iceweasel">
 			<input into="accounts">
 				<datastore>accounts</datastore>
 			</input>
@@ -190,14 +190,14 @@
 			</input>
 		</utility>
 
-		<utility module_path=".*handy_cli_tools"/>
-		<utility module_path=".*nmap"/>
+		<utility module_path=".*/handy_cli_tools"/>
+		<utility module_path=".*/nmap"/>
 
 		<service type="ftp"/>
 		<!-- <service type="ircd"/> -->
 		<service type="httpd"/>
 
-		<vulnerability module_path=".*ssh_root_login">
+		<vulnerability module_path=".*/ssh_root_login">
 			<input into="root_password">
 				<datastore>hackerbot_access_root_password</datastore>
 			</input>

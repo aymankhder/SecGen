@@ -126,19 +126,19 @@
 	 		</input>
 
 			<!--Create the groups-->
-			<utility module_path=".*groups">
+			<utility module_path=".*/groups">
 	 			<input into="groups">
 	 				<datastore>groups</datastore>
 	 			</input>
 	 		</utility>
 	 		<!--Create the users-->
-	 		<utility module_path=".*parameterised_accounts">
+	 		<utility module_path=".*/parameterised_accounts">
 	 			<input into="accounts">
 	 				<datastore>user_accounts_desktop</datastore>
 	 			</input>
 	 		</utility>
 
-	 		<utility module_path=".*kde_minimal">
+	 		<utility module_path=".*/kde_minimal">
 	 			<input into="autologin_user">
 	 				<datastore access="0">usernames</datastore>
 	 			</input>
@@ -149,7 +149,7 @@
 	 				<value>true</value>
 	 			</input>
 	 		</utility>
-	 		<utility module_path=".*handy_cli_tools"/>
+	 		<utility module_path=".*/handy_cli_tools"/>
 
 
 	 		<network type="private_network">

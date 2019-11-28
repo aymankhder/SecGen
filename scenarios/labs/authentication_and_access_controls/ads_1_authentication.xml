@@ -134,13 +134,13 @@ A Hackerbot lab. Work through the lab instructions, then when prompted interact 
 		</input>
 
 		<!--Create the users-->
-		<utility module_path=".*parameterised_accounts">
+		<utility module_path=".*/parameterised_accounts">
 			<input into="accounts">
 				<datastore>user_accounts_desktop</datastore>
 			</input>
 		</utility>
 
-		<utility module_path=".*kde_minimal">
+		<utility module_path=".*/kde_minimal">
 			<input into="autologin_user">
 				<datastore access="0">usernames</datastore>
 			</input>
@@ -151,10 +151,10 @@ A Hackerbot lab. Work through the lab instructions, then when prompted interact 
 				<value>true</value>
 			</input>
 		</utility>
-		<utility module_path=".*handy_cli_tools"/>
-		<utility module_path=".*hash_tools"/>
+		<utility module_path=".*/handy_cli_tools"/>
+		<utility module_path=".*/hash_tools"/>
 
-		<utility module_path=".*iceweasel">
+		<utility module_path=".*/iceweasel">
 			<input into="accounts">
 				<datastore>user_accounts_desktop</datastore>
 			</input>
@@ -166,7 +166,7 @@ A Hackerbot lab. Work through the lab instructions, then when prompted interact 
 			</input>
 		</utility>
 
-		<utility module_path=".*pidgin">
+		<utility module_path=".*/pidgin">
 			<input into="server_ip">
 				<datastore access="2">IP_addresses</datastore>
 			</input>
@@ -175,7 +175,7 @@ A Hackerbot lab. Work through the lab instructions, then when prompted interact 
 			</input>
 		</utility>
 
-		<vulnerability module_path=".*ssh_root_login">
+		<vulnerability module_path=".*/ssh_root_login">
 			<input into="root_password">
 				<datastore>desktop_root_password</datastore>
 			</input>
@@ -266,15 +266,15 @@ A Hackerbot lab. Work through the lab instructions, then when prompted interact 
 		</input>
 
 		<!--Create the users-->
-		<utility module_path=".*parameterised_accounts">
+		<utility module_path=".*/parameterised_accounts">
 			<input into="accounts">
 				<datastore>user_accounts_server</datastore>
 			</input>
 		</utility>
 
-		<utility module_path=".*handy_cli_tools"/>
+		<utility module_path=".*/handy_cli_tools"/>
 
-		<vulnerability module_path=".*ssh_root_login">
+		<vulnerability module_path=".*/ssh_root_login">
 			<input into="root_password">
 				<datastore>desktop_root_password</datastore>
 			</input>
@@ -293,15 +293,15 @@ A Hackerbot lab. Work through the lab instructions, then when prompted interact 
 
 		<service type="ircd"/>
 
-		<utility module_path=".*metasploit_framework"/>
-		<utility module_path=".*nmap"/>
-		<utility module_path=".*handy_cli_tools"/>
+		<utility module_path=".*/metasploit_framework"/>
+		<utility module_path=".*/nmap"/>
+		<utility module_path=".*/handy_cli_tools"/>
 
 		<service type="httpd"/>
 
-		<utility module_path=".*hackerbot">
+		<utility module_path=".*/hackerbot">
 			<input into="hackerbot_configs">
-				<generator module_path=".*hbauthentication">
+				<generator module_path=".*/hbauthentication">
 					<input into="accounts">
 						<datastore>user_accounts_desktop</datastore>
 					</input>
@@ -336,12 +336,12 @@ A Hackerbot lab. Work through the lab instructions, then when prompted interact 
 			<value>{"username":"root","password":"toor","super_user":"","strings_to_leak":[],"leaked_filenames":[]}</value>
 		</input>
 
-		<utility module_path=".*kali_pwtools"/>
-		<utility module_path=".*metasploit_framework"/>
-		<utility module_path=".*handy_cli_tools"/>
-		<utility module_path=".*nmap"/>
+		<utility module_path=".*/kali_pwtools"/>
+		<utility module_path=".*/metasploit_framework"/>
+		<utility module_path=".*/handy_cli_tools"/>
+		<utility module_path=".*/nmap"/>
 
-		<utility module_path=".*iceweasel">
+		<utility module_path=".*/iceweasel">
 			<input into="accounts">
 				<datastore>kali_root_account</datastore>
 			</input>

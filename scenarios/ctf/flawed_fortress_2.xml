@@ -19,13 +19,13 @@
 	<system>
 		<system_name>decode_me</system_name>
 		<base platform="linux" type="server"/>
-                
-                <utility module_path=".*before_login_message">
+
+                <utility module_path=".*/before_login_message">
                   <input into="strings_to_leak">
                     <value>Test 123</value>
                   </input>
                 </utility>
-                <utility module_path=".*after_login_message">
+                <utility module_path=".*/after_login_message">
                   <input into="strings_to_leak">
                     <value>Test 456</value>
                   </input>
@@ -76,7 +76,7 @@
 			</input>
 		</vulnerability>-->
 
-		<network module_path=".*private_network_1"/>
+		<network module_path=".*/private_network_1"/>
 		<build type="cleanup">
 			<input into="root_password">
 				<generator type="strong_password_generator"/>
@@ -109,7 +109,7 @@
 
 		<service/>
 
-		<network module_path=".*private_network_1"/>
+		<network module_path=".*/private_network_1"/>
 		<build type="cleanup">
 			<input into="root_password">
 				<generator type="strong_password_generator"/>
@@ -145,7 +145,7 @@
 
 		<service/>
 
-		<network module_path=".*private_network_1"/>
+		<network module_path=".*/private_network_1"/>
 		<build type="cleanup">
 			<input into="root_password">
 				<generator type="strong_password_generator"/>

@@ -38,7 +38,7 @@ This week we will cover one of the major threats in computer security: software 
 			<value>172.16.0.4</value>
 		</input>
 
-		<utility module_path=".*parameterised_accounts" platform="windows">
+		<utility module_path=".*/parameterised_accounts" platform="windows">
 			<input into="accounts" into_datastore="accounts">
 				<generator type="account">
 					<input into="username">
@@ -72,7 +72,7 @@ This week we will cover one of the major threats in computer security: software 
 		<vulnerability cve="CVE-2008-2992"/>
 
 		<!-- netcat for testing shell connections -->
-		<utility module_path=".*win_netcat"/>
+		<utility module_path=".*/win_netcat"/>
 
 		<network type="private_network">
 			<input into="IP_address">
@@ -110,10 +110,10 @@ This week we will cover one of the major threats in computer security: software 
 			<value>{"username":"root","password":"toor","super_user":"","strings_to_leak":[],"leaked_filenames":[]}</value>
 		</input>
 
-		<utility module_path=".*metasploit_framework"/>
-		<utility module_path=".*handy_cli_tools"/>
-		<service module_path=".*apache"/>
-		<utility module_path=".*nmap"/>
+		<utility module_path=".*/metasploit_framework"/>
+		<utility module_path=".*/handy_cli_tools"/>
+		<service module_path=".*/apache"/>
+		<utility module_path=".*/nmap"/>
 
 		<network type="private_network" >
 			<input into="IP_address">

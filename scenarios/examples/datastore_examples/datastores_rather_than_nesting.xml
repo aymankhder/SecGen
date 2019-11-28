@@ -39,7 +39,7 @@
 
 
 
-		<network module_path=".*private_network_1"/>
+		<network module_path=".*/private_network_1"/>
 		<build type="cleanup">
 			<input into="root_password">
 				<generator type="strong_password_generator"/>

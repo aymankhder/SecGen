@@ -6,7 +6,7 @@
 
   <system>
     <system_name>web_server</system_name>
-    <base module_path=".*debian_puppet_32"/>
+    <base module_path=".*/debian_puppet_32"/>
 
     <!-- Setting up two organisations with test data -->
     <input into_datastore="organisation">
@@ -53,6 +53,6 @@
       </input>
     </vulnerability>
 
-    <network module_path=".*private_network_1"/>
+    <network module_path=".*/private_network_1"/>
   </system>
 </scenario>

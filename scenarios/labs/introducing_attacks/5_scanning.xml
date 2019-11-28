@@ -44,21 +44,21 @@ This week we learn how to scan networks to get an understanding of and to map ou
 			</input>
 		</vulnerability>
 
-		<utility module_path=".*nc_message">
+		<utility module_path=".*/nc_message">
 			<input into="strings_to_leak">
 				<generator type="flag_generator" />
 			</input>
 		</utility>
 
-		<utility module_path=".*nc_message">
+		<utility module_path=".*/nc_message">
 			<input into="strings_to_leak">
 				<generator type="flag_generator" />
 			</input>
 		</utility>
 
-		<utility module_path=".*nc_message">
+		<utility module_path=".*/nc_message">
 			<input into="strings_to_leak">
-				<encoder module_path=".*base64">
+				<encoder module_path=".*/base64">
 					<input into="strings_to_encode">
 						<generator type="flag_generator" />
 					</input>
@@ -84,11 +84,11 @@ This week we learn how to scan networks to get an understanding of and to map ou
 			<value>{"username":"root","password":"toor","super_user":"","strings_to_leak":[],"leaked_filenames":[]}</value>
 		</input>
 
-		<utility module_path=".*metasploit_framework"/>
-		<utility module_path=".*handy_cli_tools"/>
-		<utility module_path=".*nmap"/>
-		<utility module_path=".*zenmap"/>
-		<utility module_path=".*amap"/>
+		<utility module_path=".*/metasploit_framework"/>
+		<utility module_path=".*/handy_cli_tools"/>
+		<utility module_path=".*/nmap"/>
+		<utility module_path=".*/zenmap"/>
+		<utility module_path=".*/amap"/>
 
 		<network type="private_network" >
 			<input into="IP_address">

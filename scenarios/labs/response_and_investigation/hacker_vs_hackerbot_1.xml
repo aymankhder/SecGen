@@ -119,13 +119,13 @@
 		</input>
 
 		<!--Create the users-->
-		<utility module_path=".*parameterised_accounts">
+		<utility module_path=".*/parameterised_accounts">
 			<input into="accounts">
 				<datastore>accounts</datastore>
 			</input>
 		</utility>
 
-		<utility module_path=".*kde_minimal">
+		<utility module_path=".*/kde_minimal">
 			<input into="autologin_user">
 				<datastore access="0" access_json="['username']">accounts</datastore>
 			</input>
@@ -136,12 +136,12 @@
 				<value>true</value>
 			</input>
 		</utility>
-		<utility module_path=".*handy_cli_tools"/>
-		<utility module_path=".*hash_tools"/>
-		<utility module_path=".*nmap"/>
-		<utility module_path=".*wireshark"/>
+		<utility module_path=".*/handy_cli_tools"/>
+		<utility module_path=".*/hash_tools"/>
+		<utility module_path=".*/nmap"/>
+		<utility module_path=".*/wireshark"/>
 
-		<utility module_path=".*iceweasel">
+		<utility module_path=".*/iceweasel">
 			<input into="accounts">
 				<datastore>accounts</datastore>
 			</input>
@@ -153,7 +153,7 @@
 			</input>
 		</utility>
 
-		<utility module_path=".*pidgin">
+		<utility module_path=".*/pidgin">
 			<input into="server_ip">
 				<datastore access="2">IP_addresses</datastore>
 			</input>
@@ -162,7 +162,7 @@
 			</input>
 		</utility>
 
-		<vulnerability module_path=".*ssh_root_login">
+		<vulnerability module_path=".*/ssh_root_login">
 			<input into="root_password">
 				<datastore>hackerbot_access_root_password</datastore>
 			</input>
@@ -181,13 +181,13 @@
 		<!-- TODO: server template not working -->
 		<base distro="Debian 9" type="desktop" name="KDE"/>
 
-		<utility module_path=".*parameterised_accounts">
+		<utility module_path=".*/parameterised_accounts">
 			<input into="accounts">
 				<datastore>accounts</datastore>
 			</input>
 		</utility>
 
-		<vulnerability module_path=".*ssh_root_login">
+		<vulnerability module_path=".*/ssh_root_login">
 			<input into="root_password">
 				<datastore>hackerbot_access_root_password</datastore>
 			</input>
@@ -206,15 +206,15 @@
 
 		<service type="ircd"/>
 
-		<utility module_path=".*metasploit_framework"/>
-		<utility module_path=".*handy_cli_tools"/>
-		<utility module_path=".*nmap"/>
+		<utility module_path=".*/metasploit_framework"/>
+		<utility module_path=".*/handy_cli_tools"/>
+		<utility module_path=".*/nmap"/>
 
 		<service type="httpd"/>
 
-		<utility module_path=".*hackerbot">
+		<utility module_path=".*/hackerbot">
 			<input into="hackerbot_configs">
-				<generator module_path=".*hacker_vs_hackerbot_1">
+				<generator module_path=".*/hacker_vs_hackerbot_1">
 					<input into="accounts">
 						<datastore>accounts</datastore>
 					</input>

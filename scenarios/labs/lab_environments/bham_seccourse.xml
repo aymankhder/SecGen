@@ -9,11 +9,11 @@
 		<!--base platform="linux" distro="Debian 8.2"/-->
 		<base platform="linux" distro="Debian 7.8"/>
 
-		<!--utility module_path=".*gnome"/-->
-		<!--utility module_path=".*xfce"/-->
-		<!--utility module_path=".*user_accounts"/-->
+		<!--utility module_path=".*/gnome"/-->
+		<!--utility module_path=".*/xfce"/-->
+		<!--utility module_path=".*/user_accounts"/-->
 
-		<utility module_path=".*parameterised_accounts">
+		<utility module_path=".*/parameterised_accounts">
 			<input into="accounts">
 				<generator type="account">
 					<input into="username">
@@ -35,7 +35,7 @@
 			</input>
 		</utility>
 
-		<vulnerability module_path=".*ssh_leaked_keys">
+		<vulnerability module_path=".*/ssh_leaked_keys">
 			<input into="accounts">
 				<generator type="account">
 					<input into="username">
@@ -54,7 +54,7 @@
 			</input>
 		</vulnerability>
 
-		<vulnerability module_path=".*two_shell_calls">
+		<vulnerability module_path=".*/two_shell_calls">
 			<input into="accounts">
 				<generator type="account">
 					<input into="username">
@@ -87,8 +87,8 @@
 			</input>
 		</vulnerability>
 
-		<vulnerability module_path=".*symlinks" />
-		<vulnerability module_path=".*onlinestore" />
+		<vulnerability module_path=".*/symlinks" />
+		<vulnerability module_path=".*/onlinestore" />
 
 		<network type="private_network" range="dhcp"/>
 	</system>

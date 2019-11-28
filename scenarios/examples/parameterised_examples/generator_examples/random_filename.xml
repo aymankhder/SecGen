@@ -19,11 +19,11 @@
 
 
         <!--The default behaviour generates a random filename with a chance of it having a random extension. -->
-        <generator module_path=".*random_filename.*"/>
+        <generator module_path=".*/random_filename.*"/>
 
 
         <!--If you want to force a random filename with no extension you can use the value 'no_extension'. -->
-        <!--<generator module_path=".*random_filename.*">-->
+        <!--<generator module_path=".*/random_filename.*">-->
           <!--<input into="extension">-->
             <!--<value>no_extension</value>-->
           <!--</input>-->
@@ -31,7 +31,7 @@
 
 
         <!--If you want a specific file name with a random extension. -->
-        <!--<generator module_path=".*random_filename.*">-->
+        <!--<generator module_path=".*/random_filename.*">-->
           <!--<input into="file_name">-->
             <!--<value>base_filename</value>-->
           <!--</input>-->

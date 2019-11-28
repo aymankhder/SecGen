@@ -11,7 +11,7 @@
 		<!-- Generator which outputs 2 binary strings that are XORable together to get the flag. -->
 		<vulnerability read_fact="strings_to_leak">
 			<input into="strings_to_leak">
-				<generator module_path=".*bitwise_xor">
+				<generator module_path=".*/bitwise_xor">
 					<input into="string_to_mask">
 						<generator type="flag_generator"/>
 					</input>

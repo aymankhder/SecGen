@@ -8,7 +8,7 @@
 		<system_name>xinetd_script</system_name>
 		<base platform="linux" type="server"/>
 
-		<vulnerability module_path=".*ruby_challenge_example.*">
+		<vulnerability module_path=".*/ruby_challenge_example.*">
 			<input into="port">
 				<value>1337</value>
 			</input>

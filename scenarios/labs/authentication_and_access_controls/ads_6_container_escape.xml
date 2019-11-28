@@ -96,7 +96,7 @@
 		</input>
 
 		<!--Create the users-->
-		<utility module_path=".*parameterised_accounts">
+		<utility module_path=".*/parameterised_accounts">
 			<input into="accounts">
 				<datastore>accounts</datastore>
 			</input>
@@ -105,7 +105,7 @@
 			</input>
 		</utility>
 
-		<utility module_path=".*kde_minimal">
+		<utility module_path=".*/kde_minimal">
 			<input into="autologin_user">
 				<datastore access="0" access_json="['username']">accounts</datastore>
 			</input>
@@ -116,10 +116,10 @@
 				<value>true</value>
 			</input>
 		</utility>
-		<utility module_path=".*handy_cli_tools"/>
-		<utility module_path=".*nmap"/>
+		<utility module_path=".*/handy_cli_tools"/>
+		<utility module_path=".*/nmap"/>
 
-		<utility module_path=".*docker">
+		<utility module_path=".*/docker">
 			<input into="images">
 				<value>ubuntu:xenial</value>
 		    <value>debian:stretch</value>
@@ -127,7 +127,7 @@
 			</input>
 		</utility>
 
-		<vulnerability module_path=".*nc_backdoor_docker_esc">
+		<vulnerability module_path=".*/nc_backdoor_docker_esc">
 		  <input into="strings_to_leak">
 		    <generator type="flag_generator"/>
 		  </input>
@@ -136,7 +136,7 @@
 		  </input>
 		</vulnerability>
 
-		<vulnerability module_path=".*ssh_root_login">
+		<vulnerability module_path=".*/ssh_root_login">
 			<input into="root_password">
 				<datastore>hackerbot_access_root_password</datastore>
 			</input>
@@ -153,16 +153,16 @@
 		<system_name>chroot_esc_server</system_name>
 		<base distro="Debian 9" type="desktop" name="KDE"/>
 
-		<utility module_path=".*handy_cli_tools"/>
-		<utility module_path=".*nmap"/>
+		<utility module_path=".*/handy_cli_tools"/>
+		<utility module_path=".*/nmap"/>
 
-		<utility module_path=".*chroot_debootstrap">
+		<utility module_path=".*/chroot_debootstrap">
 			<input into="chroot_dir">
 				<value>/opt/chroot</value>
 			</input>
 		</utility>
 
-		<vulnerability module_path=".*nc_backdoor_chroot_esc">
+		<vulnerability module_path=".*/nc_backdoor_chroot_esc">
 		  <input into="strings_to_leak">
 		    <generator type="flag_generator"/>
 		  </input>
@@ -172,7 +172,7 @@
 		  </input>
 		</vulnerability>
 
-		<vulnerability module_path=".*ssh_root_login">
+		<vulnerability module_path=".*/ssh_root_login">
 			<input into="root_password">
 				<datastore>hackerbot_access_root_password</datastore>
 			</input>

@@ -7,9 +7,9 @@
 	<!-- Drops an acceptable use policy in html format in the /root directory -->
 	<system>
 		<system_name>storage_server</system_name>
-		<base module_path=".*debian_puppet_32.*"/>
+		<base module_path=".*/debian_puppet_32.*"/>
 
-		<vulnerability module_path=".*sans_acceptable_use.*"/>
+		<vulnerability module_path=".*/sans_acceptable_use.*"/>
 
 		<network type="private_network" range="dhcp"/>
 	</system>

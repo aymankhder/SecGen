@@ -100,7 +100,7 @@
 		</input>
 
 		<!--Create the users-->
-		<utility module_path=".*parameterised_accounts">
+		<utility module_path=".*/parameterised_accounts">
 			<input into="accounts">
 				<datastore>accounts</datastore>
 			</input>
@@ -109,7 +109,7 @@
 			</input>
 		</utility>
 
-		<utility module_path=".*kde_minimal">
+		<utility module_path=".*/kde_minimal">
 			<input into="autologin_user">
 				<datastore access="0" access_json="['username']">accounts</datastore>
 			</input>
@@ -120,10 +120,10 @@
 				<value>true</value>
 			</input>
 		</utility>
-		<utility module_path=".*handy_cli_tools"/>
-		<utility module_path=".*nmap"/>
+		<utility module_path=".*/handy_cli_tools"/>
+		<utility module_path=".*/nmap"/>
 
-		<utility module_path=".*iceweasel">
+		<utility module_path=".*/iceweasel">
 			<input into="accounts">
 				<datastore>accounts</datastore>
 			</input>
@@ -135,7 +135,7 @@
 			</input>
 		</utility>
 
-		<utility module_path=".*pidgin">
+		<utility module_path=".*/pidgin">
 			<input into="server_ip">
 				<datastore access="3">IP_addresses</datastore>
 			</input>
@@ -144,7 +144,7 @@
 			</input>
 		</utility>
 
-		<vulnerability module_path=".*ssh_root_login">
+		<vulnerability module_path=".*/ssh_root_login">
 			<input into="root_password">
 				<datastore>hackerbot_access_root_password</datastore>
 			</input>
@@ -161,13 +161,13 @@
 		<system_name>ids_snoop</system_name>
 		<base distro="Debian 9" type="desktop" name="KDE"/>
 
-		<utility module_path=".*parameterised_accounts">
+		<utility module_path=".*/parameterised_accounts">
 			<input into="accounts">
 				<datastore>accounts</datastore>
 			</input>
 		</utility>
 
-		<utility module_path=".*kde_minimal">
+		<utility module_path=".*/kde_minimal">
 			<input into="autologin_user">
 				<datastore access="0" access_json="['username']">accounts</datastore>
 			</input>
@@ -178,12 +178,12 @@
 				<value>true</value>
 			</input>
 		</utility>
-		<utility module_path=".*handy_cli_tools"/>
-		<utility module_path=".*snort"/>
-		<utility module_path=".*wireshark"/>
-		<utility module_path=".*nmap"/>
+		<utility module_path=".*/handy_cli_tools"/>
+		<utility module_path=".*/snort"/>
+		<utility module_path=".*/wireshark"/>
+		<utility module_path=".*/nmap"/>
 
-		<vulnerability module_path=".*ssh_root_login">
+		<vulnerability module_path=".*/ssh_root_login">
 			<input into="root_password">
 				<datastore>hackerbot_access_root_password</datastore>
 			</input>
@@ -201,16 +201,16 @@
 		<!-- FIXME: server base was not receiving an IP address (right network?) -->
 		<base distro="Debian 9" type="desktop" name="KDE"/>
 
-		<utility module_path=".*parameterised_accounts">
+		<utility module_path=".*/parameterised_accounts">
 			<input into="accounts">
 				<datastore>accounts</datastore>
 			</input>
 		</utility>
 
-		<vulnerability module_path=".*distcc_exec"/>
+		<vulnerability module_path=".*/distcc_exec"/>
 
 		<!--TODO: FIXME ftp modules are currently broken-->
-		<service module_path=".*vsftpd"/>
+		<service module_path=".*/vsftpd"/>
 
 		<service type="pop3"/>
 
@@ -220,7 +220,7 @@
 			</input>
 		</service>
 
-		<vulnerability module_path=".*ssh_root_login">
+		<vulnerability module_path=".*/ssh_root_login">
 			<input into="root_password">
 				<datastore>hackerbot_access_root_password</datastore>
 			</input>
@@ -239,15 +239,15 @@
 
 		<service type="ircd"/>
 
-		<utility module_path=".*metasploit_framework"/>
-		<utility module_path=".*handy_cli_tools"/>
-		<utility module_path=".*nmap"/>
+		<utility module_path=".*/metasploit_framework"/>
+		<utility module_path=".*/handy_cli_tools"/>
+		<utility module_path=".*/nmap"/>
 
 		<service type="httpd"/>
 
-		<utility module_path=".*hackerbot">
+		<utility module_path=".*/hackerbot">
 			<input into="hackerbot_configs">
-				<generator module_path=".*ids_rules">
+				<generator module_path=".*/ids_rules">
 					<input into="accounts">
 						<datastore>accounts</datastore>
 					</input>

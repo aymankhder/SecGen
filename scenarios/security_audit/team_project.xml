@@ -71,8 +71,8 @@
         <datastore access="next">IP_addresses</datastore>
       </input>
     </network>
-    <!--<network module_path=".*private_network_1"/>-->
-    <!--<network module_path=".*private_network_2"/>-->
+    <!--<network module_path=".*/private_network_1"/>-->
+    <!--<network module_path=".*/private_network_2"/>-->
   </system>
 
   <!-- Intranet Server on NIC 2 -->
@@ -88,7 +88,7 @@
       <input into="security_audit">
         <encoder type="markdown_to_html_encoder">
           <input into="strings_to_encode">
-            <generator module_path=".*security_audit_remit">
+            <generator module_path=".*/security_audit_remit">
               <input into="business_name">
                 <datastore access_json="['business_name']">organisation</datastore>
               </input>
@@ -105,7 +105,7 @@
     </service>
 
     <!-- Create accounts for the 3 employees -->
-    <utility module_path=".*parameterised_accounts">
+    <utility module_path=".*/parameterised_accounts">
       <input into="accounts">
         <generator type="account">
           <input into="username">
@@ -162,7 +162,7 @@
         <datastore access="next">IP_addresses</datastore>
       </input>
     </network>
-    <!--<network module_path=".*private_network_2"/>-->
+    <!--<network module_path=".*/private_network_2"/>-->
   </system>
 
    <!--Desktop Client on NIC2 -->
@@ -171,54 +171,54 @@
     <!-- Starts as a server base, and installs XFCE via a vulnerability -->
     <base platform="linux" distro="Debian 9" type="server"/>
 
-    <utility module_path=".*parameterised_accounts">
+    <utility module_path=".*/parameterised_accounts">
       <input into="accounts">
          <datastore access_json="['manager']">organisation</datastore>
       </input>
     </utility>
 
-    <vulnerability module_path=".*xfce_lightdm_root_login"/>
+    <vulnerability module_path=".*/xfce_lightdm_root_login"/>
 
-    <utility module_path=".*iceweasel">
+    <utility module_path=".*/iceweasel">
       <input into="accounts">
         <datastore access_json="['manager']">organisation</datastore>
       </input>
     </utility>
 
-    <utility module_path=".*handy_cli_tools"/>
+    <utility module_path=".*/handy_cli_tools"/>
 
     <network type="private_network">
       <input into="IP_address">
         <datastore access="next">IP_addresses</datastore>
       </input>
     </network>
-    <!--<network module_path=".*private_network_2"/>-->
+    <!--<network module_path=".*/private_network_2"/>-->
   </system>
 
   <system>
     <system_name>attack_vm_1_web_tools</system_name>
     <base distro="Kali" name="MSF"/>
-    <utility module_path=".*kali_web"/>
-    <utility module_path=".*kali_top10"/>
+    <utility module_path=".*/kali_web"/>
+    <utility module_path=".*/kali_top10"/>
     <network type="private_network">
       <input into="IP_address">
         <datastore access="next">IP_addresses</datastore>
       </input>
     </network>
-  <!--<network module_path=".*private_network_2"/>-->
+  <!--<network module_path=".*/private_network_2"/>-->
   </system>
 
   <system>
     <system_name>attack_vm_2</system_name>
     <base distro="Kali" name="MSF"/>
-    <utility module_path=".*kali_pwtools"/>
-    <utility module_path=".*kali_top10"/>
+    <utility module_path=".*/kali_pwtools"/>
+    <utility module_path=".*/kali_top10"/>
     <network type="private_network">
       <input into="IP_address">
         <datastore access="next">IP_addresses</datastore>
       </input>
     </network>
-  <!--<network module_path=".*private_network_2"/>-->
+  <!--<network module_path=".*/private_network_2"/>-->
   </system>
 
 </scenario>

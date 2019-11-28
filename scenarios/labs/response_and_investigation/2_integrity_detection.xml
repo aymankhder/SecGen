@@ -115,13 +115,13 @@ Diner's Club	3000 0000 0000 04</value>
 		</input>
 
 		<!--Create the users-->
-		<utility module_path=".*parameterised_accounts">
+		<utility module_path=".*/parameterised_accounts">
 			<input into="accounts">
 				<datastore>accounts</datastore>
 			</input>
 		</utility>
 
-		<utility module_path=".*kde_minimal">
+		<utility module_path=".*/kde_minimal">
 			<input into="autologin_user">
 				<datastore access="0" access_json="['username']">accounts</datastore>
 			</input>
@@ -132,10 +132,10 @@ Diner's Club	3000 0000 0000 04</value>
 				<value>true</value>
 			</input>
 		</utility>
-		<utility module_path=".*handy_cli_tools"/>
-		<utility module_path=".*hash_tools"/>
+		<utility module_path=".*/handy_cli_tools"/>
+		<utility module_path=".*/hash_tools"/>
 
-		<utility module_path=".*iceweasel">
+		<utility module_path=".*/iceweasel">
 			<input into="accounts">
 				<datastore>accounts</datastore>
 			</input>
@@ -147,7 +147,7 @@ Diner's Club	3000 0000 0000 04</value>
 			</input>
 		</utility>
 
-		<utility module_path=".*pidgin">
+		<utility module_path=".*/pidgin">
 			<input into="server_ip">
 				<datastore access="1">IP_addresses</datastore>
 			</input>
@@ -156,7 +156,7 @@ Diner's Club	3000 0000 0000 04</value>
 			</input>
 		</utility>
 
-		<vulnerability module_path=".*ssh_root_login">
+		<vulnerability module_path=".*/ssh_root_login">
 			<input into="root_password">
 				<datastore>desktop_root_password</datastore>
 			</input>
@@ -173,13 +173,13 @@ Diner's Club	3000 0000 0000 04</value>
 		<!--<system_name>server</system_name>-->
 		<!--<base platform="linux" distro="Debian 7.8"/>-->
 
-		<!--<utility module_path=".*parameterised_accounts">-->
+		<!--<utility module_path=".*/parameterised_accounts">-->
 			<!--<input into="accounts">-->
 				<!--<datastore>accounts</datastore>-->
 			<!--</input>-->
 		<!--</utility>-->
 
-		<!--<vulnerability module_path=".*ssh_root_login">-->
+		<!--<vulnerability module_path=".*/ssh_root_login">-->
 			<!--<input into="root_password">-->
 				<!--<value>randompassword</value>-->
 			<!--</input>-->
@@ -187,7 +187,7 @@ Diner's Club	3000 0000 0000 04</value>
 
 		<!--&lt;!&ndash;TODO: parameterise with business details&ndash;&gt;-->
 		<!--&lt;!&ndash;TODO: weechat config&ndash;&gt;-->
-		<!--<utility module_path=".*weechat"/>-->
+		<!--<utility module_path=".*/weechat"/>-->
 
 		<!--<service module_path="services/unix/http/parameterised_website"/>-->
 		<!--<service type="ftp"/>-->
@@ -201,15 +201,15 @@ Diner's Club	3000 0000 0000 04</value>
 
 		<service type="ircd"/>
 
-		<utility module_path=".*metasploit_framework"/>
-		<utility module_path=".*nmap"/>
-		<utility module_path=".*handy_cli_tools"/>
+		<utility module_path=".*/metasploit_framework"/>
+		<utility module_path=".*/nmap"/>
+		<utility module_path=".*/handy_cli_tools"/>
 
 		<service type="httpd"/>
 
-		<utility module_path=".*hackerbot">
+		<utility module_path=".*/hackerbot">
 			<input into="hackerbot_configs">
-				<generator module_path=".*integrity_detection">
+				<generator module_path=".*/integrity_detection">
 					<input into="accounts">
 						<datastore>accounts</datastore>
 					</input>

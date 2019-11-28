@@ -49,7 +49,7 @@
 		</input>
 
 		<!--Create the users-->
-		<utility module_path=".*parameterised_accounts">
+		<utility module_path=".*/parameterised_accounts">
 			<input into="accounts">
 				<datastore>accounts</datastore>
 			</input>
@@ -58,7 +58,7 @@
 			</input>
 		</utility>
 
-		<utility module_path=".*kde_minimal">
+		<utility module_path=".*/kde_minimal">
 			<input into="autologin_user">
 				<datastore access="0" access_json="['username']">accounts</datastore>
 			</input>
@@ -69,10 +69,10 @@
 				<value>true</value>
 			</input>
 		</utility>
-		<utility module_path=".*handy_cli_tools"/>
-		<utility module_path=".*nmap"/>
+		<utility module_path=".*/handy_cli_tools"/>
+		<utility module_path=".*/nmap"/>
 
-		<utility module_path=".*iceweasel">
+		<utility module_path=".*/iceweasel">
 			<input into="accounts">
 				<datastore>accounts</datastore>
 			</input>
@@ -84,7 +84,7 @@
 			</input>
 		</utility>
 
-		<vulnerability module_path=".*ssh_root_login">
+		<vulnerability module_path=".*/ssh_root_login">
 			<input into="root_password">
 				<generator type="strong_password_generator"/>
 			</input>
@@ -101,7 +101,7 @@
 		<system_name>windows_7_desktop</system_name>
 		<base platform="windows" distro="7"/>
 
-		<utility module_path=".*parameterised_accounts" platform="windows">
+		<utility module_path=".*/parameterised_accounts" platform="windows">
 			<input into="accounts" into_datastore="accounts">
 				<generator type="account">
 					<input into="username">
@@ -143,11 +143,11 @@
 			<value>{"username":"root","password":"toor","super_user":"","strings_to_leak":[],"leaked_filenames":[]}</value>
 		</input>
 
-		<utility module_path=".*metasploit_framework"/>
-		<utility module_path=".*armitage"/>
-		<utility module_path=".*exploitdb"/>
-		<utility module_path=".*handy_cli_tools"/>
-		<utility module_path=".*nmap"/>
+		<utility module_path=".*/metasploit_framework"/>
+		<utility module_path=".*/armitage"/>
+		<utility module_path=".*/exploitdb"/>
+		<utility module_path=".*/handy_cli_tools"/>
+		<utility module_path=".*/nmap"/>
 
 		<network type="private_network" >
 			<input into="IP_address">

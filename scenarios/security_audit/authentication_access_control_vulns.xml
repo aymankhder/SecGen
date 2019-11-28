@@ -9,11 +9,11 @@
   <system>
     <system_name>access_control_misconfigurations</system_name>
     <base platform="linux" type="server"/>
-    
+
     <vulnerability type="access_control_misconfiguration"/>
     <vulnerability type="access_control_misconfiguration"/>
 
-    <utility module_path=".*parameterised_accounts">
+    <utility module_path=".*/parameterised_accounts">
       <input into="accounts">
         <generator type="account">
           <input into="username">
@@ -70,7 +70,7 @@
     </utility>
 
     <network type="private_network" range="dhcp"/>
-    
+
   </system>
 
 </scenario>

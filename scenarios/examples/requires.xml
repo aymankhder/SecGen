@@ -8,7 +8,7 @@
 		<system_name>requires_example</system_name>
 		<base platform="linux" type="server" distro=".*Ubuntu.*"/>
 
-		<utility module_path=".*requires_ubuntu.*"/>
+		<utility module_path=".*/requires_ubuntu.*"/>
 
 		<network type="private_network">
 			<input into="IP_address">

@@ -107,7 +107,7 @@ A Hackerbot lab. Work through the labsheet, then when prompted interact with Hac
     </input>
 
     <!--Create the users-->
-    <utility module_path=".*parameterised_accounts">
+    <utility module_path=".*/parameterised_accounts">
       <input into="accounts">
         <datastore>accounts</datastore>
       </input>
@@ -116,7 +116,7 @@ A Hackerbot lab. Work through the labsheet, then when prompted interact with Hac
       </input>
     </utility>
 
-    <utility module_path=".*kde_minimal">
+    <utility module_path=".*/kde_minimal">
       <input into="autologin_user">
         <datastore access="0" access_json="['username']">accounts</datastore>
       </input>
@@ -127,10 +127,10 @@ A Hackerbot lab. Work through the labsheet, then when prompted interact with Hac
         <value>true</value>
       </input>
     </utility>
-    <utility module_path=".*handy_cli_tools"/>
-    <utility module_path=".*nmap"/>
+    <utility module_path=".*/handy_cli_tools"/>
+    <utility module_path=".*/nmap"/>
 
-    <utility module_path=".*iceweasel">
+    <utility module_path=".*/iceweasel">
       <input into="accounts">
         <datastore>accounts</datastore>
       </input>
@@ -142,7 +142,7 @@ A Hackerbot lab. Work through the labsheet, then when prompted interact with Hac
       </input>
     </utility>
 
-    <utility module_path=".*docker">
+    <utility module_path=".*/docker">
       <input into="images">
         <value>ubuntu:xenial</value>
         <value>debian:stretch</value>
@@ -150,13 +150,13 @@ A Hackerbot lab. Work through the labsheet, then when prompted interact with Hac
       </input>
     </utility>
 
-    <utility module_path=".*chroot_debootstrap">
+    <utility module_path=".*/chroot_debootstrap">
       <input into="chroot_dir">
         <value>/opt/chroot</value>
       </input>
     </utility>
 
-    <vulnerability module_path=".*nc_backdoor_chroot_esc">
+    <vulnerability module_path=".*/nc_backdoor_chroot_esc">
       <input into="strings_to_leak">
         <generator type="flag_generator"/>
       </input>
@@ -166,7 +166,7 @@ A Hackerbot lab. Work through the labsheet, then when prompted interact with Hac
       </input>
     </vulnerability>
 
-    <vulnerability module_path=".*nc_backdoor_docker_esc">
+    <vulnerability module_path=".*/nc_backdoor_docker_esc">
       <input into="strings_to_leak">
         <generator type="flag_generator"/>
       </input>
@@ -176,7 +176,7 @@ A Hackerbot lab. Work through the labsheet, then when prompted interact with Hac
       </input>
     </vulnerability>
 
-    <vulnerability module_path=".*ssh_root_login">
+    <vulnerability module_path=".*/ssh_root_login">
       <input into="root_password">
         <datastore>hackerbot_access_root_password</datastore>
       </input>
@@ -196,15 +196,15 @@ A Hackerbot lab. Work through the labsheet, then when prompted interact with Hac
 
     <service type="ircd"/>
 
-    <utility module_path=".*metasploit_framework"/>
-    <utility module_path=".*nmap"/>
-    <utility module_path=".*handy_cli_tools"/>
+    <utility module_path=".*/metasploit_framework"/>
+    <utility module_path=".*/nmap"/>
+    <utility module_path=".*/handy_cli_tools"/>
 
     <service type="httpd"/>
 
-    <utility module_path=".*hackerbot">
+    <utility module_path=".*/hackerbot">
       <input into="hackerbot_configs">
-        <generator module_path=".*hb_containers">
+        <generator module_path=".*/hb_containers">
           <input into="accounts">
             <datastore>accounts</datastore>
           </input>

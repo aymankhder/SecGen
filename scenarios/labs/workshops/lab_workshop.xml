@@ -128,7 +128,7 @@
 		</input>
 
 		<!--Create the users-->
-		<utility module_path=".*parameterised_accounts">
+		<utility module_path=".*/parameterised_accounts">
 			<input into="accounts">
 				<datastore>accounts</datastore>
 			</input>
@@ -137,7 +137,7 @@
 			</input>
 		</utility>
 
-		<utility module_path=".*kde_minimal">
+		<utility module_path=".*/kde_minimal">
 			<!--<input into="autologin_user">-->
 				<!--<datastore access="0" access_json="['username']">accounts</datastore>-->
 			<!--</input>-->
@@ -148,10 +148,10 @@
 				<value>true</value>
 			</input>
 		</utility>
-		<utility module_path=".*handy_cli_tools"/>
-		<utility module_path=".*nmap"/>
+		<utility module_path=".*/handy_cli_tools"/>
+		<utility module_path=".*/nmap"/>
 
-		<!--<utility module_path=".*iceweasel">-->
+		<!--<utility module_path=".*/iceweasel">-->
 			<!--<input into="accounts">-->
 				<!--<datastore>accounts</datastore>-->
 			<!--</input>-->
@@ -163,7 +163,7 @@
 			<!--</input>-->
 		<!--</utility>-->
 
-		<!--<utility module_path=".*pidgin">-->
+		<!--<utility module_path=".*/pidgin">-->
 			<!--<input into="server_ip">-->
 				<!--<datastore access="3">IP_addresses</datastore>-->
 			<!--</input>-->
@@ -172,7 +172,7 @@
 			<!--</input>-->
 		<!--</utility>-->
 
-		<!--<vulnerability module_path=".*ssh_root_login">-->
+		<!--<vulnerability module_path=".*/ssh_root_login">-->
 			<!--<input into="root_password">-->
 				<!--<datastore>hackerbot_access_root_password</datastore>-->
 			<!--</input>-->
@@ -189,13 +189,13 @@
 		<system_name>web_server</system_name>
 		<base platform="linux" distro="Debian 7.8" name="Server"/>
 
-		<!--<utility module_path=".*parameterised_accounts">-->
+		<!--<utility module_path=".*/parameterised_accounts">-->
 			<!--<input into="accounts">-->
 				<!--<datastore>accounts</datastore>-->
 			<!--</input>-->
 		<!--</utility>-->
 
-		<vulnerability module_path=".*unrealirc_3281_backdoor">
+		<vulnerability module_path=".*/unrealirc_3281_backdoor">
 			<input into="strings_to_leak">
 				<datastore>desktop_username</datastore>
 				<datastore>desktop_password</datastore>
@@ -213,7 +213,7 @@
 			</input>
 		</service>
 
-		<!--<vulnerability module_path=".*ssh_root_login">-->
+		<!--<vulnerability module_path=".*/ssh_root_login">-->
 			<!--<input into="root_password">-->
 				<!--<datastore>hackerbot_access_root_password</datastore>-->
 			<!--</input>-->
@@ -232,15 +232,15 @@
 
 		<!--<service type="ircd"/>-->
 
-		<!--<utility module_path=".*metasploit_framework"/>-->
-		<!--<utility module_path=".*handy_cli_tools"/>-->
-		<!--<utility module_path=".*nmap"/>-->
+		<!--<utility module_path=".*/metasploit_framework"/>-->
+		<!--<utility module_path=".*/handy_cli_tools"/>-->
+		<!--<utility module_path=".*/nmap"/>-->
 
 		<!--<service type="httpd"/>-->
 
-		<!--<utility module_path=".*hackerbot">-->
+		<!--<utility module_path=".*/hackerbot">-->
 			<!--<input into="hackerbot_configs">-->
-				<!--<generator module_path=".*ids_exfiltration">-->
+				<!--<generator module_path=".*/ids_exfiltration">-->
 					<!--<input into="accounts">-->
 						<!--<datastore>accounts</datastore>-->
 					<!--</input>-->
@@ -277,14 +277,14 @@
 		<system_name>kali</system_name>
 		<base distro="Kali" name="MSF"/>
 
-		<utility module_path=".*metasploit_framework"/>
-		<utility module_path=".*handy_cli_tools"/>
-		<utility module_path=".*nmap"/>
+		<utility module_path=".*/metasploit_framework"/>
+		<utility module_path=".*/handy_cli_tools"/>
+		<utility module_path=".*/nmap"/>
 
-		<utility module_path=".*armitage"/>
+		<utility module_path=".*/armitage"/>
 
 		<!--TODO: REMOVE ME - THIS SHOULD BE IN THE KALI TEMPLATE-->
-		<utility module_path=".*ovirt_agents"/>
+		<utility module_path=".*/ovirt_agents"/>
 
 		<network type="private_network" >
 			<input into="IP_address">

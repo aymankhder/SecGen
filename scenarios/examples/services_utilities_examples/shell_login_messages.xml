@@ -8,7 +8,7 @@
 		<system_name>system</system_name>
 		<base platform="linux" type="server"/>
 
-    <utility module_path=".*before_login_message">
+    <utility module_path=".*/before_login_message">
       <input into="strings_to_leak">
         <encoder type="string_format_encoder">
           <input into="strings_to_encode">
@@ -18,7 +18,7 @@
         <value>You are logged out</value>
       </input>
     </utility>
-    <utility module_path=".*after_login_message">
+    <utility module_path=".*/after_login_message">
       <input into="strings_to_leak">
         <encoder type="string_format_encoder">
           <input into="strings_to_encode">

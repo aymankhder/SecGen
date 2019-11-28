@@ -14,7 +14,7 @@
       <value>172.16.0.3</value>
     </input>
 
-    <vulnerability type="webapp_with_db" module_path=".*webapp.*">
+    <vulnerability type="webapp_with_db" module_path=".*/webapp.*">
       <input into="IP_address">
         <datastore access="0">IP_addresses</datastore>
       </input>
@@ -31,7 +31,7 @@
     <system_name>attack_vm</system_name>
     <base distro="Kali" name="MSF"/>
 
-    <utility module_path=".*iceweasel">
+    <utility module_path=".*/iceweasel">
       <input into="accounts">
         <value>{"username":"root","password":"toor","super_user":"","strings_to_leak":[],"leaked_filenames":[]}</value>
       </input>
@@ -43,7 +43,7 @@
       </input>
     </utility>
 
-    <utility module_path=".*kali_web"/>
+    <utility module_path=".*/kali_web"/>
 
     <network type="private_network">
       <input into="IP_address">
