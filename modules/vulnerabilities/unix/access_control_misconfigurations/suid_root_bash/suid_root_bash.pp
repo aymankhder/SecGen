@@ -1,1 +1,1 @@
-include uid_bash_root::config
+include suid_root_bash::config
