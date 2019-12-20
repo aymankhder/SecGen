@@ -13,6 +13,10 @@ END
 exec &> /tmp/parameterize.sh.log
 echo "start parameterize.sh"
 date
+if [[ -d /var/labtainer/did_param ]]; then
+	echo "Already parameterized, exit"
+	exit 0
+fi
 # Configuration variables
 LAB_SEEDFILE="$HOME/.local/.seed"
 USER_EMAILFILE="$HOME/.local/.email"
@@ -120,6 +124,11 @@ if [ -f /usr/bin/yum-source.sh ]; then
 fi
 if [ -f /usr/bin/apt-source.sh ]; then
     echo $CONTAINER_PASSWORD | sudo -S /usr/bin/apt-source.sh
+fi
+
+# hack for centos6 gui's
+if [ -f /bin/dbus-uuidgen ]; then
+    echo $CONTAINER_PASSWORD | sudo -S /bin/dbus-uuidgen > /var/lib/dbus/machine-id
 fi
 
 # hack console type for initd

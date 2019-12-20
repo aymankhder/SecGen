@@ -40,6 +40,7 @@ class SmokeTest():
         self.logger.addHandler(file_handler)
         self.logger.addHandler(console_handler)
 
+        labutils.logger = self.logger
         self.logger.debug('Begin smoke test')
 
     def checkLab(self, lab, test_registry):
@@ -146,10 +147,12 @@ class SmokeTest():
             if startwith is not None and lab < startwith:
                 continue
             print('Start lab: %s' % lab)
+            sys.stdout.flush()
             result = self.checkLab(lab, test_registry)
             if not result:
                 exit(1)
             print('Finished lab: %s' % lab)
+            sys.stdout.flush()
 
 def __main__():
 

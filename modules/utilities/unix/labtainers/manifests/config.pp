@@ -5,6 +5,21 @@ class labtainers::config{
   $lab = $secgen_parameters['lab'][0]
   $accounts = $secgen_parameters['accounts']
 
+  # Set permissions to enable creation of log files etc
+  file { ['/opt/labtainers/scripts/labtainer-instructor/grader.log',
+          '/opt/labtainers/scripts/labtainer-instructor/saki.log',
+          '/opt/labtainers/scripts/labtainer-student/labtainer.log',
+          '/opt/labtainers/scripts/labtainer-student/grader.log',
+          '/opt/labtainers/setup_scripts/pull.log']:
+    ensure  => 'present',
+    content => "SecGen was here\n",
+    mode    => '0666',
+  }
+  file { '/opt/labtainers/scripts/labtainer-student/.tmp':
+    ensure => directory,
+    mode    => '0777',
+  }
+
   # Set.up labtainers for each user account
   unless $accounts == undef {
     $accounts.each |$raw_account| {
@@ -32,7 +47,7 @@ class labtainers::config{
 
       file_line { 'patch_path_labtainers':
         path  => "$home_dir/.profile",
-        line  => 'export PATH=/opt/labtainers/scripts/labtainer-student/bin:/opt/labtainers/scripts/labtainer-instructor/bin:/opt/labtainers/scripts/labtainer-student/lab-bin/:/opt/labtainers/setup_scripts/trunk/scripts/designer/bin:$PATH',
+        line  => 'export PATH=/opt/labtainers/scripts/labtainer-student/bin:/opt/labtainers/scripts/labtainer-instructor/bin:/opt/labtainers/scripts/labtainer-student/lab-bin/:/opt/labtainers/setup_scripts/trunk/scripts/designer/bin:/opt/labflags/:$PATH',
       }
       file_line { 'patch_path_labtainers_dir':
         path  => "$home_dir/.bashrc",
@@ -66,4 +81,16 @@ class labtainers::config{
     }
   }
 
+
+  file { 'patch_grader_path_labtainers':
+    path  => "/home/grader/.profile",
+    content  => 'export PATH=/opt/labtainers/scripts/labtainer-student/bin:/opt/labtainers/scripts/labtainer-instructor/bin:/opt/labtainers/scripts/labtainer-student/lab-bin/:/opt/labtainers/setup_scripts/trunk/scripts/designer/bin:/opt/labflags/:$PATH',
+    owner  => 'grader',
+    group  => 'grader',
+  }
+
+  # exec { 'permissions for logging':
+  #   command  => "/bin/chmod a+rwt /opt/labtainers/scripts/labtainer-student/ /opt/labtainers/scripts/labtainer-instructor/ /opt/labtainers/setup_scripts/",
+  #   provider => shell,
+  # } ->
 }

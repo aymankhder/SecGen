@@ -6,6 +6,7 @@
 \usepackage{graphicx}
 \usepackage[autostyle, english = american]{csquotes}
 \usepackage{appendix}
+\usepackage{float}
 \begin{document}
 \begin{titlepage}
 \title {Labtainer Lab Designer User Guide}
@@ -65,9 +66,9 @@ a common Linux execution environment.   These benefits can be realized
 whether or not labs are configured for automatic assessment, 
 or are parameterized for each student.
 
-\begin{figure}[ht]
+\begin{figure}[H]
 \centering
-\includegraphics[width=0.4\textwidth,natwidth=621,natheight=403]{dmz-lab.jpg}
+\includegraphics[width=0.4\textwidth]{dmz-lab.jpg}
 \caption{Example Labtainers network topology}
 \label{fig:dmz}
 \end{figure}
@@ -274,6 +275,7 @@ a separate terminal:
 \begin{verbatim}
     tail -f labtainer.log
 \end{verbatim}
+If the rebuild fails with a error reflecting a problem resolving hostnames, e.g., mirror.centos.com, please see \ref{DNS-rebuild}.
 
 Note the ``rebuild.py'' command is not intended for use by students, they would use the ``start.py'' command.  
 The rebuild.py utility compares file modification dates to Docker image creation dates to determine if
@@ -492,6 +494,7 @@ Notes section (\ref{Notes}) at the end of this manual for tips on using Firefox 
 increasing integer starting with one, and this value can be used for the network address as describe above, and within
 parameterization as described in section \ref{parameterize}. This option is not intended for use in creating multi-user
 labs.
+\item NO\_PULL [YES/NO] -- Use a local instance of the container image rather than pulling it from the Docker hub.
 
 \end{itemize}
 \end{itemize}
@@ -532,7 +535,9 @@ container home directory, those should be placed into a ``home\_tar'' directory 
     $LABTAINER_DIR/labs/[labname]/[container_name]/home_tar/
 \end{verbatim}
 \noindent Use of this technique prevents these files from being collected as student artifacts, which
-otherwise include copies of everything relative to the home directory.  This
+otherwise include copies of everything relative to the home directory \footnote{Actually, we only collect
+files whose modify dates are more recent than the container, so use of home\_tar is not as
+important as it previously was.}.  This
 can save considerable time and space, e.g., on the instructor's computer that must collect
 all student artifacts.
 The individual files should exist in the home\_tar directory, and the framework automatically
@@ -593,25 +598,36 @@ The centos-logs lab provides an example of forcing the student to login using th
 login program, as described in section \ref{student start}.
 
 
-\subsection {Instructions for Students} \label{instructions}
-Lab instructions for students can be displayed in a virtual terminal by placing an
-``instructions.txt'' file within the home directory of one of the containers.  Refer to existing
-labs for conventions.  Additionally, textual message can be displayed to the student before any 
-of the lab virtual terminals are created.  Any text within the 
+\subsection {Lab Text and Instructions for Students} \label{instructions}
+Create a 'docs' directory in the [labname] directory if there isn't one there. This is where most textual information about the lab, as well as the lab manual, should be stored and modified. The 'about.txt' is an exception to this. \\ 
+
+\noindent Use LateX to write and create PDF files in the docs directory. Look at other lab's docs directory on how to create a Makefile for the LateX file. \\ 
+
+\noindent Display a message to the student before any 
+of the lab virtual terminals are created by creating a {\tt read\_first.txt} in the 'docs' directory. Any text within the 
 \begin{verbatim}
    $LABTAINER_DIR/labs/[labname]/docs/read_first.txt
 \end{verbatim}
 \noindent file will be displayed on the Linux host in the terminal in which the student
-starts the lab.  Any ``LAB\_MANUAL'' string in that file will be replaced with the full path
-to a [labname].pdf file within that same docs directory.  And ``LAB\_DOCS'' is replaced by the
-path to the lab docs directory.  One intended use is to prompt the
-student to open a PDF lab manual and perhaps read parts of it prior to continuing with the lab.
-Another intended use is to display the path to a reporting template that a student is to use
-for answering lab-specific questions and note taking.  If the name of the symbols are prefaced
-by ``file://'', then the paths will display as links that can be opened via a right click.
-If the start.config file includes ``COLLECT\_DOCS YES'', the content of the lab/docs directory will be
+starts the lab.  
+\begin{itemize}
+	\item Any ``LAB\_MANUAL'' string in that file will be replaced with the full path
+to a [labname].pdf file within that same docs directory. And ``LAB\_DOCS'' is replaced by the path to the lab docs directory.  
+	\item One intended use is to prompt the student to open a PDF lab manual and perhaps read parts of it prior to continuing with the lab. Another intended use is to display the path to a reporting template that a student is to use for answering lab-specific questions and note taking. 
+	\item If the name of the symbols are prefaced by ``file://'', then the paths will display as links that can be opened via a right click.
+\end{itemize}
+	
+
+\noindent An 'about.txt' file will be present in the 'config' directory of the lab. Any text inside will be displayed as a description to the lab when listed from running the 'labtainer' command in \$LABTAINER\_DIR/trunk/scripts/labtainer-student. This text will also appear when clicking on the logo in the GNS3 environment of Labtainers. \\ 
+
+\noindent If the start.config file includes ``COLLECT\_DOCS YES'', the content of the lab/docs directory will be
 included with the student artifacts and available extracted into the intstrutor's 
-labtainer\_xfer/[lab]/docs directory.
+labtainer\_xfer/[lab]/docs directory. \\
+
+\noindent A deprecated feature that still exists in a tiny handful of labs: "Lab instructions for students can be displayed in a virtual terminal by placing an
+``instructions.txt'' file within the home directory of one of the containers.  Refer to existing
+labs for conventions."  
+
 
 \subsection {Running programs in Virtual Terminals}
 \label {student start}
@@ -673,7 +689,9 @@ and reside at:
     $LABTAINER_DIR/labs/[labname]/[container name]/_bin/fixlocal.sh
 \end{verbatim}
 \noindent Note the fixlocal.sh script runs as the user defined in the start.config for the container, 
-regardless of whether root is set as the user in the Dockerfile.
+regardless of whether root is set as the user in the Dockerfile.  The {\tt fixlocal.sh} script is primarily
+intended for parameterizing labs.  Other initialization and synchronization between multiple components 
+should be performed as within any Linux system, e.g., via services or rc.local.
 
 
 \footnote{Use of {\tt sed -i ...} to modify configuration files (e.g., in etc), might result in overwriting symbolic links.
@@ -801,6 +819,9 @@ The parameter\_id fields may be referenced during the automated grading function
 in section \ref{goals.config}. 
 
 \subsection{Synchronizing startup and parameterization}
+System initialization should generally occur as with any Linux based system, e.g., using rc.local
+or system services.
+You can enable rc.local by placing {\tt RUN systemctl enable rc-local} in the Dockerfile.
 Parameterizing occurs subsequent to container ``boot'', but prior to running the fixlocal.sh script.
 The Ubuntu based images include a {\tt waitparam.service} that delays reporting its initialization to
 systemd until parameterization has completed.  That service is configured to run prior to rc.local.
@@ -1607,7 +1628,7 @@ support of student exploration.
 
 In many instances, the lab designer will want to define a different default route for a 
 container.  Each container includes a \textit{set\_default\_gw.sh}
-script that can be added to the \textit{/etc/rc.local} (or \textit{fixlocal.sh}) file to redefine the default gateway.
+script that can be added to the \textit{/etc/rc.local} file to redefine the default gateway.
 This script will automatically retain a route table entry so that the student can reach the ``my\_host''
 address.  Additionally, those baseline images include a \textit{togglegw.sh} script that the student
 can use to toggle the default gateway between one that leads to the host, and one defined for the lab.
@@ -1660,9 +1681,9 @@ NETWORK  LAN
 \item Assign 192.168.1.2 to the container in the start.config
 \end{itemize}
 
-\begin{figure}[ht]
+\begin{figure}[H]
 \centering
-\includegraphics[width=0.4\textwidth,natwidth=621,natheight=403]{ExternalNetworks.jpg}
+\includegraphics[width=0.4\textwidth]{ExternalNetworks.jpg}
 \caption{Networking with external hosts.}
 \label{fig:external hosts}
 \end{figure}
@@ -1693,10 +1714,16 @@ When building lab images at NPS, please set the LABTAINER\_NPS environment varia
 \end{verbatim}
 This will force packages to be retrieved from the local NPS mirrors (centosmirror.uc.nps.edu or
 ubuntumirror.uc.nps.edu).  Refer to section \ref{package sources} for additional information.
+If builds fail with this environment set, it is likely due to trying to install packages not present
+in the mirror.  In those cases, edit the Dockerfile to remove this line:
+\begin{verbatim}
+ENV APT_SOURCE $apt_source
+\end{verbatim}
+\noindent That will force use of the original apt-sources for that container.
 
 Labs must be checked into the local Git repository in order to be distributed.  After creating and testing
 a new lab, use the scripts/designer/bin/cleanlab4svn.py script to remove temporary files that do not belong in 
-svn.  Use the publish.py script (described above) to publish the lab containers.
+git.  Use the publish.py script (described above) to publish the lab containers.
 The distrib/mkdist.sh script is used by NPS to create the distribution tar file.  This script relies on
 your local Git repository as the source to the Labtainer scripts and labs.  Use the mk-devel-distrib.sh script
 to publish the developer configuration of the tar file.  
@@ -1743,14 +1770,29 @@ LABEL version=$version
 
 \subsection{Alternate registry for testing}
 If the environment variable {\tt TEST\_REGISTRY}, is set to YES, labs to be pulled and pushed
-into an alternate registry defined in the trunk/config/labtainer.config file test\_registry entry entry.
+into an alternate registry defined in the trunk/config/labtainer.config file test\_registry entry.
 Also, the {\tt build\_lab.py}, {\tt labtainer}, and {\tt publish.sh} scripts include {\tt -t} flags to
 force the system to reference the test registry instead of the Docker Hub.
 It is easy to set up a registry (it is a container!), \url{https://docs.docker.com/registry/deploying/}
 Use the {\tt trunk/setup\_scripts/prep-testregistry.sh} script to
 prepare a test system to use a test registry.
 
-\subsection{Reuse of large file sets}
+\subsection{Large lab files}
+Consider storing the authoritative source of large files (e.g., pcaps) or directories in external locations, e.g., nps.box.com.  This has two
+advantages:  1) Reduces the size of the lab designer distribution tar; 2) avoids putting large files
+into github.  Note this issue does not affect container images, which will always include the large files regardless of how they
+are stored.  The question is simply the location of the source of the large files for purposes of
+rebuilding a specific lab.   Our model is to provide potential lab developers with a distribution that is not gigabytes, but also contains
+whatever is needed to rebuild existing labs -- or at least links that are automatically followed when building the lab.
+
+A file named {\tt <lab>/config/bigexternal.txt} with entries as follows:
+\begin{verbatim}
+<url> <relative_path>
+\end{verbatim}
+\noindent will cause a rebuild to look for a file at {\tt relative\_path} relative to the lab directory, and
+fetch it from the {\tt url} if it is missing.
+
+\subsubsection{Reuse of large file sets}
 \label{manifest}
 The use of ``sys\_tar'' and ``home\_tar'' described in \ref{large files} facilitates sharing of common
 baselines of large or numerous files.  New labs can incorporate tar files from existing
@@ -1832,6 +1874,12 @@ When the user types the {\tt labtainer} command with no arguments, the list will
 only include the latest version of that lab.  An exception is if the old lab already
 has been run in this installation, in which case both lab versions will display.
 
+\subsection{Importing labs: Warning!}
+\label{warnings}
+Avoid the use of ``shared folders'' in VMWare and VirtualBox as a means of copying lab
+directories.  Use tar and/or scp instead.  Otherwise permissions of directories may
+be changed, e.g., no x access to /etc for other.
+
 
 \section {Multi-user Labtainers}
 \label{multi user}
@@ -1845,16 +1893,16 @@ Labtainers VM.  This is illustrated in Figure \ref{fig:multi-multi}
 VM running Labtainers.  This is illustrated in Figure \ref{fig:multi-single}
 \end{enumerate}
 
-\begin{figure}[ht]
+\begin{figure}[H]
 \centering
-\includegraphics[width=0.4\textwidth,natwidth=621,natheight=403]{multiuser-multilabtainers.jpg}
+\includegraphics[width=0.4\textwidth]{multiuser-multilabtainers.jpg}
 \caption{Multi-user Labtainers with multiple instances of Labtainers.}
 \label{fig:multi-multi}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[H]
 \centering
-\includegraphics[width=0.4\textwidth,natwidth=621,natheight=403]{multiuser-onelabtainer.jpg}
+\includegraphics[width=0.4\textwidth]{multiuser-onelabtainer.jpg}
 \caption{Multi-user Labtainers via SSH.}
 \label{fig:multi-single}
 \end{figure}
@@ -2129,6 +2177,12 @@ removed from sudoers at the end of the fixlocal.sh script.
 Only the initial user (and that user's actions taken as root) are monitored.  Additional users can be added,
 e.g., in the Dockerfile, but their actions are not monitored or recorded in artifacts.
 
+\subsection{DNS fixes for rebuild problems}
+\label{DNS-rebuild}
+When building a container, Docker uses its Daemon's default DNS addresses, which are the external Google DNS.
+Some sites disallow use of external DNS, and this results in rebuilds failing when yum/apt are unable to resolve 
+host names.  The script at {\tt setup\_scripts/dns-add.sh} will update those default DNS entres to include the
+DNS used by the host.
 
 \subsection{Suggestions for Developers}
 The result and goals configuration files can be revised and tested within a
@@ -2140,14 +2194,14 @@ Most result and goal assessment can occur once you have generated a suitable sam
 expected student artifacts.  In other words, adding new goal does not typically require
 that you go back and re-perform student actions.  Exceptions to this are:
 
-Use {\tt TERMINAL\_GROUPS} in the start.config file to organize terminals if you have more
-than a few.  Otherwise the student will spend time trying to find each terminal.
-
 \begin{enumerate}
 \item Adding new system commands to a ``treataslocal'' file;
 \item Identifying new system files to be parsed as results.  For example, results in a log
 file will not be collected unless that log file has been named in the results.config file.
 \end{enumerate}
+
+Use {\tt TERMINAL\_GROUPS} in the start.config file to organize terminals if you have more
+than a few.  Otherwise the student will spend time trying to find each terminal.
 
 \subsection {Container isolation}
 Docker provides namespace isolation between different containers, and
@@ -2194,6 +2248,26 @@ the debugging of automated assessment.
 Full automation of regression testing is achieved using the {\tt smoketest.py} utlity
 described below in \ref{smoketest}
 
+\subsection {Preparations Before Running SimLab}
+\begin{itemize}
+	\item Ensure that you have 'xdotool' install. Run this to install if you haven't : \\ 
+		{\tt sudo apt-get install xdotool}
+
+	\item Ensure your system's \$PATH includes \$LABTAINERS\_DIR/testsets/bin 
+
+	\item Ensure the saved email used for each lab is 'frank@beans.com'. You can do this by modifying {\tt \url{~}/.local/share/labtainers/email.txt} with only 'frank@beans.com' at the top. 
+\end{itemize}
+
+\subsection {Running SimLab}
+This is all run from the '../scripts/labtainer-student' directory.
+\begin{enumerate}
+	\item Start targeted lab with the redo flag, '-r'.
+	\item Run SimLab.py on targeted lab.
+	\item Do not click or type anything on the computer. This will disrupt the simulation. 
+	\item The process ends when the user prompt comes back. If the simulation hangs up, 'ctrl + C' and run stoplab.
+\end{enumerate}
+
+
 \subsection {SimLab Directives}
 Directives within a {\tt simthis.txt} file name windows to select, (i.e., gain focus),
 and keystrokes to generate as described in the list below.  The SimLab utility includes
@@ -2217,12 +2291,13 @@ use when the xterm title is changed by a program.
 \item \textbf{sleep} $<$seconds$>$ -- Sleeps for the given number of seconds.
 \item \textbf{wait\_proc} $<$text$>$ -- Delays until a {\tt ps au $<$text$>$} returns nothing.
 Intended for use to wait for a command to complete.  This runs on the Linux host, so
-do not be vauge, or it may never return.
+do not be vauge, or it may never return. 
+Note: If the command was added to the keyboard buffer, then wait\_proc may not catch a command.
 \item \textbf{wait\_net} $<$container$>$:$<$text$>$ -- Delays until network connections to a given remote
 host have terminated.  The given $<$text$>$ is searched for as a substring within the host name ouput
 from a {\tt netstat} command run on the given container.
 \item \textbf{type\_file} $<$file name$>$ -- Reads and types each line in the named file.
-Blank lines will cause a 2 second sleep.
+Blank lines will cause a 2 second sleep. Note: Each line is typed into a keyboard buffer and a line commnd will not wait for the previous line to complete its process before running itself. Refer to command\_file for this function.
 \item \textbf{command\_file} $<$file name$>$ -- Intended for use in issuing a series of
 commands from the shell.  This reads and types each line in the named file.
 A {\tt wait\_proc} function is then automatically performed on the line.
@@ -2240,7 +2315,7 @@ include directive.
 command and then type that.
 
 \end{itemize}
-\subsection{SimLab spplication notes}
+\subsection{SimLab application notes}
 \label{simlab_notes}
 Most GUI's have shortcut keys that can be used to automate their inclusion in a lab.
 

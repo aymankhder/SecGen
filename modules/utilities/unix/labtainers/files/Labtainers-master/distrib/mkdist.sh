@@ -1,4 +1,9 @@
 #!/bin/bash
+#
+#  Create an end-user distribution of Labtainers.
+#  This uses git archive, basing the distribution on committed content of the local repo.
+#
+#
 function contains() {
     local n=$#
     local value=${!n}
@@ -11,7 +16,7 @@ function contains() {
     echo "n"
     return 1
 }
-revision=`git describe --long`
+revision=`git describe --always`
 skip="skip-labs"
 skiplist=""
 lines=`cat $skip`

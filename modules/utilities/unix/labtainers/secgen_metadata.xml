@@ -35,6 +35,9 @@
   <requires>
     <module_path>.*docker</module_path>
   </requires>
+  <requires>
+    <module_path>utilities/unix/system/accounts</module_path>
+  </requires>
 
   <requires>
     <type>update</type>

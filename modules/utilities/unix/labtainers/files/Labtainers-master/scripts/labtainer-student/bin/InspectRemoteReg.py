@@ -29,6 +29,7 @@ def inspectRemote(image, is_rebuild=False, quiet=False):
     if base is None:
         print('Remote image %s is lacking a base version, it needs to be retagged with trunk/distrib/retag_all.py' % image)
         exit(1) 
+        #return None, None, None, None
     #print('base is %s' % base)
     base_image, base_id = base.rsplit('.', 1)
     my_id = VersionInfo.getImageId(base_image, quiet)
@@ -60,13 +61,25 @@ def inspectRemote(image, is_rebuild=False, quiet=False):
                 print('Download has completed.  Wait for lab to start.')
     return created, user, version, use_tag
 
+def extractJson(output):
+    output=output.strip()
+    if output.startswith('{'):
+        return output
+    start = output.find('{"arch')
+    if start >=0:
+        return output[start:]
+    else:
+        print('Failed to find start of json')
+        return output
+
 def getTags(image, token):
     cmd =   'curl --silent --header "Accept: application/vnd.docker.distribution.manifest.v2+json" --header "Authorization: Bearer %s"  "https://registry-1.docker.io/v2/%s/tags/list"' % (token, image)
     ps = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE,stderr=subprocess.PIPE)
     output = ps.communicate()
     if len(output[0].strip()) > 0:
+        jstring = extractJson(output[0])
         try:
-            j = json.loads(output[0])
+            j = json.loads(jstring)
         except:
             print('Unable to reach docker registry.  Is your network connection working?')
             exit(1)
@@ -79,22 +92,28 @@ def getTags(image, token):
 
 def getToken(image):
     cmd = 'curl --silent "https://auth.docker.io/token?scope=repository:%s:pull&service=registry.docker.io"' % (image) 
+    #cmd = 'curl --silent "https://auth.docker.io/token?service=registry.docker.io&scope=repository:%s:pull,push"' % (image)
+
     ps = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE,stderr=subprocess.PIPE)
     output = ps.communicate()
-    
+     
     if len(output[0].strip()) > 0:
-        j = json.loads(output[0])
+        jstring = extractJson(output[0])
+        j = json.loads(jstring)
         return j['token']
+        #return j['access_token']
     else:
         return None
 
+        
 def getDigest(token, image, tag):
     cmd = 'curl --silent --header "Accept: application/vnd.docker.distribution.manifest.v2+json" --header "Authorization: Bearer %s" "https://registry-1.docker.io/v2/%s/manifests/%s"' % (token, image, tag) 
     ps = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE,stderr=subprocess.PIPE)
     output = ps.communicate()
     if len(output[0].strip()) > 0:
+        jstring = extractJson(output[0])
         try:
-            j = json.loads(output[0])
+            j = json.loads(jstring)
         except ValueError:
             with open('/tmp/docker_error.txt', 'w') as fh:
                 fh.write(cmd+'\n'+output[0])
@@ -110,18 +129,15 @@ def getDigest(token, image, tag):
         return None
 
 def getCreated(token, image, digest):
-    cmd = 'curl --silent --header "Authorization: Bearer %s" "https://registry-1.docker.io/v2/%s/blobs/%s"' % (token, image, digest)
+    cmd = 'curl -L --silent --header "Authorization: Bearer %s" "https://registry-1.docker.io/v2/%s/blobs/%s"' % (token, image, digest)
     ps = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE,stderr=subprocess.PIPE)
     output = ps.communicate()
+    
     if len(output[0].strip()) > 0:
         ''' Sometimes get redirected, and authentication then fails? '''
-        if 'Temporary Redirect' in output[0]:
-           redirect = output[0].split('"')[1]
-           flare = 'curl --silent %s' % redirect
-           ps = subprocess.Popen(flare, shell=True, stdout=subprocess.PIPE,stderr=subprocess.PIPE)
-           output = ps.communicate()
+        jstring = extractJson(output[0])
         try:
-            j = json.loads(output[0])
+            j = json.loads(jstring)
         except ValueError:
             with open('/tmp/docker_error.txt', 'w') as fh:
                 fh.write(cmd+'\n'+output[0])
@@ -138,3 +154,47 @@ def getCreated(token, image, digest):
     else:
         return None, None, None, None
 
+def getCreatedXXXXXXXXXXXX(token, image, digest):
+    cmd = 'curl -v --silent --header "Authorization: Bearer %s" "https://registry-1.docker.io/v2/%s/blobs/%s"' % (token, image, digest)
+    ps = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+    output = ps.communicate()
+    if len(output[0].strip()) == 0 and len(output[1].strip()) > 0:
+        if 'Temporary Redirect' in output[1]:
+           flare = None
+           for line in output[1].splitlines():
+               if 'Location:' in line:
+                   url = line[len('Location'):]
+                   flare = 'curl --silent %s' % url
+                   break
+           if flare is not None:
+               #print('flare is %s' % flare)
+               ps = subprocess.Popen(flare, shell=True, stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+               output = ps.communicate()
+           else:
+               print('failed to find redirect url')
+    
+    if len(output[0].strip()) > 0:
+        ''' Sometimes get redirected, and authentication then fails? '''
+        if 'Temporary Redirect' in output[0]:
+           redirect = output[0].split('"')[1]
+           flare = 'curl --silent %s' % redirect
+           ps = subprocess.Popen(flare, shell=True, stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+           output = ps.communicate()
+        jstring = extractJson(output[0])
+        try:
+            j = json.loads(jstring)
+        except ValueError:
+            with open('/tmp/docker_error.txt', 'w') as fh:
+                fh.write(cmd+'\n'+output[0])
+            print('Error getting blob for image: %s digest: %s' % (image, digest))
+            print('please email the file at /tmp/docker_error.txt to mfthomps@nps.edu')
+            exit(1)
+        version = None
+        base = None
+        if 'version' in j['container_config']['Labels']:
+            version = j['container_config']['Labels']['version'] 
+        if 'base' in j['container_config']['Labels']:
+            base = j['container_config']['Labels']['base'] 
+        return j['created'], j['container_config']['User'], version, base
+    else:
+        return None, None, None, None

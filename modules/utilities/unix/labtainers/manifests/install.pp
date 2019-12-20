@@ -19,10 +19,10 @@ class labtainers::install{
     group => 'root',
   } ->
   # Set permissions to enable creation of log files etc
-  exec { 'permissions for logging':
-    command  => "/bin/chmod a+rwt /opt/labtainers/scripts/labtainer-student/ /opt/labtainers/scripts/labtainer-instructor/ /opt/labtainers/setup_scripts/",
-    provider => shell,
-  } ->
+  # exec { 'permissions for logging':
+  #   command  => "/bin/chmod a+rwt /opt/labtainers/scripts/labtainer-student/ /opt/labtainers/scripts/labtainer-instructor/ /opt/labtainers/setup_scripts/",
+  #   provider => shell,
+  # } ->
 
   # not sure why this is required in our environment, but this fixes the script on our VM builds
   file_line { 'patch_build_image':
@@ -35,11 +35,69 @@ class labtainers::install{
     command  => "/bin/bash ./mkit.sh | true",
     provider => shell,
     cwd => "/opt/labtainers/tool-src/capinout"
+  } ->
+
+
+  # remove docker proxy config (it's in the template, and this overrides)
+  exec { 'docker_remove_config_and_restart':
+    command  => "mv /etc/default/docker /etc/default/docker.mv; systemctl daemon-reload; systemctl restart docker",
+    provider => shell,
   }
+
 
   # pull the grading image
   docker::image { "mfthomps/labtainer.grader:latest": }
 
-  # TODO: users added to docker group?
+  # the user of the lab must also be in the docker group
 
+  # user { 'grader':
+	#   ensure           => 'present',
+  #   home             => '/home/grader',
+  #   groups            => 'docker',
+  #   password         => '!!',
+  #   password_max_age => '99999',
+  #   password_min_age => '0',
+  #   shell            => '/bin/bash',
+  # } ->
+  # Add user account
+  ::accounts::user { 'grader':
+    shell      => '/bin/bash',
+    groups     => ['docker'],
+    password   => '!!',
+    managehome => true,
+  } ->
+
+  # flag-based marking
+  file { "/opt/labflags/":
+    ensure => directory,
+    mode   => '755',
+  } ->
+  file { "/opt/labflags/labflags":
+    ensure => present,
+    source => 'puppet:///modules/labtainers/labflags/labflags',
+    mode   => '4755',
+    owner => 'root',
+    group => 'root',
+  } ->
+  file { "/opt/labflags/labflags.rb":
+    ensure => present,
+    source => 'puppet:///modules/labtainers/labflags/labflags.rb',
+    mode   => '755',
+    owner => 'root',
+    group => 'root',
+  } ->
+  file { "/opt/labflags/shellbasics.flags.json":
+    ensure => present,
+    source => 'puppet:///modules/labtainers/labflags/labflags.rb',
+    mode   => '500',
+    owner => 'grader',
+    group => 'grader',
+  } ->
+  file { "/opt/labtainers/scripts/labtainer-student/bin/checkwork_json":
+    ensure => present,
+    source => 'puppet:///modules/labtainers/labtainer.files/checkwork_json',
+    mode   => '755',
+    owner => 'root',
+    group => 'root',
+  } ->
 }
