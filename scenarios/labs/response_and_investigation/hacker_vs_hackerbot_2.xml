@@ -50,6 +50,7 @@
 					<value>personal_secrets/credit_card</value>
 					<value>logs/log1</value>
 					<value>trade_secrets/clients.csv</value>
+					<value>trade_secrets/fake_clients.csv</value>
 				</input>
 				<input into="strings_to_leak">
 					<value>no warnings; `$=`;$_=\%!;($_)=/(.)/;$==++$|;($.,$/,$,,$\,$",$;,$^,$#,$~,$*,$:,@%)=(
@@ -71,6 +72,16 @@
 					</value>
 					<encoder type="csv">
 						<input into="strings_to_encode" into_datastore="clients">
+							<generator type="person" />
+							<generator type="person" />
+							<generator type="person" />
+							<generator type="person" />
+							<generator type="person" />
+							<generator type="person" />
+						</input>
+					</encoder>
+					<encoder type="csv">
+						<input into="strings_to_encode">
 							<generator type="person" />
 							<generator type="person" />
 							<generator type="person" />
