@@ -87,7 +87,7 @@ This week we learn how to scan networks to get an understanding of and to map ou
 		<utility module_path=".*/metasploit_framework"/>
 		<utility module_path=".*/handy_cli_tools"/>
 		<utility module_path=".*/nmap"/>
-		<utility module_path=".*/zenmap"/>
+		<!-- <utility module_path=".*/zenmap"/> -->
 		<utility module_path=".*/amap"/>
 
 		<network type="private_network" >
