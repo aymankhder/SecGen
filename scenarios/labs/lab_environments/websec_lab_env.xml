@@ -37,13 +37,19 @@
 				<value>true</value>
 			</input>
 			<input into="start_page">
-				<value>http://127.0.0.1/login.php</value>
+				<value>http://localhost:8085/WebGoat|http://localhost:9090/WebWolf|http://localhost/login.php|https://10.255.255.10</value>
 			</input>
 		</utility>
 
 		<vulnerability module_path=".*/dvwa" />
-		<vulnerability module_path=".*/webgoat" />
+		<vulnerability module_path=".*/webgoat">
+			<input into="port">
+				<value>8085</value>
+			</input>
+		</vulnerabilty>
     <vulnerability module_path=".*/webwolf" />
+
+		<utility module_path=".*/default_client_firewall"/>
 
 		<network type="private_network" >
 			<input into="IP_address">
