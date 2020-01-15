@@ -46,10 +46,10 @@
 			<input into="port">
 				<value>8085</value>
 			</input>
-		</vulnerabilty>
+		</vulnerability>
     <vulnerability module_path=".*/webwolf" />
 
-		<utility module_path=".*/default_client_firewall"/>
+		<utility module_path=".*/default_client_firewall" />
 
 		<network type="private_network" >
 			<input into="IP_address">
