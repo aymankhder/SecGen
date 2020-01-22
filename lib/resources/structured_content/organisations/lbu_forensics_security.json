@@ -7,11 +7,11 @@
   "office_email": "study@leedsbeckett.ac.uk",
   "industry": "Higher Education",
   "manager": {
-    "name": "Emlyn Butterfield",
-    "address": "115, Caedmon Hall, Headingley Campus",
-    "phone_number": "0113 81 24440",
-    "email_address": "E.Butterfield@leedsbeckett.ac.uk",
-    "username": "ebutterfield",
+    "name": "Dr. Pip Trevorrow",
+    "address": "102, Caedmon Hall, Headingley Campus",
+    "phone_number": "0113 81 25169",
+    "email_address": "P.Trevorrow@leedsbeckett.ac.uk",
+    "username": "ptrevorrow",
     "password": ""
   },
   "employees": [
@@ -32,11 +32,11 @@
       "password": ""
     },
     {
-      "name": "Dr. John Elliott",
-      "address": "108, Caedmon, Headingley Campus",
-      "phone_number": "0113 81 27379",
-      "email_address": "J.Elliott@leedsbeckett.ac.uk",
-      "username": "jelliott",
+      "name": "Dr. Thalita Vergilio",
+      "address": "105, Caedmon, Headingley Campus",
+      "phone_number": "0113 81 26424",
+      "email_address": "T.Vergilio@leedsbeckett.ac.uk",
+      "username": "tvergilio",
       "password": ""
     }
   ],
