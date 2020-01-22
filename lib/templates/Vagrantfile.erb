@@ -23,7 +23,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         if (@options.has_key? :ovirtuser) && (@options.has_key? :ovirtpass)
           @ovirt_base_template = selected_module.attributes['ovirt_template']&.first
           if @ovirt_base_template == nil
-            Print.error "Scenario includes #{selected_module.attributes['name']} which is not available on oVirt!"
+            Print.err "Scenario includes #{selected_module.attributes['name']} which is not available on oVirt!"
+            return nil
           end
         end
       end
