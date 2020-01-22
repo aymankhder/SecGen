@@ -7,7 +7,7 @@
   <author>Z. Cliffe Schreuders</author>
   <module_license>GPLv3</module_license>
   <description>Based on the Official Puppet Vagrant box. Debian 7.8 (wheezy) 32-bit (i386), Puppet 4.3.2 / Puppet Enterprise 2015.3.2 (agent).
-    Plus KDE and some useful tools. 
+    Plus KDE and some useful tools.
     For testing purposes, the default root password is puppet.</description>
   <cpu_word_size>32-bit</cpu_word_size>
   <type>desktop</type>
@@ -21,5 +21,9 @@
 
   <reference>https://atlas.hashicorp.com/puppetlabs</reference>
   <software_license>various</software_license>
-
+  
+  <!-- another base should not be added to this base -->
+  <conflict>
+    <module_path>bases/.*</module_path>
+  </conflict>
 </base>

@@ -20,4 +20,8 @@
   <reference></reference>
   <software_license>various</software_license>
 
+  <!-- another base should not be added to this base -->
+  <conflict>
+    <module_path>bases/.*</module_path>
+  </conflict>
 </base>
