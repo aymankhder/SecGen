@@ -27,6 +27,11 @@
   <conflict>
     <software_name>vsftpd</software_name>
   </conflict>
+  <!--Cannot co-exist with other ftp servers (default to same ports)-->
+  <conflict>
+    <type>$ftp^</software_name>
+  </conflict>
+
 
   <requires>
     <module_path>utilities/unix/system/accounts</module_path>

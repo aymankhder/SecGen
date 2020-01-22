@@ -49,6 +49,10 @@
   <hint>A backdoor in a service</hint>
   <solution>Remotely exploitable backdoor in the FTP service</solution>
 
+  <!--Cannot co-exist with other ftp servers (default to same ports)-->
+  <conflict>
+    <type>$ftp^</software_name>
+  </conflict>
   <!--Cannot co-exist with other installations-->
   <conflict>
     <software_name>vsftpd</software_name>

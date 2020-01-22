@@ -63,6 +63,11 @@
   <conflict>
     <software_name>proftpd</software_name>
   </conflict>
+  <!--Cannot co-exist with other ftp servers (default to same ports)-->
+  <conflict>
+    <type>$ftp^</software_name>
+  </conflict>
+
 
   <requires>
     <type>update</type>
