@@ -27,9 +27,9 @@ class UsernameGenerator < StringEncoder
 
       suitable_username_generated = false
       until suitable_username_generated
-        random_adjective = adjectives.sample.chomp
+        random_adjective = adjectives.sample.strip
         filler_character = ['', '_', '-'].sample
-        random_noun = nouns.sample.chomp
+        random_noun = nouns.sample.strip
 
         proposed_username = random_adjective + filler_character + random_noun
 
