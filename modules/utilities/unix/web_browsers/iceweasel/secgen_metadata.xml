@@ -35,6 +35,6 @@
     <type>update</type>
   </requires>
   <requires>
-    <type>desktop</type>
+    <type>desktop|desktop_environment</type>
   </requires>
 </utility>
