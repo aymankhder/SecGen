@@ -48,11 +48,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 "        ovirt.memory_size = '#{@options[:memory_per_vm]} MB'\n"
         elsif @options.has_key? :total_memory
 "        ovirt.memory_size = '#{(@options[:total_memory].to_i / @systems.length.to_i)} MB'\n"
-        elsif @base_type.include? 'desktop'
-"        ovirt.memory_size = '1500 MB'
-            ovirt.memory_guaranteed = '512 MB'\n"
         else
-"        ovirt.memory_size = '512 MB'\n"
+"        ovirt.memory_size = '2500 MB'
+        ovirt.memory_guaranteed = '512 MB'\n"
         end -%>
 <%=     if @options.has_key? :cpu_cores
 "        ovirt.cpu_cores = #{@options[:cpu_cores]}\n"
