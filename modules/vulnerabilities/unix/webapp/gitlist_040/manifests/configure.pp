@@ -23,7 +23,7 @@ class gitlist_040::configure {
     warning("One string to leak will require exploitation, others will be publically shown.")
     $flag = [$strings_to_leak[0]]
     $flag_filename = [$leaked_filenames[0]]
-    
+
     # all but the first elements (used above already)
     $public_strings_to_leak = $strings_to_leak[1, -1]
     $public_strings_to_leak_filename = $leaked_filenames[1, -1]
@@ -43,11 +43,15 @@ class gitlist_040::configure {
   file { $leaked_files_path:
     ensure => directory,
     before => Exec['create-repo-file_leak']
-  }
+  } ->
 
   exec { 'create-repo-file_leak':
     cwd     => $leaked_files_path,
     command => "git init",
+  } ->
+
+  file { "$leaked_files_path/.git/description":
+    content => "secret_files"
   }
 
   ::secgen_functions::leak_files { 'gitlist_040-flag-leak':
