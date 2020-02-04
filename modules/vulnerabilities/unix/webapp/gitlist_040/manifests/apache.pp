@@ -5,7 +5,7 @@ class gitlist_040::apache {
 
   class { '::apache':
     default_vhost => false,
-    default_mods => ['rewrite', 'php'],
+    default_mods => ['rewrite'], # php5 via separate module
     overwrite_ports => false,
     mpm_module => 'prefork'
   }
@@ -17,4 +17,9 @@ class gitlist_040::apache {
   }
 
   ensure_resource('tidy','gl remove default site', {'path'=>'/etc/apache2/sites-enabled/000-default.conf'})
+  #
+  #
+  # exec { 'disable php7':
+  #   command => '/usr/sbin/a2dismod php7.0',
+  # }
 }
