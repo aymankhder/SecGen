@@ -168,7 +168,7 @@
 	</system>
 
 	<system>
-		<system_name>me_too_server</system_name>
+		<system_name>second_server</system_name>
 		<base distro="Debian 9" type="server"/>
 
 		<!-- user accounts on the server, with matching usernames and passwords, but with flags to find -->
@@ -185,9 +185,11 @@
 					<value>false</value>
 				</input>
 				<input into="leaked_filenames">
+					<value>hint</value>
 					<value>flag</value>
 				</input>
 				<input into="strings_to_leak">
+					<value>hint: some users choose passwords that are something common followed by a two digit number.</value>
 					<generator type="flag_generator" />
 				</input>
 
