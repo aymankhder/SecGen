@@ -17,22 +17,22 @@ class onlinestore::install {
   } else {
     $db_flag = $success_placeholder
   }
-  if length($strings_to_leak) => 2 {
+  if length($strings_to_leak) >= 2 {
     $admin_flag = $secgen_parameters['strings_to_leak'][1]
   } else {
     $admin_flag = $success_placeholder
   }
-  if length($strings_to_leak) => 3 {
+  if length($strings_to_leak) >= 3 {
     $command_injection_flag = $secgen_parameters['strings_to_leak'][2]
   } else {
     $command_injection_flag = $success_placeholder
   }
-  if length($strings_to_leak) => 4 {
+  if length($strings_to_leak) >= 4 {
     $black_market_flag = $secgen_parameters['strings_to_leak'][3]
   } else {
     $black_market_flag = $success_placeholder
   }
-  if length($strings_to_leak) => 5 {
+  if length($strings_to_leak) >= 5 {
     $admin_token_flag = $secgen_parameters['strings_to_leak'][4]
   } else {
     $admin_token_flag = $success_placeholder
