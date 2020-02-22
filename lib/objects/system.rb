@@ -62,7 +62,7 @@ class System
       else
         Print.err 'No conflicts, but failed to resolve scenario -- this is a sign there is something wrong in the config (scenario / modules)'
         Print.err 'Please review the scenario -- something is wrong.'
-        exit
+        exit 1
       end
       if retry_count < RETRIES_LIMIT
         Print.err "Re-attempting to resolve scenario (##{retry_count + 1})..."
@@ -79,7 +79,7 @@ class System
       else
         Print.err "Tried re-randomising #{RETRIES_LIMIT} times. Still no joy."
         Print.err 'Please review the scenario -- something is wrong.'
-        exit
+        exit 1
       end
     end
   end
@@ -132,7 +132,7 @@ class System
       }
       required_ranges.uniq!
       Print.err("Fatal: Not enough ranges were provided with --network-ranges. Provided: #{options[:ip_ranges].size} Required: #{required_ranges.uniq.size}")
-      exit
+      exit 1
     end
   end
 
