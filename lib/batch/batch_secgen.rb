@@ -238,6 +238,7 @@ def start(options)
         log.close
 
         # Back up project flags, scenario, and log file
+        FileUtils.mkdir_p("#{backup_path}#{project_id}") unless Dir.exist?("#{backup_path}#{project_id}")
         FileUtils.cp(log_path, ("#{backup_path}#{project_id}/" + log_name))
         FileUtils.cp("#{project_path}/#{FLAGS_FILENAME}", "#{backup_path}#{project_id}/")
         FileUtils.cp("#{project_path}/scenario.xml", "#{backup_path}#{project_id}/")
