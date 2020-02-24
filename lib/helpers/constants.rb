@@ -46,6 +46,9 @@ BLACKLISTED_WORDS_FILE = "#{ROOT_DIR}/lib/resources/blacklisted_words/blacklist.
 IMAGES_DIR = "#{ROOT_DIR}/lib/resources/images"
 ASCII_ART_DIR = "#{ROOT_DIR}/lib/resources/ascii_art"
 PASSWORDLISTS_DIR = "#{ROOT_DIR}/lib/resources/passwordlists"
+WS_ATTACK_DIR = "#{ROOT_DIR}/lib/resources/ws_attacks"
+STYLING_DIR = "#{ROOT_DIR}/lib/resources/website_styling"
+SAMP_DBS_DIR = "#{ROOT_DIR}/lib/resources/sample_databases"
 
 # Path to build puppet modules
 STDLIB_PUPPET_DIR = "#{MODULES_DIR}build/puppet/stdlib"
