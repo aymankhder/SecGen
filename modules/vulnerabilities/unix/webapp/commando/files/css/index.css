@@ -30,21 +30,24 @@
  	font-family: 'Ubuntu', sans-serif;
  }
 
+ .product img {
+	 object-fit: cover;
+ }
  .product form input[type=number] {
- 	width: 40px;
  	text-align: center;
+	width: 60%;
  }
 
  .product form input[type=submit] {
- 	float: right;
  	background-color: inherit;
  	color: orange;
  	border: 1px solid #cccccc;
- 	padding: 4px;
+ 	padding: 1px;
+	width: 35%;
  }
 
  .product form {
- 	width: 50%;
+	width: 95%;
  }
 
  footer ul {
@@ -104,5 +107,12 @@
 	background-color: #DFF2BF;
 	padding: .75em;
 	color: #4F8A10;
+	margin: 1em
+}
+.error_msg {
+	border-radius: 1em;
+	border: 1px solid darkred;
+	padding: .75em;
+	color: darkred;
 	margin: 1em
 }

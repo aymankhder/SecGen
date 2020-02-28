@@ -105,8 +105,9 @@ class SQLiTemplateGenerator < StringEncoder
       end
     end
 
+    # TODO: I changed a "Question" to "Review" since it fed into the review output, reenable the feature
     if query.eql? query_1
-      heading_name = "Question"
+      heading_name = "Review"
       method = "POST"
     else
       heading_name = "Review"
@@ -137,7 +138,7 @@ class SQLiTemplateGenerator < StringEncoder
               ?>
               <div class=\"other-review\">
                 <p><?php echo $row['#{headings_array[0]}']; ?>
-                <div id=\"left-by\">Left by <?php echo $row['#{headings_array[1]}']; ?></div>
+                <div id=\"left-by\"><?php echo $row['#{headings_array[1]}']; ?></div>
               </p>
             </div>
               <?php

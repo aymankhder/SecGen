@@ -142,6 +142,13 @@ class commando::install {
 	    source => 'puppet:///modules/commando/css',
 	    require => File[$docroot],
 	  }
+		# Static JS
+		file { "$docroot/js":
+	    ensure => directory,
+	    recurse => true,
+	    source => 'puppet:///modules/commando/js',
+	    require => File[$docroot],
+	  }
 
 		# Dynamic theme file
 		file { "$docroot/css/$theme":

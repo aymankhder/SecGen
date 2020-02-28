@@ -5,3 +5,4 @@ if(in_array($_SERVER['HTTP_USER_AGENT'],$badAgents)) {
    $blacklist = array('SELECT', 'UNION', 'FROM', 'DROP', 'SLEEP', 'TABLE');
       $name=htmlspecialchars(mysqli_real_escape_string($conn2, $_GET['name']));
       $question=str_replace($blacklist, " ", htmlspecialchars($_GET['question']));
+}

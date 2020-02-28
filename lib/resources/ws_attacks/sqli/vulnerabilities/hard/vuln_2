@@ -8,3 +8,4 @@ if(in_array($_SERVER['HTTP_USER_AGENT'],$badAgents)) {
   $email=htmlspecialchars(mysqli_real_escape_string($conn2, $_POST2']));
   $mobile=str_replace($blacklist, " ", htmlspecialchars($_POST['mobile']));
   $question=htmlspecialchars(mysqli_real_escape_string($conn2, $_POST['question']));
+}
