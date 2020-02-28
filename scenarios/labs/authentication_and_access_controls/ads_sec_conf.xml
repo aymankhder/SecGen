@@ -4,7 +4,7 @@
 		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		xsi:schemaLocation="http://www.github/cliffe/SecGen/scenario">
 
-	<name>ADS Assignment with Security Spec</name>
+	<name>Security Configuration Assignment</name>
   <author>Z. Cliffe Schreuders</author>
   <description>Your task is to design and implement technical security defenses, to achieve the required functionality as specified in the separately provided requirements specification: https://tinyurl.com/y3rcarp9.</description>
 
@@ -27,6 +27,10 @@
 			<value>172.16.0.5</value>
 			<!-- 4 auth_server -->
 			<value>172.16.0.6</value>
+			<!-- 5 windows_2016_dc -->
+			<value>172.16.0.7</value>
+			<!-- 6 win7_desktop -->
+			<value>172.16.0.8</value>
 		</input>
 
 		<!-- accounts on the desktop, with the main user as a sudoer -->
@@ -246,6 +250,41 @@
 		</network>
 	</system>
 
+	<system>
+		<system_name>windows_2016_dc</system_name>
+		<base platform="windows" distro="server 2016"/>
+
+		<utility module_path=".*/parameterised_accounts" platform="windows">
+			<input into="accounts">
+				<datastore>user_accounts</datastore>
+			</input>
+		</utility>
+
+
+		<network type="private_network">
+			<input into="IP_address">
+				<datastore access="5">IP_addresses</datastore>
+			</input>
+		</network>
+	</system>
+
+
+	<system>
+		<system_name>win7_desktop</system_name>
+		<base platform="windows" distro="7"/>
+
+		<utility module_path=".*/parameterised_accounts" platform="windows">
+			<input into="accounts">
+				<datastore>user_accounts</datastore>
+			</input>
+		</utility>
+
+		<network type="private_network">
+			<input into="IP_address">
+				<datastore access="6">IP_addresses</datastore>
+			</input>
+		</network>
+	</system>
 	<!-- <system>
 		<system_name>sec_spec_server</system_name>
 		<base distro="Kali" name="MSF"/>
