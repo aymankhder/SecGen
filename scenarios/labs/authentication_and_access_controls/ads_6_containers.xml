@@ -142,6 +142,15 @@ A Hackerbot lab. Work through the labsheet, then when prompted interact with Hac
       </input>
     </utility>
 
+		<utility module_path=".*/pidgin">
+			<input into="server_ip">
+				<datastore access="1">IP_addresses</datastore>
+			</input>
+			<input into="accounts">
+				<datastore access="0">accounts</datastore>
+			</input>
+		</utility>
+
     <utility module_path=".*/docker">
       <input into="images">
         <value>ubuntu:xenial</value>
@@ -155,26 +164,6 @@ A Hackerbot lab. Work through the labsheet, then when prompted interact with Hac
         <value>/opt/chroot</value>
       </input>
     </utility>
-
-    <vulnerability module_path=".*/nc_backdoor_chroot_esc">
-      <input into="strings_to_leak">
-        <generator type="flag_generator"/>
-      </input>
-
-      <input into="leaked_filenames">
-        <value>chroot_flag</value>
-      </input>
-    </vulnerability>
-
-    <vulnerability module_path=".*/nc_backdoor_docker_esc">
-      <input into="strings_to_leak">
-        <generator type="flag_generator"/>
-      </input>
-
-      <input into="leaked_filenames">
-        <value>docker_flag</value>
-      </input>
-    </vulnerability>
 
     <vulnerability module_path=".*/ssh_root_login">
       <input into="root_password">
@@ -211,6 +200,12 @@ A Hackerbot lab. Work through the labsheet, then when prompted interact with Hac
           <input into="root_password">
             <datastore>hackerbot_access_root_password</datastore>
           </input>
+          <input into="chroot_esc_server_ip">
+						<datastore access="2">IP_addresses</datastore>
+					</input>
+          <input into="docker_esc_server_ip">
+						<datastore access="3">IP_addresses</datastore>
+					</input>
         </generator>
       </input>
     </utility>
@@ -227,5 +222,77 @@ A Hackerbot lab. Work through the labsheet, then when prompted interact with Hac
       </input>
     </build>
   </system>
+
+
+	<system>
+		<system_name>chroot_esc_server</system_name>
+		<base distro="Debian 9" type="desktop" name="KDE"/>
+
+		<utility module_path=".*/handy_cli_tools"/>
+		<utility module_path=".*/nmap"/>
+
+		<utility module_path=".*/chroot_debootstrap">
+			<input into="chroot_dir">
+				<value>/opt/chroot</value>
+			</input>
+		</utility>
+
+		<vulnerability module_path=".*/nc_backdoor_chroot_esc">
+		  <input into="strings_to_leak">
+		    <generator type="flag_generator"/>
+		  </input>
+
+		  <input into="leaked_filenames">
+		    <value>chroot_flag</value>
+		  </input>
+		</vulnerability>
+
+		<vulnerability module_path=".*/ssh_root_login">
+			<input into="root_password">
+				<datastore>hackerbot_access_root_password</datastore>
+			</input>
+		</vulnerability>
+
+		<network type="private_network" >
+			<input into="IP_address">
+				<datastore access="2">IP_addresses</datastore>
+			</input>
+		</network>
+	</system>
+
+	<system>
+		<system_name>docker_esc_server</system_name>
+		<base distro="Debian 9" type="desktop" name="KDE"/>
+
+		<utility module_path=".*/handy_cli_tools"/>
+
+		<utility module_path=".*/docker">
+			<input into="images">
+		    <value>debian:stretch</value>
+			</input>
+		</utility>
+
+		<vulnerability module_path=".*/nc_backdoor_docker_esc">
+		  <input into="strings_to_leak">
+		    <generator type="flag_generator"/>
+		  </input>
+		  <input into="leaked_filenames">
+		    <value>docker_flag</value>
+		  </input>
+		</vulnerability>
+
+		<vulnerability module_path=".*/ssh_root_login">
+			<input into="root_password">
+				<datastore>hackerbot_access_root_password</datastore>
+			</input>
+		</vulnerability>
+
+		<network type="private_network" >
+			<input into="IP_address">
+				<datastore access="3">IP_addresses</datastore>
+			</input>
+		</network>
+	</system>
+
 
 </scenario>

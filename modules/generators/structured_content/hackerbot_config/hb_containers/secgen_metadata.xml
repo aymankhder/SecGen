@@ -15,6 +15,9 @@
   <read_fact>accounts</read_fact>
   <read_fact>flags</read_fact>
   <read_fact>root_password</read_fact>
+  <read_fact>chroot_esc_server_ip</read_fact>
+  <read_fact>docker_esc_server_ip</read_fact>
+
 
   <!--TODO: require input, such as accounts, or fail?-->
 

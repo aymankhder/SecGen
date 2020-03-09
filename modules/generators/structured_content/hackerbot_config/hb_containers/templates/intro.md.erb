@@ -6,16 +6,14 @@
 ==Start these VMs== (if you haven't already):
 - hackerbot_server (leave it running, you don't log into this)
 - desktop (you can sudo to get superuser access)
-<% if $server_ip
-   str = '"desktop" and "server" VMs'
-   else
-   str = '"desktop" VM'
-   end %>
-<%= if $server_ip
-   "- server (#{$server_ip}), you can ssh to this machine, but you don't have superuser access)"
+<%= if $chroot_esc_server_ip
+  "- chroot_esc_server (#{$chroot_esc_server_ip})"
+end %>
+<%= if $docker_esc_server_ip
+   "- docker_esc_server (#{$docker_esc_server_ip})"
  end %>
 
-### Your login details for the <%= str %>
+### Your login details for the "desktop" VM
 User: <%= $main_user %>
 Password: tiaspbiqe2r (**t**his **i**s **a** **s**ecure **p**assword **b**ut **i**s **q**uite **e**asy **2** **r**emember)
 
@@ -30,7 +28,7 @@ You won't login to the hackerbot_server, but the VM needs to be running to compl
 ## Meet Hackerbot!
 ![small-right](images/skullandusb.svg)
 
-This exercise involves interacting with Hackerbot, a chatbot who will attack your system. If you satisfy Hackerbot by completing the challenges she will reveal flags to you.
+This exercise involves interacting with Hackerbot, a chatbot who will ask you to attack systems.
 
 > If Hackerbot seems to be waiting or halted, simply say 'hi'
 
