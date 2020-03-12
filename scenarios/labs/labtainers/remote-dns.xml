@@ -4,7 +4,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.github/cliffe/SecGen/scenario">
 
-  <name>Labtainers lab: acl</name>
+  <name>Labtainers lab: remote-dns</name>
   <author>Z. Cliffe Schreuders</author>
   <description>A Labtainers lab.</description>
 
@@ -86,7 +86,7 @@
 
     <utility module_path=".*/labtainers">
       <input into="lab">
-        <value>acl</value>
+        <value>remote-dns</value>
       </input>
 
       <input into="accounts">

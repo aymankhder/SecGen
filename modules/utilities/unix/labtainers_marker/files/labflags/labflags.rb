@@ -2,9 +2,10 @@ require 'json'
 
 # generate json
 puts "Processing labs"
-`/opt/labtainers/scripts/labtainer-student/bin/checkwork_json`
+# `sudo -u shishi /opt/labtainers/scripts/labtainer-student/bin/checkwork_json`
+#/home/*/labtainer_xfer/**/*.grades.json
 
-Dir['/home/graderer/labtainer_xfer/**/*.grades.json'].each { |grade_file|
+Dir["/opt/labflags/**/*.grades.json"].each { |grade_file|
   labname = grade_file[/\/([-_a-zA-Z0-9]*)\.grades\.json/, 1]
   puts '-' * 30
   puts "Marking lab #{labname}"

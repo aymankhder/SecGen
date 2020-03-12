@@ -3,20 +3,18 @@
 <utility xmlns="http://www.github/cliffe/SecGen/utility"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://www.github/cliffe/SecGen/utility">
-  <name>Labtainers: A Docker-based cyber lab framework</name>
+  <name>Labtainers Flag Marker</name>
   <author>Z. Cliffe Schreuders</author>
-  <author>Mike Thompson - Naval Postgraduate School</author>
   <module_license>GPLv3</module_license>
-  <description>Labtainers include more than 40 cyber lab exercises and tools to build your own.</description>
+  <description>Provides flags for completed labtainers work.</description>
 
   <type>lab-infrastucture</type>
   <platform>linux</platform>
 
-  <reference>https://my.nps.edu/web/c3o/labtainers</reference>
-  <software_license>public domain</software_license>
+  <software_license>MIT</software_license>
 
   <read_fact>lab</read_fact>
-  <read_fact>accounts</read_fact>
+  <!-- <read_fact>accounts</read_fact> -->
   <read_fact>flags</read_fact>
 
 
@@ -26,6 +24,10 @@
 
   <!-- must always pass in the correct number of flags -->
   <default_input into="flags">
+    <generator type="flag_generator" />
+    <generator type="flag_generator" />
+    <generator type="flag_generator" />
+    <generator type="flag_generator" />
     <generator type="flag_generator" />
     <generator type="flag_generator" />
     <generator type="flag_generator" />
@@ -43,13 +45,13 @@
       </input>
     </utility>
   </default_input> -->
-
+<!--
   <requires>
     <module_path>.*docker</module_path>
-  </requires>
-  <requires>
+  </requires> -->
+  <!-- <requires>
     <module_path>utilities/unix/system/accounts</module_path>
-  </requires>
+  </requires> -->
 
   <requires>
     <type>update</type>

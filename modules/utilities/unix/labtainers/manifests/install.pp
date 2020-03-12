@@ -67,37 +67,12 @@ class labtainers::install{
     managehome => true,
   } ->
 
-  # flag-based marking
-  file { "/opt/labflags/":
-    ensure => directory,
-    mode   => '755',
-  } ->
-  file { "/opt/labflags/labflags":
-    ensure => present,
-    source => 'puppet:///modules/labtainers/labflags/labflags',
-    mode   => '4755',
-    owner => 'root',
-    group => 'root',
-  } ->
-  file { "/opt/labflags/labflags.rb":
-    ensure => present,
-    source => 'puppet:///modules/labtainers/labflags/labflags.rb',
-    mode   => '755',
-    owner => 'root',
-    group => 'root',
-  } ->
-  file { "/opt/labflags/shellbasics.flags.json":
-    ensure => present,
-    source => 'puppet:///modules/labtainers/labflags/labflags.rb',
-    mode   => '500',
-    owner => 'grader',
-    group => 'grader',
-  } ->
+  # generate json when checking work
   file { "/opt/labtainers/scripts/labtainer-student/bin/checkwork_json":
     ensure => present,
     source => 'puppet:///modules/labtainers/labtainer.files/checkwork_json',
     mode   => '755',
     owner => 'root',
     group => 'root',
-  } ->
+  }
 }

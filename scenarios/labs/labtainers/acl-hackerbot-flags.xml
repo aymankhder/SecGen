@@ -17,7 +17,9 @@
     <base distro="Debian 9" type="desktop" name="KDE"/>
 
     <input into_datastore="IP_addresses">
+      <!-- 0 desktop -->
       <value>172.16.0.2</value>
+      <!-- 1 hackerbot_server -->
       <value>172.16.0.3</value>
     </input>
 
@@ -78,6 +80,28 @@
     </utility>
     <utility module_path=".*/handy_cli_tools"/>
 
+		<utility module_path=".*/iceweasel">
+			<input into="accounts">
+				<datastore>accounts</datastore>
+			</input>
+			<input into="autostart">
+				<value>true</value>
+			</input>
+			<input into="start_page">
+				<datastore access="1">IP_addresses</datastore>
+			</input>
+		</utility>
+
+		<utility module_path=".*/pidgin">
+			<input into="server_ip">
+				<datastore access="1">IP_addresses</datastore>
+			</input>
+			<input into="accounts">
+				<datastore access="0">accounts</datastore>
+			</input>
+		</utility>
+
+
     <vulnerability module_path=".*/ssh_root_login">
       <input into="root_password">
         <datastore>desktop_root_password</datastore>
@@ -94,12 +118,60 @@
       </input>
     </utility>
 
+    <utility module_path=".*/labtainers_marker">
+      <input into="lab">
+        <value>acl</value>
+      </input>
+    </utility>
+
     <network type="private_network">
       <input into="IP_address">
         <datastore access="0">IP_addresses</datastore>
       </input>
     </network>
   </system>
+
+
+	<system>
+		<system_name>hackerbot_server</system_name>
+		<base distro="Kali" name="MSF"/>
+
+		<service type="ircd"/>
+
+		<utility module_path=".*/metasploit_framework"/>
+		<utility module_path=".*/nmap"/>
+		<utility module_path=".*/handy_cli_tools"/>
+
+		<service type="httpd"/>
+
+		<utility module_path=".*/hackerbot">
+			<input into="hackerbot_configs">
+				<generator module_path=".*/hb_labtainer">
+					<input into="accounts">
+						<datastore>accounts</datastore>
+					</input>
+					<input into="root_password">
+						<datastore>desktop_root_password</datastore>
+					</input>
+					<input into="labtainers_ip">
+						<datastore access="0">IP_addresses</datastore>
+					</input>
+				</generator>
+			</input>
+		</utility>
+
+    <network type="private_network" >
+     	<input into="IP_address">
+    		<datastore access="1">IP_addresses</datastore>
+     	</input>
+    </network>
+
+		<build type="cleanup">
+			<input into="root_password">
+				<generator type="strong_password_generator"/>
+			</input>
+		</build>
+	</system>
 
 
 </scenario>
