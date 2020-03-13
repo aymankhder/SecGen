@@ -1,7 +1,7 @@
 # Security Scenario Generator (SecGen)
 
 ## Summary
-SecGen creates vulnerable virtual machines so students can learn security penetration testing techniques.
+SecGen creates vulnerable virtual machines, lab environments, and hacking challenges, so students can learn security penetration testing techniques.
 
 Boxes like Metasploitable2 are always the same, this project uses Vagrant, Puppet, and Ruby to create randomly vulnerable virtual machines that can be used for learning or for hosting CTF events.
 
@@ -76,9 +76,9 @@ SecGen accepts arguments to change the way that it behaves, the currently implem
    ruby secgen.rb [--options] <command>
       OPTIONS:
       --scenario [xml file], -s [xml file]: Set the scenario to use
-                 (defaults to #{SCENARIO_XML})
+        (defaults to /home/secgen/SecGen/scenarios/default_scenario.xml)
       --project [output dir], -p [output dir]: Directory for the generated project
-                 (output will default to projects/SecGen_DATEandTIME)
+        (output will default to /home/secgen/SecGen/projects/SecGen20200313_094915)
       --shutdown: Shutdown VMs after provisioning (vagrant halt)
       --network-ranges: Override network ranges within the scenario, use a comma-separated list
       --forensic-image-type [image type]: Forensic image format of generated image (raw, ewf)
@@ -88,6 +88,8 @@ SecGen accepts arguments to change the way that it behaves, the currently implem
       --cpu-cores: Number of virtual CPUs for generated VMs
       --help, -h: Shows this usage information
       --system, -y [system_name]: Only build this system_name from the scenario
+      --snapshot: Creates a snapshot of VMs once built
+      --no-tests: Prevent post-provisioning tests from running.
 
       VIRTUALBOX OPTIONS:
       --gui-output, -g: Show the running VM (not headless)
@@ -95,22 +97,34 @@ SecGen accepts arguments to change the way that it behaves, the currently implem
       --hwvirtex: Enable HW virtex support
       --vtxvpid: Enable VTX support
       --max-cpu-usage [1-100]: Controls how much cpu time a virtual CPU can use
-                               (e.g. 50 implies a single virtual CPU can use up to 50% of a single host CPU)
+        (e.g. 50 implies a single virtual CPU can use up to 50% of a single host CPU)
 
       OVIRT OPTIONS:
       --ovirtuser [ovirt_username]
       --ovirtpass [ovirt_password]
       --ovirt-url [ovirt_api_url]
+      --ovirtauthz [ovirt authz]
       --ovirt-cluster [ovirt_cluster]
       --ovirt-network [ovirt_network_name]
+      --ovirt-affinity-group [ovirt_affinity_group_name]
+
+      ESXI OPTIONS:
+      --esxiuser [esxi_username]
+      --esxipass [esxi_password]
+      --esxi-url [esxi_api_url]
+      --esxi-datastore [esxi_datastore]
+      --esxi-disktype [esxi_disktype]
+      --esxi-network [esxi_network_name]
 
       COMMANDS:
       run, r: Builds project and then builds the VMs
       build-project, p: Builds project (vagrant and puppet config), but does not build VMs
       build-vms, v: Builds VMs from a previously generated project
-                 (use in combination with --project [dir])
+              (use in combination with --project [dir])
+      ovirt-post-build: only performs the ovirt actions that normally follow a successful vm build
+              (snapshots and networking)
       create-forensic-image: Builds forensic images from a previously generated project
-                 (can be used in combination with --project [dir])
+              (can be used in combination with --project [dir])
       list-scenarios: Lists all scenarios that can be used with the --scenario option
       list-projects: Lists all projects that can be used with the --project option
       delete-all-projects: Deletes all current projects in the projects directory
