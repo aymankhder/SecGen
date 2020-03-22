@@ -27,7 +27,7 @@ class labtainers_marker::install{
   $labs.each |String $lab| {
     file {"/opt/labflags/${lab}.flags.json":
       ensure => present,
-      source => template("labtainers_marker/${lab}.flags.json.erb"),
+      content => template("labtainers_marker/${lab}.flags.json.erb"),
     }
   }
   # file { "/opt/labflags/acl.flags.json":

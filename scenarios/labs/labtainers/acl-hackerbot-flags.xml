@@ -118,12 +118,6 @@
       </input>
     </utility>
 
-    <utility module_path=".*/labtainers_marker">
-      <input into="lab">
-        <value>acl</value>
-      </input>
-    </utility>
-
     <network type="private_network">
       <input into="IP_address">
         <datastore access="0">IP_addresses</datastore>
@@ -159,6 +153,12 @@
 				</generator>
 			</input>
 		</utility>
+
+    <utility module_path=".*/labtainers_marker">
+      <input into="lab">
+        <value>acl</value>
+      </input>
+    </utility>
 
     <network type="private_network" >
      	<input into="IP_address">
