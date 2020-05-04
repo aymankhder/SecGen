@@ -1,5 +1,5 @@
 class kali_web::install{
-  package { ['kali-linux-web']:
+  package { ['kali-tools-web']:
     ensure => 'installed',
   }
 }

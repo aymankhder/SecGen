@@ -1,5 +1,5 @@
 class kali_full::install{
-  package { ['kali-linux-full']:
+  package { ['kali-linux-everything']:
     ensure => 'installed',
   }
 }

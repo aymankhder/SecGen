@@ -1,5 +1,5 @@
 class kali_pwtools::install{
-  package { ['kali-linux-pwtools']:
+  package { ['kali-tools-passwords']:
     ensure => 'installed',
   }
 }

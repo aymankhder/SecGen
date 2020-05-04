@@ -1,5 +1,5 @@
 class kali_forensic::install{
-  package { ['kali-linux-forensic']:
+  package { ['kali-tools-forensics']:
     ensure => 'installed',
   }
 }
