@@ -33,7 +33,7 @@
     </utility>
 
     <utility module_path=".*/metactf">
-      <input into="challenge_list">
+      <input into="challenge_list" into_datastore="existing_challenges">
         <generator type="metactf_challenge">
           <input into="difficulty">
             <value>easy</value>
@@ -43,41 +43,33 @@
           <input into="difficulty">
             <value>easy</value>
           </input>
+          <input into="existing_challenges">
+            <datastore>existing_challenges</datastore>
+          </input>
         </generator>
         <generator type="metactf_challenge">
           <input into="difficulty">
             <value>easy</value>
           </input>
-        </generator>
-        <generator type="metactf_challenge">
-          <input into="difficulty">
-            <value>medium</value>
+          <input into="existing_challenges">
+            <datastore>existing_challenges</datastore>
           </input>
         </generator>
-        <generator type="metactf_challenge">
-          <input into="difficulty">
-            <value>medium</value>
-          </input>
-        </generator>
-        <generator type="metactf_challenge">
-          <input into="difficulty">
-            <value>medium</value>
-          </input>
-        </generator>
-        <generator type="metactf_challenge">
-          <input into="difficulty">
-            <value>hard</value>
-          </input>
-        </generator>
+
+        <!-- Specific challenge example -->
+
+        <!--<generator type="metactf_challenge">-->
+          <!--<input into="challenge_path">-->
+            <!--<value>src_csp/Ch3-ExtraFormatStr/Ch3_Format0_Leak</value>-->
+          <!--</input>-->
+        <!--</generator>-->
+
       </input>
       <input into="account">
         <datastore>account</datastore>
       </input>
       <input into="include_scaffolding">
         <value>true</value>
-      </input>
-      <input into="include_chapters">
-        <value>false</value>
       </input>
     </utility>
 

@@ -33,9 +33,12 @@ def recursive_if_else(variable, value, depth):
 #include <fcntl.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 
 #define USERDEF "${ userdef }$"
 #define LEN_USERDEF ${ write(len(userdef)) }$
+
+void printflag();
 
 char msg[] = "${ description }$";
 
