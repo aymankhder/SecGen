@@ -26,7 +26,7 @@
   <read_fact>existing_challenges</read_fact>
 
   <default_input into="difficulty">
-    <generator type="random_difficulty"/>
+    <generator type="difficulty"/>
   </default_input>
   <default_input into="flag">
     <generator type="flag_generator"/>
