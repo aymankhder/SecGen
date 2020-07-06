@@ -4,6 +4,15 @@ require_relative '../../../../../lib/objects/local_string_generator.rb'
 require 'json'
 require 'securerandom'
 
+# MetaCTF Challenge Generator
+# Outputs structured data representing one challenge used in the MetaCTF puppet module.
+
+# Pass a challenge path into the challenge_path parameter to select a specific challenge.
+# List of challenges can be found in the src_angr, src_csp and src_malware functions below.
+# The existing_challenges array is an exclusion list that removes any specified challenge from the candidate pool.
+# See the scenarios/examples/metactf_reversing_challenges.xml for an example of storing a running list of a mixture of specific challenges and randomly selected challenges withinin the scenario to prevent any duplicates.
+# Groups are automatically generated random hex strings. Manual groups can be specified, but be careful not to re-use groups for multiple different challenges.
+
 class MetaCTFChallengeGenerator < StringGenerator
   attr_accessor :challenge_path
   attr_accessor :difficulty

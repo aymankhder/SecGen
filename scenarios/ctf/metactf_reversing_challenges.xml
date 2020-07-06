@@ -34,6 +34,22 @@
 
     <utility module_path=".*/metactf">
       <input into="challenge_list" into_datastore="existing_challenges">
+        <!-- Specific challenge -->
+        <generator type="metactf_challenge">
+          <input into="challenge_path">
+            <value>src_csp/Ch3-ExtraFormatStr/Ch3_Format0_Leak</value>
+          </input>
+        </generator>
+
+        <!-- Randomise by difficulty (easy, medium, hard)  -->
+        <generator type="metactf_challenge">
+          <input into="difficulty">
+            <value>easy</value>
+          </input>
+          <input into="existing_challenges">
+            <datastore>existing_challenges</datastore>
+          </input>
+        </generator>
         <generator type="metactf_challenge">
           <input into="difficulty">
             <value>easy</value>
@@ -47,23 +63,6 @@
             <datastore>existing_challenges</datastore>
           </input>
         </generator>
-        <generator type="metactf_challenge">
-          <input into="difficulty">
-            <value>easy</value>
-          </input>
-          <input into="existing_challenges">
-            <datastore>existing_challenges</datastore>
-          </input>
-        </generator>
-
-        <!-- Specific challenge example -->
-
-        <!--<generator type="metactf_challenge">-->
-          <!--<input into="challenge_path">-->
-            <!--<value>src_csp/Ch3-ExtraFormatStr/Ch3_Format0_Leak</value>-->
-          <!--</input>-->
-        <!--</generator>-->
-
       </input>
       <input into="account">
         <datastore>account</datastore>
