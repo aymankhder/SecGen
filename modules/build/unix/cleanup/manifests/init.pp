@@ -14,6 +14,15 @@ class cleanup::init {
     managehome => true,
   }
 
+  # if kali_msf we have a default kali sudoer account by default, so change the kali user password too.
+  if $operatingsystemrelease == 'kali-rolling' and $root_password {
+    ::accounts::user { 'kali':
+      shell      => '/bin/bash',
+      password   => pw_hash($root_password, 'SHA-512', 'mysalt'),
+      managehome => true,
+    }
+  }
+
   # Disable ssh
   if $disable_ssh {
     service { 'ssh':
