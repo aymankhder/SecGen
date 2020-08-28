@@ -16,7 +16,7 @@
   <distro>Debian 10 Buster amd64</distro>
   <url>http://TODO</url>
   <esxi_url>http://TODO</esxi_url>
-  <ovirt_template>buster_desktop_kde_20200820</ovirt_template>
+  <ovirt_template>buster_desktop_kde_20200828</ovirt_template>
 
   <reference>https://atlas.hashicorp.com/puppetlabs</reference>
   <software_license>various</software_license>
