@@ -1,6 +1,6 @@
 class xfce_lightdm_root_login::configure {
   case $operatingsystemrelease {
-    /^9.*/: { # do 9.x stretch stuff
+    /^(9|10).*/: { # do 9.x stretch stuff
       file { '/etc/lightdm/lightdm.conf':
         ensure => present,
         source => 'puppet:///modules/xfce_lightdm_root_login/stretch_lightdm.conf',

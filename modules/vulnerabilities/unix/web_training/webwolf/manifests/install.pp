@@ -42,7 +42,7 @@ class webwolf::install {
   # Consider using the java class
   if ($operatingsystem == 'Debian') {
     case $operatingsystemrelease {
-      /^9.*/: { # do 9.x stretch stuff
+      /^(9|10).*/: { # do 9.x stretch stuff
         # Will error -- TODO needs repo
         package { 'openjdk-11-jre':
           ensure => installed,

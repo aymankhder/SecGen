@@ -29,7 +29,7 @@ class hackerbot::install{
     ensure   => 'installed',
   }
 
-  package { ['nori', 'cinch', 'programr', 'nokogiri']:
+  package { ['nori', 'cinch', 'programr', 'nokogiri', 'thwait']:
     ensure   => 'installed',
     provider => 'gem',
     require => [Package['zlibc'], Package['zlib1g'], Package['zlib1g-dev']],

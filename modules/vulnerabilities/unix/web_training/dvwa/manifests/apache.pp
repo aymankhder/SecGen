@@ -8,7 +8,7 @@ class dvwa::apache {
 
   if ($operatingsystem == 'Debian') {
     case $operatingsystemrelease {
-      /^9.*/: { # do 9.x stretch stuff
+      /^(9|10).*/: { # do 9.x stretch stuff
         $php_version = "php7.0"
         package { 'mysql-server':
           ensure => installed,
