@@ -3,7 +3,7 @@
 <base xmlns="http://www.github/cliffe/SecGen/base"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://www.github/cliffe/SecGen/base">
-  <name>Debian 10 Buster Desktop KDE: OVIRT ONLY</name>
+  <name>Debian 10 Buster Desktop KDE: OVIRT ONLY (Stretch on VirtualBox)</name>
   <author>Z. Cliffe Schreuders</author>
   <module_license>GPLv3</module_license>
   <description>Debian 10 Buster Desktop KDE amd64 -- dist-upgrade from stretch box. For testing purposes, the default root password is puppet.
@@ -14,8 +14,8 @@
   <platform>linux</platform>
   <platform>unix</platform>
   <distro>Debian 10 Buster amd64</distro>
-  <url>http://TODO</url>
-  <esxi_url>http://TODO</esxi_url>
+  <url>https://app.vagrantup.com/secgen/boxes/debian_stretch_desktop_kde/versions/1.2/providers/virtualbox.box</url>
+  <esxi_url>https://app.vagrantup.com/redwiz666/boxes/debian_stretch_desktop_kde/versions/1.0.0/providers/vmware.box</esxi_url>
   <ovirt_template>buster_desktop_kde_20200828</ovirt_template>
 
   <reference>https://atlas.hashicorp.com/puppetlabs</reference>
