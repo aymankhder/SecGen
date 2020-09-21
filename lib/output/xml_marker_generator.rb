@@ -34,7 +34,8 @@ class XmlMarkerGenerator
 
               # start by finding a flag, and work the way back providing hints
               selected_module.output.each { |output_value|
-                if output_value.match(/^flag{.*$/)
+                # flag has to be the only thing in the parameter string (not within some text)
+                if output_value.match(/\Aflag{.*\z/)
                   xml.challenge{
                     xml.flag(output_value)
 
