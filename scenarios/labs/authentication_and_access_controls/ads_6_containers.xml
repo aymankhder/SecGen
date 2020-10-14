@@ -39,7 +39,7 @@ A Hackerbot lab. Work through the labsheet, then when prompted interact with Hac
     <input into_datastore="accounts">
       <generator type="account">
         <input into="username">
-          <generator type="random_word_generator">
+          <generator type="random_sanitised_word">
             <input into="wordlist">
               <value>mythical_creatures</value>
             </input>
@@ -60,7 +60,7 @@ A Hackerbot lab. Work through the labsheet, then when prompted interact with Hac
       </generator>
       <generator type="account">
         <input into="username">
-          <generator type="random_word_generator">
+          <generator type="random_sanitised_word">
             <input into="wordlist">
               <value>mythical_creatures</value>
             </input>
@@ -81,7 +81,7 @@ A Hackerbot lab. Work through the labsheet, then when prompted interact with Hac
       </generator>
       <generator type="account">
         <input into="username">
-          <generator type="random_word_generator">
+          <generator type="random_sanitised_word">
             <input into="wordlist">
               <value>mythical_creatures</value>
             </input>

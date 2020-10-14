@@ -2,7 +2,7 @@
 require_relative '../../../../../lib/objects/local_string_generator.rb'
 require_relative '../../../../../lib/helpers/blacklist.rb'
 
-class WordGenerator < StringGenerator
+class SanitisedWordGenerator < StringGenerator
   attr_accessor :wordlist
   attr_accessor :min_length
   attr_accessor :max_length
@@ -48,7 +48,7 @@ class WordGenerator < StringGenerator
     until flag_word != ''
       selected_word = File.readlines("#{WORDLISTS_DIR}/#{self.wordlist.sample.chomp}").sample.chomp
       if suitable_word_length(selected_word) and !blacklist.is_blacklisted?(selected_word)
-        flag_word = selected_word
+        flag_word = selected_word.gsub(/[^\w]/, '')
       end
     end
 
@@ -64,4 +64,4 @@ class WordGenerator < StringGenerator
   end
 end
 
-WordGenerator.new.run
+SanitisedWordGenerator.new.run
