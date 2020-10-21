@@ -2,9 +2,13 @@
 
 ## Getting started
 ### Tips for completing this lab
-This lab needs to be completed in order.
+This lab **needs to be completed in order**.
 
-Manually check you have done your backups correctly **before** telling Hackerbot you are ready. It may be a good idea to ssh to your backup server in a separate console tab `ssh <%= $server_ip %>` (but do keep an eye on which system you are running each command on!).
+You should use the rsync dry run option (by adding `-n` to the command) to test which files are going to be backed up, without making the changes.
+
+You should manually check you have done your backups correctly **before** telling Hackerbot you are ready. It may be a good idea to ssh to your backup server in a separate console tab `ssh <%= $server_ip %>` (but do keep an eye on which system you are running each command on!).
+
+Also remember that Hackerbot's FYI outputs can include error messages that don't indicate that you did something wrong. For example, an error might state that a file doesn't exist -- this only gives you some transparancy about what Hackerbot is looking at, that error doesn't really tell you whether or not Hackerbot wanted to see that error.
 
 ### VMs in this lab
 
