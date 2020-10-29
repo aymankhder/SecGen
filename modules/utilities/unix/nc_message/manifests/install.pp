@@ -2,10 +2,10 @@ class nc_message::install {
   $secgen_parameters = secgen_functions::get_parameters($::base64_inputs_file)
   $port = $secgen_parameters['port'][0]
 
-  ensure_pacakge("nmap")
+  ensure_packages("nmap")
   case $operatingsystemrelease {
     /^(10).*/: { # do buster stuff
-      ensure_pacakge("ncat")
+      ensure_packages("ncat")
     }
   }
 

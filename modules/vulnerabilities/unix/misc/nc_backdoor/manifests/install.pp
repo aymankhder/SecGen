@@ -5,10 +5,10 @@ class nc_backdoor::install {
   $strings_to_leak = $secgen_parameters['strings_to_leak']
   $leaked_filenames = $secgen_parameters['leaked_filenames']
 
-  ensure_pacakge("nmap")
+  ensure_packages("nmap")
   case $operatingsystemrelease {
     /^(10).*/: { # do buster stuff
-      ensure_pacakge("ncat")
+      ensure_packages("ncat")
     }
   }
 
