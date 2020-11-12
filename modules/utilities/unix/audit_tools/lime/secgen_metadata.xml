@@ -13,4 +13,7 @@
 
   <reference>https://github.com/504ensicsLabs/LiME</reference>
 
+  <requires>
+    <type>update</type>
+  </requires>
 </utility>

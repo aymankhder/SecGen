@@ -1,11 +1,12 @@
 class lime::install{
   Exec { path => ['/bin','/sbin','/usr/bin', '/usr/sbin'] }
 
-  ensure_packages(['git','build-essentials'])
+  ensure_packages(['git','build-essential', "linux-headers-${facts['kernelrelease']}"])
 
-  exec { 'install linux-headers for LiME':
-    command => 'apt-get install linux-headers-$(uname -r)',
-  }->
+  # exec { 'install linux-headers for LiME':
+  #   command => "apt-get install linux-headers-${facts['kernelrelease']}",
+  #   provider => 'shell',
+  # }->
   exec {'clone LiME repo':
     command => 'git clone https://github.com/504ensicsLabs/LiME.git',
     cwd => '/root/'
