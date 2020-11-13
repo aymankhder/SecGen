@@ -190,7 +190,7 @@ ssh -t <%= $compromised_server_ip %> "sudo /media/cdrom0/statbins/linux2.2_x86/c
 
 We can take a snapshot of the live state of the computer by dumping the entire contents of memory (what is in RAM/swap) into a file. First, check whether we are running a 32-bit or 64-bit operating system.
 ```bash
-uname -i
+uname -m
 ```
 
 On a **32-bit** Linux system /proc/kcore contains an ELF-formatted core dump of the kernel. Save a snapshot of the kernel state:
