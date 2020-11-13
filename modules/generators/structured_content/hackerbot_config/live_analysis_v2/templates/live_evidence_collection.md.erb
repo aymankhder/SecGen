@@ -200,10 +200,11 @@ ssh -t <%= $compromised_server_ip %> "sudo /media/cdrom0/statbins/linux2.2_x86/d
 ```
 ==After 10 seconds or so press Ctrl-C to stop.==
 
-On a **64-bit** Linux system since kernel version 4.8 we cannot dump /proc/kcore directly as there has been randomisation added to the start of the memory mapping. Instead we can dump the contents of live memory with an open source tool called LiME - Linux Memory Extractor.
+On a **64-bit** Linux system since kernel version 4.8 we cannot dump /proc/kcore directly as there has been randomisation added to the start of the memory mapping. Instead we can dump the contents of live memory with an open source tool called LiME - Linux Memory Extractor and then copy them to our desktop VM for analysis.
 
 ```bash
-ssh -t <%= $compromised_server_ip %> 'sudo insmod /root/LiME/src/lime-$(uname -r).ko "path=/home/<%= $main_user %>/lime_dump format=raw"' && sudo scp <%= $main_user %>@<%= $compromised_server_ip %>:/home/<%= $main_user %>/lime_dump evidence/kcore
+ssh -t <%= $compromised_server_ip %> 'sudo insmod /root/LiME/src/lime-$(uname -r).ko "path=/home/<%= $main_user %>/lime_dump format=raw"'
+sudo scp <%= $main_user %>@<%= $compromised_server_ip %>:/home/<%= $main_user %>/lime_dump evidence/kcore
 ```
 
 
