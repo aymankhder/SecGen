@@ -1,7 +1,7 @@
 class dead_image::install {
 
   # $url_path = "http://z.cliffe.schreuders.org/files/6543367533"
-  $url_path = "http://hacktivity.aet.leedsbeckett.ac.uk/files"
+  $url_path = "https://hacktivity.aet.leedsbeckett.ac.uk/files"
   file { '/root/evidence/':
         ensure => 'directory'
   } ->
