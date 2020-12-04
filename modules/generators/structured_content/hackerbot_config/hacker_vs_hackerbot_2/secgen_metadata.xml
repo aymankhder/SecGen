@@ -40,6 +40,9 @@
     <generator type="flag_generator"/>
     <generator type="flag_generator"/>
     <generator type="flag_generator"/>
+    <!-- divider for new flags, TODO: Remove me, we only want 13 flags total -->
+    <generator type="flag_generator"/>
+    <generator type="flag_generator"/>
   </default_input>
 
   <default_input into="root_password">

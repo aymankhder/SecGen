@@ -134,6 +134,21 @@
 					<generator type="person" />
 				</input>
 			</generator>
+			<generator type="account">
+				<input into="username">
+					<generator type="random_sanitised_word">
+						<input into="wordlist">
+							<value>mythical_creatures</value>
+						</input>
+					</generator>
+				</input>
+				<input into="password">
+					<generator type="strong_password_generator"/>
+				</input>
+				<input into="super_user">
+					<value>true</value>
+				</input>
+			</generator>
 		</input>
 
 		<input into_datastore="hackerbot_access_root_password">
