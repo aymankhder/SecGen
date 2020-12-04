@@ -368,7 +368,6 @@
 				</input>
 				<input into="leaked_filenames">
 					<value>u_r_powned-hme</value>
-					<value>.hidden_flag-hme</value>
 					<datastore>hidden_string</datastore>
 				</input>
 				<input into="strings_to_leak">
@@ -377,7 +376,6 @@
 							<value>powned_messages</value>
 						</input>
 					</generator>
-					<generator type="flag_generator" />
 					<generator type="flag_generator" />
 				</input>
 			</generator>
