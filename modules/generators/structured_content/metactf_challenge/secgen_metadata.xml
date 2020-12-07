@@ -31,6 +31,9 @@
   <default_input into="flag">
     <generator type="flag_generator"/>
   </default_input>
+  <default_input into="flag">
+    <generator type="flag_generator"/>
+  </default_input>
 
   <output_type>generated_strings</output_type>
 </generator>
