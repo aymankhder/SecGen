@@ -304,30 +304,13 @@ class elasticsearch_7 (
 
   Exec { path => ['/bin','/sbin','/usr/bin', '/usr/sbin'] }
 
-  # Install Elasticsearch
-
-  ## Add repository
-
-  exec { 'es add gpg key':
-   command => 'wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -'
+  class { 'elasticsearch_7::install':
+    package_url => $package_url,
   }->
-  exec { 'es add apt repository':
-    command => 'echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee /etc/apt/sources.list.d/elastic-7.x.list'
-  }->
-  exec { 'es update apt':
-    command => 'apt-get update'
-  }->
-  package { 'elasticsearch':
-    ensure => present,
-  }
-
-  ## If this fails:
-  ## can we just package install from a .deb file url?  $package_url
-
-
-  # If both of the above fails:
-  # Try docker
-  #   docker::image { "docker.elastic.co/elasticsearch/elasticsearch:7.10.0": }
-
+  # class { 'elasticsearch_7::config':
+  #   api_host => $api_host,
+  #   api_port => $api_port,
+  # }->
+  class { 'elasticsearch_7::service':}
 
 }
