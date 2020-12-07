@@ -12,7 +12,7 @@ class kibana_7::config (
     mode => '0660',
     owner => 'kibana',
     group => 'kibana',
-    content => template('kibana/kibana.yml.erb')
+    content => template('kibana_7/kibana.yml.erb')
   }
 
 }

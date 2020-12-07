@@ -12,7 +12,7 @@ class logstash_7::config (
     mode => '0640',
     owner => 'root',
     group => 'root',
-    content => template('logstash/logstash.yml.erb')
+    content => template('logstash_7/logstash.yml.erb')
   }
 
   file { '/etc/logstash/logstash.conf.d/my_ls_config':
