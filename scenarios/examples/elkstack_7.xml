@@ -91,12 +91,16 @@
 
 <!--		</utility>-->
 
-
 		<network type="private_network" >
 			<input into="IP_address">
 				<datastore access="0">IP_address</datastore>
 			</input>
 		</network>
+		<build type="cleanup">
+			<input into="root_password">
+				<value>dev</value>
+			</input>
+		</build>
 	</system>
 
 </scenario>
