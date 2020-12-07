@@ -11,9 +11,9 @@ class elasticsearch_7::config (
   # Configure Elasticsearch
   file { '/etc/elasticsearch/elasticsearch.yml':
     ensure => file,
-    mode => '0640',
+    mode => '0644',
     owner => 'root',
-    group => 'root',
+    group => 'elasticsearch',
     content => template('elasticsearch_7/elasticsearch.yml.erb')
   }
 
