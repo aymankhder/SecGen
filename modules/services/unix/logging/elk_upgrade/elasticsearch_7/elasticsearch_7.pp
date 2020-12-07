@@ -5,7 +5,7 @@ unless defined('analysis_alert_action_server') {
 
   include ::java
 
-  include ::docker
+  # include ::docker
 
   class { 'elasticsearch':
     api_host => $elasticsearch_ip,
