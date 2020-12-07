@@ -310,15 +310,13 @@ class elasticsearch_7 (
 
   exec { 'add apt repository':
    command => 'wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -'
+  }->
+  exec { 'elasticsearch update apt':
+    command => 'apt-get update'
+  }->
+  package { 'elasticsearch':
+    ensure => present,
   }
-
-  # exec { 'elasticsearch update apt':
-  #
-  # }
-  # package { '':
-  #
-  # }
-  #
 
   ## If this fails:
   ## can we just package install from a .deb file url?  $package_url
