@@ -296,7 +296,7 @@
 # @author Richard Pijnenburg <richard.pijnenburg@elasticsearch.com>
 # @author Tyler Langlois <tyler.langlois@elastic.co>
 #
-class elasticsearch (
+class elasticsearch_7 (
   Enum['absent', 'present']                       $ensure,
   String                                          $api_host,
   Integer[0, 65535]                               $api_port,
