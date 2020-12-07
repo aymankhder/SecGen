@@ -3,20 +3,14 @@ class logstash_7() {
   Exec { path => ['/bin','/sbin','/usr/bin', '/usr/sbin'] }
 
   ## Add logstash repository
+  # class { 'logstash_7::install':
+  #   package_url => $package_url,
+  # }->
+  # class { 'logstash_7::config':
+  #   api_host => $api_host,
+  #   api_port => $api_port,
+  # }->
+  # class { 'logstash_7::service':}
 
-  # exec { 'add apt repository':
-  #   command => 'wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -'
-  # }
-
-  # exec { 'logstash update apt':
-  #
-  # }
-  # package { '':
-  #
-  # }
-  #
-  ## Install logstash
-
-  ## Configure logstash
 
 }

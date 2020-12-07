@@ -2,21 +2,13 @@ class kibana_7 () {
 
   Exec { path => ['/bin','/sbin','/usr/bin', '/usr/sbin'] }
 
-  ## Add kibana repository
+  # class { 'kibana_7::install':
+  #   package_url => $package_url,
+  # }->
+  # class { 'kibana_7::config':
+  #   api_host => $api_host,
+  #   api_port => $api_port,
+  # }->
+  # class { 'kibana_7::service':}
 
-  # exec { 'add apt repository':
-  #   command => 'wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -'
-  # }
-
-  # exec { 'kibana update apt':
-  #
-  # }
-  # package { '':
-  #
-  # }
-
-
-  ## Install kibana
-
-  ## Configure kibana
 }
