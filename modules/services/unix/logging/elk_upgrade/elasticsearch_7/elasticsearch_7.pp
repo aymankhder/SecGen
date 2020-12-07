@@ -12,5 +12,4 @@ unless defined('analysis_alert_action_server') {
     api_port => $elasticsearch_port,
   }
 
-  class { 'elasticsearch_7::service': }
 }
