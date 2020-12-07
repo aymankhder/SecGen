@@ -2,15 +2,18 @@ class logstash_7() {
 
   Exec { path => ['/bin','/sbin','/usr/bin', '/usr/sbin'] }
 
-  ## Add logstash repository
-  # class { 'logstash_7::install':
-  #   package_url => $package_url,
-  # }->
-  # class { 'logstash_7::config':
-  #   api_host => $api_host,
-  #   api_port => $api_port,
-  # }->
-  # class { 'logstash_7::service':}
+  class { 'logstash_7::install':
+    package_url => $package_url,
+  }->
+  class { 'logstash_7::config':
+    elasticsearch_ip => $elasticsearch_ip,
+    elasticsearch_port => $elasticsearch_port,
+    logstash_port => $logstash_port,
+    log_path => $log_path,
+    data_path => $data_path,
+    config_path => $config_path,
+  }->
+  class { 'logstash_7::service':}
 
 
 }

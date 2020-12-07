@@ -1,5 +1,5 @@
 class elasticsearch_7::install (
-  String                                          $package_url       = 'https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.10.0-amd64.deb',
+  String $package_url  = 'https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.10.0-amd64.deb',
 ) {
 
   Exec { path => ['/bin','/sbin','/usr/bin', '/usr/sbin'] }

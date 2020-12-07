@@ -307,10 +307,10 @@ class elasticsearch_7 (
   class { 'elasticsearch_7::install':
     package_url => $package_url,
   }->
-  # class { 'elasticsearch_7::config':
-  #   api_host => $api_host,
-  #   api_port => $api_port,
-  # }->
+  class { 'elasticsearch_7::config':
+    elasticsearch_ip => $api_host,
+    elasticsearch_port => $api_port,
+  }->
   class { 'elasticsearch_7::service':}
 
 }

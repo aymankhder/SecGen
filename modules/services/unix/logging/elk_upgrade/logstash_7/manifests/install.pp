@@ -3,4 +3,10 @@ class logstash_7::install () {
     ensure => present,
     requires => Exec['es update apt'],
   }
+
+  file { '/etc/logstash/combined_path.rb':
+    ensure => file,
+    source => 'puppet:///modules/logstash/combined_path.rb',
+    require => Package['logstash'],
+  }
 }
