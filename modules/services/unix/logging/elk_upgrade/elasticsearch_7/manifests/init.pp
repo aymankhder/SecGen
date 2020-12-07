@@ -297,7 +297,6 @@
 # @author Tyler Langlois <tyler.langlois@elastic.co>
 #
 class elasticsearch_7 (
-  Enum['absent', 'present']                       $ensure,
   String                                          $api_host,
   Integer[0, 65535]                               $api_port,
   String                                          $package_url       = 'https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.10.0-amd64.deb',
