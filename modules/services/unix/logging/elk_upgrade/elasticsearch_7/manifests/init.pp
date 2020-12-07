@@ -300,15 +300,12 @@ class elasticsearch (
   Enum['absent', 'present']                       $ensure,
   String                                          $api_host,
   Integer[0, 65535]                               $api_port,
+  String                                          $package_url       = 'https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.10.0-amd64.deb',
 ) {
 
   Exec { path => ['/bin','/sbin','/usr/bin', '/usr/sbin'] }
 
-  #####################
-  #   Repo Install    #
-  #####################
-
-
+  # Install Elasticsearch
 
   ## Add repository
 
@@ -316,7 +313,7 @@ class elasticsearch (
    command => 'wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -'
   }
 
-  # exec { 'logstash update apt':
+  # exec { 'elasticsearch update apt':
   #
   # }
   # package { '':
@@ -324,16 +321,13 @@ class elasticsearch (
   # }
   #
 
-  ## Install Elasticsearch
-
-  ## Configure Elasticsearch
-
-  #####################
-  #   Docker Install  #
-  #####################
+  ## If this fails:
+  ## can we just package install from a .deb file url?  $package_url
 
 
-  docker::image { "docker.elastic.co/elasticsearch/elasticsearch:7.10.0": }
+  # If both of the above fails:
+  # Try docker
+    docker::image { "docker.elastic.co/elasticsearch/elasticsearch:7.10.0": }
 
 
 }
