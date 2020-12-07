@@ -327,7 +327,7 @@ class elasticsearch (
 
   # If both of the above fails:
   # Try docker
-    docker::image { "docker.elastic.co/elasticsearch/elasticsearch:7.10.0": }
+  #   docker::image { "docker.elastic.co/elasticsearch/elasticsearch:7.10.0": }
 
 
 }
