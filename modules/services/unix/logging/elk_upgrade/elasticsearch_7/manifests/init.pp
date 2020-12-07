@@ -308,10 +308,13 @@ class elasticsearch_7 (
 
   ## Add repository
 
-  exec { 'add apt repository':
+  exec { 'es add gpg key':
    command => 'wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -'
   }->
-  exec { 'elasticsearch update apt':
+  exec { 'es add apt repository':
+    command => 'echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee /etc/apt/sources.list.d/elastic-7.x.list'
+  }->
+  exec { 'es update apt':
     command => 'apt-get update'
   }->
   package { 'elasticsearch':
