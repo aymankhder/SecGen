@@ -6,7 +6,7 @@ class logstash_7::install () {
 
   file { '/etc/logstash/combined_path.rb':
     ensure => file,
-    source => 'puppet:///modules/logstash/combined_path.rb',
+    source => 'puppet:///modules/logstash_7/combined_path.rb',
     require => Package['logstash'],
   }
 }

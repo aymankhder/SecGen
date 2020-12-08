@@ -20,7 +20,7 @@ class logstash_7::config (
     mode => '0640',
     owner => 'root',
     group => 'root',
-    content => template('logstash/configfile-template.erb')
+    content => template('logstash_7/configfile-template.erb')
   }
 
 }
