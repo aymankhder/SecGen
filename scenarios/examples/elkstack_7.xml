@@ -93,7 +93,7 @@
 
 		<network type="private_network" >
 			<input into="IP_address">
-				<datastore access="0">IP_address</datastore>
+				<datastore access="0">IP_addresses</datastore>
 			</input>
 		</network>
 		<build type="cleanup">
