@@ -17,7 +17,7 @@
 		<system_name>elk_7</system_name>
 		<base platform="linux" type="server" distro="Stretch"/>
 
-		<input into_datastore="IP_address">
+		<input into_datastore="IP_addresses">
 			<value>172.16.0.2</value>
 		</input>
 
