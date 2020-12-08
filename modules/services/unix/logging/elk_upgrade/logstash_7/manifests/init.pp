@@ -3,7 +3,6 @@ class logstash_7() {
   Exec { path => ['/bin','/sbin','/usr/bin', '/usr/sbin'] }
 
   class { 'logstash_7::install':
-    package_url => $package_url,
   }->
   class { 'logstash_7::config':
     elasticsearch_ip => $elasticsearch_ip,
@@ -14,6 +13,5 @@ class logstash_7() {
     config_path => $config_path,
   }->
   class { 'logstash_7::service':}
-
 
 }
