@@ -15,12 +15,17 @@ class logstash_7::config (
     content => template('logstash_7/logstash.yml.erb')
   }
 
+  file { '/etc/logstash/logstash.conf.d/':
+    ensure => directory,
+  }
+
   file { '/etc/logstash/logstash.conf.d/my_ls_config':
     ensure => file,
     mode => '0640',
     owner => 'root',
     group => 'root',
-    content => template('logstash_7/configfile-template.erb')
+    content => template('logstash_7/configfile-template.erb'),
+    require => File['/etc/logstash/logstash.conf.d/']
   }
 
 }
