@@ -87,7 +87,7 @@
 			</input>
 		</utility>
 
-<!--	TODO: Update this to use latest elastalert version	<utility module_path=".*/elastalert.*"/>-->
+		<utility module_path=".*/elastalert.*"/>
 
 		<network type="private_network" >
 			<input into="IP_address">
