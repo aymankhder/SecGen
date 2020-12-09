@@ -1,10 +1,10 @@
 class elastalert::install ($elasticsearch_ip, $elasticsearch_port,$installdir = '/opt/elastalert/', $source='http://github.com/Yelp/elastalert') {
   Exec { path => ['/bin', '/usr/bin', '/usr/local/bin', '/sbin', '/usr/sbin'] }
 
-  ensure_packages(['python-pip','build-essential','libssl-dev','libffi-dev','python-dev'])
-  # ensure_packages(['thehive4py','configparser>=3.5.0','setuptools>=11.3', 'stomp.py<=4.1.22','cryptography>=2.8','mock>=2.0.0,<4.0.0', 'elasticsearch==6.3.1', 'PyJWT==1.7.1'], { provider => 'pip', require => [Package['python-pip']] })
+  ensure_packages(['python-pip3','build-essential','libssl-dev','libffi-dev','python-dev'])
+  ensure_packages(['PyYAML>=5.1','elastalert'], { provider => 'pip3', require => [Package['python-pip3']] })
 
-  # Create directory to install into
+  # Create directory to install into   TODO: Change this to another variable name.  Should put configs in /etc/ probably if we're installing via...
   file { $installdir:
     ensure => directory,
   }
