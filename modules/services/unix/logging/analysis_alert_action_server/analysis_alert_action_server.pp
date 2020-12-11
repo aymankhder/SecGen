@@ -15,9 +15,6 @@ class { 'logstash_7':
   elasticsearch_port => $elasticsearch_port,
   logstash_port => $logstash_port
 }
-logstash::configfile { 'my_ls_config':
-  content => template('logstash/configfile-template.erb'),
-}~>
 class { 'kibana_7':
   elasticsearch_ip => $elasticsearch_ip,
   elasticsearch_port => $elasticsearch_port,
