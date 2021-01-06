@@ -74,9 +74,21 @@ A Hackerbot lab. Work through the lab instructions, then when prompted interact 
 
 		<!-- generate some passwords to be cracked -->
 		<input into_datastore="weak_passwords">
-			<generator type="weak_password_generator"/>
-			<generator type="weak_password_generator"/>
-			<generator type="weak_password_generator"/>
+			<generator type="custom_list_password">
+				<input into="list_name">
+					<value>jtrpassword.lst</value>
+				</input>
+			</generator>
+			<generator type="custom_list_password">
+				<input into="list_name">
+					<value>jtrpassword.lst</value>
+				</input>
+			</generator>
+			<generator type="custom_list_password">
+				<input into="list_name">
+					<value>jtrpassword.lst</value>
+				</input>
+			</generator>
 			<generator type="medium_password_generator"/>
 		</input>
 
