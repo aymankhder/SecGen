@@ -30,9 +30,6 @@
     <type>update</type>
   </requires>
   <requires>
-    <type>desktop_environment</type>
-  </requires>
-  <requires>
     <module_path>.*/xfce4_term_w_records</module_path>
   </requires>
 </utility>
