@@ -1,2 +1,7 @@
+<% require 'securerandom'; key = SecureRandom.hex -%>
 server.host: <%= @elasticsearch_ip %>
 server.port: <%= @kibana_port %>
+elasticsearch.hosts: ["http://<%= @elasticsearch_ip %>:<%= @elasticsearch_port %>"]
+xpack.security.encryptionKey: "<%= key %>"
+xpack.encryptedSavedObjects.encryptionKey: "<% key %>"
+xpack.reporting.encryptionKey: "<% key %>"
