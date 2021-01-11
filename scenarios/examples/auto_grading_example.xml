@@ -120,8 +120,7 @@
 
     <utility module_path=".*handy_cli_tools.*"/>
 
-    <utility module_path=".*parameterise
-    d_accounts">
+    <utility module_path=".*parameterised_accounts">
       <input into="accounts">
         <datastore access="0">desktop_account</datastore>
       </input>
