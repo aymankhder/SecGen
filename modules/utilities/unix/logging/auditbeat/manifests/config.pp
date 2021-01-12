@@ -39,12 +39,13 @@ class auditbeat::config {
     require      => Package['auditbeat'],
   }
 
-  file { '/etc/auditbeat/audit.rules.d/custom-rules.conf': # rules must have .conf extension
-    ensure  => file,
+  file { '/etc/auditbeat/audit.rules.d/': # rules must have .conf extension
+    ensure  => directory,
+    recurse => true,
     owner   => 'root',
     group   => 'root',
     mode    => $auditbeat::config_file_mode,
-    source  => 'puppet:///modules/auditbeat/rules/auditbeat_rules_file.conf',
+    source  => 'puppet:///modules/auditbeat/rules/',
     require => Package['auditbeat'],
   }
 }
