@@ -6,24 +6,24 @@ class auditbeat::config {
   $auditbeat_bin = '/usr/share/auditbeat/bin/auditbeat'
 
   $validate_cmd = $auditbeat::disable_configtest ? {
-    true => undef,
+    true    => undef,
     default => "${auditbeat_bin} test config -c %",
   }
 
   $auditbeat_config = delete_undef_values({
-    'name'                      => $auditbeat::beat_name ,
-    'fields_under_root'         => $auditbeat::fields_under_root,
-    'fields'                    => $auditbeat::fields,
-    'xpack'                     => $auditbeat::xpack,
-    'monitoring'                => $auditbeat::monitoring,
-    'tags'                      => $auditbeat::tags,
-    'queue'                     => $auditbeat::queue,
-    'logging'                   => $auditbeat::logging,
-    'output'                    => $auditbeat::outputs,
-    'processors'                => $auditbeat::processors,
-    'setup'                     => $auditbeat::setup,
-    'auditbeat'                 => {
-      'modules'                 => $auditbeat::modules,
+    'name'              => $auditbeat::beat_name,
+    'fields_under_root' => $auditbeat::fields_under_root,
+    'fields'            => $auditbeat::fields,
+    'xpack'             => $auditbeat::xpack,
+    'monitoring'        => $auditbeat::monitoring,
+    'tags'              => $auditbeat::tags,
+    'queue'             => $auditbeat::queue,
+    'logging'           => $auditbeat::logging,
+    'output'            => $auditbeat::outputs,
+    'processors'        => $auditbeat::processors,
+    'setup'             => $auditbeat::setup,
+    'auditbeat'         => {
+      'modules' => $auditbeat::modules,
     },
   })
 
@@ -36,5 +36,15 @@ class auditbeat::config {
     mode         => $auditbeat::config_file_mode,
     content      => inline_template('<%= @merged_config.to_yaml()  %>'),
     validate_cmd => $validate_cmd,
+    require      => Package['auditbeat'],
+  }
+
+  file { '/etc/auditbeat/audit.rules.d/custom-rules.conf': # rules must have .conf extension
+    ensure  => file,
+    owner   => 'root',
+    group   => 'root',
+    mode    => $auditbeat::config_file_mode,
+    source  => 'puppet:///modules/auditbeat/rules/auditbeat_rules_file.conf',
+    require => Package['auditbeat'],
   }
 }
