@@ -28,7 +28,7 @@ class logstash_7::config (
     owner => 'logstash',
     group => 'logstash',
     content => template('logstash_7/configfile-template.erb'),
-    require => File['/etc/logstash/logstash.conf.d/']
+    require => File['/etc/logstash/conf.d/']
   }
 
 }
