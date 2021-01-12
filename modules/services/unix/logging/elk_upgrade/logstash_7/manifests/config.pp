@@ -9,21 +9,31 @@ class logstash_7::config (
 
   file { '/etc/logstash/logstash.yml':
     ensure => file,
-    mode => '0640',
-    owner => 'root',
-    group => 'root',
+    mode => '0644',
+    owner => 'logstash',
+    group => 'logstash',
     content => template('logstash_7/logstash.yml.erb')
   }
 
-  file { '/etc/logstash/logstash.conf.d/':
+  file { '/etc/logstash/conf.d/':
     ensure => directory,
+    mode   => '0775',
+    owner  => 'logstash',
+    group  => 'logstash',
+  }
+
+  file { '/etc/logstash/logstash.conf.d/':
+    mode => '0775',
+    ensure => directory,
+    owner => 'logstash',
+    group => 'logstash',
   }
 
   file { '/etc/logstash/logstash.conf.d/my_ls_config':
     ensure => file,
-    mode => '0640',
-    owner => 'root',
-    group => 'root',
+    mode => '0644',
+    owner => 'logstash',
+    group => 'logstash',
     content => template('logstash_7/configfile-template.erb'),
     require => File['/etc/logstash/logstash.conf.d/']
   }
