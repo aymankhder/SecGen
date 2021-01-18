@@ -4,14 +4,7 @@
 	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	   xsi:schemaLocation="http://www.github/cliffe/SecGen/scenario">
 
-	<!-- an example single system containing a ELK 7.10 instance
-		TODO: Elasticsearch: 	building [], configured []
-		TODO: Logstash: 		building [], configured []
-		TODO: Kibana: 			building [], configured []
-		TODO: FileBeat:			building [], configured []
-		TODO: AuditBeat:		building [], configured []
-		TODO: Elastalert: 		building [], configured []
-	-->
+	<!-- an example single system containing a ELK 7.10 instance -->
 
 	<system>
 		<system_name>elk_7</system_name>
