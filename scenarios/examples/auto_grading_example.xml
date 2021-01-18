@@ -143,15 +143,7 @@
         <value>true</value>
       </input>
       <input into="start_page">
-        <generator type="concat_paragraph">
-          <input into="data">
-            <datastore access="0">IP_addresses</datastore>
-            <value>5601</value>
-          </input>
-          <input into="separator">
-            <value>:</value>
-          </input>
-        </generator>
+        <datastore access="0">IP_addresses</datastore>
       </input>
     </utility>
 
