@@ -137,11 +137,21 @@
 
     <utility module_path=".*iceweasel">
       <input into="accounts">
-        <value>{"username":"vagrant","password":"asdf","super_user":"","strings_to_leak":[],"leaked_filenames":[]}
-        </value>
+        <value>{"username":"test","password":"test","super_user":"","strings_to_leak":[],"leaked_filenames":[]}</value>
       </input>
       <input into="autostart">
         <value>true</value>
+      </input>
+      <input into="start_page">
+        <generator type="concat_paragraph">
+          <input into="data">
+            <datastore access="0">IP_addresses</datastore>
+            <value>5601</value>
+          </input>
+          <input into="separator">
+            <value>:</value>
+          </input>
+        </generator>
       </input>
     </utility>
 
