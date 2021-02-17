@@ -2,7 +2,7 @@
 
 An *access control list (ACL)* is attached to an object (resource) and lists all the subjects (users / active entities) that are allowed access, along with the kind of access that is authorised.
 
-We have explored standard Unix file permissions, which is an abbreviated (simplified) form of ACL. With standard Unix file permissions all authorisation is defined in terms of the owning user (u), groups (g), and others (o), and the type of access that can be granted are read (r), write (r), and execute (x) -- along with some special permission flags, SUID, SGID, and stickybit, which change the meaning of these.
+We have explored standard Unix file permissions, which is an abbreviated (simplified) form of ACL. With standard Unix file permissions all authorisation is defined in terms of the owning user (u), groups (g), and others (o), and the type of access that can be granted are read (r), write (w), and execute (x) -- along with some special permission flags, SUID, SGID, and stickybit, which change the meaning of these.
 
 The Unix file permissions (0664) `-rw-rw-r-- 1 <%= $main_user %> group1 5 Feb 5 test` can be thought of as a simplified ACL with:
 
@@ -66,6 +66,8 @@ su - <%= $second_user %>
 cat /home/<%= $main_user %>/mysecret
 exit
 ```
+
+Tip: You'll need to ensure that the user has permission to enter the directory.
 
 Note that the stat program is not usually ACL aware, so won't report anything out of the usual. ==Run:==
 
