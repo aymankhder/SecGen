@@ -46,12 +46,16 @@ int main() {
 
 // TODO: randomise the AAA trigger
         printf("What is your first name?\n");
+				fflush(stdout);
 				scanf("%AAAAAA[^\n]s", &name);
         printf("Hello, %s.\n", name);
+				fflush(stdout);
 				if(strncmp(name, "AAA", 3) == 0) {
 					printf("What is your surname?\n");
+					fflush(stdout);
 	        scanf("%s", &name);
 	        printf("Ok, %s.\n", name);
+					fflush(stdout);
 				}
 
 }

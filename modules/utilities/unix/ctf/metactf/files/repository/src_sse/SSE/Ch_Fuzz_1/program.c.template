@@ -45,7 +45,8 @@ int main() {
         signal(SIGSEGV, printflag);
 
         printf("What is your name?\n");
+        fflush(stdout);
         scanf("%s", &name);
         printf("Hello, %s.\n", name);
-
+        fflush(stdout);
 }
