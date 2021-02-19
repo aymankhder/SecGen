@@ -51,12 +51,18 @@ A Hackerbot lab. Work through the labsheet, then when prompted interact with Hac
         <input into="super_user">
           <value>true</value>
         </input>
-        <input into="leaked_filenames">
-          <value></value>
-        </input>
-        <input into="strings_to_leak">
-          <value></value>
-        </input>
+        
+				<input into="leaked_filenames">
+					<value>mysecret</value>
+				</input>
+				<input into="strings_to_leak">
+					<generator type="random_line_generator">
+						<input into="linelist">
+							<value>secrets</value>
+						</input>
+					</generator>
+				</input>
+
       </generator>
       <generator type="account">
         <input into="username">

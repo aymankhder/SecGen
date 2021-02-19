@@ -31,7 +31,7 @@ First, we should look at the details of the ls executable:
 ls -la /bin/ls
 ```
 `
--rwxr-xr-x 1 root root 130736 Feb 22 2017 /bin/ls
+-rwxr-xr-x 1 root root 138856 Feb 28  2019 /bin/ls
 `
 
 These details show that the file in /bin/ls is not a symbolic link.
@@ -223,11 +223,15 @@ What can you see in /, /opt, /proc?
 
 Docker can grant containers to access files or the network.
 
-Run a container with access to a secret file:
+Ensure you have a secret file:
 
 ```bash
-echo "my secret" &gt; ~/mysecret
+cat $HOME/mysecret
+```
 
+Run a container with access to your secret file:
+
+```bash
 sudo docker run -v $HOME/mysecret:/srv/mysecret:ro -it ubuntu:xenial sh
 ```
 
