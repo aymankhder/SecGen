@@ -5,10 +5,10 @@ class nc_backdoor_chroot_esc::install {
   $strings_to_leak = $secgen_parameters['strings_to_leak']
   $leaked_filenames = $secgen_parameters['leaked_filenames']
 
-  ensure_package("nmap")
+  ensure_packages("nmap")
   case $operatingsystemrelease {
     /^(10).*/: { # do buster stuff
-      ensure_package("ncat")
+      ensure_packages("ncat")
     }
   }
   # run on each boot via cron

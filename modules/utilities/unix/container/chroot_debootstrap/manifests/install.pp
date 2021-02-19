@@ -3,9 +3,7 @@ class chroot_debootstrap::install {
   $secgen_parameters = secgen_functions::get_parameters($::base64_inputs_file)
   $chroot_dir = $secgen_parameters['chroot_dir'][0]
 
-  package { ['debootstrap', 'libc-bin']:
-    ensure => 'installed',
-  } ->
+  ensure_packages(['debootstrap', 'libc-bin'])
 
   file { "$chroot_dir":
     ensure => 'directory',
@@ -16,6 +14,8 @@ class chroot_debootstrap::install {
     provider     => 'shell',
     creates => "$chroot_dir/etc",
     path  => ['/bin', '/usr/bin', '/usr/sbin', '/sbin',],
+    logoutput => 'true',
+    timeout     => 1800, # 30 mins timeout
   } ->
 
   exec { "sudo -E chroot $chroot_dir /usr/bin/apt-get install nmap -y":
@@ -24,6 +24,7 @@ class chroot_debootstrap::install {
     creates => "$chroot_dir/usr/bin/ncat",
     path  => ['/bin', '/usr/bin', '/usr/sbin', '/sbin',],
     logoutput => 'true',
+    timeout     => 1800, # 30 mins timeout
   } ->
 
   file_line { "${chroot_dir}_chroot_proc":
