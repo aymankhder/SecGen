@@ -4,11 +4,14 @@ class simple_bof::install {
   $challenge_name = $secgen_parameters['challenge_name'][0]
   $storage_dir = $secgen_parameters['storage_directory'][0]
 
-
-  $install_dir = '/tmp/'
-
   # Generate the C file (either in the home directory or the supplied storage_directory)
-
+  $install_dir = '/root'
+  $c_file_path = "$install_dir/simple_bof.c"
+  file { 'simple_bof.c':
+    path                    => $c_file_path,
+    content                 => template('simple_bof/exploit_me.c.erb'),
+    mode                    => '0777',
+  }
 
   # Compile the binary
   ## ... we will need to add compiler parameters to the install_setgid_binary and install_setuid_binary modules
@@ -29,14 +32,14 @@ class simple_bof::install {
   # SetGID binary requires: Makefile and any .c files within it's <module_name>/files directory
   # Can we dynamically generate these before we call the install_setgid_binary function?
 
-  ::secgen_functions::install_setgid_binary { "simple_bof_$challenge_name":
-    source_module_name => 'simple_bof',
-    challenge_name     => $challenge_name,
-    group              => $group,
-    account            => $account,
-    flag               => $flag,
-    flag_name          => 'flag',
-    storage_dir        => $storage_dir,
-  }
+  # ::secgen_functions::install_setgid_binary { "simple_bof_$challenge_name":
+  #   source_module_name => 'simple_bof',
+  #   challenge_name     => $challenge_name,
+  #   group              => $group,
+  #   account            => $account,
+  #   flag               => $flag,
+  #   flag_name          => 'flag',
+  #   storage_dir        => $storage_dir,
+  # }
 
 }
