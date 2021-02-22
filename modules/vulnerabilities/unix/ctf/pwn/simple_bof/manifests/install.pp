@@ -1,6 +1,6 @@
 class simple_bof::install {
   $secgen_parameters = secgen_functions::get_parameters($::base64_inputs_file)
-  $buffer_size = inline_template("<%= (3..8).sample ^ 2 %>")   # randomised buffer size
+  # $buffer_size = inline_template("<%= (3..8).sample ^ 2 %>")   # randomised buffer size
   $challenge_name = $secgen_parameters['challenge_name'][0]
   $storage_dir = $secgen_parameters['storage_directory'][0]
 
