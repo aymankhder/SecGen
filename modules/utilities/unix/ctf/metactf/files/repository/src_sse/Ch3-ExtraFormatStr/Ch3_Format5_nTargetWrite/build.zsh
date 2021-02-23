@@ -9,7 +9,7 @@ if [[ ARGC -gt 0 ]] then
 		AA=`echo "ibase=16;$HASH+20" | bc`
 		BB=`echo $USER $SALT $BINNAME | openssl dgst -sha512 -binary | base64 | head -1 | tr -d /=+ | cut -c 1-3 | xxd -p | sed s/0a$/5a/`
 		cat program.c.template | sed s/AAAAAA/$AA/ >! program.c
-		gcc -m32 -Wformat=0 -Wl,--section-start=.bss=0x$BB -o obj/$USER/$BINNAME program.c
+		gcc -m32 -fno-pie -no-pie -Wformat=0 -Wl,--section-start=.bss=0x$BB -o obj/$USER/$BINNAME program.c
 	end
 	rm program.c
 else
