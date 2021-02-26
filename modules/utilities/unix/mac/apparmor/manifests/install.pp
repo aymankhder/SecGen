@@ -24,6 +24,13 @@ class apparmor::install {
     cwd     => '/var/tmp',
     provider     => 'shell',
     path  => ['/bin', '/usr/bin', '/usr/sbin', '/sbin',],
+  } ->
+
+  # work around for bug in Debian Buster
+  exec { "sudo touch /etc/apparmor.d/local/usr.lib.dovecot.imap-login /etc/apparmor.d/local/usr.lib.dovecot.imap /etc/apparmor.d/local/usr.lib.dovecot.managesieve /etc/apparmor.d/local/usr.lib.dovecot.anvil /etc/apparmor.d/local/usr.lib.dovecot.deliver /etc/apparmor.d/local/usr.lib.dovecot.auth /etc/apparmor.d/local/usr.lib.dovecot.config /etc/apparmor.d/local/usr.lib.dovecot.ssl-params /etc/apparmor.d/local/usr.lib.dovecot.managesieve-login /etc/apparmor.d/local/usr.lib.dovecot.dict /etc/apparmor.d/local/usr.sbin.dovecot /etc/apparmor.d/local/usr.lib.dovecot.log /etc/apparmor.d/local/usr.lib.dovecot.dovecot-lda /etc/apparmor.d/local/usr.lib.dovecot.pop3-login /etc/apparmor.d/local/usr.lib.dovecot.pop3 /etc/apparmor.d/local/usr.lib.dovecot.dovecot-auth /etc/apparmor.d/local/usr.lib.dovecot.lmtp":
+    provider     => 'shell',
+    path  => ['/bin', '/usr/bin', '/usr/sbin', '/sbin',],
   }
+
 
 }
