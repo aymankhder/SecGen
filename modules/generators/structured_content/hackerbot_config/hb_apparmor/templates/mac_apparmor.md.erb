@@ -1,3 +1,4 @@
+
 ## Mandatory Access Controls: Capabilities and AppArmor
 
 Rule-based system-wide access controls can control what each application is authorised to do. The security system enforces exactly which files or resources are accessible to each process. They don't typically require applications to be launched into a sandbox, rules are applied to any applications that have policies.
@@ -14,13 +15,13 @@ One of the limitations of the traditional Unix approach to privilege is that pro
 
 Capabilities help to solve the problem. Instead of running the program setuid root, we can give it the capability to do what it needs without access to everything else that root is allowed to do.
 
-Ping your own system (Ctrl-C to stop):
+==Ping your own system== (Ctrl-C to stop):
 
 ```bash
 ping localhost
 ```
 
-Now make a copy of ping (using sudo so that the copy is also owned by root):
+Now ==make a copy of ping== (using sudo so that the copy is also owned by root):
 
 ```bash
 sudo cp /bin/ping /tmp/ping
@@ -38,15 +39,15 @@ It won't work since it doesn't have the required permissions:
 ping: socket: Operation not permitted
 `
 
-One way to enable ping to work, is to let it run as root, using setuid (this is how most Linux distros have worked with ping).
+One way to enable ping to work, is to let it run as root, using setuid (this is how most Linux distros have worked with ping in the past).
 
-Add setuid permissions to the copy:
+==Add setuid permissions== to the copy:
 
 ```bash
 sudo chmod u+s /tmp/ping
 ```
 
-Try pinging again (it should work):
+==Try pinging again== (it should work):
 
 ```bash
 /tmp/ping localhost
@@ -54,31 +55,31 @@ Try pinging again (it should work):
 
 A better solution is to use capabilities rather than setuid root.
 
-Remove setuid:
+==Remove setuid:==
 
 ```bash
 sudo chmod u-s /tmp/ping
 ```
 
-Check the man page of setcap:
+==Check the man page== of setcap:
 
 ```bash
 man setcap
 ```
 
-Now set ping to use the capability, by attaching the capability to the file:
+Now ==set ping to use the capability==, by attaching the capability to the file:
 
 ```bash
 sudo setcap cap_net_raw=ep /tmp/ping
 ```
 
-Check that the program now has the capability, by running:
+Check that the program now has the capability. ==Run:==
 
 ```bash
-sudo /sbin/getcap /tmp/ping
+/sbin/getcap /tmp/ping
 ```
 
-You should now be able to use the /tmp/ping program as any user, and it will be able to ping as before:
+You should now be able to ==use the /tmp/ping program== as any user, and it will be able to ping as before:
 
 ```bash
 /tmp/ping localhost
@@ -86,7 +87,7 @@ You should now be able to use the /tmp/ping program as any user, and it will be 
 
 The advantage is that now the program cannot do all the other things root can do, so a vulnerability in ping wouldn't expose your entire system
 
-==Log Book Question: What approach does your deltop VM use to run ping?==
+==Log Book Question: What approach does your desktop VM use to run ping?==
 
 ==Log Book Question: Describe and demonstrate another example where capabilities can be used to remove the need for setuid.==
 
@@ -94,7 +95,7 @@ The advantage is that now the program cannot do all the other things root can do
 
 Another approach taken by some schemes is to simply specify a list of all the resources each application is authorised to access. This is the approach taken by AppArmor and TOMOYO, which are Linux Kernel security features.
 
-First, check that AppArmor is installed and enabled on your Linux system:
+First, ==check that AppArmor is installed and enabled== on your Linux system:
 
 ```bash
 systemctl status apparmor
@@ -102,7 +103,7 @@ systemctl status apparmor
 sudo aa-enabled
 ```
 
-AppArmor takes a rule-based approach to specify which files (and other permissions) a *program* gets access to. View the profiles that have been loaded:
+AppArmor takes a rule-based approach to specify which files (and other permissions) a *program* gets access to. View the profiles that have been loaded. ==Run:==
 
 ```bash
 sudo aa-status
@@ -110,7 +111,7 @@ sudo aa-status
 
 The profiles are stored in /etc/apparmor.d/
 
-View an example profile:
+==View an example profile:==
 
 ```bash
 less /etc/apparmor.d/bin.ping
@@ -149,7 +150,7 @@ There are also some time-saving *abstractions* included, which are collections o
 #include &lt;abstractions/base&gt;
 ```
 
-Have a look at a more complicated profile:
+==Have a look at a more complicated profile:==
 
 ```bash
 less /etc/apparmor.d/usr.sbin.smbd
@@ -160,33 +161,33 @@ Creating your own AppArmor profile
 
 You will start by using AppArmor to confine a harmless text viewer to enable it to read \~/hello, but not allow it to read \~/mysecret.
 
-Make a copy of less:
+==Make a copy of less:==
 
 ```bash
 sudo cp /bin/less /tmp/less
 ```
 
-Check you can use this `/tmp/less` to access "mysecret" and "hello" files in your home directory.
+==Check you can use this `/tmp/less` to access "mysecret" and "hello" files in your home directory.==
 
-Create a barebones profile for less by running:
+==Create a barebones profile== for less by running:
 
 ```bash
 sudo aa-autodep /tmp/less
 ```
 
-Note that your profile is now in complain mode:
+==Check that your profile is now in complain mode:==
 
 ```bash
 sudo aa-status
 ```
 
-Set the new profile to enforcing:
+==Set the new profile to enforcing:==
 
 ```bash
 sudo aa-enforce /tmp/less
 ```
 
-Test that you can no longer open either of your files.
+==Test that you can no longer open either of your files.==
 
 ```bash
 /tmp/less hello
@@ -194,31 +195,31 @@ Test that you can no longer open either of your files.
 /tmp/less mysecret
 ```
 
-And with root:
+==Even with root:==
 
 ```bash
 sudo /tmp/less hello
 ```
 
-View your new profile:
+==View your new profile:==
 
 ```bash
 sudo less /etc/apparmor.d/tmp.less
 ```
 
-View the audit log, which includes the AppArmor denials that have taken place:
+==View the audit log==, which includes the AppArmor denials that have taken place:
 
 ```bash
 sudo less /var/log/audit/audit.log
 ```
 
-Note that your profile is now in enforcing mode:
+==Note that your profile is now in enforcing mode:==
 
 ```bash
 sudo aa-status
 ```
 
-Change your profile into complain mode so that the denials are logged but not enforced.
+==Change your profile into complain mode== so that the denials are logged but not enforced.
 
 ```bash
 sudo aa-complain /tmp/less
@@ -226,27 +227,29 @@ sudo aa-complain /tmp/less
 
 AppArmor has a learning mode to make rule construction easier. During learning mode, AppArmor logs all the denials (either in enforcing more or complaining mode) then when you are ready it steps you through each of the things the program did, with the option to add to the profile rules.
 
-Run:
+==Run:==
 
 ```bash
 sudo aa-genprof /tmp/less
 ```
 
-Leave that running and (in a separate console) run less to view some files.
+==Leave that running and (in a separate console) run less to view some files.==
 
-When you are finished, go back to your running aa-genprof and press "S" to scan the audit log for rules.
+When you are finished, go back to your running aa-genprof and ==press "S"== to scan the audit log for rules.
 
 The aa-genprof will ask you whether to add various rules to your profile. You should choose to accept all the access attempts that you deem appropriate (most of them, hopefully!). If you opened your mysecret file, you should not add that to the rules.
 
 Note that you can "deny" access to a file, but you can also choose to "ignore" those files, because anything not explicitly granted by the AppArmor profile will be denied.
 
-Change your profile into enforce mode so that the denials are enforced.
+Also note that there is an option to have rules only grant permission when the user is the owner of the file, which is not always what you want.
+
+==Change your profile into enforce mode so that the denials are enforced:==
 
 ```bash
 sudo aa-enforce /tmp/less
 ```
 
-Update and test to create a profile that enables /tmp/less to access hello, and any files in your Documents folder, while denying access to your mysecret file.
+==Update and test== to create a profile that enables /tmp/less to access hello, and any files in your Documents folder, while denying access to your mysecret file.
 
 If you edit profiles directly, you can reload profiles with:
 
