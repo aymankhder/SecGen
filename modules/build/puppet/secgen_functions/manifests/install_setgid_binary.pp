@@ -8,8 +8,12 @@ define secgen_functions::install_setgid_binary (
   $account, # User account
   $flag, # ctf flag string
   $flag_name, # ctf flag name
+  $port = 0, # Optional: Provide a port to run the binary over
+  $c_file = '', # Optional: compile from a c file at the given path
+  $gcc_params = '', #Optional: compile using the parameter string provided
   $binary_path     = '', # Optional : Provide the path to a binary file that has already been compiled
-  $storage_dir     = '', # Optional: Storage directory (takes precedent if supplied, e.g. nfs / smb share dir)
+  $storage_dir     = '', # Optional: Storage directory (takes precedent if supplied, e.g. nfs / smb share dir).
+  $share_dir       = '', # Optional: Copy the compiled binary and the .c file to this directory.
   $strings_to_leak = [''], # Optional: strings to leak (could contain instructions or a message)
 ) {
 
@@ -48,6 +52,7 @@ define secgen_functions::install_setgid_binary (
         source_module_name => $source_module_name,
         binary_directory   => $outer_bin_path,
         challenge_name     => $challenge_name,
+        gcc_params         => $gcc_params,
         notify             => Secgen_functions::Create_directory["create_$challenge_directory"]
       }
     } else { # point to an existing binary to move

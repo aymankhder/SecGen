@@ -27,6 +27,8 @@
   <read_fact>compile_flags</read_fact>
   <!-- storage_directory: Blank by default. If supplied, store the files here. e.g. NFS or SMB storage location -->
   <read_fact>storage_directory</read_fact>
+  <!-- storage_directory: Blank by default. If supplied, copy the binary and the .c file (if provided) here. -->
+  <read_fact>share_dir</read_fact>
 
   <default_input into="challenge_name">
     <value>exploit_me</value>

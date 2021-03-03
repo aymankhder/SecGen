@@ -1,0 +1,14 @@
+#include <stdio.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <signal.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <string.h>
+
+int main(int argc, char* argv[]) {
+  char buff[1024];
+  strcpy(buff, argv[1]);
+  printf("input:%s\n", buff);
+  return 0;
+}

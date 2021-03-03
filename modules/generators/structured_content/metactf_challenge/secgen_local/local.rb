@@ -19,6 +19,7 @@ class MetaCTFChallengeGenerator < StringGenerator
   attr_accessor :flag
   attr_accessor :group
   attr_accessor :existing_challenges
+  attr_accessor :copy_directory
 
   def initialize
     super
@@ -27,6 +28,8 @@ class MetaCTFChallengeGenerator < StringGenerator
     self.difficulty = ''
     self.flag = ''
     self.group = ''
+    self.copy_directory = ''
+    self. port = ''
     self.existing_challenges = []
   end
 
@@ -36,6 +39,8 @@ class MetaCTFChallengeGenerator < StringGenerator
              ['--difficulty', GetoptLong::REQUIRED_ARGUMENT],
              ['--flag', GetoptLong::REQUIRED_ARGUMENT],
              ['--group', GetoptLong::OPTIONAL_ARGUMENT],
+             ['--copy_directory', GetoptLong::OPTIONAL_ARGUMENT],
+             ['--port', GetoptLong::OPTIONAL_ARGUMENT],
              ['--existing_challenges', GetoptLong::OPTIONAL_ARGUMENT]]
   end
 
@@ -50,6 +55,10 @@ class MetaCTFChallengeGenerator < StringGenerator
       self.flag << arg;
     when '--group'
       self.group << arg;
+    when '--copy_directory'
+      self.copy_directory << arg;
+    when '--port'
+      self.port << arg;
     when '--existing_challenges'
       self.existing_challenges << arg;
     end
@@ -98,7 +107,7 @@ class MetaCTFChallengeGenerator < StringGenerator
       self.group = SecureRandom.hex.slice(1..8)
     end
 
-    outputs << {'challenge_name' => challenge[:path].split('/')[-1], 'challenge_path' => challenge[:path], 'flag' => self.flag, 'group' => self.group }.to_json
+    outputs << {'challenge_name' => challenge[:path].split('/')[-1], 'challenge_path' => challenge[:path], 'flag' => self.flag, 'group' => self.group, 'copy_destination' => self.copy_destination, 'port' => self.port }.to_json
 
   end
 
