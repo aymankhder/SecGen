@@ -16,6 +16,7 @@
   <reference>https://thefengs.com/wuchang/papers/3gse15metactf.pdf</reference>
   <reference>https://bitbucket.org/wuchangfeng/metactf</reference>
 
+  <read_fact>account</read_fact>
   <read_fact>challenge_list</read_fact>
   <read_fact>include_scaffolding</read_fact>
 
