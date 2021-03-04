@@ -66,7 +66,7 @@ class MetaCTFChallengeGenerator < StringGenerator
   end
 
   def generate
-    candidate_challenges = src_angr + src_csp + src_malware
+    candidate_challenges = src_angr + src_csp + src_malware + src_sse
 
     # Exclusion list to remove duplicate challenges from the candidate pool
     if self.existing_challenges != []
@@ -221,7 +221,7 @@ class MetaCTFChallengeGenerator < StringGenerator
      {:difficulty => 'hard', :path => 'src_malware/Ch18-21/Ch21x64_ParamsStack'}]
   end
 
-  def src_malware
+  def src_sse
     [{:difficulty => 'easy', :path => 'src_sse/Ch1-2/Ch2_03_IntOverflow'},
      {:difficulty => 'medium', :path => 'src_sse/Ch3-ExtraFormatStr/Ch3_Format0_Leak'},
      {:difficulty => 'medium', :path => 'src_sse/Ch3-ExtraFormatStr/Ch3_Format1_LeakDollar'},
@@ -238,6 +238,7 @@ class MetaCTFChallengeGenerator < StringGenerator
      {:difficulty => 'medium', :path => 'src_sse/Ch3.7-3.9/Ch3_07_ScanfOverflow'},
      {:difficulty => 'medium', :path => 'src_sse/Ch3.7-3.9/Ch3_07_StackSmash'},
      {:difficulty => 'medium', :path => 'src_sse/SSE/Ch_BashInjection_1'},
+     {:difficulty => 'medium', :path => 'src_sse/SSE/Ch_simple_BOF_1'},
      {:difficulty => 'medium', :path => 'src_sse/SSE/Ch_Fuzz_1'},
      {:difficulty => 'medium', :path => 'src_sse/SSE/Ch_Fuzz_2'}
    ]
