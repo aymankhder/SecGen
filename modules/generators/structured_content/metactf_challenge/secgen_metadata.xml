@@ -21,8 +21,12 @@
   <read_fact>difficulty</read_fact>
   <read_fact>flag</read_fact>
   <read_fact>group</read_fact>
+
   <!-- optional -->
+<!--  This can take either a string (absolute path to copy to) or an account structure data object (JSON/ruby hash).
+ String copies directly to the path, account copies to the user's home directory. -->
   <read_fact>copy_destination</read_fact>
+<!--  If provided, will server the challenge over the network on the port-->
   <read_fact>port</read_fact>
 
   <!-- Array of challenge hashes. If provided by the scenario, the generator will not provide a duplicate challenge. -->
