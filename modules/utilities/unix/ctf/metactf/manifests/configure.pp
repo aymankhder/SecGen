@@ -22,6 +22,8 @@ class metactf::configure {
     $challenge_path = $challenge['challenge_path']
     $group = $challenge['group']
     $flag = $challenge['flag']
+    $copy_directory = $challenge['copy_directory']
+    $port = $challenge['port']
 
     $split_challenge = split($challenge_path, '/')
     $metactf_challenge_category = $split_challenge[0]
@@ -59,6 +61,8 @@ class metactf::configure {
       flag_name          => 'flag',
       binary_path        => $binary_path,
       storage_dir        => $storage_dir,
+      copy_directory     => $copy_directory,
+      port               => $port,
     }
   }
 }
