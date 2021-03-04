@@ -29,7 +29,6 @@ class MetaCTFChallengeGenerator < StringGenerator
     self.difficulty = ''
     self.flag = ''
     self.group = ''
-    self.setuid = false
     self.copy_directory = ''
     self.port = ''
     self.existing_challenges = []
@@ -41,7 +40,6 @@ class MetaCTFChallengeGenerator < StringGenerator
              ['--difficulty', GetoptLong::REQUIRED_ARGUMENT],
              ['--flag', GetoptLong::REQUIRED_ARGUMENT],
              ['--group', GetoptLong::OPTIONAL_ARGUMENT],
-             ['--setuid', GetoptLong::OPTIONAL_ARGUMENT],
              ['--copy_directory', GetoptLong::OPTIONAL_ARGUMENT],
              ['--port', GetoptLong::OPTIONAL_ARGUMENT],
              ['--existing_challenges', GetoptLong::OPTIONAL_ARGUMENT]]
@@ -62,8 +60,6 @@ class MetaCTFChallengeGenerator < StringGenerator
       self.copy_directory << arg;
     when '--port'
       self.port << arg;
-    when '--setuid'
-      self.setuid = true
     when '--existing_challenges'
       self.existing_challenges << arg;
     end
