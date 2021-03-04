@@ -20,6 +20,7 @@ class MetaCTFChallengeGenerator < StringGenerator
   attr_accessor :group
   attr_accessor :existing_challenges
   attr_accessor :copy_directory
+  attr_accessor :port
 
   def initialize
     super
@@ -29,7 +30,7 @@ class MetaCTFChallengeGenerator < StringGenerator
     self.flag = ''
     self.group = ''
     self.copy_directory = ''
-    self. port = ''
+    self.port = ''
     self.existing_challenges = []
   end
 
