@@ -34,7 +34,7 @@ class metactf::configure {
     # src_csp: /tmp/metactf/src_csp/Ch1-2/Ch1_Ltrace/obj/secgen/Ch1_Ltrace
     # src_malware: /tmp/metactf/src_malware/Ch01-08/Ch01StatA_Readelf/obj/secgen/Ch01StatA_Readelf
 
-    if $metactf_challenge_type == 'angr'{
+    if $metactf_challenge_type == 'angr' {
       $binary_path = "$install_dir/$metactf_challenge_category/obj/secgen/angr/$challenge_name"
     } else {
       $binary_path = "$install_dir/$challenge_path/obj/secgen/$challenge_name"
@@ -61,7 +61,7 @@ class metactf::configure {
       flag_name          => 'flag',
       binary_path        => $binary_path,
       storage_dir        => $storage_dir,
-      copy_directory     => $copy_directory,
+      share_dir          => $copy_directory,
       port               => $port,
     }
   }
