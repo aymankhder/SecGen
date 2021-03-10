@@ -239,6 +239,7 @@ class MetaCTFChallengeGenerator < StringGenerator
      {:difficulty => 'medium', :path => 'src_sse/Ch3.7-3.9/Ch3_07_StackSmash'},
      {:difficulty => 'medium', :path => 'src_sse/SSE/Ch_BashInjection_1'},
      {:difficulty => 'medium', :path => 'src_sse/SSE/Ch_simple_BOF_1'},
+     {:difficulty => 'medium', :path => 'src_sse/SSE/Ch_simple_BOF_2'},
      {:difficulty => 'medium', :path => 'src_sse/SSE/Ch_Fuzz_1'},
      {:difficulty => 'medium', :path => 'src_sse/SSE/Ch_Fuzz_2'}
    ]
