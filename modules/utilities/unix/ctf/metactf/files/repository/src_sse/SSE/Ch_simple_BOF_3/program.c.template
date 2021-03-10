@@ -8,9 +8,10 @@
 
 void vuln(){
   char buff[AAAAAA];
-  int some;
-  int extra;
-  int data;
+  int some = 1;
+  int extra = 3;
+  int data = 3;
+  int here = 7;
 
   scanf("%s", &buff);
   printf("input:%s\n", buff);
