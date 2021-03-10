@@ -10,12 +10,11 @@ void get_shell() {
     system("/bin/sh");
 }
 
-int main(int argc, char* argv[]) {
-  char buff[1024];
+int main(int argc) {
+  char buff[64];
   printf("This challenge has no password -- you need to exploit a weakness to access the flag\n");
   printf("Spawn a shell using this program, then read the flag file.\n\n");
-
-  strcpy(buff, argv[1]);
+  scanf("%s", &buff);
   printf("input:%s\n", buff);
   return 0;
 }
