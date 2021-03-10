@@ -1,0 +1,1 @@
+include edb-debugger::install
