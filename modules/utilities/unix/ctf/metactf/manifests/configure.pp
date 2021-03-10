@@ -52,7 +52,7 @@ class metactf::configure {
       }
     }
 
-    ::secgen_functions::install_setgid_binary { "metactf_$challenge_name":
+    ::secgen_functions::install_setgid_binary { "metactf_$challenge_name$group":
       source_module_name => $module_name,
       challenge_name     => $challenge_name,
       group              => $group,
