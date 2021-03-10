@@ -7,7 +7,7 @@
 #include <string.h>
 
 int main(int argc, char* argv[]) {
-  char buff[64];
+  char buff[AAAAAA];
   printf("This challenge has no password -- you need to exploit a weakness to access the flag\n");
   printf("Spawn a shell using this program, then read the flag file.\n\n");
   scanf("%s", &buff);
