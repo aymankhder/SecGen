@@ -1,4 +1,4 @@
-class edb-debugger::install {
+class edb_debugger::install {
   package { 'edb-debugger':
     ensure => installed,
   }
