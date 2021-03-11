@@ -3,18 +3,12 @@
 <utility xmlns="http://www.github/cliffe/SecGen/utility"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://www.github/cliffe/SecGen/utility">
-  <name>Disable ASLR Windows</name>
+  <name>Disable ASLR Linux</name>
   <author>Z. Cliffe Schreuders</author>
   <module_license>MIT</module_license>
-  <description>Disables ASLR for windows.</description>
+  <description>Disable ASLR for windows.</description>
 
   <type>mitigations</type>
-  <platform>windows</platform>
-
-  <!-- for now we just make all windows modules conflict with linux bases -->
-  <conflict>
-    <module_path>bases/.*</module_path>
-    <platform>linux</platform>
-  </conflict>
+  <platform>linux</platform>
 
 </utility>
