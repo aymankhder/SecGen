@@ -12,13 +12,12 @@ void get_shell() {
 
 void vuln() {
   char buff[AAAAAA];
-  scanf("%s", &buff);
+  gets(buff);
   printf("input:%s\n", buff);
   fflush(stdout);
 }
 
 int main(int argc, char* argv[]) {
-  char jmp[] = "\xFF\xE4";
   printf("This challenge has no password -- you need to exploit a weakness to access the flag\n");
   printf("Spawn a shell using this program, then read the flag file.\n\n");
   fflush(stdout);
