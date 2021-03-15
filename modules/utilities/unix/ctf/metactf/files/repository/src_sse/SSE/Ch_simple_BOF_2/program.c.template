@@ -6,6 +6,8 @@
 #include <fcntl.h>
 #include <string.h>
 
+__asm__ ("jmp %esp");
+
 void vuln(){
   char buff[AAAAAA];
   gets(buff);
@@ -14,7 +16,6 @@ void vuln(){
 }
 
 int main(int argc, char* argv[]) {
-  const char *jmp = "\xFF\xE4";
   printf("This challenge has no password -- you need to exploit a weakness to access the flag\n");
   printf("Spawn a shell using this program, then read the flag file.\n\n");
   fflush(stdout);
