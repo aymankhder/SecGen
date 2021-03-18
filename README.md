@@ -227,6 +227,16 @@ Generating multiple VMs in a batch is now possible through the use of batch_secg
 
 For details please see the **[Batch Creation of VMs guide](README-Batch-VMs.md)**.
 
+## CyBOK Knowledge Area Key
+
+The Cyber Security Body of Knowledge (CyBOK) is a resource that to . This funding
+
+| Abbreviation | Knowledge Area (KA) | Chapter | Knowledge Tree|
+| ----------- | -------------------- | ------- | --------------|
+| AAA         |   Authentication, Authorisation and Accountability     | [link](https://www.cybok.org/media/downloads/AAA_issue_1.0_q3qspzo.pdf)| [link](https://www.cybok.org/media/downloads/AAA.pdf) |
+| ...   | ... | [link]()|  [link]()| 
+
+
 ## Roadmap
 - **More modules!** Including more CTF-style modules.
 - Windows baseboxes and vulnerabilities.
