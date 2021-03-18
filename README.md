@@ -233,12 +233,7 @@ The Cyber Security Body of Knowledge (CyBOK) is a body of knowledge that aims to
 Scenarios within SecGen now contain XML elements linking them to CyBOK knowledge areas and specific topics within those knowledge areas.
 Additionally, video content and readings for each scenario are tagged with their CyBOK associations. It can be assumed that the video/readings 'inherit' the taggings from the parent scenario by default. Where the content diverges from the parent scenario's tags, content-wide tags may be added.
 
-
-
-# TODO: Update me with a real scenario file
 As an example, see [cybok_example.xml](scenarios/examples/cybok_example.xml)   
-# TODO: Update me with a real scenario file
-
   
 The table below is a key for the abbreviations you will find within the CyBOK XML elements within the scenarios:     
 
