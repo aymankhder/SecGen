@@ -12,8 +12,11 @@
         <xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
         <xs:element name="type" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
         <xs:element name="difficulty" type="xs:string" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="CyBOK" type="CyBOKType" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="video" type="VideoType" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="reading" type="ReadingType" minOccurs="0" maxOccurs="unbounded" />
 
-        <xs:element name='system' type='SystemType' minOccurs='1' maxOccurs='unbounded' />
+        <xs:element name='system' type='SystemType' minOccurs='0' maxOccurs='unbounded' />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -37,6 +40,34 @@
     <xs:attribute name='unique_module_list' type='xs:string'/>
 
   </xs:complexType>
+
+  <xs:complexType name="CyBOKType">
+    <xs:sequence>
+      <xs:element name="topic" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="keyword" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name='KA' type='xs:string'/>
+  </xs:complexType>
+
+  <xs:complexType name="VideoType">
+    <xs:sequence>
+      <xs:element name="url" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="title" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="description" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+      <xs:element name="CyBOK" type="CyBOKType" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+    <xs:attribute name='KA' type='xs:string'/>
+  </xs:complexType>
+
+  <xs:complexType name="ReadingType">
+    <xs:sequence>
+      <xs:element name="url" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="title" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="CyBOK" type="CyBOKType" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+    <xs:attribute name='KA' type='xs:string'/>
+  </xs:complexType>
+
   <xs:complexType name="SystemType">
     <xs:sequence>
       <xs:element name="system_name" minOccurs="1" maxOccurs="1">
