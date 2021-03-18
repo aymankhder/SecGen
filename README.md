@@ -229,13 +229,42 @@ For details please see the **[Batch Creation of VMs guide](README-Batch-VMs.md)*
 
 ## CyBOK Knowledge Area Key
 
-The Cyber Security Body of Knowledge (CyBOK) is a resource that to . This funding
+The Cyber Security Body of Knowledge (CyBOK) is a body of knowledge that aims to encapsulate the various knowledge areas present within cyber security.
+Scenarios within SecGen now contain XML elements linking them to CyBOK knowledge areas and specific topics within those knowledge areas.
+Additionally, video content and readings for each scenario are tagged with their CyBOK associations. It can be assumed that the video/readings 'inherit' the taggings from the parent scenario by default. Where the content diverges from the parent scenario's tags, content-wide tags may be added.
+
+
+
+# TODO: Update me with a real scenario file
+As an example, see [cybok_example.xml](scenarios/examples/cybok_example.xml)   
+# TODO: Update me with a real scenario file
+
+  
+The table below is a key for the abbreviations you will find within the CyBOK XML elements within the scenarios:     
 
 | Abbreviation | Knowledge Area (KA) | Chapter | Knowledge Tree|
 | ----------- | -------------------- | ------- | --------------|
-| AAA         |   Authentication, Authorisation and Accountability     | [link](https://www.cybok.org/media/downloads/AAA_issue_1.0_q3qspzo.pdf)| [link](https://www.cybok.org/media/downloads/AAA.pdf) |
-| ...   | ... | [link]()|  [link]()| 
-
+| IC   |   Introduction to CyBOK | [link](https://www.cybok.org/media/downloads/Introduction_to_CyBOK.pdf)| [link](https://www.cybok.org/media/downloads/CyBOK_introduction.pdf) |
+| FM   | Formal Methods | n/a |  [link](https://www.cybok.org/media/downloads/Formal_Methods_for_Security_VK6XZwO.pdf)|
+| RMG   | Risk Management & Governance | [link](https://www.cybok.org/media/downloads/Risk-Management--Governance-issue-1.0.pdf)|  [link](https://www.cybok.org/media/downloads/Risk_Management__Governancev2.pdf)|
+| LR   | Law & Regulation | [link](https://www.cybok.org/media/downloads/Law__Regulation_issue_1.0.pdf)|  [link](https://www.cybok.org/media/downloads/Law__Regulation.pdf)|
+| HF   | Human Factors | [link](https://www.cybok.org/media/downloads/Human_Factors_issue_1.0.pdf)|  [link](https://www.cybok.org/media/downloads/Human_Factors.pdf)|
+| POR   | Privacy & Online Rights | [link](https://www.cybok.org/media/downloads/Privacy__Online_Rights_issue_1.0_FNULPeI.pdf)|  [link](https://www.cybok.org/media/downloads/Privacy__Online_Rights.pdf)|
+| MAT   | Malware & Attack Technologies | [link](https://www.cybok.org/media/downloads/Malware__Attack_Technology_issue_1.0.pdf)|  [link](https://www.cybok.org/media/downloads/Malware__Attack_Technologies.pdf)|
+| AB   | Adversarial Behaviours | [link](https://www.cybok.org/media/downloads/Malware__Attack_Technology_issue_1.0.pdf)|  [link](https://www.cybok.org/media/downloads/Adversarial_Behaviours.pdf)|
+| SOIM   | Security Operations & Incident Management | [link](https://www.cybok.org/media/downloads/Security_Operations__Incident_Management_issue_1.0.pdf)|  [link](https://www.cybok.org/media/downloads/Security_Operations__Incident_Management.pdf)|
+| F   | Forensics | [link](https://www.cybok.org/media/downloads/Forensics_issue_1.0.pdf)|  [link](https://www.cybok.org/media/downloads/Forensics.pdf)|
+| C   | Cryptography | [link](https://www.cybok.org/media/downloads/Cryptography-issue-1.0.pdf)|  [link](https://www.cybok.org/media/downloads/Cryptography.pdf)| 
+| OSVS   | Operating Systems & Virtualisation Security | [link](https://www.cybok.org/media/downloads/Operating_Systems__Virtualisation_Security_issue_1.0_xhesi5S.pdf)|  [link](https://www.cybok.org/media/downloads/Operating_Systems__Virtualisation_Security.pdf)| 
+| DSS   | Distributed Systems Security | [link](https://www.cybok.org/media/downloads/Distributed_Systems_Security_issue_1.0.pdf)|  [link](https://www.cybok.org/media/downloads/Distributed_Systems_Security.pdf)| 
+| AAA         |   Authentication, Authorisation and Accountability | [link](https://www.cybok.org/media/downloads/AAA_issue_1.0_q3qspzo.pdf)| [link](https://www.cybok.org/media/downloads/AAA.pdf) |
+| SS   | Software Security | [link](https://www.cybok.org/media/downloads/Software_Security_issue_1.0_1M7Kfk2.pdf)|  [link](https://www.cybok.org/media/downloads/Software_Security.pdf)| 
+| WMS   | Web & Mobile Security | [link](https://www.cybok.org/media/downloads/Web__Mobile_Security_issue_1.0_XFpbYNz.pdf)|  [link](https://www.cybok.org/media/downloads/Web__Mobile_Security.pdf)| 
+| SSL   | Secure Software Lifecycle | [link](https://www.cybok.org/media/downloads/Secure_Software_Lifecycle_issue_1.0.pdf)|  [link](https://www.cybok.org/media/downloads/Secure_Software_Lifecycle.pdf)| 
+| NS   | Network Security | [link](https://www.cybok.org/media/downloads/Network_Security_issue_1.0_qsCh0SR.pdf)|  [link](https://www.cybok.org/media/downloads/Network_Security.pdf)| 
+| HS   | Hardware Security | [link](https://www.cybok.org/media/downloads/Hardware_Security_issue_1.0.pdf)|  [link](https://www.cybok.org/media/downloads/Hardware_Security.pdf)| 
+| CPS   | Cyber Physical Systems | [link](https://www.cybok.org/media/downloads/Cyber-Physical_Systems_Security_issue_1.0.pdf)|  [link](https://www.cybok.org/media/downloads/Cyber_Physical_Systems_Security.pdf)| 
+| PLTS   | Physical Layer and Telecommunications Security | [link](https://www.cybok.org/media/downloads/Physical_Layer__Telecommunications_Security_issue_1.0.pdf)|  [link](https://www.cybok.org/media/downloads/Physical_Layer__Telecomms_Security.pdf)| 
 
 ## Roadmap
 - **More modules!** Including more CTF-style modules.
