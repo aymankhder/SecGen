@@ -112,7 +112,7 @@ class MetaCTFChallengeGenerator < StringGenerator
       self.group = SecureRandom.hex.slice(1..8)
     end
 
-    outputs << {'challenge_name' => challenge[:path].split('/')[-1], 'challenge_path' => challenge[:path], 'flag' => self.flag, 'group' => self.group, 'copy_directory' => self.copy_directory, 'port' => self.port }.to_json
+    outputs << {'challenge_name' => challenge[:path].split('/')[-1], 'challenge_path' => challenge[:path], 'flag' => self.flag, 'group' => self.group, 'copy_directory' => self.copy_directory, 'port' => self.port, 'include_c' => self.include_c }.to_json
 
   end
 
