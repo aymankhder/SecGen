@@ -10,7 +10,6 @@ if [[ ARGC -gt 0 ]] then
     DD=`echo $USER $SALT $BINNAME | sha512sum | sum | cut -c 4-5 | awk '{printf "%d",$1+40}'`
     cat program.c.template | sed s/AAAAAA/$AA/ | sed s/BBBBBB/$BB/ | sed s/CCCCCC/$CC/ | sed s/DDDDDD/$DD/ >! program.c
     gcc -o obj/$USER/$BINNAME program.c
-    rm program.c
   end
 else
   echo "USAGE: build.zsh <user_email(s)>"

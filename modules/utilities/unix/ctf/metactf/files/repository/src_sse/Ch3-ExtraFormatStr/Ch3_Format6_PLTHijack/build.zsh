@@ -10,7 +10,6 @@ if [[ ARGC -gt 0 ]] then
 		cat program.c.template >! program.c
 		gcc -m32 -Wformat=0 -Wno-stack-protector -Wl,--section-start=.text=0x$AA -o obj/$USER/$BINNAME program.c
 	end
-	rm program.c
 else
 	echo "USAGE: build.zsh <user_email(s)>"
 fi

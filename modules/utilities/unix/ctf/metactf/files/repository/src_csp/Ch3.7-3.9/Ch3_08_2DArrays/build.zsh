@@ -14,7 +14,6 @@ if [[ ARGC -gt 0 ]] then
     cat program.c.template | sed s/AAAAAA/$AA/g | sed s/BBBBBB/$BB/g | sed s/CCCCCC/$CC/g | sed s/JUMPAA/$JUMPAA/g | sed s/JUMPBB/$JUMPBB/g | sed s/JUMPCC/$JUMPCC/g >! program.c
     gcc -mno-align-double -o obj/$USER/$BINNAME program.c
   end
-  rm program.c
 else
   echo "USAGE: build.zsh <user_email(s)>"
 fi
