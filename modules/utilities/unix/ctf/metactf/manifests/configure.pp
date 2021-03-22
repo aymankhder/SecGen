@@ -66,12 +66,7 @@ class metactf::configure {
       port               => $port,
     }
 
-    notice("include_c: $include_c")
-    notice("include_c: $include_c")
-    notice("include_c: $include_c")
-    notice("include_c: $include_c")
-    if $include_c.downcase() == "true" {
-
+    if $include_c {
       notice("include_c: \"$storage_dir/$challenge_name/program.c\"")
       file { "$storage_dir/$challenge_name/program.c":
         source => "$install_dir/$challenge_path/obj/secgen/program.c",
