@@ -6,12 +6,8 @@
 #include <fcntl.h>
 #include <string.h>
 
-void get_shell() {
-    execve("/bin/sh", NULL, NULL);
-}
-
 void vuln() {
-  char buff[AAAAAA];
+  char buff[8];
   gets(buff);
   printf("input:%s\n", buff);
   fflush(stdout);
