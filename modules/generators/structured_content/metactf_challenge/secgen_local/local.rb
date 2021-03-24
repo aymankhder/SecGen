@@ -21,6 +21,7 @@ class MetaCTFChallengeGenerator < StringGenerator
   attr_accessor :existing_challenges
   attr_accessor :copy_directory
   attr_accessor :port
+  attr_accessor :include_c
 
   def initialize
     super
@@ -42,6 +43,7 @@ class MetaCTFChallengeGenerator < StringGenerator
              ['--group', GetoptLong::OPTIONAL_ARGUMENT],
              ['--copy_directory', GetoptLong::OPTIONAL_ARGUMENT],
              ['--port', GetoptLong::OPTIONAL_ARGUMENT],
+             ['--include_c', GetoptLong::OPTIONAL_ARGUMENT],
              ['--existing_challenges', GetoptLong::OPTIONAL_ARGUMENT]]
   end
 
@@ -60,6 +62,8 @@ class MetaCTFChallengeGenerator < StringGenerator
       self.copy_directory << arg;
     when '--port'
       self.port << arg;
+    when '--include_c'
+      self.include_c = (arg.to_s.downcase == "true")
     when '--existing_challenges'
       self.existing_challenges << arg;
     end
@@ -108,7 +112,7 @@ class MetaCTFChallengeGenerator < StringGenerator
       self.group = SecureRandom.hex.slice(1..8)
     end
 
-    outputs << {'challenge_name' => challenge[:path].split('/')[-1], 'challenge_path' => challenge[:path], 'flag' => self.flag, 'group' => self.group, 'copy_directory' => self.copy_directory, 'port' => self.port }.to_json
+    outputs << {'challenge_name' => challenge[:path].split('/')[-1], 'challenge_path' => challenge[:path], 'flag' => self.flag, 'group' => self.group, 'copy_directory' => self.copy_directory, 'port' => self.port, 'include_c' => self.include_c }.to_json
 
   end
 
@@ -242,8 +246,11 @@ class MetaCTFChallengeGenerator < StringGenerator
      {:difficulty => 'medium', :path => 'src_sse/SSE/Ch_simple_BOF_2'},
      {:difficulty => 'medium', :path => 'src_sse/SSE/Ch_simple_BOF_3'},
      {:difficulty => 'medium', :path => 'src_sse/SSE/Ch_Fuzz_1'},
-     {:difficulty => 'medium', :path => 'src_sse/SSE/Ch_Fuzz_2'}
-   ]
+     {:difficulty => 'medium', :path => 'src_sse/SSE/Ch_Fuzz_2'},
+     {:difficulty => 'hard', :path => 'src_sse/SSE/Ch_nx_BOF_1'},
+     {:difficulty => 'hard', :path => 'src_sse/SSE/Ch_nx_BOF_2'},
+     {:difficulty => 'hard', :path => 'src_sse/SSE/Ch_nx_BOF_3'}
+    ]
   end
 end
 

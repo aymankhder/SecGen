@@ -8,7 +8,6 @@ if [[ ARGC -gt 0 ]] then
     cat program.c.template | sed s/AAAAAA/$AA/ >! program.c
     gcc -mno-align-double -o obj/$USER/$BINNAME program.c
     #mv program.c obj/$USER/${BINNAME}.c
-    rm program.c
   end
 else
   echo "USAGE: build.zsh <user_email(s)>"

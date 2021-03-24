@@ -24,6 +24,7 @@ class metactf::configure {
     $flag = $challenge['flag']
     $copy_directory = $challenge['copy_directory']
     $port = $challenge['port']
+    $include_c = $challenge['include_c']
 
     $split_challenge = split($challenge_path, '/')
     $metactf_challenge_category = $split_challenge[0]
@@ -63,6 +64,15 @@ class metactf::configure {
       storage_dir        => $storage_dir,
       share_dir          => $copy_directory,
       port               => $port,
+    }
+
+    if $include_c {
+      notice("include_c: \"$storage_dir/$challenge_name/program.c\"")
+      file { "$storage_dir/$challenge_name/program.c":
+        source => "$install_dir/$challenge_path/program.c",
+        ensure => file,
+        path => "$storage_dir/$challenge_name/program.c",
+      }
     }
   }
 }

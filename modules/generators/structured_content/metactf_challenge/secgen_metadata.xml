@@ -27,6 +27,7 @@
   <read_fact>copy_directory</read_fact>
 <!--  If provided, will server the challenge over the network on the port-->
   <read_fact>port</read_fact>
+  <read_fact>include_c</read_fact>
 
   <!-- Array of challenge hashes. If provided by the scenario, the generator will not provide a duplicate challenge. -->
   <read_fact>existing_challenges</read_fact>
@@ -36,6 +37,9 @@
   </default_input>
   <default_input into="flag">
     <generator type="flag_generator"/>
+  </default_input>
+  <default_input into="include_c">
+    <value>false</value>
   </default_input>
 
   <output_type>generated_strings</output_type>

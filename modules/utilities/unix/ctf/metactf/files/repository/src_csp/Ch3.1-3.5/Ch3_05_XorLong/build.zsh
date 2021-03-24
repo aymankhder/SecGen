@@ -12,7 +12,6 @@ if [[ ARGC -gt 0 ]] then
     cat program.c.template | sed s/AAAAAA/0x$AA/ | sed s/BBBBBB/0x$BB/ >! program.c
     gcc -o obj/$USER/$BINNAME program.c
   end
-  rm program.c
 else
   echo "USAGE: build.zsh <user_email(s)>"
 fi

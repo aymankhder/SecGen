@@ -9,7 +9,6 @@ if [[ ARGC -gt 0 ]] then
     gcc -S -o obj/$USER/${BINNAME}.s program.c
     gcc -o obj/$USER/${BINNAME} program.c
   end
-  rm program.c
 else
   echo "USAGE: build.zsh <user_email(s)>"
 fi
