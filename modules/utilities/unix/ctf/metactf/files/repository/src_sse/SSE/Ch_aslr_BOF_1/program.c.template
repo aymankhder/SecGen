@@ -8,6 +8,10 @@
 
 __asm__ ("jmp %esp");
 
+void get_shell() {
+    execve("/bin/sh", NULL, NULL);
+}
+
 void vuln(){
   char buff[AAAAAA];
 
