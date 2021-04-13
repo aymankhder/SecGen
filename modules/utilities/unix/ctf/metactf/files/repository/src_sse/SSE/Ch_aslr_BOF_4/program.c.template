@@ -23,8 +23,8 @@ void vuln(){
 int main(int argc, char* argv[]) {
   printf("This challenge has no password -- you need to exploit a weakness to access the flag\n");
   printf("Spawn a shell using this program, then read the flag file.\n\n");
-  printf("Use return-oriented-programming to launch a shell!\n\n");
-
+  printf("Try launch /bin/sh");
+  printf("\n\n");
   fflush(stdout);
   
   setregid(getegid(), getegid());

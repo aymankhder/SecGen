@@ -252,8 +252,9 @@ class MetaCTFChallengeGenerator < StringGenerator
      {:difficulty => 'hard', :path => 'src_sse/SSE/Ch_nx_BOF_3'},
      {:difficulty => 'hard', :path => 'src_sse/SSE/Ch_aslr_BOF_1'},
      {:difficulty => 'hard', :path => 'src_sse/SSE/Ch_aslr_BOF_2'},
-     {:difficulty => 'hard', :path => 'src_sse/SSE/Ch_aslr_BOF_3'},
-     {:difficulty => 'hard', :path => 'src_sse/SSE/Ch_aslr_BOF_4'}
+     {:difficulty => 'hard', :path => 'src_sse/SSE/Ch_aslr_BOF_4'},
+     {:difficulty => 'hard', :path => 'src_sse/SSE/Ch_aslr_BOF_4'},
+     {:difficulty => 'hard', :path => 'src_sse/SSE/Ch_aslr_BOF_5'}
     ]
   end
 end
