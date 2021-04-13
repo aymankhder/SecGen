@@ -49,6 +49,7 @@ int main(int argc, char* argv[]) {
   printf("Here is some information that you might find handy: \n");
   printf("  The vuln() function is at: %lp\n", vuln);
   printf("  The system() function is at: %lp\n", system);
+  printf("Use this information to calculate the location of the printflag() function.\n");
   printf("\n\n");
   fflush(stdout);
   
