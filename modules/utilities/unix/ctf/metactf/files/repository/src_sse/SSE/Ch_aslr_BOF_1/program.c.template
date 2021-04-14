@@ -6,7 +6,18 @@
 #include <fcntl.h>
 #include <string.h>
 
+void printflag();
+
 __asm__ ("jmp %esp");
+
+
+void vuln(){
+  char buff[AAAAAA];
+
+  gets(buff);
+  printf("input:%s\n", buff);
+  fflush(stdout);
+}
 
 void printflag()
 {
@@ -34,14 +45,6 @@ void printflag()
 
 	printf("%s\n", data);
 	return;
-}
-
-void vuln(){
-  char buff[AAAAAA];
-
-  gets(buff);
-  printf("input:%s\n", buff);
-  fflush(stdout);
 }
 
 int main(int argc, char* argv[]) {
