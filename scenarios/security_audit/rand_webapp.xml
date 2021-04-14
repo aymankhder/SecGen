@@ -48,7 +48,12 @@
       <input into="sqli">
         <generator module_path=".*sqli_template">
           <input into="difficulty">
-            <value>easy</value>
+            <encoder type="string_selector">
+              <input into="strings_to_encode">
+                <value>easy</value>
+                <value>medium</value>
+              </input>
+            </encoder>
           </input>
           <input into="table_headings">
             <datastore>customer_feedback_table_headings</datastore>
@@ -59,7 +64,12 @@
       <input into="search">
         <generator module_path=".*xss_search_template">
           <input into="difficulty">
-            <value>easy</value>
+            <encoder type="string_selector">
+              <input into="strings_to_encode">
+                <value>easy</value>
+                <value>medium</value>
+              </input>
+            </encoder>
           </input>
           <input into="blacklist">
             <generator module_path=".*xss_blacklist" />
