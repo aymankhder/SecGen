@@ -6,8 +6,9 @@
 #include <fcntl.h>
 #include <string.h>
 
-__asm__ ("jmp %esp");
+void printflag();
 
+__asm__ ("jmp %esp");
 void printflag()
 {
 	int fd;
@@ -33,6 +34,8 @@ void printflag()
 	close(fd);
 
 	printf("%s\n", data);
+    fflush(stdout);
+
 	return;
 }
 

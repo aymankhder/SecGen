@@ -10,15 +10,6 @@ void printflag();
 
 __asm__ ("jmp %esp");
 
-
-void vuln(){
-  char buff[AAAAAA];
-
-  gets(buff);
-  printf("input:%s\n", buff);
-  fflush(stdout);
-}
-
 void printflag()
 {
 	int fd;
@@ -44,7 +35,16 @@ void printflag()
 	close(fd);
 
 	printf("%s\n", data);
-	return;
+    fflush(stdout);
+    return;
+}
+
+void vuln(){
+  char buff[AAAAAA];
+
+  gets(buff);
+  printf("input:%s\n", buff);
+  fflush(stdout);
 }
 
 int main(int argc, char* argv[]) {
