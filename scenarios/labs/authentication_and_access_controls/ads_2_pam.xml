@@ -24,6 +24,19 @@ A short lab this week, exploring PAM. Work through the labsheet, then when promp
   <type>lab-sheet</type>
   <difficulty>intermediate</difficulty>
 
+	<CyBOK KA="AAA">
+		<topic>Authentication</topic>
+		<keyword>identity management</keyword>
+		<keyword>user authentication</keyword>
+		<keyword>facets of authentication</keyword>
+	</CyBOK>
+	<CyBOK KA="OSVS">
+		<topic>Primitives for Isolation and Mediation</topic>
+		<keyword>authentication and identification</keyword>
+		<keyword>Linux authentication</keyword>
+		<keyword>Authentication frameworks (PAM)</keyword>
+	</CyBOK>
+
 	<system>
 		<system_name>desktop</system_name>
 		<base distro="Debian 10" type="desktop" name="KDE"/>

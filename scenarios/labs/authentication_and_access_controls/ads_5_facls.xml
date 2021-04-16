@@ -25,6 +25,19 @@ A Hackerbot lab. Work through the labsheet, then when prompted interact with Hac
   <type>lab-sheet</type>
   <difficulty>intermediate</difficulty>
 
+	<CyBOK KA="AAA">
+		<topic>Authorisation</topic>
+		<keyword>access control</keyword>
+		<keyword>ACCESS CONTROL LIST (ACL)</keyword>
+		<keyword>Vulnerabilities and attacks on access control misconfigurations</keyword>
+	</CyBOK>
+	<CyBOK KA="OSVS">
+		<topic>Primitives for Isolation and Mediation</topic>
+		<keyword>Access controls and operating systems</keyword>
+		<keyword>Linux security model</keyword>
+		<keyword>Linux Extended Access Control Lists (facl)</keyword>
+	</CyBOK>
+
 	<system>
 		<system_name>shared_desktop</system_name>
 		<base distro="Debian 10" type="desktop" name="KDE"/>
