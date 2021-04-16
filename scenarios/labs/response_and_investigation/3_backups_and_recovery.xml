@@ -13,6 +13,13 @@
   <type>lab-sheet</type>
   <difficulty>intermediate</difficulty>
 
+	<CyBOK KA="SOIM">
+		<topic>Execute: Mitigation and Countermeasures</topic>
+		<keyword>Recover data and services after an incident</keyword>
+		<keyword>BACKUP - DIFFERENTIAL</keyword>
+		<keyword>BACKUP - INFERENTIAL</keyword>
+	</CyBOK>
+
 	<system>
 		<system_name>desktop</system_name>
 		<base distro="Debian 10" type="desktop" name="KDE"/>

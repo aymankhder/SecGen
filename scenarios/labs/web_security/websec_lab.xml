@@ -10,6 +10,44 @@
 
   <type>lab-environment</type>
 
+	<!-- comprehensive web set training frameworks: WebGoat and DVWA -->
+	<CyBOK KA="WMS">
+		<topic>Fundamental Concepts and Approaches</topic>
+		<keyword>web PKI and HTTPS</keyword>
+		<keyword>authentication</keyword>
+		<keyword>cookies</keyword>
+		<keyword>passwords and alternatives</keyword>
+		<keyword>JAVASCRIPT / HYPERTEXT MARKUP LANGUAGE (HTML) / CASCADING STYLE SHEETS (CSS) / HYPERTEXT TRANSFER PROTOCOL (HTTP)
+		COOKIES</keyword>
+		<keyword>HYPERTEXT TRANSFER PROTOCOL (HTTP) - PROXYING</keyword>
+		<keyword>Broken Access Control / Insecure Direct Object References</keyword>
+		<keyword>SESSION HIJACKING</keyword>
+		<keyword>REPRESENTATIONAL STATE TRANSFER (REST)</keyword>
+	</CyBOK>
+	<CyBOK KA="WMS">
+		<topic>Client-Side Vulnerabilities and Mitigations</topic>
+		<keyword>client-side storage</keyword>
+		<keyword>CLIENT-SIDE VALIDATION</keyword>
+		<keyword>clickjacking</keyword>
+	</CyBOK>
+	<CyBOK KA="WMS">
+		<topic>Client-Side Vulnerabilities and Mitigations</topic>
+		<keyword>client-side storage</keyword>
+		<keyword>CLIENT-SIDE VALIDATION</keyword>
+		<keyword>clickjacking</keyword>
+	</CyBOK>
+  <CyBOK KA="WMS">
+		<topic>Server-Side Vulnerabilities and Mitigations</topic>
+		<keyword>injection vulnerabilities</keyword>
+		<keyword>server-side misconfiguration and vulnerable components</keyword>
+		<keyword>CROSS-SITE SCRIPTING (XSS)</keyword>
+		<keyword>SAME ORIGIN POLICY (SOP)</keyword>
+		<keyword>COMMAND INJECTION</keyword>
+		<keyword>SQL-INJECTION</keyword>
+		<keyword>CROSS-SITE REQUEST FORGERY (CSRF)</keyword>
+		<keyword>CONFUSED DEPUTY ATTACKS</keyword>
+	</CyBOK>
+
 	<system>
 		<system_name>kali</system_name>
 		<base distro="Kali" name="MSF"/>

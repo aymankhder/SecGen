@@ -13,6 +13,27 @@
   <type>lab-sheet</type>
   <difficulty>intermediate</difficulty>
 
+	<CyBOK KA="F">
+		<topic>Main Memory Forensics</topic>
+		<keyword>process information</keyword>
+		<keyword>file information</keyword>
+		<keyword>network connections</keyword>
+		<keyword>artifacts and fragments</keyword>
+		<keyword>challenges of live forensics</keyword>
+	</CyBOK>
+	<CyBOK KA="OSVS">
+		<topic>OS Hardening</topic>
+		<keyword>anomaly detection</keyword>
+	</CyBOK>
+	<CyBOK KA="AAA">
+		<topic>Accountability</topic>
+		<keyword>The fallibility of digital evidence to tampering</keyword>
+	</CyBOK>
+	<CyBOK KA="MAT">
+		<topic>Malware Detection</topic>
+		<keyword>identifying the presence of malware</keyword>
+	</CyBOK>
+
 	<system>
 		<system_name>desktop</system_name>
 		<base distro="Debian 10" type="desktop" name="KDE"/>

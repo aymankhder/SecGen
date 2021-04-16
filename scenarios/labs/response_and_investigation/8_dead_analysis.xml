@@ -13,6 +13,21 @@
   <type>lab-sheet</type>
   <difficulty>intermediate</difficulty>
 
+	<CyBOK KA="F">
+		<topic>Operating System Analysis</topic>
+		<keyword>storage forensics</keyword>
+		<keyword>data recovery and file content carving</keyword>
+		<keyword>Timeline analysis</keyword>
+	</CyBOK>
+	<CyBOK KA="MAT">
+		<topic>Malware Detection</topic>
+		<keyword>identifying the presence of malware</keyword>
+	</CyBOK>
+	<CyBOK KA="AAA">
+		<topic>Accountability</topic>
+		<keyword>The fallibility of digital evidence to tampering</keyword>
+	</CyBOK>
+
 	<system>
 		<system_name>desktop</system_name>
 		<base distro="Debian 10" type="desktop" name="KDE"/>
