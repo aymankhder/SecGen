@@ -28,6 +28,15 @@ Chapter 1 "An Overview of Computer Security": Bishop, M. (2005), Introduction to
   <type>lab-sheet</type>
   <difficulty>easy</difficulty>
 
+	<CyBOK KA="NS">
+		<topic>Network Protocols and Vulnerability</topic>
+		<keyword>common network attacks</keyword>
+	</CyBOK>
+	<CyBOK KA="SOIM">
+		<topic>PENETRATION TESTING</topic>
+		<keyword>PENETRATION TESTING - SOFTWARE TOOLS</keyword>
+	</CyBOK>
+
 	<system>
 		<system_name>desktop</system_name>
 		<base distro="Debian 10" type="desktop" name="KDE"/>

@@ -21,6 +21,21 @@ This week we learn how to scan networks to get an understanding of and to map ou
   <type>lab-sheet</type>
   <difficulty>easy</difficulty>
 
+	<CyBOK KA="MAT">
+		<topic>Malicious Activities by Malware</topic>
+		<keyword>cyber kill chain</keyword>
+	</CyBOK>
+	<CyBOK KA="NS">
+		<topic>PENETRATION TESTING</topic>
+		<keyword>PENETRATION TESTING - NETWORK MAPPING - FINGERPRINTING</keyword>
+		<keyword>PENETRATION TESTING - NETWORK MAPPING - NMAP</keyword>
+		<keyword>PENETRATION TESTING - NETWORK MAPPING - PING</keyword>
+	</CyBOK>
+	<CyBOK KA="SOIM">
+		<topic>PENETRATION TESTING</topic>
+		<keyword>PENETRATION TESTING - NETWORK MAPPING - RECONNAISSANCE</keyword>
+		<keyword>PENETRATION TESTING - SOFTWARE TOOLS</keyword>
+	</CyBOK>
 
 	<system>
 		<system_name>linux_victim_server</system_name>

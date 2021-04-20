@@ -20,6 +20,17 @@ The topic of information gathering spans two weeks, and covers practical steps t
 [Lab sheet here](https://docs.google.com/document/d/1Whs4c_mN7fFjtrYgg_uzmCGBH_EYjr7fTAgoM-OZTqQ/edit?usp=sharing).
 	</description>
 
+	<CyBOK KA="NS">
+		<topic>PENETRATION TESTING</topic>
+		<keyword>PENETRATION TESTING - DNS ZONE TRANSFER</keyword>
+		<keyword>EXPLOITATION FRAMEWORKS</keyword>
+	</CyBOK>
+	<CyBOK KA="SOIM">
+		<topic>PENETRATION TESTING</topic>
+		<keyword>PENETRATION TESTING - NETWORK MAPPING - RECONNAISSANCE</keyword>
+		<keyword>PENETRATION TESTING - SOFTWARE TOOLS</keyword>
+	</CyBOK>
+
   <type>lab-sheet</type>
   <difficulty>easy</difficulty>
 
