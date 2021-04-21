@@ -28,12 +28,10 @@ Chapter 1 "An Overview of Computer Security": Bishop, M. (2005), Introduction to
   <type>lab-sheet</type>
   <difficulty>easy</difficulty>
 
-	<CyBOK KA="NS">
-		<topic>Network Protocols and Vulnerability</topic>
+	<CyBOK KA="NS" topic="Network Protocols and Vulnerability">
 		<keyword>common network attacks</keyword>
 	</CyBOK>
-	<CyBOK KA="SOIM">
-		<topic>PENETRATION TESTING</topic>
+	<CyBOK KA="SOIM" topic="PENETRATION TESTING">
 		<keyword>PENETRATION TESTING - SOFTWARE TOOLS</keyword>
 	</CyBOK>
 

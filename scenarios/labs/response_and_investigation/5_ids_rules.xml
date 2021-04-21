@@ -13,23 +13,19 @@
   <type>lab-sheet</type>
   <difficulty>intermediate</difficulty>
 
-	<CyBOK KA="SOIM">
-		<topic>Monitor: Data Sources</topic>
+	<CyBOK KA="SOIM" topic="Monitor: Data Sources">
 		<keyword>network traffic</keyword>
 	</CyBOK>
-	<CyBOK KA="SOIM">
-		<topic>Analyse: Analysis Methods</topic>
+	<CyBOK KA="SOIM" topic="Analyse: Analysis Methods">
 		<keyword>misuse detection</keyword>
 		<keyword>anomaly detection</keyword>
 	</CyBOK>
-	<CyBOK KA="NS">
-		<topic>Network Defence Tools</topic>
+	<CyBOK KA="NS" topic="Network Defence Tools">
 		<keyword>packet filters</keyword>
 		<keyword>intrusion detection systems</keyword>
 		<keyword>IDS rules creation</keyword>
 	</CyBOK>
-	<CyBOK KA="MAT">
-		<topic>Malware Detection</topic>
+	<CyBOK KA="MAT" topic="Malware Detection">
 		<keyword>attack detection</keyword>
 	</CyBOK>
 

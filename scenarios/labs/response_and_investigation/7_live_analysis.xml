@@ -13,24 +13,20 @@
   <type>lab-sheet</type>
   <difficulty>intermediate</difficulty>
 
-	<CyBOK KA="F">
-		<topic>Main Memory Forensics</topic>
+	<CyBOK KA="F" topic="Main Memory Forensics">
 		<keyword>process information</keyword>
 		<keyword>file information</keyword>
 		<keyword>network connections</keyword>
 		<keyword>artifacts and fragments</keyword>
 		<keyword>challenges of live forensics</keyword>
 	</CyBOK>
-	<CyBOK KA="OSVS">
-		<topic>OS Hardening</topic>
+	<CyBOK KA="OSVS" topic="OS Hardening">
 		<keyword>anomaly detection</keyword>
 	</CyBOK>
-	<CyBOK KA="AAA">
-		<topic>Accountability</topic>
+	<CyBOK KA="AAA" topic="Accountability">
 		<keyword>The fallibility of digital evidence to tampering</keyword>
 	</CyBOK>
-	<CyBOK KA="MAT">
-		<topic>Malware Detection</topic>
+	<CyBOK KA="MAT" topic="Malware Detection">
 		<keyword>identifying the presence of malware</keyword>
 	</CyBOK>
 

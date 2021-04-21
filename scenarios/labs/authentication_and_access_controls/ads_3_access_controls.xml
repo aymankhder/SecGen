@@ -24,23 +24,20 @@ A Hackerbot lab. Work through the labsheet, then when prompted interact with Hac
   <type>lab-sheet</type>
   <difficulty>intermediate</difficulty>
 
-	<CyBOK KA="AAA">
-		<topic>Authorisation</topic>
+	<CyBOK KA="AAA" topic="Authorisation">
 		<keyword>access control</keyword>
 		<keyword>enforcing access control</keyword>
 		<keyword>ACCESS CONTROL - DAC (DISCRETIONARY ACCESS CONTROL)</keyword>
 		<keyword>Vulnerabilities and attacks on access control misconfigurations</keyword>
 	</CyBOK>
-	<CyBOK KA="OSVS">
-		<topic>Primitives for Isolation and Mediation</topic>
+	<CyBOK KA="OSVS" topic="Primitives for Isolation and Mediation">
 		<keyword>Access controls and operating systems</keyword>
 		<keyword>Linux security model</keyword>
 		<keyword>Unix File Permissions</keyword>
 		<keyword>filesystems, inodes, and commands</keyword>
 		<keyword>umask</keyword>
 	</CyBOK>
-	<CyBOK KA="OSVS">
-		<topic>Role of Operating Systems</topic>
+	<CyBOK KA="OSVS" topic="Role of Operating Systems">
 		<keyword>mediation</keyword>
 	</CyBOK>
 

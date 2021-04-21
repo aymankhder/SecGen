@@ -13,18 +13,15 @@
   <type>lab-sheet</type>
   <difficulty>intermediate</difficulty>
 
-	<CyBOK KA="F">
-		<topic>Operating System Analysis</topic>
+	<CyBOK KA="F" topic="Operating System Analysis">
 		<keyword>storage forensics</keyword>
 		<keyword>data recovery and file content carving</keyword>
 		<keyword>Timeline analysis</keyword>
 	</CyBOK>
-	<CyBOK KA="MAT">
-		<topic>Malware Detection</topic>
+	<CyBOK KA="MAT" topic="Malware Detection">
 		<keyword>identifying the presence of malware</keyword>
 	</CyBOK>
-	<CyBOK KA="AAA">
-		<topic>Accountability</topic>
+	<CyBOK KA="AAA" topic="Accountability">
 		<keyword>The fallibility of digital evidence to tampering</keyword>
 	</CyBOK>
 

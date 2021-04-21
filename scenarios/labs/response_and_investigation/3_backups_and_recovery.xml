@@ -13,8 +13,7 @@
   <type>lab-sheet</type>
   <difficulty>intermediate</difficulty>
 
-	<CyBOK KA="SOIM">
-		<topic>Execute: Mitigation and Countermeasures</topic>
+	<CyBOK KA="SOIM" topic="Execute: Mitigation and Countermeasures">
 		<keyword>Recover data and services after an incident</keyword>
 		<keyword>BACKUP - DIFFERENTIAL</keyword>
 		<keyword>BACKUP - INFERENTIAL</keyword>

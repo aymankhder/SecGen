@@ -13,16 +13,13 @@
   <type>lab-sheet</type>
   <difficulty>intermediate</difficulty>
 
-	<CyBOK KA="F">
-		<topic>Artifact Analysis</topic>
+	<CyBOK KA="F" topic="Artifact Analysis">
 		<keyword>cryptographic hashing</keyword>
 	</CyBOK>
-	<CyBOK KA="SOIM">
-		<topic>Monitor: Data Sources</topic>
+	<CyBOK KA="SOIM" topic="Monitor: Data Sources">
 		<keyword>MONITORING - FILE INTEGRITY CHECKERS</keyword>
 	</CyBOK>
-	<CyBOK KA="OSVS">
-		<topic>OS Hardening</topic>
+	<CyBOK KA="OSVS" topic="OS Hardening">
 		<keyword>code and data integrity checks</keyword>
 	</CyBOK>
 

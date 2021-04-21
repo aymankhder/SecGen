@@ -12,8 +12,7 @@
 	<type>ctf-lab</type>
 
 	<!-- comprehensive web set training frameworks: WebGoat and DVWA -->
-	<CyBOK KA="WMS">
-		<topic>Fundamental Concepts and Approaches</topic>
+	<CyBOK KA="WMS" topic="Fundamental Concepts and Approaches">
 		<keyword>web PKI and HTTPS</keyword>
 		<keyword>authentication</keyword>
 		<keyword>cookies</keyword>
@@ -25,20 +24,17 @@
 		<keyword>SESSION HIJACKING</keyword>
 		<keyword>REPRESENTATIONAL STATE TRANSFER (REST)</keyword>
 	</CyBOK>
-	<CyBOK KA="WMS">
-		<topic>Client-Side Vulnerabilities and Mitigations</topic>
+	<CyBOK KA="WMS" topic="Client-Side Vulnerabilities and Mitigations">
 		<keyword>client-side storage</keyword>
 		<keyword>CLIENT-SIDE VALIDATION</keyword>
 		<keyword>clickjacking</keyword>
 	</CyBOK>
-	<CyBOK KA="WMS">
-		<topic>Client-Side Vulnerabilities and Mitigations</topic>
+	<CyBOK KA="WMS" topic="Client-Side Vulnerabilities and Mitigations">
 		<keyword>client-side storage</keyword>
 		<keyword>CLIENT-SIDE VALIDATION</keyword>
 		<keyword>clickjacking</keyword>
 	</CyBOK>
-  <CyBOK KA="WMS">
-		<topic>Server-Side Vulnerabilities and Mitigations</topic>
+  <CyBOK KA="WMS" topic="Server-Side Vulnerabilities and Mitigations">
 		<keyword>injection vulnerabilities</keyword>
 		<keyword>server-side misconfiguration and vulnerable components</keyword>
 		<keyword>CROSS-SITE SCRIPTING (XSS)</keyword>
@@ -48,13 +44,11 @@
 		<keyword>CROSS-SITE REQUEST FORGERY (CSRF)</keyword>
 		<keyword>CONFUSED DEPUTY ATTACKS</keyword>
 	</CyBOK>
-  <CyBOK KA="SS">
-		<topic>Categories of Vulnerabilities</topic>
+  <CyBOK KA="SS" topic="Categories of Vulnerabilities">
 		<keyword>Web vulnerabilities / OWASP Top 10</keyword>
 		<keyword>API vulnerabilities</keyword>
 	</CyBOK>
-  <CyBOK KA="SS">
-		<topic>Prevention of Vulnerabilities</topic>
+  <CyBOK KA="SS" topic="Prevention of Vulnerabilities">
 		<keyword>coding practices</keyword>
 		<keyword>Protecting against session management attacks, XSS, SQLi, CSRF</keyword>
 		<keyword>API design</keyword>

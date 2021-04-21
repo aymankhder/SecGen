@@ -24,15 +24,13 @@ A Hackerbot lab. Work through the labsheet, then when prompted interact with Hac
   <type>lab-sheet</type>
   <difficulty>intermediate</difficulty>
 
-	<CyBOK KA="AAA">
-		<topic>Authorisation</topic>
+	<CyBOK KA="AAA" topic="Authorisation">
 		<keyword>access control</keyword>
 		<keyword>Elevated privileges</keyword>
 		<keyword>Real and effective identity</keyword>
 		<keyword>Vulnerabilities and attacks on access control misconfigurations</keyword>
 	</CyBOK>
-	<CyBOK KA="OSVS">
-		<topic>Primitives for Isolation and Mediation</topic>
+	<CyBOK KA="OSVS" topic="Primitives for Isolation and Mediation">
 		<keyword>Access controls and operating systems</keyword>
 		<keyword>Linux security model</keyword>
 		<keyword>Unix File Permissions</keyword>

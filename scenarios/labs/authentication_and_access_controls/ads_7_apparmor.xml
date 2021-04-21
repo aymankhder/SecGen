@@ -29,20 +29,18 @@ A Hackerbot lab. Work through the labsheet, then when prompted interact with Hac
   <type>lab-sheet</type>
   <difficulty>intermediate</difficulty>
 
-	<CyBOK KA="AAA">
-		<topic>Authorisation</topic>
+	<CyBOK KA="AAA" topic="Authorisation">
 		<keyword>ACCESS CONTROL - MAC (MANDATORY ACCESS CONTROL)</keyword>
 		<keyword>ACCESS CONTROL - NDAC (NON-DISCRETIONARY ACCESS CONTROL)</keyword>
 		<keyword>Application-based access controls: user-based access controls insufficiently limit privileges</keyword>
 		<keyword>Rule-based sandboxes</keyword>
 	</CyBOK>
-	<CyBOK KA="OSVS">
-		<topic>Primitives for Isolation and Mediation</topic>
+	<CyBOK KA="OSVS" topic="Primitives for Isolation and Mediation">
     <keyword>Rule-based controls: Fine grained: AppArmor</keyword>
 		<keyword>Vulnerabilities and attacks on sandboxing misconfigurations</keyword>
 	</CyBOK>
-  <CyBOK KA="SS">
-    <topic>Mitigating Exploitation</topic>
+  <CyBOK KA="SS" topic=">
+    <topic>Mitigating Exploitation">
     <keyword>limiting privileges</keyword>
   </CyBOK>
 

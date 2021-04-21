@@ -24,25 +24,23 @@ A Hackerbot lab. Work through the labsheet, then when prompted interact with Hac
   <type>lab-sheet</type>
   <difficulty>intermediate</difficulty>
 
-	<CyBOK KA="AAA">
-		<topic>Authorisation</topic>
+	<CyBOK KA="AAA" topic="Authorisation">
 		<keyword>SANDBOX</keyword>
 		<keyword>Application-based access controls: user-based access controls insufficiently limit privileges</keyword>
 	</CyBOK>
-	<CyBOK KA="OSVS">
-		<topic>Primitives for Isolation and Mediation</topic>
+	<CyBOK KA="OSVS" topic="Primitives for Isolation and Mediation">
     <keyword>capabilities</keyword>
 		<keyword>Container-based sandboxes: chroot, Docker</keyword>
     <keyword>Rule-based controls: Course grained: Linux capabilities</keyword>
     <keyword>Vulnerabilities and attacks on sandboxing misconfigurations</keyword>
 	</CyBOK>
-  <CyBOK KA="OSVS">
-    <topic>Role of Operating Systems</topic>
+  <CyBOK KA="OSVS" topic=">
+    <topic>Role of Operating Systems">
     <keyword>isolation</keyword>
     <keyword>CONTAINERS</keyword>
   </CyBOK>
-  <CyBOK KA="WMS">
-    <topic>Fundamental Concepts and Approaches</topic>
+  <CyBOK KA="WMS" topic=">
+    <topic>Fundamental Concepts and Approaches">
     <keyword>sandboxing</keyword>
   </CyBOK>
 

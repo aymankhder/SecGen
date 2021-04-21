@@ -13,13 +13,11 @@
   <type>lab-sheet</type>
   <difficulty>intermediate</difficulty>
 
-	<CyBOK KA="AAA">
-		<topic>Authorisation</topic>
+	<CyBOK KA="AAA" topic="Authorisation">
 		<keyword>access control</keyword>
 		<keyword>Protecting integrity</keyword>
 	</CyBOK>
-	<CyBOK KA="OSVS">
-		<topic>Primitives for Isolation and Mediation</topic>
+	<CyBOK KA="OSVS" topic="Primitives for Isolation and Mediation">
 		<keyword>Linux read only protections: ro mounts, file attributes</keyword>
 	</CyBOK>
 
