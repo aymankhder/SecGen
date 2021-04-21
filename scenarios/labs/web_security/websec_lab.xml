@@ -9,6 +9,7 @@
   <description>An environment for web security labs. Kali Linux with Damn Vulnerable Web App server, WebGoat, and web sec tools. </description>
 
   <type>lab-environment</type>
+	<type>ctf-lab</type>
 
 	<!-- comprehensive web set training frameworks: WebGoat and DVWA -->
 	<CyBOK KA="WMS">
