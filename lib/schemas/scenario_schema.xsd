@@ -51,21 +51,23 @@
 
   <xs:complexType name="VideoType">
     <xs:sequence>
-      <xs:element name="url" type="xs:string" minOccurs="1" maxOccurs="1"/>
       <xs:element name="title" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="by" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="url" type="xs:string" minOccurs="1" maxOccurs="1"/>
       <xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
       <xs:element name="CyBOK" type="CyBOKType" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="type" type="xs:string" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
-    <xs:attribute name="type" type="xs:string"/>
   </xs:complexType>
 
   <xs:complexType name="ReadingType">
     <xs:sequence>
-      <xs:element name="url" type="xs:string" minOccurs="1" maxOccurs="1"/>
       <xs:element name="title" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="by" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="url" type="xs:string" minOccurs="1" maxOccurs="1"/>
       <xs:element name="CyBOK" type="CyBOKType" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="type" type="xs:string" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
-    <xs:attribute name="type" type="xs:string"/>
   </xs:complexType>
 
   <xs:complexType name="SystemType">

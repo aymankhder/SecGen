@@ -30,8 +30,10 @@
 
 	<!-- Zero to many videos, with zero to many CyBOK areas: -->
 	<video>
-		<url>www.example.com</url>
 		<title>A video!</title>
+		<by>Somebody</by>
+		<url>www.example.com</url>
+		<type>lecture-prerecorded</type>
 		<description>This is the text section of the video description.</description>
 		<CyBOK KA="OSV" topic="OS Security Principles">
 			<keyword>security models</keyword>
@@ -40,8 +42,9 @@
 
 	<!-- Zero to many readings, with zero to many CyBOK areas: -->
 	<reading>
-		<url>www.example2.com</url>
 		<title>An article to read</title>
+		<by>Somebody</by>
+		<url>www.example2.com</url>
 		<CyBOK KA="OSV" topic="OS Security Principles">
 			<keyword>security models</keyword>
 		</CyBOK>

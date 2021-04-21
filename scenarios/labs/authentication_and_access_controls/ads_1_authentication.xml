@@ -8,10 +8,6 @@
   <author>Z. Cliffe Schreuders</author>
   <description>
 # Lecture
-[Click here to watch the lecture authentication part 1](https://leedsbeckettreplay.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=c5ea9ea3-b8c2-4949-a251-a9e500ad23f4)
-
-[Click here to watch authentication part 2](https://leedsbeckettreplay.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=c49f1c3a-1688-4013-b1a8-a9ec00a5a30f)
-
 [Slides here](http://z.cliffe.schreuders.org/presentations/slides/1718/ADS_slides_out_week_6/WNS_ADS_Lectures_5_Authentication.html)
 
 # Reading
@@ -37,6 +33,63 @@ A Hackerbot lab. Work through the lab instructions, then when prompted interact 
 		<keyword>Linux authentication</keyword>
 		<keyword>Types of user accounts</keyword>
 	</CyBOK>
+
+	<video>
+		<title>User accounts and Linux</title>
+		<by>Z. Cliffe Schreuders</by>
+		<url>https://youtu.be/2I_JSdTu-oI</url>
+		<type>lecture-prerecorded</type>
+		<CyBOK KA="AAA" topic="Authentication">
+			<keyword>user authentication</keyword>
+		</CyBOK>
+		<CyBOK KA="OSVS" topic="Primitives for Isolation and Mediation">
+			<keyword>authentication and identification</keyword>
+			<keyword>Linux authentication</keyword>
+			<keyword>Types of user accounts</keyword>
+		</CyBOK>
+	</video>
+	<video>
+		<title>Passwords Part 1 Hashing and salt</title>
+		<by>Z. Cliffe Schreuders</by>
+		<url>https://youtu.be/pGcJEML1mRo</url>
+		<type>lecture-prerecorded</type>
+		<CyBOK KA="AAA" topic="Authentication">
+			<keyword>user authentication</keyword>
+			<keyword>Cryptography and authentication (hashes and attacks against authentication schemes / passwords)</keyword>
+		</CyBOK>
+		<CyBOK KA="OSVS" topic="Primitives for Isolation and Mediation">
+			<keyword>authentication and identification</keyword>
+			<keyword>Linux authentication</keyword>
+		</CyBOK>
+	</video>
+	<video>
+		<title>Passwords Part 2 Attacks and Countermeasures</title>
+		<by>Z. Cliffe Schreuders</by>
+		<url>https://youtu.be/icC2Zrno_uM</url>
+		<type>lecture-prerecorded</type>
+		<CyBOK KA="AAA" topic="Authentication">
+			<keyword>user authentication</keyword>
+			<keyword>Cryptography and authentication (hashes and attacks against authentication schemes / passwords)</keyword>
+		</CyBOK>
+		<CyBOK KA="OSVS" topic="Primitives for Isolation and Mediation">
+			<keyword>authentication and identification</keyword>
+			<keyword>Linux authentication</keyword>
+		</CyBOK>
+	</video>
+	<video>
+		<title>Password cracking with Johnny</title>
+		<by>Z. Cliffe Schreuders</by>
+		<url>https://youtu.be/Wrg6XZu6Luw</url>
+		<type>demo-prerecorded</type>
+		<CyBOK KA="AAA" topic="Authentication">
+			<keyword>user authentication</keyword>
+			<keyword>Cryptography and authentication (hashes and attacks against authentication schemes / passwords)</keyword>
+		</CyBOK>
+		<CyBOK KA="OSVS" topic="Primitives for Isolation and Mediation">
+			<keyword>authentication and identification</keyword>
+			<keyword>Linux authentication</keyword>
+		</CyBOK>
+	</video>
 
 	<system>
 		<system_name>desktop</system_name>
