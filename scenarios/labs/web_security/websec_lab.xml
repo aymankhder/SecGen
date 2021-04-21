@@ -47,6 +47,17 @@
 		<keyword>CROSS-SITE REQUEST FORGERY (CSRF)</keyword>
 		<keyword>CONFUSED DEPUTY ATTACKS</keyword>
 	</CyBOK>
+  <CyBOK KA="SS">
+		<topic>Categories of Vulnerabilities</topic>
+		<keyword>Web vulnerabilities / OWASP Top 10</keyword>
+		<keyword>API vulnerabilities</keyword>
+	</CyBOK>
+  <CyBOK KA="SS">
+		<topic>Prevention of Vulnerabilities</topic>
+		<keyword>coding practices</keyword>
+		<keyword>Protecting against session management attacks, XSS, SQLi, CSRF</keyword>
+		<keyword>API design</keyword>
+	</CyBOK>
 
 	<system>
 		<system_name>kali</system_name>
