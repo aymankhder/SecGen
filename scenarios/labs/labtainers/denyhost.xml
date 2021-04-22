@@ -12,6 +12,18 @@
   <type>lab-sheet</type>
   <difficulty>intermediate</difficulty>
 
+  <CyBOK KA="NS" topic="Network Defence Tools">
+    <keyword>packet filters</keyword>
+    <keyword>intrusion detection systems</keyword>
+    <keyword>intrusion prevention systems</keyword>
+  </CyBOK>
+  <CyBOK KA="SOIM" topic="Execute: Mitigation and Countermeasures">
+    <keyword>intrusion prevention systems</keyword>
+  </CyBOK>
+  <CyBOK KA="SOIM" topic="CM (CONFIGURATION MANAGEMENT)">
+    <keyword>SSH (SECURE SHELL)</keyword>
+  </CyBOK>
+
   <system>
     <system_name>desktop</system_name>
     <base distro="Debian 9" type="desktop" name="KDE"/>

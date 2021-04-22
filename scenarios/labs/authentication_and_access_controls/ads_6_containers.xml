@@ -34,13 +34,11 @@ A Hackerbot lab. Work through the labsheet, then when prompted interact with Hac
     <keyword>Rule-based controls: Course grained: Linux capabilities</keyword>
     <keyword>Vulnerabilities and attacks on sandboxing misconfigurations</keyword>
 	</CyBOK>
-  <CyBOK KA="OSVS" topic=">
-    <topic>Role of Operating Systems">
+  <CyBOK KA="OSVS" topic="Role of Operating Systems">
     <keyword>isolation</keyword>
     <keyword>CONTAINERS</keyword>
   </CyBOK>
-  <CyBOK KA="WMS" topic=">
-    <topic>Fundamental Concepts and Approaches">
+  <CyBOK KA="WMS" topic="Fundamental Concepts and Approaches">
     <keyword>sandboxing</keyword>
   </CyBOK>
 

@@ -39,8 +39,7 @@ A Hackerbot lab. Work through the labsheet, then when prompted interact with Hac
     <keyword>Rule-based controls: Fine grained: AppArmor</keyword>
 		<keyword>Vulnerabilities and attacks on sandboxing misconfigurations</keyword>
 	</CyBOK>
-  <CyBOK KA="SS" topic=">
-    <topic>Mitigating Exploitation">
+  <CyBOK KA="SS" topic="Mitigating Exploitation">
     <keyword>limiting privileges</keyword>
   </CyBOK>
 
