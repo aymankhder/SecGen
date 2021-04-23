@@ -12,6 +12,14 @@
   <type>lab-sheet</type>
   <difficulty>intermediate</difficulty>
 
+  <CyBOK KA="OSVS" topic="Primitives for Isolation and Mediation">
+    <keyword>capabilities</keyword>
+    <keyword>Rule-based controls: Course grained: Linux capabilities</keyword>
+  </CyBOK>
+  <CyBOK KA="SOIM" topic="Monitor: Data Sources">
+    <keyword>network traffic</keyword>
+  </CyBOK>
+
   <system>
     <system_name>desktop</system_name>
     <base distro="Debian 9" type="desktop" name="KDE"/>

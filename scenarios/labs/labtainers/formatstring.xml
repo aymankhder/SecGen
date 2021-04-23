@@ -12,6 +12,16 @@
   <type>lab-sheet</type>
   <difficulty>intermediate</difficulty>
 
+  <CyBOK KA="MAT" topic="Attacks and exploitation">
+    <keyword>EXPLOITATION</keyword>
+    <keyword>Exploit development</keyword>
+    <keyword>Mitigation bypass: ASLR</keyword>
+  </CyBOK>
+  <CyBOK KA="SS" topic="Categories of Vulnerabilities">
+    <keyword>memory management vulnerabilities</keyword>
+    <keyword>Format string attacks</keyword>
+  </CyBOK>
+
   <system>
     <system_name>desktop</system_name>
     <base distro="Debian 9" type="desktop" name="KDE"/>

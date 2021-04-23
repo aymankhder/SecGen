@@ -12,6 +12,13 @@
   <type>lab-sheet</type>
   <difficulty>intermediate</difficulty>
 
+<!--TODO-->
+  <CyBOK KA="SOIM" topic="Monitor: Data Sources">
+    <keyword>application logs: web server logs and files</keyword>
+    <keyword>system and kernel logs</keyword>
+    <keyword>Syslog</keyword>
+  </CyBOK>
+
   <system>
     <system_name>desktop</system_name>
     <base distro="Debian 9" type="desktop" name="KDE"/>
