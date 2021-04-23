@@ -12,6 +12,13 @@
   <type>lab-sheet</type>
   <difficulty>intermediate</difficulty>
 
+  <CyBOK KA="C" topic="Schemes">
+    <keyword>TLS</keyword>
+  </CyBOK>
+  <CyBOK KA="NS" topic="Internet Architecture">
+    <keyword>transport layer security</keyword>
+  </CyBOK>
+
   <system>
     <system_name>desktop</system_name>
     <base distro="Debian 9" type="desktop" name="KDE"/>

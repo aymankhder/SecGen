@@ -12,6 +12,13 @@
   <type>lab-sheet</type>
   <difficulty>intermediate</difficulty>
 
+  <CyBOK KA="AAA" topic="Authorisation">
+    <keyword>access control</keyword>
+  </CyBOK>
+  <CyBOK KA="NS" topic="PENETRATION TESTING">
+    <keyword>PENETRATION TESTING - NETWORK MAPPING - PING</keyword>
+  </CyBOK>
+
   <system>
     <system_name>desktop</system_name>
     <base distro="Debian 9" type="desktop" name="KDE"/>

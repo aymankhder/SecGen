@@ -12,6 +12,21 @@
   <type>lab-sheet</type>
   <difficulty>intermediate</difficulty>
 
+  <CyBOK KA="C" topic="Public-Key Cryptography">
+    <keyword>public-key encryption</keyword>
+    <keyword>public-key signatures</keyword>
+  </CyBOK>
+  <CyBOK KA="CPS" topic="Cyber-Physical Systems">
+    <keyword>characteristics</keyword>
+    <keyword>security and privacy concerns</keyword>
+  </CyBOK>
+  <CyBOK KA="CPS" topic="Cyber-Physical Systems Domains">
+    <keyword>industrial control systems</keyword>
+  </CyBOK>
+  <CyBOK KA="HF" topic="Fitting the Task to the Human">
+    <keyword>device capabilities and limitations</keyword>
+  </CyBOK>
+
   <system>
     <system_name>desktop</system_name>
     <base distro="Debian 9" type="desktop" name="KDE"/>

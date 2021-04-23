@@ -12,6 +12,14 @@
   <type>lab-sheet</type>
   <difficulty>intermediate</difficulty>
 
+  <CyBOK KA="F" topic="Main Memory Forensics">
+    <keyword>network connections</keyword>
+    <keyword>data recovery and file content carving</keyword>
+  </CyBOK>
+  <CyBOK KA="SOIM" topic="Monitor: Data Sources">
+    <keyword>network traffic</keyword>
+  </CyBOK>
+
   <system>
     <system_name>desktop</system_name>
     <base distro="Debian 9" type="desktop" name="KDE"/>

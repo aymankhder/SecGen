@@ -12,6 +12,23 @@
   <type>lab-sheet</type>
   <difficulty>intermediate</difficulty>
 
+  <CyBOK KA="SS" topic="Categories of Vulnerabilities">
+    <keyword>Web vulnerabilities / OWASP Top 10</keyword>
+    <keyword>API vulnerabilities</keyword>
+  </CyBOK>
+  <CyBOK KA="SS" topic="Prevention of Vulnerabilities">
+    <keyword>coding practices</keyword>
+    <keyword>Protecting against session management attacks, XSS, SQLi, CSRF</keyword>
+    <keyword>API design</keyword>
+  </CyBOK>
+  <CyBOK KA="WMS" topic="Server-Side Vulnerabilities and Mitigations">
+    <keyword>injection vulnerabilities</keyword>
+    <keyword>server-side misconfiguration and vulnerable components</keyword>
+    <keyword>SQL-INJECTION</keyword>
+  </CyBOK>
+
+
+
   <system>
     <system_name>desktop</system_name>
     <base distro="Debian 9" type="desktop" name="KDE"/>

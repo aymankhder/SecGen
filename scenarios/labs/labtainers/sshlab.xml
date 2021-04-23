@@ -12,6 +12,11 @@
   <type>lab-sheet</type>
   <difficulty>intermediate</difficulty>
 
+  <CyBOK KA="C" topic="Public-Key Cryptography">
+    <keyword>public-key encryption</keyword>
+    <keyword>public-key signatures</keyword>
+  </CyBOK>
+
   <system>
     <system_name>desktop</system_name>
     <base distro="Debian 9" type="desktop" name="KDE"/>

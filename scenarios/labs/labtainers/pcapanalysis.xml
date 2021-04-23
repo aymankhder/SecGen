@@ -12,6 +12,18 @@
   <type>lab-sheet</type>
   <difficulty>intermediate</difficulty>
 
+  <CyBOK KA="F" topic="Main Memory Forensics">
+    <keyword>network connections</keyword>
+  </CyBOK>
+  <CyBOK KA="NS" topic="OSI (OPEN SYSTEM INTERCONNECT) MODEL">
+    <keyword>APPLICATION LAYER</keyword>
+    <keyword>DATA LINK LAYER</keyword>
+    <keyword>NETWORK LAYER</keyword>
+  </CyBOK>
+  <CyBOK KA="SOIM" topic="Monitor: Data Sources">
+    <keyword>network traffic</keyword>
+  </CyBOK>
+
   <system>
     <system_name>desktop</system_name>
     <base distro="Debian 9" type="desktop" name="KDE"/>
