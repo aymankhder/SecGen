@@ -41,6 +41,46 @@ A Hackerbot lab. Work through the labsheet, then when prompted interact with Hac
 		<keyword>mediation</keyword>
 	</CyBOK>
 
+	<video>
+		<title>Access Controls: Introduction</title>
+		<by>Z. Cliffe Schreuders</by>
+		<url>https://youtu.be/yWJyZEFbchQ</url>
+		<type>lecture-prerecorded</type>
+		<CyBOK KA="AAA" topic="Authorisation">
+			<keyword>access control</keyword>
+			<keyword>enforcing access control</keyword>
+			<keyword>theory</keyword>
+		</CyBOK>
+		<CyBOK KA="OSVS" topic="Primitives for Isolation and Mediation">
+			<keyword>Access controls and operating systems</keyword>
+		</CyBOK>
+		<CyBOK KA="OSVS" topic="Role of Operating Systems">
+			<keyword>mediation</keyword>
+			<keyword>TRUSTED COMPUTING BASE (TCB)</keyword>
+			<keyword>REFERENCE MONITOR</keyword>
+		</CyBOK>
+	</video>
+	<video>
+		<title>Unix File Permissions</title>
+		<by>Z. Cliffe Schreuders</by>
+		<url>https://youtu.be/i0kO_3ExJv4</url>
+		<type>lecture-prerecorded</type>
+		<CyBOK KA="AAA" topic="Authorisation">
+			<keyword>access control</keyword>
+			<keyword>enforcing access control</keyword>
+			<keyword>ACCESS CONTROL - DAC (DISCRETIONARY ACCESS CONTROL)</keyword>
+		</CyBOK>
+		<CyBOK KA="OSVS" topic="Primitives for Isolation and Mediation">
+			<keyword>Access controls and operating systems</keyword>
+			<keyword>Linux security model</keyword>
+			<keyword>Unix File Permissions</keyword>
+			<keyword>filesystems, inodes, and commands</keyword>
+		</CyBOK>
+		<CyBOK KA="OSVS" topic="Role of Operating Systems">
+			<keyword>mediation</keyword>
+		</CyBOK>
+	</video>
+
 	<system>
 		<system_name>shared_desktop</system_name>
 		<base distro="Debian 10" type="desktop" name="KDE"/>

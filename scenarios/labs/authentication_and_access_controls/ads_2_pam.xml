@@ -82,16 +82,16 @@ A short lab this week, exploring PAM. Work through the labsheet, then when promp
 		<url>https://youtu.be/c2dPdQmaVyo</url>
 		<type>lecture-prerecorded</type>
 		<CyBOK KA="AAA" topic="Authentication">
+			<keyword>identity management</keyword>
 			<keyword>authentication in distributed systems</keyword>
 			<keyword>user authentication</keyword>
+			<keyword>Network based-authentication with heterogeneous Linux and Windows networks</keyword>
 		</CyBOK>
 		<CyBOK KA="AAA" topic="Authorisation">
-			<keyword>theory</keyword>
 			<keyword>AUTHORIZATION - SSO (SINGLE SIGN-ON)</keyword>
 			<keyword>AUTHORIZATION - LDAP (LIGHTWEIGHT DIRECTORY ACCESS PROTOCOL)</keyword>
 			<keyword>AUTHENTICATION - KERBEROS</keyword>
 			<keyword>ACTIVE DIRECTORY DOMAIN SERVICES (ADDS)</keyword>
-			<keyword>Network based-authentication with heterogeneous Linux and Windows networks</keyword>
 		</CyBOK>
 		<CyBOK KA="AAA" topic="Access Control in Distributed Systems">
 			<keyword>core concepts</keyword>
@@ -105,8 +105,13 @@ A short lab this week, exploring PAM. Work through the labsheet, then when promp
 		<type>lecture-prerecorded</type>
 		<CyBOK KA="AAA" topic="Authentication">
 			<keyword>identity management</keyword>
+			<keyword>authentication in distributed systems</keyword>
 			<keyword>user authentication</keyword>
-			<keyword>facets of authentication</keyword>
+		</CyBOK>
+		<CyBOK KA="AAA" topic="Authorisation">
+			<keyword>theory</keyword>
+			<keyword>Network based-authentication with heterogeneous Linux and Windows networks</keyword>
+			<keyword>AUTHORIZATION - LDAP (LIGHTWEIGHT DIRECTORY ACCESS PROTOCOL)</keyword>
 		</CyBOK>
 	</video>
 	<video>
@@ -116,8 +121,12 @@ A short lab this week, exploring PAM. Work through the labsheet, then when promp
 		<type>lecture-prerecorded</type>
 		<CyBOK KA="AAA" topic="Authentication">
 			<keyword>identity management</keyword>
+			<keyword>authentication in distributed systems</keyword>
 			<keyword>user authentication</keyword>
-			<keyword>facets of authentication</keyword>
+			<keyword>Network based-authentication with heterogeneous Linux and Windows networks</keyword>
+		</CyBOK>
+		<CyBOK KA="AAA" topic="Authorisation">
+			<keyword>AUTHENTICATION - KERBEROS</keyword>
 		</CyBOK>
 	</video>
 	<video>
@@ -127,8 +136,19 @@ A short lab this week, exploring PAM. Work through the labsheet, then when promp
 		<type>lecture-prerecorded</type>
 		<CyBOK KA="AAA" topic="Authentication">
 			<keyword>identity management</keyword>
+			<keyword>authentication in distributed systems</keyword>
 			<keyword>user authentication</keyword>
-			<keyword>facets of authentication</keyword>
+			<keyword>Network based-authentication with heterogeneous Linux and Windows networks</keyword>
+		</CyBOK>
+		<CyBOK KA="AAA" topic="Authorisation">
+			<keyword>AUTHORIZATION - SSO (SINGLE SIGN-ON)</keyword>
+			<keyword>AUTHORIZATION - LDAP (LIGHTWEIGHT DIRECTORY ACCESS PROTOCOL)</keyword>
+			<keyword>AUTHENTICATION - KERBEROS</keyword>
+			<keyword>ACTIVE DIRECTORY DOMAIN SERVICES (ADDS)</keyword>
+		</CyBOK>
+		<CyBOK KA="AAA" topic="Access Control in Distributed Systems">
+			<keyword>core concepts</keyword>
+			<keyword>federated access control</keyword>
 		</CyBOK>
 	</video>
 

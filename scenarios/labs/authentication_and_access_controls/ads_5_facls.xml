@@ -36,6 +36,39 @@ A Hackerbot lab. Work through the labsheet, then when prompted interact with Hac
 		<keyword>Linux Extended Access Control Lists (facl)</keyword>
 	</CyBOK>
 
+
+	<video>
+		<title>ACLs and Capabilities</title>
+		<by>Z. Cliffe Schreuders</by>
+		<url>https://youtu.be/Bn3NJhgmdLk</url>
+		<type>lecture-prerecorded</type>
+		<CyBOK KA="AAA" topic="Authorisation">
+			<keyword>access control</keyword>
+			<keyword>ACCESS CONTROL - MATRIX</keyword>
+			<keyword>ACCESS CONTROL LIST (ACL)</keyword>
+			<keyword>Vulnerabilities and attacks on access control misconfigurations</keyword>
+		</CyBOK>
+		<CyBOK KA="OSVS" topic="Primitives for Isolation and Mediation">
+			<keyword>capabilities</keyword>
+		</CyBOK>
+	</video>
+	<video>
+		<title>Linux Extended ACLs</title>
+		<by>Z. Cliffe Schreuders</by>
+		<url>https://youtu.be/OT7ifs8PkHI</url>
+		<type>lecture-prerecorded</type>
+		<CyBOK KA="AAA" topic="Authorisation">
+			<keyword>access control</keyword>
+			<keyword>ACCESS CONTROL LIST (ACL)</keyword>
+			<keyword>Vulnerabilities and attacks on access control misconfigurations</keyword>
+		</CyBOK>
+		<CyBOK KA="OSVS" topic="Primitives for Isolation and Mediation">
+			<keyword>Access controls and operating systems</keyword>
+			<keyword>Linux security model</keyword>
+			<keyword>Linux Extended Access Control Lists (facl)</keyword>
+		</CyBOK>
+	</video>
+
 	<system>
 		<system_name>shared_desktop</system_name>
 		<base distro="Debian 10" type="desktop" name="KDE"/>

@@ -38,6 +38,42 @@ A Hackerbot lab. Work through the labsheet, then when prompted interact with Hac
 		<keyword>Hardlink protections</keyword>
 	</CyBOK>
 
+	<video>
+		<title>Access Control Models</title>
+		<by>Z. Cliffe Schreuders</by>
+		<url>https://youtu.be/viSkkNB777k</url>
+		<type>lecture-prerecorded</type>
+		<CyBOK KA="AAA" topic="Authorisation">
+			<keyword>access control</keyword>
+			<keyword>theory</keyword>
+			<keyword>ACCESS CONTROL - DAC (DISCRETIONARY ACCESS CONTROL)</keyword>
+			<keyword>ACCESS CONTROL - MAC (MANDATORY ACCESS CONTROL)</keyword>
+			<keyword>ACCESS CONTROL - NDAC (NON-DISCRETIONARY ACCESS CONTROL)</keyword>
+			<keyword>ACCESS CONTROL - ROLE-BASED</keyword>
+		</CyBOK>
+		<CyBOK KA="OSVS" topic="OS Security Principles">
+			<keyword>security models</keyword>
+		</CyBOK>
+	</video>
+	<video>
+		<title>Special File Permissions SetUID, SetGUI</title>
+		<by>Z. Cliffe Schreuders</by>
+		<url>https://youtu.be/PGHsb3bg_h4</url>
+		<type>lecture-prerecorded</type>
+		<CyBOK KA="AAA" topic="Authorisation">
+			<keyword>access control</keyword>
+			<keyword>Elevated privileges</keyword>
+			<keyword>Real and effective identity</keyword>
+			<keyword>Vulnerabilities and attacks on access control misconfigurations</keyword>
+		</CyBOK>
+		<CyBOK KA="OSVS" topic="Primitives for Isolation and Mediation">
+			<keyword>Access controls and operating systems</keyword>
+			<keyword>Linux security model</keyword>
+			<keyword>Unix File Permissions</keyword>
+			<keyword>setuid/setgid</keyword>
+		</CyBOK>
+	</video>
+
 	<system>
 		<system_name>shared_desktop</system_name>
 		<base distro="Debian 10" type="desktop" name="KDE"/>

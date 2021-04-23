@@ -231,10 +231,10 @@ For details please see the **[Batch Creation of VMs guide](README-Batch-VMs.md)*
 
 The Cyber Security Body of Knowledge (CyBOK) is a body of knowledge that aims to encapsulate the various knowledge areas present within cyber security.
 Scenarios within SecGen now contain XML elements linking them to CyBOK knowledge areas and specific topics within those knowledge areas.
-Additionally, video content and readings for each scenario are tagged with their CyBOK associations. It can be assumed that the video/readings 'inherit' the taggings from the parent scenario by default. Where the content diverges from the parent scenario's tags, content-wide tags may be added.
+Additionally, video content and readings for each scenario are tagged with their CyBOK associations.
 
 As an example, see [cybok_example.xml](scenarios/examples/cybok_example.xml)   
-  
+
 The table below is a key for the abbreviations you will find within the CyBOK XML elements within the scenarios:     
 
 | Abbreviation | Knowledge Area (KA) | Chapter | Knowledge Tree|
@@ -249,17 +249,17 @@ The table below is a key for the abbreviations you will find within the CyBOK XM
 | AB   | Adversarial Behaviours | [link](https://www.cybok.org/media/downloads/Malware__Attack_Technology_issue_1.0.pdf)|  [link](https://www.cybok.org/media/downloads/Adversarial_Behaviours.pdf)|
 | SOIM   | Security Operations & Incident Management | [link](https://www.cybok.org/media/downloads/Security_Operations__Incident_Management_issue_1.0.pdf)|  [link](https://www.cybok.org/media/downloads/Security_Operations__Incident_Management.pdf)|
 | F   | Forensics | [link](https://www.cybok.org/media/downloads/Forensics_issue_1.0.pdf)|  [link](https://www.cybok.org/media/downloads/Forensics.pdf)|
-| C   | Cryptography | [link](https://www.cybok.org/media/downloads/Cryptography-issue-1.0.pdf)|  [link](https://www.cybok.org/media/downloads/Cryptography.pdf)| 
-| OSVS   | Operating Systems & Virtualisation Security | [link](https://www.cybok.org/media/downloads/Operating_Systems__Virtualisation_Security_issue_1.0_xhesi5S.pdf)|  [link](https://www.cybok.org/media/downloads/Operating_Systems__Virtualisation_Security.pdf)| 
-| DSS   | Distributed Systems Security | [link](https://www.cybok.org/media/downloads/Distributed_Systems_Security_issue_1.0.pdf)|  [link](https://www.cybok.org/media/downloads/Distributed_Systems_Security.pdf)| 
+| C   | Cryptography | [link](https://www.cybok.org/media/downloads/Cryptography-issue-1.0.pdf)|  [link](https://www.cybok.org/media/downloads/Cryptography.pdf)|
+| OSVS   | Operating Systems & Virtualisation Security | [link](https://www.cybok.org/media/downloads/Operating_Systems__Virtualisation_Security_issue_1.0_xhesi5S.pdf)|  [link](https://www.cybok.org/media/downloads/Operating_Systems__Virtualisation_Security.pdf)|
+| DSS   | Distributed Systems Security | [link](https://www.cybok.org/media/downloads/Distributed_Systems_Security_issue_1.0.pdf)|  [link](https://www.cybok.org/media/downloads/Distributed_Systems_Security.pdf)|
 | AAA         |   Authentication, Authorisation and Accountability | [link](https://www.cybok.org/media/downloads/AAA_issue_1.0_q3qspzo.pdf)| [link](https://www.cybok.org/media/downloads/AAA.pdf) |
-| SS   | Software Security | [link](https://www.cybok.org/media/downloads/Software_Security_issue_1.0_1M7Kfk2.pdf)|  [link](https://www.cybok.org/media/downloads/Software_Security.pdf)| 
-| WMS   | Web & Mobile Security | [link](https://www.cybok.org/media/downloads/Web__Mobile_Security_issue_1.0_XFpbYNz.pdf)|  [link](https://www.cybok.org/media/downloads/Web__Mobile_Security.pdf)| 
-| SSL   | Secure Software Lifecycle | [link](https://www.cybok.org/media/downloads/Secure_Software_Lifecycle_issue_1.0.pdf)|  [link](https://www.cybok.org/media/downloads/Secure_Software_Lifecycle.pdf)| 
-| NS   | Network Security | [link](https://www.cybok.org/media/downloads/Network_Security_issue_1.0_qsCh0SR.pdf)|  [link](https://www.cybok.org/media/downloads/Network_Security.pdf)| 
-| HS   | Hardware Security | [link](https://www.cybok.org/media/downloads/Hardware_Security_issue_1.0.pdf)|  [link](https://www.cybok.org/media/downloads/Hardware_Security.pdf)| 
-| CPS   | Cyber Physical Systems | [link](https://www.cybok.org/media/downloads/Cyber-Physical_Systems_Security_issue_1.0.pdf)|  [link](https://www.cybok.org/media/downloads/Cyber_Physical_Systems_Security.pdf)| 
-| PLTS   | Physical Layer and Telecommunications Security | [link](https://www.cybok.org/media/downloads/Physical_Layer__Telecommunications_Security_issue_1.0.pdf)|  [link](https://www.cybok.org/media/downloads/Physical_Layer__Telecomms_Security.pdf)| 
+| SS   | Software Security | [link](https://www.cybok.org/media/downloads/Software_Security_issue_1.0_1M7Kfk2.pdf)|  [link](https://www.cybok.org/media/downloads/Software_Security.pdf)|
+| WMS   | Web & Mobile Security | [link](https://www.cybok.org/media/downloads/Web__Mobile_Security_issue_1.0_XFpbYNz.pdf)|  [link](https://www.cybok.org/media/downloads/Web__Mobile_Security.pdf)|
+| SSL   | Secure Software Lifecycle | [link](https://www.cybok.org/media/downloads/Secure_Software_Lifecycle_issue_1.0.pdf)|  [link](https://www.cybok.org/media/downloads/Secure_Software_Lifecycle.pdf)|
+| NS   | Network Security | [link](https://www.cybok.org/media/downloads/Network_Security_issue_1.0_qsCh0SR.pdf)|  [link](https://www.cybok.org/media/downloads/Network_Security.pdf)|
+| HS   | Hardware Security | [link](https://www.cybok.org/media/downloads/Hardware_Security_issue_1.0.pdf)|  [link](https://www.cybok.org/media/downloads/Hardware_Security.pdf)|
+| CPS   | Cyber Physical Systems | [link](https://www.cybok.org/media/downloads/Cyber-Physical_Systems_Security_issue_1.0.pdf)|  [link](https://www.cybok.org/media/downloads/Cyber_Physical_Systems_Security.pdf)|
+| PLTS   | Physical Layer and Telecommunications Security | [link](https://www.cybok.org/media/downloads/Physical_Layer__Telecommunications_Security_issue_1.0.pdf)|  [link](https://www.cybok.org/media/downloads/Physical_Layer__Telecomms_Security.pdf)|
 
 ## Roadmap
 - **More modules!** Including more CTF-style modules.

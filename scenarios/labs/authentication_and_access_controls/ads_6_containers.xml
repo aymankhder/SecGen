@@ -34,15 +34,40 @@ A Hackerbot lab. Work through the labsheet, then when prompted interact with Hac
     <keyword>Rule-based controls: Course grained: Linux capabilities</keyword>
     <keyword>Vulnerabilities and attacks on sandboxing misconfigurations</keyword>
 	</CyBOK>
-  <CyBOK KA="OSVS" topic=">
-    <topic>Role of Operating Systems">
+  <CyBOK KA="OSVS" topic="Role of Operating Systems">
     <keyword>isolation</keyword>
     <keyword>CONTAINERS</keyword>
   </CyBOK>
-  <CyBOK KA="WMS" topic=">
-    <topic>Fundamental Concepts and Approaches">
+  <CyBOK KA="WMS" topic="Fundamental Concepts and Approaches">
     <keyword>sandboxing</keyword>
   </CyBOK>
+
+
+	<video>
+		<title>Sandboxing and Virtualisation</title>
+		<by>Z. Cliffe Schreuders</by>
+		<url>https://youtu.be/f4yBcKkb12g</url>
+		<type>lecture-prerecorded</type>
+		<CyBOK KA="AAA" topic="Authorisation">
+			<keyword>SANDBOX</keyword>
+			<keyword>Application-based access controls: user-based access controls insufficiently limit privileges</keyword>
+		</CyBOK>
+		<CyBOK KA="OSVS" topic="Primitives for Isolation and Mediation">
+			<keyword>capabilities</keyword>
+			<keyword>Container-based sandboxes: chroot, Docker</keyword>
+			<keyword>Rule-based controls: Course grained: Linux capabilities</keyword>
+			<keyword>System-level sandboxes (complete OS, Qubes), hardware-emulation and paravirtualisation</keyword>
+			<keyword>Copy on write sandboxes</keyword>
+		</CyBOK>
+		<CyBOK KA="OSVS" topic="Role of Operating Systems">
+			<keyword>isolation</keyword>
+			<keyword>CONTAINERS</keyword>
+		</CyBOK>
+		<CyBOK KA="WMS" topic="Fundamental Concepts and Approaches">
+			<keyword>sandboxing</keyword>
+			<keyword>permission dialog based access control</keyword>
+	  </CyBOK>
+	</video>
 
   <system>
     <system_name>desktop</system_name>
