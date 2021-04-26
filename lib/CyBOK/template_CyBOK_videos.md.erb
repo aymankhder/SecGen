@@ -23,9 +23,9 @@ end
    end %>
    | KA | Topics | Keywords |
    | --- | --- | --- |
-   <% arr['CyBOK'].each {|cybok| -%>
+<% arr['CyBOK'].each {|cybok| -%>
     | <%= cybok["@KA"] %> | <%= cybok["@topic"] %> | <%= cybok["keyword"] %> |
-   <% } -%>
+<% } -%>
 <% } %>
 
 <%
