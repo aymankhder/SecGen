@@ -21,10 +21,10 @@ end
    <% unless arr['CyBOK'].kind_of?(Array)
     arr['CyBOK'] = [arr['CyBOK']]
    end %>
-   | KA | Topics | Keywords |
-   | --- | --- | --- |
+| KA | Topics | Keywords |
+| --- | --- | --- |
 <% arr['CyBOK'].each {|cybok| -%>
-    | <%= cybok["@KA"] %> | <%= cybok["@topic"] %> | <%= cybok["keyword"] %> |
+| <%= cybok["@KA"] %> | <%= cybok["@topic"] %> | <%= cybok["keyword"] %> |
 <% } -%>
 <% } %>
 
