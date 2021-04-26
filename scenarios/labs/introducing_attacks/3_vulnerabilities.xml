@@ -20,6 +20,10 @@ This week we will cover one of the major threats in computer security: software 
 [Lab sheet here](https://docs.google.com/document/d/11I8xMUXrT5ArJIsAhwGDtQ4RkH4l9CR4C2wh9_wz8xM/edit?usp=sharing).
 	</description>
 
+	<type>ctf-lab</type>
+	<type>lab-sheet</type>
+	<difficulty>easy</difficulty>
+
 	<CyBOK KA="MAT" topic="Attacks and exploitation">
 		<keyword>EXPLOITATION</keyword>
 		<keyword>EXPLOITATION FRAMEWORKS</keyword>
@@ -28,10 +32,6 @@ This week we will cover one of the major threats in computer security: software 
 		<keyword>PENETRATION TESTING - SOFTWARE TOOLS</keyword>
 		<keyword>PENETRATION TESTING - ACTIVE PENETRATION</keyword>
 	</CyBOK>
-
-	<type>ctf-lab</type>
-  <type>lab-sheet</type>
-  <difficulty>easy</difficulty>
 
 
 	<system>
