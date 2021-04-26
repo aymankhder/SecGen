@@ -1,6 +1,8 @@
 require 'erb'
 require 'nori'
-require 'youtube_images' # gem 'youtube_images'
+require 'youtube_images'
+# if you want to regenerate the indexes you need to install this additional gem:
+# gem 'youtube_images'
 
 
 require_relative '../helpers/print.rb'
@@ -114,3 +116,6 @@ rescue StandardError => e
   Print.err "Error writing file: #{e.message}"
   Print.err e.backtrace.inspect
 end
+
+puts "#{SCENARIOS_HASH.length} scenarios with CyBOK metadata"
+puts "#{VIDEO_HASH.length} videos with CyBOK metadata"
