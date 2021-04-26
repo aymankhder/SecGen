@@ -1,9 +1,11 @@
 require 'erb'
 require 'nori'
 require 'youtube_images'
-# if you want to regenerate the indexes you need to install this additional gem:
-# gem 'youtube_images'
+require 'dig-deep'
 
+# if you want to regenerate the indexes you need to install these additional gems:
+# gem 'youtube_images'
+# gem 'dig-deep'
 
 require_relative '../helpers/print.rb'
 require_relative '../helpers/constants.rb'
@@ -24,6 +26,8 @@ end
 
 KA_TOPIC_SCENARIOS_HASH = Hash.new { |h, k| h[k] = h.dup.clear }
 SCENARIOS_HASH = {}
+SCENARIOS_FULL_HASH = {}
+
 KA_TOPIC_VIDEO_HASH = Hash.new { |h, k| h[k] = h.dup.clear }
 VIDEO_HASH = {}
 parser = Nori.new()
@@ -32,6 +36,7 @@ scenarios.each { |scenario|
 
   scenario_hash = parser.parse(File.read("#{scenarios_dir}/#{scenario}"))
   if scenario_hash && scenario_hash['scenario']
+    (SCENARIOS_FULL_HASH[scenario] ||= []) << scenario_hash['scenario']
     if (scenario_hash['scenario']['CyBOK'].kind_of?(Array))
       scenario_hash['scenario']['CyBOK'].each {|cybok_entry|
         ka = cybok_entry['@KA']
@@ -40,7 +45,6 @@ scenarios.each { |scenario|
         (@ka_topic_hash["#{ka} #{topic}"] ||= []) << scenario
         KA_TOPIC_SCENARIOS_HASH[ka][topic][scenario] = "-"
         (SCENARIOS_HASH[scenario] ||= []) << cybok_entry
-
       }
     elsif (scenario_hash['scenario']['CyBOK'])
       # KA_HASH[scenario] << scenario

@@ -40,11 +40,34 @@ KA_TOPIC_SCENARIOS_HASH.each{|ka,hash|
 SCENARIOS_HASH.each{|scenario,array|
 %>
   ## <%= scenario %>
+
+  ### Details
+
+| Key | Data |
+| --- | --- |
+|Name | <%= SCENARIOS_FULL_HASH[scenario][0]["name"].to_s %> |
+|Description | <%= SCENARIOS_FULL_HASH[scenario][0]["description"].to_s.delete('#').gsub(/\n/,'</br>') %>|
+|Type | <%= SCENARIOS_FULL_HASH[scenario][0]["type"].to_s.gsub(/"|\[|\]/, '').gsub(',',';') %> |
+|Author | <%= SCENARIOS_FULL_HASH[scenario][0]["author"].to_s %> |
+|Linked videos| <%= SCENARIOS_FULL_HASH[scenario][0].dig_deep(:url).to_s.gsub(/"|\[|\]/, '').gsub(',',';') %>|
+|VM names|  <%=
+systems = SCENARIOS_FULL_HASH[scenario][0].dig_deep(:system_name).to_s.gsub(/"|\[|\]/, '').gsub(',',';') %> |
+
+
+
+  ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
 <%array.each{|arr| -%>
 |    <%= arr["@KA"] %> | <%= arr["@topic"] %> | <%= arr["keyword"].to_s.gsub(/"|\[|\]/, '').gsub(',',';') %> |<%
 } %>
+
+
+Command to start scenario:
+
+```ruby secgen.rb -s scenario/<%= scenario %> run```
+
+[View source](scenarios/<%= scenario %>)
 
 <%
 } %>
