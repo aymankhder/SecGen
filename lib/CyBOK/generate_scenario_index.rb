@@ -32,6 +32,7 @@ KA_TOPIC_VIDEO_HASH = Hash.new { |h, k| h[k] = h.dup.clear }
 VIDEO_HASH = {}
 parser = Nori.new()
 scenarios.each { |scenario|
+  next if scenario.start_with?("examples")
   Print.verbose "Reading #{scenario}"
 
   scenario_hash = parser.parse(File.read("#{scenarios_dir}/#{scenario}"))
