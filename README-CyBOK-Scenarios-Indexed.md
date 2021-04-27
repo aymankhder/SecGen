@@ -183,10 +183,11 @@ Fitting the Task to the Human | [labs/labtainers/ssl.xml](#labslabtainerssslxml)
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Authentication, Authorisation &amp; Accountability (AAA) | Authentication | identity management; user authentication; facets of authentication; Cryptography and authentication (hashes and attacks against authentication schemes / passwords) ||     (OSVS) | Primitives for Isolation and Mediation | authentication and identification; Linux authentication; Types of user accounts |
+| Authentication, Authorisation &amp; Accountability (AAA) | Authentication | identity management; user authentication; facets of authentication; Cryptography and authentication (hashes and attacks against authentication schemes / passwords) |
+|  (OSVS) | Primitives for Isolation and Mediation | authentication and identification; Linux authentication; Types of user accounts |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/authentication_and_access_controls/ads_1_authentication.xml run```
 
@@ -211,10 +212,11 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Authentication, Authorisation &amp; Accountability (AAA) | Authentication | identity management; user authentication; facets of authentication ||     (OSVS) | Primitives for Isolation and Mediation | authentication and identification; Linux authentication; Authentication frameworks (PAM) |
+| Authentication, Authorisation &amp; Accountability (AAA) | Authentication | identity management; user authentication; facets of authentication |
+|  (OSVS) | Primitives for Isolation and Mediation | authentication and identification; Linux authentication; Authentication frameworks (PAM) |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/authentication_and_access_controls/ads_2_pam.xml run```
 
@@ -239,10 +241,12 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Authentication, Authorisation &amp; Accountability (AAA) | Authorisation | access control; enforcing access control; ACCESS CONTROL - DAC (DISCRETIONARY ACCESS CONTROL); Vulnerabilities and attacks on access control misconfigurations ||     (OSVS) | Primitives for Isolation and Mediation | Access controls and operating systems; Linux security model; Unix File Permissions; filesystems; inodes; and commands; umask ||     (OSVS) | Role of Operating Systems | mediation |
+| Authentication, Authorisation &amp; Accountability (AAA) | Authorisation | access control; enforcing access control; ACCESS CONTROL - DAC (DISCRETIONARY ACCESS CONTROL); Vulnerabilities and attacks on access control misconfigurations |
+|  (OSVS) | Primitives for Isolation and Mediation | Access controls and operating systems; Linux security model; Unix File Permissions; filesystems; inodes; and commands; umask |
+|  (OSVS) | Role of Operating Systems | mediation |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/authentication_and_access_controls/ads_3_access_controls.xml run```
 
@@ -267,10 +271,11 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Authentication, Authorisation &amp; Accountability (AAA) | Authorisation | access control; Elevated privileges; Real and effective identity; Vulnerabilities and attacks on access control misconfigurations ||     (OSVS) | Primitives for Isolation and Mediation | Access controls and operating systems; Linux security model; Unix File Permissions; setuid/setgid; Hardlink protections |
+| Authentication, Authorisation &amp; Accountability (AAA) | Authorisation | access control; Elevated privileges; Real and effective identity; Vulnerabilities and attacks on access control misconfigurations |
+|  (OSVS) | Primitives for Isolation and Mediation | Access controls and operating systems; Linux security model; Unix File Permissions; setuid/setgid; Hardlink protections |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/authentication_and_access_controls/ads_4_suid.xml run```
 
@@ -295,10 +300,11 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Authentication, Authorisation &amp; Accountability (AAA) | Authorisation | access control; ACCESS CONTROL LIST (ACL); Vulnerabilities and attacks on access control misconfigurations ||     (OSVS) | Primitives for Isolation and Mediation | Access controls and operating systems; Linux security model; Linux Extended Access Control Lists (facl) |
+| Authentication, Authorisation &amp; Accountability (AAA) | Authorisation | access control; ACCESS CONTROL LIST (ACL); Vulnerabilities and attacks on access control misconfigurations |
+|  (OSVS) | Primitives for Isolation and Mediation | Access controls and operating systems; Linux security model; Linux Extended Access Control Lists (facl) |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/authentication_and_access_controls/ads_5_facls.xml run```
 
@@ -323,10 +329,13 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Authentication, Authorisation &amp; Accountability (AAA) | Authorisation | SANDBOX; Application-based access controls: user-based access controls insufficiently limit privileges ||     (OSVS) | Primitives for Isolation and Mediation | capabilities; Container-based sandboxes: chroot; Docker; Rule-based controls: Course grained: Linux capabilities; Vulnerabilities and attacks on sandboxing misconfigurations ||     (OSVS) | Role of Operating Systems | isolation; CONTAINERS ||     (WMS) | Fundamental Concepts and Approaches | sandboxing |
+| Authentication, Authorisation &amp; Accountability (AAA) | Authorisation | SANDBOX; Application-based access controls: user-based access controls insufficiently limit privileges |
+|  (OSVS) | Primitives for Isolation and Mediation | capabilities; Container-based sandboxes: chroot; Docker; Rule-based controls: Course grained: Linux capabilities; Vulnerabilities and attacks on sandboxing misconfigurations |
+|  (OSVS) | Role of Operating Systems | isolation; CONTAINERS |
+|  (WMS) | Fundamental Concepts and Approaches | sandboxing |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/authentication_and_access_controls/ads_6_containers.xml run```
 
@@ -351,10 +360,12 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Authentication, Authorisation &amp; Accountability (AAA) | Authorisation | ACCESS CONTROL - MAC (MANDATORY ACCESS CONTROL); ACCESS CONTROL - NDAC (NON-DISCRETIONARY ACCESS CONTROL); Application-based access controls: user-based access controls insufficiently limit privileges; Rule-based sandboxes ||     (OSVS) | Primitives for Isolation and Mediation | Rule-based controls: Fine grained: AppArmor; Vulnerabilities and attacks on sandboxing misconfigurations ||    Software Security (SS) | Mitigating Exploitation | limiting privileges |
+| Authentication, Authorisation &amp; Accountability (AAA) | Authorisation | ACCESS CONTROL - MAC (MANDATORY ACCESS CONTROL); ACCESS CONTROL - NDAC (NON-DISCRETIONARY ACCESS CONTROL); Application-based access controls: user-based access controls insufficiently limit privileges; Rule-based sandboxes |
+|  (OSVS) | Primitives for Isolation and Mediation | Rule-based controls: Fine grained: AppArmor; Vulnerabilities and attacks on sandboxing misconfigurations |
+| Software Security (SS) | Mitigating Exploitation | limiting privileges |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/authentication_and_access_controls/ads_7_apparmor.xml run```
 
@@ -379,10 +390,11 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Network Security (NS) | Network Protocols and Vulnerability | common network attacks ||    Security Operations &amp; Incident Management (SOIM) | PENETRATION TESTING | PENETRATION TESTING - SOFTWARE TOOLS |
+| Network Security (NS) | Network Protocols and Vulnerability | common network attacks |
+| Security Operations &amp; Incident Management (SOIM) | PENETRATION TESTING | PENETRATION TESTING - SOFTWARE TOOLS |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/introducing_attacks/1_intro_linux.xml run```
 
@@ -407,10 +419,13 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Malware &amp; Attack Technology (MAT) | Malware Taxonomy | dimensions; kinds ||    Malware &amp; Attack Technology (MAT) | Malware Analysis | anti-analysis and evasion techniques ||    Malware &amp; Attack Technology (MAT) | Attacks and exploitation | EXPLOITATION FRAMEWORKS ||    Security Operations &amp; Incident Management (SOIM) | PENETRATION TESTING | PENETRATION TESTING - SOFTWARE TOOLS; PENETRATION TESTING - ACTIVE PENETRATION |
+| Malware &amp; Attack Technology (MAT) | Malware Taxonomy | dimensions; kinds |
+| Malware &amp; Attack Technology (MAT) | Malware Analysis | anti-analysis and evasion techniques |
+| Malware &amp; Attack Technology (MAT) | Attacks and exploitation | EXPLOITATION FRAMEWORKS |
+| Security Operations &amp; Incident Management (SOIM) | PENETRATION TESTING | PENETRATION TESTING - SOFTWARE TOOLS; PENETRATION TESTING - ACTIVE PENETRATION |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/introducing_attacks/2_malware_msf_payloads.xml run```
 
@@ -435,10 +450,11 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Malware &amp; Attack Technology (MAT) | Attacks and exploitation | EXPLOITATION; EXPLOITATION FRAMEWORKS ||    Security Operations &amp; Incident Management (SOIM) | PENETRATION TESTING | PENETRATION TESTING - SOFTWARE TOOLS; PENETRATION TESTING - ACTIVE PENETRATION |
+| Malware &amp; Attack Technology (MAT) | Attacks and exploitation | EXPLOITATION; EXPLOITATION FRAMEWORKS |
+| Security Operations &amp; Incident Management (SOIM) | PENETRATION TESTING | PENETRATION TESTING - SOFTWARE TOOLS; PENETRATION TESTING - ACTIVE PENETRATION |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/introducing_attacks/3_vulnerabilities.xml run```
 
@@ -463,10 +479,11 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Network Security (NS) | PENETRATION TESTING | PENETRATION TESTING - DNS ZONE TRANSFER; EXPLOITATION FRAMEWORKS ||    Security Operations &amp; Incident Management (SOIM) | PENETRATION TESTING | PENETRATION TESTING - NETWORK MAPPING - RECONNAISSANCE; PENETRATION TESTING - SOFTWARE TOOLS |
+| Network Security (NS) | PENETRATION TESTING | PENETRATION TESTING - DNS ZONE TRANSFER; EXPLOITATION FRAMEWORKS |
+| Security Operations &amp; Incident Management (SOIM) | PENETRATION TESTING | PENETRATION TESTING - NETWORK MAPPING - RECONNAISSANCE; PENETRATION TESTING - SOFTWARE TOOLS |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/introducing_attacks/4_dns_footprinting.xml run```
 
@@ -491,10 +508,12 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Malware &amp; Attack Technology (MAT) | Malicious Activities by Malware | cyber kill chain ||    Network Security (NS) | PENETRATION TESTING | PENETRATION TESTING - NETWORK MAPPING - FINGERPRINTING; PENETRATION TESTING - NETWORK MAPPING - NMAP; PENETRATION TESTING - NETWORK MAPPING - PING ||    Security Operations &amp; Incident Management (SOIM) | PENETRATION TESTING | PENETRATION TESTING - NETWORK MAPPING - RECONNAISSANCE; PENETRATION TESTING - SOFTWARE TOOLS |
+| Malware &amp; Attack Technology (MAT) | Malicious Activities by Malware | cyber kill chain |
+| Network Security (NS) | PENETRATION TESTING | PENETRATION TESTING - NETWORK MAPPING - FINGERPRINTING; PENETRATION TESTING - NETWORK MAPPING - NMAP; PENETRATION TESTING - NETWORK MAPPING - PING |
+| Security Operations &amp; Incident Management (SOIM) | PENETRATION TESTING | PENETRATION TESTING - NETWORK MAPPING - RECONNAISSANCE; PENETRATION TESTING - SOFTWARE TOOLS |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/introducing_attacks/5_scanning.xml run```
 
@@ -519,10 +538,13 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Malware &amp; Attack Technology (MAT) | Malicious Activities by Malware | cyber kill chain ||    Software Security (SS) | Categories of Vulnerabilities | CVEs and CWEs ||    Malware &amp; Attack Technology (MAT) | Attacks and exploitation | EXPLOITATION; EXPLOITATION FRAMEWORKS ||    Security Operations &amp; Incident Management (SOIM) | PENETRATION TESTING | PENETRATION TESTING - SOFTWARE TOOLS; PENETRATION TESTING - ACTIVE PENETRATION |
+| Malware &amp; Attack Technology (MAT) | Malicious Activities by Malware | cyber kill chain |
+| Software Security (SS) | Categories of Vulnerabilities | CVEs and CWEs |
+| Malware &amp; Attack Technology (MAT) | Attacks and exploitation | EXPLOITATION; EXPLOITATION FRAMEWORKS |
+| Security Operations &amp; Incident Management (SOIM) | PENETRATION TESTING | PENETRATION TESTING - SOFTWARE TOOLS; PENETRATION TESTING - ACTIVE PENETRATION |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/introducing_attacks/6_exploitation.xml run```
 
@@ -547,10 +569,12 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Malware &amp; Attack Technology (MAT) | Malicious Activities by Malware | cyber kill chain; attack on confidentiality; integrity; availability ||    Malware &amp; Attack Technology (MAT) | Attacks and exploitation | Post-exploitation: pivoting attacks; information gathering ||    Security Operations &amp; Incident Management (SOIM) | PENETRATION TESTING | PENETRATION TESTING - SOFTWARE TOOLS; PENETRATION TESTING - ACTIVE PENETRATION |
+| Malware &amp; Attack Technology (MAT) | Malicious Activities by Malware | cyber kill chain; attack on confidentiality; integrity; availability |
+| Malware &amp; Attack Technology (MAT) | Attacks and exploitation | Post-exploitation: pivoting attacks; information gathering |
+| Security Operations &amp; Incident Management (SOIM) | PENETRATION TESTING | PENETRATION TESTING - SOFTWARE TOOLS; PENETRATION TESTING - ACTIVE PENETRATION |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/introducing_attacks/7_post-exploitation.xml run```
 
@@ -575,10 +599,11 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Security Operations &amp; Incident Management (SOIM) | PENETRATION TESTING | VULNERABILITY ANALYSIS / VULNERABILITY SCANNING; AUDIT APPROACH; PENETRATION TESTING - SOFTWARE TOOLS; PENETRATION TESTING - ACTIVE PENETRATION ||    Malware &amp; Attack Technology (MAT) | Attacks and exploitation | EXPLOITATION |
+| Security Operations &amp; Incident Management (SOIM) | PENETRATION TESTING | VULNERABILITY ANALYSIS / VULNERABILITY SCANNING; AUDIT APPROACH; PENETRATION TESTING - SOFTWARE TOOLS; PENETRATION TESTING - ACTIVE PENETRATION |
+| Malware &amp; Attack Technology (MAT) | Attacks and exploitation | EXPLOITATION |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/introducing_attacks/8_vulnerability_analysis.xml run```
 
@@ -603,10 +628,14 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Authentication, Authorisation &amp; Accountability (AAA) | Authorisation | access control; enforcing access control; ACCESS CONTROL - DAC (DISCRETIONARY ACCESS CONTROL); Vulnerabilities and attacks on access control misconfigurations ||    Malware &amp; Attack Technology (MAT) | MALCODE/MALWARE | trojan; backdoor; TROJANS - BACKDOOR ||     (OSVS) | Primitives for Isolation and Mediation | Access controls and operating systems; Linux security model; Unix File Permissions; filesystems; inodes; and commands; umask ||     (OSVS) | Primitives for Isolation and Mediation | Access controls and operating systems; Linux security model; Linux Extended Access Control Lists (facl) ||     (OSVS) | Role of Operating Systems | mediation |
+| Authentication, Authorisation &amp; Accountability (AAA) | Authorisation | access control; enforcing access control; ACCESS CONTROL - DAC (DISCRETIONARY ACCESS CONTROL); Vulnerabilities and attacks on access control misconfigurations |
+| Malware &amp; Attack Technology (MAT) | MALCODE/MALWARE | trojan; backdoor; TROJANS - BACKDOOR |
+|  (OSVS) | Primitives for Isolation and Mediation | Access controls and operating systems; Linux security model; Unix File Permissions; filesystems; inodes; and commands; umask |
+|  (OSVS) | Primitives for Isolation and Mediation | Access controls and operating systems; Linux security model; Linux Extended Access Control Lists (facl) |
+|  (OSVS) | Role of Operating Systems | mediation |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/acl-hackerbot-flags.xml run```
 
@@ -631,10 +660,14 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Authentication, Authorisation &amp; Accountability (AAA) | Authorisation | access control; enforcing access control; ACCESS CONTROL - DAC (DISCRETIONARY ACCESS CONTROL); Vulnerabilities and attacks on access control misconfigurations ||    Malware &amp; Attack Technology (MAT) | MALCODE/MALWARE | trojan; backdoor; TROJANS - BACKDOOR ||     (OSVS) | Primitives for Isolation and Mediation | Access controls and operating systems; Linux security model; Unix File Permissions; filesystems; inodes; and commands; umask ||     (OSVS) | Primitives for Isolation and Mediation | Access controls and operating systems; Linux security model; Linux Extended Access Control Lists (facl) ||     (OSVS) | Role of Operating Systems | mediation |
+| Authentication, Authorisation &amp; Accountability (AAA) | Authorisation | access control; enforcing access control; ACCESS CONTROL - DAC (DISCRETIONARY ACCESS CONTROL); Vulnerabilities and attacks on access control misconfigurations |
+| Malware &amp; Attack Technology (MAT) | MALCODE/MALWARE | trojan; backdoor; TROJANS - BACKDOOR |
+|  (OSVS) | Primitives for Isolation and Mediation | Access controls and operating systems; Linux security model; Unix File Permissions; filesystems; inodes; and commands; umask |
+|  (OSVS) | Primitives for Isolation and Mediation | Access controls and operating systems; Linux security model; Linux Extended Access Control Lists (facl) |
+|  (OSVS) | Role of Operating Systems | mediation |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/acl.xml run```
 
@@ -659,10 +692,11 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Network Security (NS) | Network Protocols and Vulnerability | ADDRESS RESOLUTION PROTOCOL(ARP); ARP (ADDRESS RESOLUTION PROTOCOL); ARP SPOOFING; MITM (MAN-IN-THE-MIDDLE ATTACK); MAN-IN-THE-MIDDLE ATTACK (MITM); ATTACK(S) - ARP ||    Security Operations &amp; Incident Management (SOIM) | Monitor: Data Sources | network traffic |
+| Network Security (NS) | Network Protocols and Vulnerability | ADDRESS RESOLUTION PROTOCOL(ARP); ARP (ADDRESS RESOLUTION PROTOCOL); ARP SPOOFING; MITM (MAN-IN-THE-MIDDLE ATTACK); MAN-IN-THE-MIDDLE ATTACK (MITM); ATTACK(S) - ARP |
+| Security Operations &amp; Incident Management (SOIM) | Monitor: Data Sources | network traffic |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/arp-spoof.xml run```
 
@@ -687,10 +721,11 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Security Operations &amp; Incident Management (SOIM) | Execute: Mitigation and Countermeasures | Recover data and services after an incident; BACKUP - DIFFERENTIAL; BACKUP - INFERENTIAL ||    Security Operations &amp; Incident Management (SOIM) | INCIDENT RESPONSE | RECOVERY - BACKUPS; RECOVERY; BACKUPS |
+| Security Operations &amp; Incident Management (SOIM) | Execute: Mitigation and Countermeasures | Recover data and services after an incident; BACKUP - DIFFERENTIAL; BACKUP - INFERENTIAL |
+| Security Operations &amp; Incident Management (SOIM) | INCIDENT RESPONSE | RECOVERY - BACKUPS; RECOVERY; BACKUPS |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/backups.xml run```
 
@@ -715,10 +750,11 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Security Operations &amp; Incident Management (SOIM) | Execute: Mitigation and Countermeasures | Recover data and services after an incident; BACKUP - DIFFERENTIAL; BACKUP - INFERENTIAL ||    Security Operations &amp; Incident Management (SOIM) | INCIDENT RESPONSE | RECOVERY - BACKUPS; RECOVERY; BACKUPS |
+| Security Operations &amp; Incident Management (SOIM) | Execute: Mitigation and Countermeasures | Recover data and services after an incident; BACKUP - DIFFERENTIAL; BACKUP - INFERENTIAL |
+| Security Operations &amp; Incident Management (SOIM) | INCIDENT RESPONSE | RECOVERY - BACKUPS; RECOVERY; BACKUPS |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/backups2.xml run```
 
@@ -743,10 +779,12 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Software Security (SS) | Categories of Vulnerabilities | memory management vulnerabilities; Stack smashing buffer overflows ||    Malware &amp; Attack Technology (MAT) | Attacks and exploitation | EXPLOITATION; EXPLOITATION FRAMEWORKS; Exploit development; Metasploit Framework development ||    Software Security (SS) | Mitigating Exploitation | ASLR (ADDRESS SPACE LAYOUT RANDOMIZATION); NON-EXECUTABLE MEMORY |
+| Software Security (SS) | Categories of Vulnerabilities | memory management vulnerabilities; Stack smashing buffer overflows |
+| Malware &amp; Attack Technology (MAT) | Attacks and exploitation | EXPLOITATION; EXPLOITATION FRAMEWORKS; Exploit development; Metasploit Framework development |
+| Software Security (SS) | Mitigating Exploitation | ASLR (ADDRESS SPACE LAYOUT RANDOMIZATION); NON-EXECUTABLE MEMORY |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/bufoverflow.xml run```
 
@@ -771,10 +809,11 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|     (OSVS) | Primitives for Isolation and Mediation | capabilities; Rule-based controls: Course grained: Linux capabilities ||    Security Operations &amp; Incident Management (SOIM) | Monitor: Data Sources | network traffic |
+|  (OSVS) | Primitives for Isolation and Mediation | capabilities; Rule-based controls: Course grained: Linux capabilities |
+| Security Operations &amp; Incident Management (SOIM) | Monitor: Data Sources | network traffic |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/capabilities.xml run```
 
@@ -799,10 +838,10 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Security Operations &amp; Incident Management (SOIM) | Monitor: Data Sources | application logs: web server logs and files; system and kernel logs; Syslog |
+| Security Operations &amp; Incident Management (SOIM) | Monitor: Data Sources | application logs: web server logs and files; system and kernel logs; Syslog |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/centos-log.xml run```
 
@@ -827,10 +866,10 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Security Operations &amp; Incident Management (SOIM) | Monitor: Data Sources | application logs: web server logs and files; system and kernel logs; Syslog |
+| Security Operations &amp; Incident Management (SOIM) | Monitor: Data Sources | application logs: web server logs and files; system and kernel logs; Syslog |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/centos-log2.xml run```
 
@@ -855,10 +894,10 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Security Operations &amp; Incident Management (SOIM) | Monitor: Data Sources | application logs: web server logs and files; system and kernel logs; Syslog |
+| Security Operations &amp; Incident Management (SOIM) | Monitor: Data Sources | application logs: web server logs and files; system and kernel logs; Syslog |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/cyberciege.xml run```
 
@@ -883,10 +922,12 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Network Security (NS) | Network Defence Tools | packet filters; intrusion detection systems; intrusion prevention systems ||    Security Operations &amp; Incident Management (SOIM) | Execute: Mitigation and Countermeasures | intrusion prevention systems ||    Security Operations &amp; Incident Management (SOIM) | CM (CONFIGURATION MANAGEMENT) | SSH (SECURE SHELL) |
+| Network Security (NS) | Network Defence Tools | packet filters; intrusion detection systems; intrusion prevention systems |
+| Security Operations &amp; Incident Management (SOIM) | Execute: Mitigation and Countermeasures | intrusion prevention systems |
+| Security Operations &amp; Incident Management (SOIM) | CM (CONFIGURATION MANAGEMENT) | SSH (SECURE SHELL) |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/denyhost.xml run```
 
@@ -911,10 +952,10 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Network Security (NS) | Network Defence Tools | DEMILITARISED ZONE (DMZ) |
+| Network Security (NS) | Network Defence Tools | DEMILITARISED ZONE (DMZ) |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/dmz-example.xml run```
 
@@ -939,10 +980,10 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Network Security (NS) | Network Defence Tools | DEMILITARISED ZONE (DMZ) |
+| Network Security (NS) | Network Defence Tools | DEMILITARISED ZONE (DMZ) |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/dmz-lab.xml run```
 
@@ -967,10 +1008,10 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Forensics (F) | Operating System Analysis | storage forensics; data recovery and file content carving |
+| Forensics (F) | Operating System Analysis | storage forensics; data recovery and file content carving |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/file-deletion.xml run```
 
@@ -995,10 +1036,12 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Authentication, Authorisation &amp; Accountability (AAA) | Authentication | access control; Protecting integrity ||    Forensics (F) | Operating System Analysis | cryptographic hashing; storage forensics; data recovery and file content carving ||    Security Operations &amp; Incident Management (SOIM) | Monitor: Data Sources | MONITORING - FILE INTEGRITY CHECKERS |
+| Authentication, Authorisation &amp; Accountability (AAA) | Authentication | access control; Protecting integrity |
+| Forensics (F) | Operating System Analysis | cryptographic hashing; storage forensics; data recovery and file content carving |
+| Security Operations &amp; Incident Management (SOIM) | Monitor: Data Sources | MONITORING - FILE INTEGRITY CHECKERS |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/file-integrity.xml run```
 
@@ -1023,10 +1066,11 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Malware &amp; Attack Technology (MAT) | Attacks and exploitation | EXPLOITATION; Exploit development; Mitigation bypass: ASLR ||    Software Security (SS) | Categories of Vulnerabilities | memory management vulnerabilities; Format string attacks |
+| Malware &amp; Attack Technology (MAT) | Attacks and exploitation | EXPLOITATION; Exploit development; Mitigation bypass: ASLR |
+| Software Security (SS) | Categories of Vulnerabilities | memory management vulnerabilities; Format string attacks |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/formatstring.xml run```
 
@@ -1051,10 +1095,10 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Malware &amp; Attack Technology (MAT) | Malware Analysis | analysis techniques; analysis environments; STATIC ANALYSIS |
+| Malware &amp; Attack Technology (MAT) | Malware Analysis | analysis techniques; analysis environments; STATIC ANALYSIS |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/gdblesson.xml run```
 
@@ -1079,10 +1123,10 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Malware &amp; Attack Technology (MAT) | Malware Analysis | analysis techniques; analysis environments; STATIC ANALYSIS |
+| Malware &amp; Attack Technology (MAT) | Malware Analysis | analysis techniques; analysis environments; STATIC ANALYSIS |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/ida.xml run```
 
@@ -1107,10 +1151,14 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Cyber-Physical Systems Security (CPS) | Cyber-Physical Systems Domains | industrial control systems ||    Cyber-Physical Systems Security (CPS) | Cyber-Physical Systems | security and privacy concerns ||    Network Security (NS) | Network Defence Tools | FIREWALLS; IPTables ||    Network Security (NS) | Internet Architecture | network layer security ||    Web &amp; Mobile Security (WAM) | FIREWALLS | FIREWALLS |
+| Cyber-Physical Systems Security (CPS) | Cyber-Physical Systems Domains | industrial control systems |
+| Cyber-Physical Systems Security (CPS) | Cyber-Physical Systems | security and privacy concerns |
+| Network Security (NS) | Network Defence Tools | FIREWALLS; IPTables |
+| Network Security (NS) | Internet Architecture | network layer security |
+| Web &amp; Mobile Security (WAM) | FIREWALLS | FIREWALLS |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/iptables-ics.xml run```
 
@@ -1135,10 +1183,12 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Network Security (NS) | Network Defence Tools | FIREWALLS; IPTables ||    Network Security (NS) | Internet Architecture | network layer security ||    Web &amp; Mobile Security (WAM) | FIREWALLS | FIREWALLS |
+| Network Security (NS) | Network Defence Tools | FIREWALLS; IPTables |
+| Network Security (NS) | Internet Architecture | network layer security |
+| Web &amp; Mobile Security (WAM) | FIREWALLS | FIREWALLS |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/iptables.xml run```
 
@@ -1163,10 +1213,12 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Network Security (NS) | Network Defence Tools | FIREWALLS; IPTables ||    Network Security (NS) | Internet Architecture | network layer security ||    Web &amp; Mobile Security (WAM) | FIREWALLS | FIREWALLS |
+| Network Security (NS) | Network Defence Tools | FIREWALLS; IPTables |
+| Network Security (NS) | Internet Architecture | network layer security |
+| Web &amp; Mobile Security (WAM) | FIREWALLS | FIREWALLS |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/iptables2.xml run```
 
@@ -1191,10 +1243,12 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Authentication, Authorisation &amp; Accountability (AAA) | Authentication | identity management; user authentication; facets of authentication; authentication in distributed systems ||    Authentication, Authorisation &amp; Accountability (AAA) | Authorisation | AUTHORIZATION - LDAP (LIGHTWEIGHT DIRECTORY ACCESS PROTOCOL) ||    Security Operations &amp; Incident Management (SOIM) | Monitor: Data Sources | network traffic |
+| Authentication, Authorisation &amp; Accountability (AAA) | Authentication | identity management; user authentication; facets of authentication; authentication in distributed systems |
+| Authentication, Authorisation &amp; Accountability (AAA) | Authorisation | AUTHORIZATION - LDAP (LIGHTWEIGHT DIRECTORY ACCESS PROTOCOL) |
+| Security Operations &amp; Incident Management (SOIM) | Monitor: Data Sources | network traffic |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/ldap.xml run```
 
@@ -1219,10 +1273,10 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Network Security (NS) | Network Protocols and Vulnerability | ADDRESS RESOLUTION PROTOCOL(ARP); ARP (ADDRESS RESOLUTION PROTOCOL); ARP SPOOFING; DNS ATTACKS |
+| Network Security (NS) | Network Protocols and Vulnerability | ADDRESS RESOLUTION PROTOCOL(ARP); ARP (ADDRESS RESOLUTION PROTOCOL); ARP SPOOFING; DNS ATTACKS |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/local-dns.xml run```
 
@@ -1247,10 +1301,12 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Authentication, Authorisation &amp; Accountability (AAA) | Authentication | user authentication; Cryptography and authentication (hashes and attacks against authentication schemes / passwords) ||    Cryptography (C) | Public-Key Cryptography | symmetric encryption and authentication; MESSAGE AUTHENTICATION CODE (MAC); HASHED MESSAGE AUTHENTICATION CODE (HMAC) ||    Forensics (F) | Artifact Analysis | cryptographic hashing |
+| Authentication, Authorisation &amp; Accountability (AAA) | Authentication | user authentication; Cryptography and authentication (hashes and attacks against authentication schemes / passwords) |
+| Cryptography (C) | Public-Key Cryptography | symmetric encryption and authentication; MESSAGE AUTHENTICATION CODE (MAC); HASHED MESSAGE AUTHENTICATION CODE (HMAC) |
+| Forensics (F) | Artifact Analysis | cryptographic hashing |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/macs-hash.xml run```
 
@@ -1275,10 +1331,12 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Malware &amp; Attack Technology (MAT) | Malicious Activities by Malware | cyber kill chain ||    Malware &amp; Attack Technology (MAT) | Attacks and exploitation | EXPLOITATION; EXPLOITATION FRAMEWORKS ||    Security Operations &amp; Incident Management (SOIM) | PENETRATION TESTING | PENETRATION TESTING - SOFTWARE TOOLS; PENETRATION TESTING - ACTIVE PENETRATION |
+| Malware &amp; Attack Technology (MAT) | Malicious Activities by Malware | cyber kill chain |
+| Malware &amp; Attack Technology (MAT) | Attacks and exploitation | EXPLOITATION; EXPLOITATION FRAMEWORKS |
+| Security Operations &amp; Incident Management (SOIM) | PENETRATION TESTING | PENETRATION TESTING - SOFTWARE TOOLS; PENETRATION TESTING - ACTIVE PENETRATION |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/metasploit.xml run```
 
@@ -1303,10 +1361,11 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Authentication, Authorisation &amp; Accountability (AAA) | Authorisation | access control ||    Network Security (NS) | PENETRATION TESTING | PENETRATION TESTING - NETWORK MAPPING - PING |
+| Authentication, Authorisation &amp; Accountability (AAA) | Authorisation | access control |
+| Network Security (NS) | PENETRATION TESTING | PENETRATION TESTING - NETWORK MAPPING - PING |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/nix-commands.xml run```
 
@@ -1331,10 +1390,10 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Network Security (NS) | PENETRATION TESTING | PENETRATION TESTING - NETWORK MAPPING - FINGERPRINTING; PENETRATION TESTING - NETWORK MAPPING - NMAP |
+| Network Security (NS) | PENETRATION TESTING | PENETRATION TESTING - NETWORK MAPPING - FINGERPRINTING; PENETRATION TESTING - NETWORK MAPPING - NMAP |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/nmap-discovery.xml run```
 
@@ -1359,10 +1418,11 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Network Security (NS) | PENETRATION TESTING | PENETRATION TESTING - NETWORK MAPPING - FINGERPRINTING; PENETRATION TESTING - NETWORK MAPPING - NMAP ||    Security Operations &amp; Incident Management (SOIM) | CM (CONFIGURATION MANAGEMENT) | SSH (SECURE SHELL) |
+| Network Security (NS) | PENETRATION TESTING | PENETRATION TESTING - NETWORK MAPPING - FINGERPRINTING; PENETRATION TESTING - NETWORK MAPPING - NMAP |
+| Security Operations &amp; Incident Management (SOIM) | CM (CONFIGURATION MANAGEMENT) | SSH (SECURE SHELL) |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/nmap-ssh.xml run```
 
@@ -1387,10 +1447,12 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Authentication, Authorisation &amp; Accountability (AAA) | Authentication | user authentication; Cryptography and authentication (hashes and attacks against authentication schemes / passwords) ||    Cryptography (C) | Public-Key Cryptography | symmetric encryption and authentication; MESSAGE AUTHENTICATION CODE (MAC) ||    Forensics (F) | Artifact Analysis | cryptographic hashing |
+| Authentication, Authorisation &amp; Accountability (AAA) | Authentication | user authentication; Cryptography and authentication (hashes and attacks against authentication schemes / passwords) |
+| Cryptography (C) | Public-Key Cryptography | symmetric encryption and authentication; MESSAGE AUTHENTICATION CODE (MAC) |
+| Forensics (F) | Artifact Analysis | cryptographic hashing |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/onewayhash.xml run```
 
@@ -1415,10 +1477,11 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Forensics (F) | Main Memory Forensics | network connections; data recovery and file content carving ||    Security Operations &amp; Incident Management (SOIM) | Monitor: Data Sources | network traffic |
+| Forensics (F) | Main Memory Forensics | network connections; data recovery and file content carving |
+| Security Operations &amp; Incident Management (SOIM) | Monitor: Data Sources | network traffic |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/packet-introspection.xml run```
 
@@ -1443,10 +1506,11 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Forensics (F) | Artifact Analysis | cryptographic hashing ||    Software Security (SS) | Authentication | user authentication; Cryptography and authentication (hashes and attacks against authentication schemes / passwords) |
+| Forensics (F) | Artifact Analysis | cryptographic hashing |
+| Software Security (SS) | Authentication | user authentication; Cryptography and authentication (hashes and attacks against authentication schemes / passwords) |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/pass-crack.xml run```
 
@@ -1471,10 +1535,12 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Forensics (F) | Main Memory Forensics | network connections ||    Network Security (NS) | OSI (OPEN SYSTEM INTERCONNECT) MODEL | APPLICATION LAYER; DATA LINK LAYER; NETWORK LAYER ||    Security Operations &amp; Incident Management (SOIM) | Monitor: Data Sources | network traffic |
+| Forensics (F) | Main Memory Forensics | network connections |
+| Network Security (NS) | OSI (OPEN SYSTEM INTERCONNECT) MODEL | APPLICATION LAYER; DATA LINK LAYER; NETWORK LAYER |
+| Security Operations &amp; Incident Management (SOIM) | Monitor: Data Sources | network traffic |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/pcapanalysis.xml run```
 
@@ -1499,10 +1565,11 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Cyber-Physical Systems Security (CPS) | Cyber-Physical Systems | characteristics; security and privacy concerns ||    Cyber-Physical Systems Security (CPS) | Cyber-Physical Systems Domains | industrial control systems |
+| Cyber-Physical Systems Security (CPS) | Cyber-Physical Systems | characteristics; security and privacy concerns |
+| Cyber-Physical Systems Security (CPS) | Cyber-Physical Systems Domains | industrial control systems |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/plc-app.xml run```
 
@@ -1527,10 +1594,11 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Cyber-Physical Systems Security (CPS) | Cyber-Physical Systems | characteristics; security and privacy concerns ||    Cyber-Physical Systems Security (CPS) | Cyber-Physical Systems Domains | industrial control systems |
+| Cyber-Physical Systems Security (CPS) | Cyber-Physical Systems | characteristics; security and privacy concerns |
+| Cyber-Physical Systems Security (CPS) | Cyber-Physical Systems Domains | industrial control systems |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/plc-forensics-adv.xml run```
 
@@ -1555,10 +1623,11 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Cyber-Physical Systems Security (CPS) | Cyber-Physical Systems | characteristics; security and privacy concerns ||    Cyber-Physical Systems Security (CPS) | Cyber-Physical Systems Domains | industrial control systems |
+| Cyber-Physical Systems Security (CPS) | Cyber-Physical Systems | characteristics; security and privacy concerns |
+| Cyber-Physical Systems Security (CPS) | Cyber-Physical Systems Domains | industrial control systems |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/plc-forensics.xml run```
 
@@ -1583,10 +1652,11 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Cyber-Physical Systems Security (CPS) | Cyber-Physical Systems | characteristics; security and privacy concerns ||    Cyber-Physical Systems Security (CPS) | Cyber-Physical Systems Domains | industrial control systems |
+| Cyber-Physical Systems Security (CPS) | Cyber-Physical Systems | characteristics; security and privacy concerns |
+| Cyber-Physical Systems Security (CPS) | Cyber-Physical Systems Domains | industrial control systems |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/plc.xml run```
 
@@ -1611,10 +1681,11 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Cryptography (C) | Schemes | TLS ||    Network Security (NS) | Internet Architecture | transport layer security |
+| Cryptography (C) | Schemes | TLS |
+| Network Security (NS) | Internet Architecture | transport layer security |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/pubkey.xml run```
 
@@ -1639,10 +1710,11 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Authentication, Authorisation &amp; Accountability (AAA) | Authentication | identity management; user authentication; facets of authentication; authentication in distributed systems ||    Network Security (NS) | Internet Architecture | link layer security |
+| Authentication, Authorisation &amp; Accountability (AAA) | Authentication | identity management; user authentication; facets of authentication; authentication in distributed systems |
+| Network Security (NS) | Internet Architecture | link layer security |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/radius.xml run```
 
@@ -1667,10 +1739,10 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Network Security (NS) | Network Protocols and Vulnerability | ADDRESS RESOLUTION PROTOCOL(ARP); ARP (ADDRESS RESOLUTION PROTOCOL); ARP SPOOFING; DNS ATTACKS |
+| Network Security (NS) | Network Protocols and Vulnerability | ADDRESS RESOLUTION PROTOCOL(ARP); ARP (ADDRESS RESOLUTION PROTOCOL); ARP SPOOFING; DNS ATTACKS |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/remote-dns.xml run```
 
@@ -1695,10 +1767,12 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Software Security (SS) | Categories of Vulnerabilities | memory management vulnerabilities; Stack smashing buffer overflows ||    Software Security (SS) | Mitigating Exploitation | NON-EXECUTABLE MEMORY ||    Malware &amp; Attack Technology (MAT) | Attacks and exploitation | EXPLOITATION; EXPLOITATION FRAMEWORKS; Exploit development; Metasploit Framework development; Mitigation bypass: non-executable memory |
+| Software Security (SS) | Categories of Vulnerabilities | memory management vulnerabilities; Stack smashing buffer overflows |
+| Software Security (SS) | Mitigating Exploitation | NON-EXECUTABLE MEMORY |
+| Malware &amp; Attack Technology (MAT) | Attacks and exploitation | EXPLOITATION; EXPLOITATION FRAMEWORKS; Exploit development; Metasploit Framework development; Mitigation bypass: non-executable memory |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/retlibc.xml run```
 
@@ -1723,10 +1797,10 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Network Security (NS) | Internet Architecture | network layer security |
+| Network Security (NS) | Internet Architecture | network layer security |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/routing-basics.xml run```
 
@@ -1751,10 +1825,10 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Network Security (NS) | Internet Architecture | network layer security |
+| Network Security (NS) | Internet Architecture | network layer security |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/routing-basics2.xml run```
 
@@ -1779,10 +1853,11 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Authentication, Authorisation &amp; Accountability (AAA) | Authorisation | access control; Elevated privileges; Real and effective identity; Vulnerabilities and attacks on access control misconfigurations ||     (OSVS) | Primitives for Isolation and Mediation | Access controls and operating systems; Linux security model; Unix File Permissions; setuid/setgid |
+| Authentication, Authorisation &amp; Accountability (AAA) | Authorisation | access control; Elevated privileges; Real and effective identity; Vulnerabilities and attacks on access control misconfigurations |
+|  (OSVS) | Primitives for Isolation and Mediation | Access controls and operating systems; Linux security model; Unix File Permissions; setuid/setgid |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/setuid-env.xml run```
 
@@ -1807,10 +1882,14 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Security Operations &amp; Incident Management (SOIM) | Monitor: Data Sources | network traffic ||    Security Operations &amp; Incident Management (SOIM) | Analyse: Analysis Methods | misuse detection; anomaly detection ||    Security Operations &amp; Incident Management (SOIM) | Execute: Mitigation and Countermeasures | intrusion prevention systems ||    Network Security (NS) | Network Defence Tools | packet filters; intrusion detection systems; IDS rules creation ||    Malware &amp; Attack Technology (MAT) | Malware Detection | attack detection |
+| Security Operations &amp; Incident Management (SOIM) | Monitor: Data Sources | network traffic |
+| Security Operations &amp; Incident Management (SOIM) | Analyse: Analysis Methods | misuse detection; anomaly detection |
+| Security Operations &amp; Incident Management (SOIM) | Execute: Mitigation and Countermeasures | intrusion prevention systems |
+| Network Security (NS) | Network Defence Tools | packet filters; intrusion detection systems; IDS rules creation |
+| Malware &amp; Attack Technology (MAT) | Malware Detection | attack detection |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/snort.xml run```
 
@@ -1835,10 +1914,11 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Cyber-Physical Systems Security (CPS) | Cyber-Physical Systems | characteristics; security and privacy concerns ||    Cyber-Physical Systems Security (CPS) | Cyber-Physical Systems Domains | industrial control systems |
+| Cyber-Physical Systems Security (CPS) | Cyber-Physical Systems | characteristics; security and privacy concerns |
+| Cyber-Physical Systems Security (CPS) | Cyber-Physical Systems Domains | industrial control systems |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/softplc.xml run```
 
@@ -1863,10 +1943,11 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Cyber-Physical Systems Security (CPS) | Cyber-Physical Systems | characteristics; security and privacy concerns ||    Cyber-Physical Systems Security (CPS) | Cyber-Physical Systems Domains | industrial control systems |
+| Cyber-Physical Systems Security (CPS) | Cyber-Physical Systems | characteristics; security and privacy concerns |
+| Cyber-Physical Systems Security (CPS) | Cyber-Physical Systems Domains | industrial control systems |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/softplc2.xml run```
 
@@ -1891,10 +1972,12 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Software Security (SS) | Categories of Vulnerabilities | Web vulnerabilities / OWASP Top 10; API vulnerabilities ||    Software Security (SS) | Prevention of Vulnerabilities | coding practices; Protecting against session management attacks; XSS; SQLi; CSRF; API design ||     (WMS) | Server-Side Vulnerabilities and Mitigations | injection vulnerabilities; server-side misconfiguration and vulnerable components; SQL-INJECTION |
+| Software Security (SS) | Categories of Vulnerabilities | Web vulnerabilities / OWASP Top 10; API vulnerabilities |
+| Software Security (SS) | Prevention of Vulnerabilities | coding practices; Protecting against session management attacks; XSS; SQLi; CSRF; API design |
+|  (WMS) | Server-Side Vulnerabilities and Mitigations | injection vulnerabilities; server-side misconfiguration and vulnerable components; SQL-INJECTION |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/sql-inject.xml run```
 
@@ -1919,10 +2002,10 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Cryptography (C) | Public-Key Cryptography | public-key encryption; public-key signatures |
+| Cryptography (C) | Public-Key Cryptography | public-key encryption; public-key signatures |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/ssh-agent.xml run```
 
@@ -1947,10 +2030,10 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Cryptography (C) | Public-Key Cryptography | public-key encryption; public-key signatures |
+| Cryptography (C) | Public-Key Cryptography | public-key encryption; public-key signatures |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/sshlab.xml run```
 
@@ -1975,10 +2058,13 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Cryptography (C) | Public-Key Cryptography | public-key encryption; public-key signatures ||    Cyber-Physical Systems Security (CPS) | Cyber-Physical Systems | characteristics; security and privacy concerns ||    Cyber-Physical Systems Security (CPS) | Cyber-Physical Systems Domains | industrial control systems ||    Human Factors (HF) | Fitting the Task to the Human | device capabilities and limitations |
+| Cryptography (C) | Public-Key Cryptography | public-key encryption; public-key signatures |
+| Cyber-Physical Systems Security (CPS) | Cyber-Physical Systems | characteristics; security and privacy concerns |
+| Cyber-Physical Systems Security (CPS) | Cyber-Physical Systems Domains | industrial control systems |
+| Human Factors (HF) | Fitting the Task to the Human | device capabilities and limitations |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/labtainers/ssl.xml run```
 
@@ -2003,10 +2089,11 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Authentication, Authorisation &amp; Accountability (AAA) | Authorisation | access control; Protecting integrity ||     (OSVS) | Primitives for Isolation and Mediation | Linux read only protections: ro mounts; file attributes |
+| Authentication, Authorisation &amp; Accountability (AAA) | Authorisation | access control; Protecting integrity |
+|  (OSVS) | Primitives for Isolation and Mediation | Linux read only protections: ro mounts; file attributes |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/response_and_investigation/1_integrity_protection.xml run```
 
@@ -2031,10 +2118,12 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Forensics (F) | Artifact Analysis | cryptographic hashing ||    Security Operations &amp; Incident Management (SOIM) | Monitor: Data Sources | MONITORING - FILE INTEGRITY CHECKERS ||     (OSVS) | OS Hardening | code and data integrity checks |
+| Forensics (F) | Artifact Analysis | cryptographic hashing |
+| Security Operations &amp; Incident Management (SOIM) | Monitor: Data Sources | MONITORING - FILE INTEGRITY CHECKERS |
+|  (OSVS) | OS Hardening | code and data integrity checks |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/response_and_investigation/2_integrity_detection.xml run```
 
@@ -2059,10 +2148,10 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Security Operations &amp; Incident Management (SOIM) | Execute: Mitigation and Countermeasures | Recover data and services after an incident; BACKUP - DIFFERENTIAL; BACKUP - INFERENTIAL |
+| Security Operations &amp; Incident Management (SOIM) | Execute: Mitigation and Countermeasures | Recover data and services after an incident; BACKUP - DIFFERENTIAL; BACKUP - INFERENTIAL |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/response_and_investigation/3_backups_and_recovery.xml run```
 
@@ -2087,10 +2176,14 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Security Operations &amp; Incident Management (SOIM) | Monitor: Data Sources | network traffic ||    Security Operations &amp; Incident Management (SOIM) | Analyse: Analysis Methods | misuse detection; anomaly detection ||    Security Operations &amp; Incident Management (SOIM) | Execute: Mitigation and Countermeasures | intrusion prevention systems ||    Network Security (NS) | Network Defence Tools | packet filters; intrusion detection systems ||    Malware &amp; Attack Technology (MAT) | Malware Detection | attack detection |
+| Security Operations &amp; Incident Management (SOIM) | Monitor: Data Sources | network traffic |
+| Security Operations &amp; Incident Management (SOIM) | Analyse: Analysis Methods | misuse detection; anomaly detection |
+| Security Operations &amp; Incident Management (SOIM) | Execute: Mitigation and Countermeasures | intrusion prevention systems |
+| Network Security (NS) | Network Defence Tools | packet filters; intrusion detection systems |
+| Malware &amp; Attack Technology (MAT) | Malware Detection | attack detection |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/response_and_investigation/4_ids.xml run```
 
@@ -2115,10 +2208,13 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Security Operations &amp; Incident Management (SOIM) | Monitor: Data Sources | network traffic ||    Security Operations &amp; Incident Management (SOIM) | Analyse: Analysis Methods | misuse detection; anomaly detection ||    Network Security (NS) | Network Defence Tools | packet filters; intrusion detection systems; IDS rules creation ||    Malware &amp; Attack Technology (MAT) | Malware Detection | attack detection |
+| Security Operations &amp; Incident Management (SOIM) | Monitor: Data Sources | network traffic |
+| Security Operations &amp; Incident Management (SOIM) | Analyse: Analysis Methods | misuse detection; anomaly detection |
+| Network Security (NS) | Network Defence Tools | packet filters; intrusion detection systems; IDS rules creation |
+| Malware &amp; Attack Technology (MAT) | Malware Detection | attack detection |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/response_and_investigation/5_ids_rules.xml run```
 
@@ -2143,10 +2239,13 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Forensics (F) | Artifact Analysis | cryptographic hashing ||    Security Operations &amp; Incident Management (SOIM) | Monitor: Data Sources | network traffic ||    Security Operations &amp; Incident Management (SOIM) | Analyse: Analysis Methods | Exfiltation detection / data loss prevention ||    Network Security (NS) | Network Defence Tools | packet filters; intrusion detection systems; intrusion prevention systems; IDS rules creation |
+| Forensics (F) | Artifact Analysis | cryptographic hashing |
+| Security Operations &amp; Incident Management (SOIM) | Monitor: Data Sources | network traffic |
+| Security Operations &amp; Incident Management (SOIM) | Analyse: Analysis Methods | Exfiltation detection / data loss prevention |
+| Network Security (NS) | Network Defence Tools | packet filters; intrusion detection systems; intrusion prevention systems; IDS rules creation |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/response_and_investigation/6_exfiltration_detection.xml run```
 
@@ -2171,10 +2270,13 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Forensics (F) | Main Memory Forensics | process information; file information; network connections; artifacts and fragments; challenges of live forensics ||     (OSVS) | OS Hardening | anomaly detection ||    Authentication, Authorisation &amp; Accountability (AAA) | Accountability | The fallibility of digital evidence to tampering ||    Malware &amp; Attack Technology (MAT) | Malware Detection | identifying the presence of malware |
+| Forensics (F) | Main Memory Forensics | process information; file information; network connections; artifacts and fragments; challenges of live forensics |
+|  (OSVS) | OS Hardening | anomaly detection |
+| Authentication, Authorisation &amp; Accountability (AAA) | Accountability | The fallibility of digital evidence to tampering |
+| Malware &amp; Attack Technology (MAT) | Malware Detection | identifying the presence of malware |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/response_and_investigation/7_live_analysis.xml run```
 
@@ -2199,10 +2301,12 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Forensics (F) | Operating System Analysis | storage forensics; data recovery and file content carving; Timeline analysis ||    Malware &amp; Attack Technology (MAT) | Malware Detection | identifying the presence of malware ||    Authentication, Authorisation &amp; Accountability (AAA) | Accountability | The fallibility of digital evidence to tampering |
+| Forensics (F) | Operating System Analysis | storage forensics; data recovery and file content carving; Timeline analysis |
+| Malware &amp; Attack Technology (MAT) | Malware Detection | identifying the presence of malware |
+| Authentication, Authorisation &amp; Accountability (AAA) | Accountability | The fallibility of digital evidence to tampering |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/response_and_investigation/8_dead_analysis.xml run```
 
@@ -2227,10 +2331,11 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Malware &amp; Attack Technology (MAT) | Malware Taxonomy | dimensions; kinds ||    Malware &amp; Attack Technology (MAT) | Malware Analysis | analysis techniques; analysis environments |
+| Malware &amp; Attack Technology (MAT) | Malware Taxonomy | dimensions; kinds |
+| Malware &amp; Attack Technology (MAT) | Malware Analysis | analysis techniques; analysis environments |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/software_and_malware_analysis/1_dynamic_and_static_analysis.xml run```
 
@@ -2255,10 +2360,10 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Malware &amp; Attack Technology (MAT) | Malware Analysis | analysis techniques; analysis environments |
+| Malware &amp; Attack Technology (MAT) | Malware Analysis | analysis techniques; analysis environments |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/software_and_malware_analysis/3_c_and_asm.xml run```
 
@@ -2283,10 +2388,10 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Malware &amp; Attack Technology (MAT) | Malware Analysis | analysis techniques; analysis environments; STATIC ANALYSIS |
+| Malware &amp; Attack Technology (MAT) | Malware Analysis | analysis techniques; analysis environments; STATIC ANALYSIS |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/software_and_malware_analysis/4_asm.xml run```
 
@@ -2311,10 +2416,10 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Malware &amp; Attack Technology (MAT) | Malware Analysis | analysis techniques; analysis environments; STATIC ANALYSIS |
+| Malware &amp; Attack Technology (MAT) | Malware Analysis | analysis techniques; analysis environments; STATIC ANALYSIS |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/software_and_malware_analysis/5_ghidra.xml run```
 
@@ -2339,10 +2444,10 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Malware &amp; Attack Technology (MAT) | Malware Analysis | analysis techniques; analysis environments; STATIC ANALYSIS |
+| Malware &amp; Attack Technology (MAT) | Malware Analysis | analysis techniques; analysis environments; STATIC ANALYSIS |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/software_and_malware_analysis/6_ghidra_analysis.xml run```
 
@@ -2367,10 +2472,10 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Malware &amp; Attack Technology (MAT) | Malware Analysis | analysis techniques; analysis environments |
+| Malware &amp; Attack Technology (MAT) | Malware Analysis | analysis techniques; analysis environments |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/software_and_malware_analysis/6_ghidra_with_live_malware_samples.xml run```
 
@@ -2395,10 +2500,10 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Malware &amp; Attack Technology (MAT) | Malware Analysis | analysis techniques; analysis environments; DYNAMIC ANALYSIS |
+| Malware &amp; Attack Technology (MAT) | Malware Analysis | analysis techniques; analysis environments; DYNAMIC ANALYSIS |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/software_and_malware_analysis/7_dynamic.xml run```
 
@@ -2423,10 +2528,10 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Malware &amp; Attack Technology (MAT) | Malware Analysis | analysis techniques; analysis environments; anti-analysis and evasion techniques |
+| Malware &amp; Attack Technology (MAT) | Malware Analysis | analysis techniques; analysis environments; anti-analysis and evasion techniques |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/software_and_malware_analysis/8_anti_sre.xml run```
 
@@ -2451,10 +2556,11 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Malware &amp; Attack Technology (MAT) | Malware Taxonomy | dimensions; kinds ||    Malware &amp; Attack Technology (MAT) | Malware Analysis | analysis techniques; analysis environments |
+| Malware &amp; Attack Technology (MAT) | Malware Taxonomy | dimensions; kinds |
+| Malware &amp; Attack Technology (MAT) | Malware Analysis | analysis techniques; analysis environments |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/software_and_malware_analysis/9_malware_behaviour.xml run```
 
@@ -2479,10 +2585,11 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Software Security (SS) | Categories of Vulnerabilities | Integer overflow ||    Software Security (SS) | Prevention of Vulnerabilities | language design and type systems |
+| Software Security (SS) | Categories of Vulnerabilities | Integer overflow |
+| Software Security (SS) | Prevention of Vulnerabilities | language design and type systems |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/software_security_exploitation/1_c_asm_iof.xml run```
 
@@ -2507,10 +2614,11 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Software Security (SS) | Categories of Vulnerabilities | race condition vulnerabilities; structured output generation vulnerabilities; Format string attacks ||    Software Security (SS) | Prevention of Vulnerabilities | race condition mitigations; structured output generations mitigations |
+| Software Security (SS) | Categories of Vulnerabilities | race condition vulnerabilities; structured output generation vulnerabilities; Format string attacks |
+| Software Security (SS) | Prevention of Vulnerabilities | race condition mitigations; structured output generations mitigations |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/software_security_exploitation/2_race_conditions_format_str.xml run```
 
@@ -2535,10 +2643,10 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Software Security (SS) | Detection of Vulnerabilities | dynamic detection |
+| Software Security (SS) | Detection of Vulnerabilities | dynamic detection |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/software_security_exploitation/3_bug_hunting_and_fuzzing.xml run```
 
@@ -2563,10 +2671,11 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Software Security (SS) | Categories of Vulnerabilities | memory management vulnerabilities; Stack smashing buffer overflows ||    Malware &amp; Attack Technology (MAT) | Attacks and exploitation | EXPLOITATION; EXPLOITATION FRAMEWORKS; Exploit development; Metasploit Framework development |
+| Software Security (SS) | Categories of Vulnerabilities | memory management vulnerabilities; Stack smashing buffer overflows |
+| Malware &amp; Attack Technology (MAT) | Attacks and exploitation | EXPLOITATION; EXPLOITATION FRAMEWORKS; Exploit development; Metasploit Framework development |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/software_security_exploitation/4_exploit_development.xml run```
 
@@ -2591,10 +2700,11 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Software Security (SS) | Categories of Vulnerabilities | memory management vulnerabilities; Stack smashing buffer overflows; Format string attacks ||    Malware &amp; Attack Technology (MAT) | Attacks and exploitation | EXPLOITATION; EXPLOITATION FRAMEWORKS; Exploit development; Metasploit Framework development |
+| Software Security (SS) | Categories of Vulnerabilities | memory management vulnerabilities; Stack smashing buffer overflows; Format string attacks |
+| Malware &amp; Attack Technology (MAT) | Attacks and exploitation | EXPLOITATION; EXPLOITATION FRAMEWORKS; Exploit development; Metasploit Framework development |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/software_security_exploitation/5_linux_bof_format.xml run```
 
@@ -2619,10 +2729,11 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Software Security (SS) | Categories of Vulnerabilities | memory management vulnerabilities; Stack smashing buffer overflows ||    Malware &amp; Attack Technology (MAT) | Attacks and exploitation | EXPLOITATION; EXPLOITATION FRAMEWORKS; Exploit development; Metasploit Framework development |
+| Software Security (SS) | Categories of Vulnerabilities | memory management vulnerabilities; Stack smashing buffer overflows |
+| Malware &amp; Attack Technology (MAT) | Attacks and exploitation | EXPLOITATION; EXPLOITATION FRAMEWORKS; Exploit development; Metasploit Framework development |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/software_security_exploitation/6_linux_stack_bof.xml run```
 
@@ -2647,10 +2758,12 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Software Security (SS) | Categories of Vulnerabilities | memory management vulnerabilities; Stack smashing buffer overflows ||    Software Security (SS) | Mitigating Exploitation | NON-EXECUTABLE MEMORY ||    Malware &amp; Attack Technology (MAT) | Attacks and exploitation | EXPLOITATION; EXPLOITATION FRAMEWORKS; Exploit development; Metasploit Framework development; Mitigation bypass: non-executable memory |
+| Software Security (SS) | Categories of Vulnerabilities | memory management vulnerabilities; Stack smashing buffer overflows |
+| Software Security (SS) | Mitigating Exploitation | NON-EXECUTABLE MEMORY |
+| Malware &amp; Attack Technology (MAT) | Attacks and exploitation | EXPLOITATION; EXPLOITATION FRAMEWORKS; Exploit development; Metasploit Framework development; Mitigation bypass: non-executable memory |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/software_security_exploitation/7_linux_nx_bypass.xml run```
 
@@ -2675,10 +2788,12 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|    Software Security (SS) | Categories of Vulnerabilities | memory management vulnerabilities; Stack smashing buffer overflows ||    Software Security (SS) | Mitigating Exploitation | ASLR (ADDRESS SPACE LAYOUT RANDOMIZATION) ||    Malware &amp; Attack Technology (MAT) | Attacks and exploitation | EXPLOITATION; EXPLOITATION FRAMEWORKS; Exploit development; Metasploit Framework development; Mitigation bypass: ASLR |
+| Software Security (SS) | Categories of Vulnerabilities | memory management vulnerabilities; Stack smashing buffer overflows |
+| Software Security (SS) | Mitigating Exploitation | ASLR (ADDRESS SPACE LAYOUT RANDOMIZATION) |
+| Malware &amp; Attack Technology (MAT) | Attacks and exploitation | EXPLOITATION; EXPLOITATION FRAMEWORKS; Exploit development; Metasploit Framework development; Mitigation bypass: ASLR |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/software_security_exploitation/8_linux_aslr_bypass.xml run```
 
@@ -2703,10 +2818,15 @@ Command to start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-|     (WMS) | Fundamental Concepts and Approaches | web PKI and HTTPS; authentication; cookies; passwords and alternatives; JAVASCRIPT / HYPERTEXT MARKUP LANGUAGE (HTML) / CASCADING STYLE SHEETS (CSS) / HYPERTEXT TRANSFER PROTOCOL (HTTP)\n\t\tCOOKIES; HYPERTEXT TRANSFER PROTOCOL (HTTP) - PROXYING; Broken Access Control / Insecure Direct Object References; SESSION HIJACKING; REPRESENTATIONAL STATE TRANSFER (REST) ||     (WMS) | Client-Side Vulnerabilities and Mitigations | client-side storage; CLIENT-SIDE VALIDATION; clickjacking ||     (WMS) | Client-Side Vulnerabilities and Mitigations | client-side storage; CLIENT-SIDE VALIDATION; clickjacking ||     (WMS) | Server-Side Vulnerabilities and Mitigations | injection vulnerabilities; server-side misconfiguration and vulnerable components; CROSS-SITE SCRIPTING (XSS); SAME ORIGIN POLICY (SOP); COMMAND INJECTION; SQL-INJECTION; CROSS-SITE REQUEST FORGERY (CSRF); CONFUSED DEPUTY ATTACKS ||    Software Security (SS) | Categories of Vulnerabilities | Web vulnerabilities / OWASP Top 10; API vulnerabilities ||    Software Security (SS) | Prevention of Vulnerabilities | coding practices; Protecting against session management attacks; XSS; SQLi; CSRF; API design |
+|  (WMS) | Fundamental Concepts and Approaches | web PKI and HTTPS; authentication; cookies; passwords and alternatives; JAVASCRIPT / HYPERTEXT MARKUP LANGUAGE (HTML) / CASCADING STYLE SHEETS (CSS) / HYPERTEXT TRANSFER PROTOCOL (HTTP)\n\t\tCOOKIES; HYPERTEXT TRANSFER PROTOCOL (HTTP) - PROXYING; Broken Access Control / Insecure Direct Object References; SESSION HIJACKING; REPRESENTATIONAL STATE TRANSFER (REST) |
+|  (WMS) | Client-Side Vulnerabilities and Mitigations | client-side storage; CLIENT-SIDE VALIDATION; clickjacking |
+|  (WMS) | Client-Side Vulnerabilities and Mitigations | client-side storage; CLIENT-SIDE VALIDATION; clickjacking |
+|  (WMS) | Server-Side Vulnerabilities and Mitigations | injection vulnerabilities; server-side misconfiguration and vulnerable components; CROSS-SITE SCRIPTING (XSS); SAME ORIGIN POLICY (SOP); COMMAND INJECTION; SQL-INJECTION; CROSS-SITE REQUEST FORGERY (CSRF); CONFUSED DEPUTY ATTACKS |
+| Software Security (SS) | Categories of Vulnerabilities | Web vulnerabilities / OWASP Top 10; API vulnerabilities |
+| Software Security (SS) | Prevention of Vulnerabilities | coding practices; Protecting against session management attacks; XSS; SQLi; CSRF; API design |
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/labs/web_security/websec_lab.xml run```
 

@@ -37,7 +37,7 @@ KA_TOPIC_SCENARIOS_HASH.each{|ka,hash|
 # Scenario CyBOK Keywords
 
 <%
-SCENARIOS_HASH.each{|scenario,array|
+SCENARIOS_HASH.keys.each{|scenario|
 %>
   ## <%= scenario %>
 
@@ -58,12 +58,12 @@ systems = SCENARIOS_FULL_HASH[scenario][0].dig_deep(:system_name).to_s.gsub(/"|\
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
-<%array.each{|arr| -%>
-|    <%= CyBOK_ACRONYMS[arr["@KA"]] %> (<%= arr["@KA"] %>) | <%= arr["@topic"] %> | <%= arr["keyword"].to_s.gsub(/"|\[|\]/, '').gsub(',',';') %> |<%
-} %>
+<%SCENARIOS_HASH[scenario].each{|arr| -%>
+| <%= CyBOK_ACRONYMS[arr["@KA"]] %> (<%= arr["@KA"] %>) | <%= arr["@topic"] %> | <%= arr["keyword"].to_s.gsub(/"|\[|\]/, '').gsub(',',';') %> |
+<%} -%>
 
 
-Command to start scenario:
+Command to build VMs and start scenario:
 
 ```ruby secgen.rb -s scenario/<%= scenario %> run```
 
