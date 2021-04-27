@@ -28,14 +28,14 @@ A Hackerbot lab. Work through the labsheet, then when prompted interact with Hac
 		<keyword>ACCESS CONTROL - DAC (DISCRETIONARY ACCESS CONTROL)</keyword>
 		<keyword>Vulnerabilities and attacks on access control misconfigurations</keyword>
 	</CyBOK>
-	<CyBOK KA="OSVS" topic="Primitives for Isolation and Mediation">
+	<CyBOK KA="OSV" topic="Primitives for Isolation and Mediation">
 		<keyword>Access controls and operating systems</keyword>
 		<keyword>Linux security model</keyword>
 		<keyword>Unix File Permissions</keyword>
 		<keyword>Filesystems, inodes, and commands</keyword>
 		<keyword>umask</keyword>
 	</CyBOK>
-	<CyBOK KA="OSVS" topic="Role of Operating Systems">
+	<CyBOK KA="OSV" topic="Role of Operating Systems">
 		<keyword>mediation</keyword>
 	</CyBOK>
 
@@ -49,10 +49,10 @@ A Hackerbot lab. Work through the labsheet, then when prompted interact with Hac
 			<keyword>enforcing access control</keyword>
 			<keyword>theory</keyword>
 		</CyBOK>
-		<CyBOK KA="OSVS" topic="Primitives for Isolation and Mediation">
+		<CyBOK KA="OSV" topic="Primitives for Isolation and Mediation">
 			<keyword>Access controls and operating systems</keyword>
 		</CyBOK>
-		<CyBOK KA="OSVS" topic="Role of Operating Systems">
+		<CyBOK KA="OSV" topic="Role of Operating Systems">
 			<keyword>mediation</keyword>
 			<keyword>TRUSTED COMPUTING BASE (TCB)</keyword>
 			<keyword>REFERENCE MONITOR</keyword>
@@ -68,13 +68,13 @@ A Hackerbot lab. Work through the labsheet, then when prompted interact with Hac
 			<keyword>enforcing access control</keyword>
 			<keyword>ACCESS CONTROL - DAC (DISCRETIONARY ACCESS CONTROL)</keyword>
 		</CyBOK>
-		<CyBOK KA="OSVS" topic="Primitives for Isolation and Mediation">
+		<CyBOK KA="OSV" topic="Primitives for Isolation and Mediation">
 			<keyword>Access controls and operating systems</keyword>
 			<keyword>Linux security model</keyword>
 			<keyword>Unix File Permissions</keyword>
 			<keyword>filesystems, inodes, and commands</keyword>
 		</CyBOK>
-		<CyBOK KA="OSVS" topic="Role of Operating Systems">
+		<CyBOK KA="OSV" topic="Role of Operating Systems">
 			<keyword>mediation</keyword>
 		</CyBOK>
 	</video>

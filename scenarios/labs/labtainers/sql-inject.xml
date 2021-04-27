@@ -21,7 +21,7 @@
     <keyword>Protecting against session management attacks, XSS, SQLi, CSRF</keyword>
     <keyword>API design</keyword>
   </CyBOK>
-  <CyBOK KA="WMS" topic="Server-Side Vulnerabilities and Mitigations">
+  <CyBOK KA="WAM" topic="Server-Side Vulnerabilities and Mitigations">
     <keyword>injection vulnerabilities</keyword>
     <keyword>server-side misconfiguration and vulnerable components</keyword>
     <keyword>SQL-INJECTION</keyword>

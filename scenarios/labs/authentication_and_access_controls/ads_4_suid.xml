@@ -28,7 +28,7 @@ A Hackerbot lab. Work through the labsheet, then when prompted interact with Hac
 		<keyword>Real and effective identity</keyword>
 		<keyword>Vulnerabilities and attacks on access control misconfigurations</keyword>
 	</CyBOK>
-	<CyBOK KA="OSVS" topic="Primitives for Isolation and Mediation">
+	<CyBOK KA="OSV" topic="Primitives for Isolation and Mediation">
 		<keyword>Access controls and operating systems</keyword>
 		<keyword>Linux security model</keyword>
 		<keyword>Unix File Permissions</keyword>
@@ -49,7 +49,7 @@ A Hackerbot lab. Work through the labsheet, then when prompted interact with Hac
 			<keyword>ACCESS CONTROL - NDAC (NON-DISCRETIONARY ACCESS CONTROL)</keyword>
 			<keyword>ACCESS CONTROL - ROLE-BASED</keyword>
 		</CyBOK>
-		<CyBOK KA="OSVS" topic="OS Security Principles">
+		<CyBOK KA="OSV" topic="OS Security Principles">
 			<keyword>security models</keyword>
 		</CyBOK>
 	</video>
@@ -64,7 +64,7 @@ A Hackerbot lab. Work through the labsheet, then when prompted interact with Hac
 			<keyword>Real and effective identity</keyword>
 			<keyword>Vulnerabilities and attacks on access control misconfigurations</keyword>
 		</CyBOK>
-		<CyBOK KA="OSVS" topic="Primitives for Isolation and Mediation">
+		<CyBOK KA="OSV" topic="Primitives for Isolation and Mediation">
 			<keyword>Access controls and operating systems</keyword>
 			<keyword>Linux security model</keyword>
 			<keyword>Unix File Permissions</keyword>

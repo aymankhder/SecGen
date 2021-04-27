@@ -27,7 +27,7 @@ A short lab this week, exploring PAM. Work through the labsheet, then when promp
 		<keyword>user authentication</keyword>
 		<keyword>facets of authentication</keyword>
 	</CyBOK>
-	<CyBOK KA="OSVS" topic="Primitives for Isolation and Mediation">
+	<CyBOK KA="OSV" topic="Primitives for Isolation and Mediation">
 		<keyword>authentication and identification</keyword>
 		<keyword>Linux authentication</keyword>
 		<keyword>Authentication frameworks (PAM)</keyword>
@@ -43,7 +43,7 @@ A short lab this week, exploring PAM. Work through the labsheet, then when promp
 			<keyword>user authentication</keyword>
 			<keyword>facets of authentication</keyword>
 		</CyBOK>
-		<CyBOK KA="OSVS" topic="Primitives for Isolation and Mediation">
+		<CyBOK KA="OSV" topic="Primitives for Isolation and Mediation">
 			<keyword>authentication and identification</keyword>
 			<keyword>Linux authentication</keyword>
 		</CyBOK>

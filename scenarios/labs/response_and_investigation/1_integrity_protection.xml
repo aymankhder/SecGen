@@ -17,7 +17,7 @@
 		<keyword>access control</keyword>
 		<keyword>Protecting integrity</keyword>
 	</CyBOK>
-	<CyBOK KA="OSVS" topic="Primitives for Isolation and Mediation">
+	<CyBOK KA="OSV" topic="Primitives for Isolation and Mediation">
 		<keyword>Linux read only protections: ro mounts, file attributes</keyword>
 	</CyBOK>
 
@@ -39,7 +39,7 @@
 			<keyword>access control</keyword>
 			<keyword>Protecting integrity</keyword>
 		</CyBOK>
-		<CyBOK KA="OSVS" topic="Primitives for Isolation and Mediation">
+		<CyBOK KA="OSV" topic="Primitives for Isolation and Mediation">
 			<keyword>Linux read only protections: ro mounts, file attributes</keyword>
 		</CyBOK>
 	</video>

@@ -12,7 +12,7 @@
   <type>lab-sheet</type>
   <difficulty>intermediate</difficulty>
 
-  <CyBOK KA="WMS" topic="Server-Side Vulnerabilities and Mitigations">
+  <CyBOK KA="WAM" topic="Server-Side Vulnerabilities and Mitigations">
     <keyword>CROSS-SITE SCRIPTING (XSS)</keyword>
   </CyBOK>
 

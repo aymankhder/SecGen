@@ -24,7 +24,7 @@
 		<by>Z. Cliffe Schreuders</by>
 		<url>https://youtu.be/lak1Sued4GY</url>
 		<type>lecture-prerecorded</type>
-		<CyBOK KA="OSVS" topic="Human Factors: Incident Management">
+		<CyBOK KA="OSV" topic="Human Factors: Incident Management">
 			<keyword>prepare: incident management planning</keyword>
 			<keyword>BUSINESS CONTINUITY PLAN - AND INCIDENT RESPONSE</keyword>
 		</CyBOK>
@@ -37,7 +37,7 @@
 		<CyBOK KA="SOIM" topic="Execute: Mitigation and Countermeasures">
 			<keyword>Recover data and services after an incident</keyword>
 		</CyBOK>
-		<CyBOK KA="OSVS" topic="Human Factors: Incident Management">
+		<CyBOK KA="OSV" topic="Human Factors: Incident Management">
 			<keyword>prepare: incident management planning</keyword>
 			<keyword>BUSINESS CONTINUITY PLAN - AND INCIDENT RESPONSE</keyword>
 		</CyBOK>
@@ -52,7 +52,7 @@
 			<keyword>BACKUP - DIFFERENTIAL</keyword>
 			<keyword>BACKUP - INFERENTIAL</keyword>
 		</CyBOK>
-		<CyBOK KA="OSVS" topic="Human Factors: Incident Management">
+		<CyBOK KA="OSV" topic="Human Factors: Incident Management">
 			<keyword>prepare: incident management planning</keyword>
 		</CyBOK>
 	</video>

@@ -20,7 +20,7 @@
 		<keyword>artifacts and fragments</keyword>
 		<keyword>challenges of live forensics</keyword>
 	</CyBOK>
-	<CyBOK KA="OSVS" topic="OS Hardening">
+	<CyBOK KA="OSV" topic="OS Hardening">
 		<keyword>anomaly detection</keyword>
 	</CyBOK>
 	<CyBOK KA="AAA" topic="Accountability">
@@ -42,7 +42,7 @@
 			<keyword>artifacts and fragments</keyword>
 			<keyword>challenges of live forensics</keyword>
 		</CyBOK>
-		<CyBOK KA="OSVS" topic="OS Hardening">
+		<CyBOK KA="OSV" topic="OS Hardening">
 			<keyword>anomaly detection</keyword>
 		</CyBOK>
 		<CyBOK KA="AAA" topic="Accountability">
@@ -64,7 +64,7 @@
 			<keyword>artifacts and fragments</keyword>
 			<keyword>challenges of live forensics</keyword>
 		</CyBOK>
-		<CyBOK KA="OSVS" topic="OS Hardening">
+		<CyBOK KA="OSV" topic="OS Hardening">
 			<keyword>anomaly detection</keyword>
 		</CyBOK>
 		<CyBOK KA="AAA" topic="Accountability">

@@ -23,19 +23,19 @@
     <keyword>backdoor</keyword>
     <keyword>TROJANS - BACKDOOR</keyword>
   </CyBOK>
-  <CyBOK KA="OSVS" topic="Primitives for Isolation and Mediation">
+  <CyBOK KA="OSV" topic="Primitives for Isolation and Mediation">
     <keyword>Access controls and operating systems</keyword>
     <keyword>Linux security model</keyword>
     <keyword>Unix File Permissions</keyword>
     <keyword>filesystems, inodes, and commands</keyword>
     <keyword>umask</keyword>
   </CyBOK>
-  <CyBOK KA="OSVS" topic="Primitives for Isolation and Mediation">
+  <CyBOK KA="OSV" topic="Primitives for Isolation and Mediation">
     <keyword>Access controls and operating systems</keyword>
     <keyword>Linux security model</keyword>
     <keyword>Linux Extended Access Control Lists (facl)</keyword>
   </CyBOK>
-  <CyBOK KA="OSVS" topic="Role of Operating Systems">
+  <CyBOK KA="OSV" topic="Role of Operating Systems">
     <keyword>mediation</keyword>
   </CyBOK>
 

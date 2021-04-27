@@ -19,7 +19,7 @@
 	<CyBOK KA="SOIM" topic="Monitor: Data Sources">
 		<keyword>MONITORING - FILE INTEGRITY CHECKERS</keyword>
 	</CyBOK>
-	<CyBOK KA="OSVS" topic="OS Hardening">
+	<CyBOK KA="OSV" topic="OS Hardening">
 		<keyword>code and data integrity checks</keyword>
 	</CyBOK>
 	
@@ -34,7 +34,7 @@
 		<CyBOK KA="SOIM" topic="Monitor: Data Sources">
 			<keyword>MONITORING - FILE INTEGRITY CHECKERS</keyword>
 		</CyBOK>
-		<CyBOK KA="OSVS" topic="OS Hardening">
+		<CyBOK KA="OSV" topic="OS Hardening">
 			<keyword>code and data integrity checks</keyword>
 		</CyBOK>
 	</video>
@@ -43,11 +43,11 @@
 		<by>Z. Cliffe Schreuders</by>
 		<url>https://www.youtube.com/watch?v=kz7m-iyzSOw</url>
 		<type>lecture-prerecorded</type>
-		<CyBOK KA="OSVS" topic="Fundamental Concepts">
+		<CyBOK KA="OSV" topic="Fundamental Concepts">
 			<keyword>workflows and vocabulary</keyword>
 			<keyword>architectural principles</keyword>
 		</CyBOK>
-		<CyBOK KA="OSVS" topic="Human Factors: Incident Management">
+		<CyBOK KA="OSV" topic="Human Factors: Incident Management">
 			<keyword>prepare: incident management planning</keyword>
 			<keyword>handle: actual incident response</keyword>
 			<keyword>follow up: post incident activities</keyword>

@@ -12,7 +12,7 @@
   <type>lab-sheet</type>
   <difficulty>intermediate</difficulty>
 
-  <CyBOK KA="OSVS" topic="Primitives for Isolation and Mediation">
+  <CyBOK KA="OSV" topic="Primitives for Isolation and Mediation">
     <keyword>capabilities</keyword>
     <keyword>Rule-based controls: Course grained: Linux capabilities</keyword>
   </CyBOK>

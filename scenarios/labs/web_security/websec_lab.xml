@@ -12,7 +12,7 @@
 	<type>ctf-lab</type>
 
 	<!-- comprehensive web set training frameworks: WebGoat and DVWA -->
-	<CyBOK KA="WMS" topic="Fundamental Concepts and Approaches">
+	<CyBOK KA="WAM" topic="Fundamental Concepts and Approaches">
 		<keyword>web PKI and HTTPS</keyword>
 		<keyword>authentication</keyword>
 		<keyword>cookies</keyword>
@@ -24,17 +24,17 @@
 		<keyword>SESSION HIJACKING</keyword>
 		<keyword>REPRESENTATIONAL STATE TRANSFER (REST)</keyword>
 	</CyBOK>
-	<CyBOK KA="WMS" topic="Client-Side Vulnerabilities and Mitigations">
+	<CyBOK KA="WAM" topic="Client-Side Vulnerabilities and Mitigations">
 		<keyword>client-side storage</keyword>
 		<keyword>CLIENT-SIDE VALIDATION</keyword>
 		<keyword>clickjacking</keyword>
 	</CyBOK>
-	<CyBOK KA="WMS" topic="Client-Side Vulnerabilities and Mitigations">
+	<CyBOK KA="WAM" topic="Client-Side Vulnerabilities and Mitigations">
 		<keyword>client-side storage</keyword>
 		<keyword>CLIENT-SIDE VALIDATION</keyword>
 		<keyword>clickjacking</keyword>
 	</CyBOK>
-  <CyBOK KA="WMS" topic="Server-Side Vulnerabilities and Mitigations">
+  <CyBOK KA="WAM" topic="Server-Side Vulnerabilities and Mitigations">
 		<keyword>injection vulnerabilities</keyword>
 		<keyword>server-side misconfiguration and vulnerable components</keyword>
 		<keyword>CROSS-SITE SCRIPTING (XSS)</keyword>

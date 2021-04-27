@@ -48,7 +48,7 @@
 			<keyword>CLOUD COMPUTING - SERVICE MODELS - SAAS</keyword>
 			<keyword>CLOUD COMPUTING - STORAGE</keyword>
 		</CyBOK>
-		<CyBOK KA="OSVS" topic="CLOUD - COMPUTING - SERVICES">
+		<CyBOK KA="OSV" topic="CLOUD - COMPUTING - SERVICES">
 			<keyword>CLOUD COMPUTING - VIRTUALIZATION</keyword>
 		</CyBOK>
 		<CyBOK KA="POR" topic="Confidentiality">

@@ -252,16 +252,16 @@ The table below is a key for the abbreviations you will find within the CyBOK XM
 | SOIM   | Security Operations & Incident Management | [link](https://www.cybok.org/media/downloads/Security_Operations__Incident_Management_issue_1.0.pdf)|  [link](https://www.cybok.org/media/downloads/Security_Operations__Incident_Management.pdf)|
 | F   | Forensics | [link](https://www.cybok.org/media/downloads/Forensics_issue_1.0.pdf)|  [link](https://www.cybok.org/media/downloads/Forensics.pdf)|
 | C   | Cryptography | [link](https://www.cybok.org/media/downloads/Cryptography-issue-1.0.pdf)|  [link](https://www.cybok.org/media/downloads/Cryptography.pdf)|
-| OSVS   | Operating Systems & Virtualisation Security | [link](https://www.cybok.org/media/downloads/Operating_Systems__Virtualisation_Security_issue_1.0_xhesi5S.pdf)|  [link](https://www.cybok.org/media/downloads/Operating_Systems__Virtualisation_Security.pdf)|
+| OSV   | Operating Systems & Virtualisation Security | [link](https://www.cybok.org/media/downloads/Operating_Systems__Virtualisation_Security_issue_1.0_xhesi5S.pdf)|  [link](https://www.cybok.org/media/downloads/Operating_Systems__Virtualisation_Security.pdf)|
 | DSS   | Distributed Systems Security | [link](https://www.cybok.org/media/downloads/Distributed_Systems_Security_issue_1.0.pdf)|  [link](https://www.cybok.org/media/downloads/Distributed_Systems_Security.pdf)|
 | AAA         |   Authentication, Authorisation and Accountability | [link](https://www.cybok.org/media/downloads/AAA_issue_1.0_q3qspzo.pdf)| [link](https://www.cybok.org/media/downloads/AAA.pdf) |
 | SS   | Software Security | [link](https://www.cybok.org/media/downloads/Software_Security_issue_1.0_1M7Kfk2.pdf)|  [link](https://www.cybok.org/media/downloads/Software_Security.pdf)|
-| WMS   | Web & Mobile Security | [link](https://www.cybok.org/media/downloads/Web__Mobile_Security_issue_1.0_XFpbYNz.pdf)|  [link](https://www.cybok.org/media/downloads/Web__Mobile_Security.pdf)|
+| WAM   | Web & Mobile Security | [link](https://www.cybok.org/media/downloads/Web__Mobile_Security_issue_1.0_XFpbYNz.pdf)|  [link](https://www.cybok.org/media/downloads/Web__Mobile_Security.pdf)|
 | SSL   | Secure Software Lifecycle | [link](https://www.cybok.org/media/downloads/Secure_Software_Lifecycle_issue_1.0.pdf)|  [link](https://www.cybok.org/media/downloads/Secure_Software_Lifecycle.pdf)|
 | NS   | Network Security | [link](https://www.cybok.org/media/downloads/Network_Security_issue_1.0_qsCh0SR.pdf)|  [link](https://www.cybok.org/media/downloads/Network_Security.pdf)|
 | HS   | Hardware Security | [link](https://www.cybok.org/media/downloads/Hardware_Security_issue_1.0.pdf)|  [link](https://www.cybok.org/media/downloads/Hardware_Security.pdf)|
 | CPS   | Cyber Physical Systems | [link](https://www.cybok.org/media/downloads/Cyber-Physical_Systems_Security_issue_1.0.pdf)|  [link](https://www.cybok.org/media/downloads/Cyber_Physical_Systems_Security.pdf)|
-| PLTS   | Physical Layer and Telecommunications Security | [link](https://www.cybok.org/media/downloads/Physical_Layer__Telecommunications_Security_issue_1.0.pdf)|  [link](https://www.cybok.org/media/downloads/Physical_Layer__Telecomms_Security.pdf)|
+| PLT  | Physical Layer and Telecommunications Security | [link](https://www.cybok.org/media/downloads/Physical_Layer__Telecommunications_Security_issue_1.0.pdf)|  [link](https://www.cybok.org/media/downloads/Physical_Layer__Telecomms_Security.pdf)|
 
 ## Roadmap
 - **More modules!** Including more CTF-style modules.

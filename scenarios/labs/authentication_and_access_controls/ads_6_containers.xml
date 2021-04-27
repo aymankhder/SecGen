@@ -26,17 +26,17 @@ A Hackerbot lab. Work through the labsheet, then when prompted interact with Hac
 		<keyword>SANDBOX</keyword>
 		<keyword>Application-based access controls: user-based access controls insufficiently limit privileges</keyword>
 	</CyBOK>
-	<CyBOK KA="OSVS" topic="Primitives for Isolation and Mediation">
+	<CyBOK KA="OSV" topic="Primitives for Isolation and Mediation">
     <keyword>capabilities</keyword>
 		<keyword>Container-based sandboxes: chroot, Docker</keyword>
     <keyword>Rule-based controls: Course grained: Linux capabilities</keyword>
     <keyword>Vulnerabilities and attacks on sandboxing misconfigurations</keyword>
 	</CyBOK>
-  <CyBOK KA="OSVS" topic="Role of Operating Systems">
+  <CyBOK KA="OSV" topic="Role of Operating Systems">
     <keyword>isolation</keyword>
     <keyword>CONTAINERS</keyword>
   </CyBOK>
-  <CyBOK KA="WMS" topic="Fundamental Concepts and Approaches">
+  <CyBOK KA="WAM" topic="Fundamental Concepts and Approaches">
     <keyword>sandboxing</keyword>
   </CyBOK>
 
@@ -50,18 +50,18 @@ A Hackerbot lab. Work through the labsheet, then when prompted interact with Hac
 			<keyword>SANDBOX</keyword>
 			<keyword>Application-based access controls: user-based access controls insufficiently limit privileges</keyword>
 		</CyBOK>
-		<CyBOK KA="OSVS" topic="Primitives for Isolation and Mediation">
+		<CyBOK KA="OSV" topic="Primitives for Isolation and Mediation">
 			<keyword>capabilities</keyword>
 			<keyword>Container-based sandboxes: chroot, Docker</keyword>
 			<keyword>Rule-based controls: Course grained: Linux capabilities</keyword>
 			<keyword>System-level sandboxes (complete OS, Qubes), hardware-emulation and paravirtualisation</keyword>
 			<keyword>Copy on write sandboxes</keyword>
 		</CyBOK>
-		<CyBOK KA="OSVS" topic="Role of Operating Systems">
+		<CyBOK KA="OSV" topic="Role of Operating Systems">
 			<keyword>isolation</keyword>
 			<keyword>CONTAINERS</keyword>
 		</CyBOK>
-		<CyBOK KA="WMS" topic="Fundamental Concepts and Approaches">
+		<CyBOK KA="WAM" topic="Fundamental Concepts and Approaches">
 			<keyword>sandboxing</keyword>
 			<keyword>permission dialog based access control</keyword>
 	  </CyBOK>

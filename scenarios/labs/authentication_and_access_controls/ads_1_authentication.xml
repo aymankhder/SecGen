@@ -28,7 +28,7 @@ A Hackerbot lab. Work through the lab instructions, then when prompted interact 
 		<keyword>facets of authentication</keyword>
 		<keyword>Cryptography and authentication (hashes and attacks against authentication schemes / passwords)</keyword>
 	</CyBOK>
-	<CyBOK KA="OSVS" topic="Primitives for Isolation and Mediation">
+	<CyBOK KA="OSV" topic="Primitives for Isolation and Mediation">
 		<keyword>authentication and identification</keyword>
 		<keyword>Linux authentication</keyword>
 		<keyword>Types of user accounts</keyword>
@@ -42,7 +42,7 @@ A Hackerbot lab. Work through the lab instructions, then when prompted interact 
 		<CyBOK KA="AAA" topic="Authentication">
 			<keyword>user authentication</keyword>
 		</CyBOK>
-		<CyBOK KA="OSVS" topic="Primitives for Isolation and Mediation">
+		<CyBOK KA="OSV" topic="Primitives for Isolation and Mediation">
 			<keyword>authentication and identification</keyword>
 			<keyword>Linux authentication</keyword>
 			<keyword>Types of user accounts</keyword>
@@ -57,7 +57,7 @@ A Hackerbot lab. Work through the lab instructions, then when prompted interact 
 			<keyword>user authentication</keyword>
 			<keyword>Cryptography and authentication (hashes and attacks against authentication schemes / passwords)</keyword>
 		</CyBOK>
-		<CyBOK KA="OSVS" topic="Primitives for Isolation and Mediation">
+		<CyBOK KA="OSV" topic="Primitives for Isolation and Mediation">
 			<keyword>authentication and identification</keyword>
 			<keyword>Linux authentication</keyword>
 		</CyBOK>
@@ -71,7 +71,7 @@ A Hackerbot lab. Work through the lab instructions, then when prompted interact 
 			<keyword>user authentication</keyword>
 			<keyword>Cryptography and authentication (hashes and attacks against authentication schemes / passwords)</keyword>
 		</CyBOK>
-		<CyBOK KA="OSVS" topic="Primitives for Isolation and Mediation">
+		<CyBOK KA="OSV" topic="Primitives for Isolation and Mediation">
 			<keyword>authentication and identification</keyword>
 			<keyword>Linux authentication</keyword>
 		</CyBOK>
@@ -85,7 +85,7 @@ A Hackerbot lab. Work through the lab instructions, then when prompted interact 
 			<keyword>user authentication</keyword>
 			<keyword>Cryptography and authentication (hashes and attacks against authentication schemes / passwords)</keyword>
 		</CyBOK>
-		<CyBOK KA="OSVS" topic="Primitives for Isolation and Mediation">
+		<CyBOK KA="OSV" topic="Primitives for Isolation and Mediation">
 			<keyword>authentication and identification</keyword>
 			<keyword>Linux authentication</keyword>
 		</CyBOK>
