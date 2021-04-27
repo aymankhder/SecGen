@@ -31,6 +31,63 @@
 		<keyword>attack detection</keyword>
 	</CyBOK>
 
+	<video>
+		<title>The Cloud</title>
+		<by>Z. Cliffe Schreuders</by>
+		<url>https://youtu.be/raR0HstMnjg</url>
+		<type>lecture-prerecorded</type>
+		<CyBOK KA="SOIM" topic="Execute: Mitigation and Countermeasures">
+			<keyword>DATA REDUNDANCY</keyword>
+			<keyword>REDUNDANCY IN NETWORK SERVICES</keyword>
+		</CyBOK>
+		<CyBOK KA="DSS" topic="CLOUD - COMPUTING - SERVICES">
+			<keyword>CLOUD COMPUTING - DEPLOYMENT MODELS</keyword>
+			<keyword>CLOUD COMPUTING - RESOURCE POOLING</keyword>
+			<keyword>CLOUD COMPUTING - SERVICE MODELS - IAAS</keyword>
+			<keyword>CLOUD COMPUTING - SERVICE MODELS - PAAS</keyword>
+			<keyword>CLOUD COMPUTING - SERVICE MODELS - SAAS</keyword>
+			<keyword>CLOUD COMPUTING - STORAGE</keyword>
+		</CyBOK>
+		<CyBOK KA="OSVS" topic="CLOUD - COMPUTING - SERVICES">
+			<keyword>CLOUD COMPUTING - VIRTUALIZATION</keyword>
+		</CyBOK>
+		<CyBOK KA="POR" topic="Confidentiality">
+			<keyword>CLOUD COMPUTING - PRIVACY CONCERNS</keyword>
+		</CyBOK>
+	</video>
+	<video>
+		<title>Redundancy and RAID</title>
+		<by>Z. Cliffe Schreuders</by>
+		<url>https://youtu.be/3oDVTSFhl8Y</url>
+		<type>lecture-prerecorded</type>
+		<CyBOK KA="SOIM" topic="Execute: Mitigation and Countermeasures">
+			<keyword>DATA REDUNDANCY</keyword>
+		</CyBOK>
+	</video>
+	<video>
+		<title>Intrusion Detection and Prevention Systems (IDS IPS)</title>
+		<by>Z. Cliffe Schreuders</by>
+		<url>https://youtu.be/M6MisvbU32M</url>
+		<type>lecture-prerecorded</type>
+		<CyBOK KA="SOIM" topic="Monitor: Data Sources">
+			<keyword>network traffic</keyword>
+		</CyBOK>
+		<CyBOK KA="SOIM" topic="Analyse: Analysis Methods">
+			<keyword>misuse detection</keyword>
+			<keyword>anomaly detection</keyword>
+		</CyBOK>
+		<CyBOK KA="SOIM" topic="Execute: Mitigation and Countermeasures">
+			<keyword>intrusion prevention systems</keyword>
+		</CyBOK>
+		<CyBOK KA="NS" topic="Network Defence Tools">
+			<keyword>packet filters</keyword>
+			<keyword>intrusion detection systems</keyword>
+		</CyBOK>
+		<CyBOK KA="MAT" topic="Malware Detection">
+			<keyword>attack detection</keyword>
+		</CyBOK>
+	</video>
+
 	<system>
 		<system_name>desktop</system_name>
 		<base distro="Debian 10" type="desktop" name="KDE"/>

@@ -22,6 +22,44 @@
 	<CyBOK KA="OSVS" topic="OS Hardening">
 		<keyword>code and data integrity checks</keyword>
 	</CyBOK>
+	
+	<video>
+		<title>Monitoring Integrity</title>
+		<by>Z. Cliffe Schreuders</by>
+		<url>https://www.youtube.com/watch?v=qzyEdeQ_7ZY</url>
+		<type>lecture-prerecorded</type>
+		<CyBOK KA="F" topic="Artifact Analysis">
+			<keyword>cryptographic hashing</keyword>
+		</CyBOK>
+		<CyBOK KA="SOIM" topic="Monitor: Data Sources">
+			<keyword>MONITORING - FILE INTEGRITY CHECKERS</keyword>
+		</CyBOK>
+		<CyBOK KA="OSVS" topic="OS Hardening">
+			<keyword>code and data integrity checks</keyword>
+		</CyBOK>
+	</video>
+	<video>
+		<title>Incident Response</title>
+		<by>Z. Cliffe Schreuders</by>
+		<url>https://www.youtube.com/watch?v=kz7m-iyzSOw</url>
+		<type>lecture-prerecorded</type>
+		<CyBOK KA="OSVS" topic="Fundamental Concepts">
+			<keyword>workflows and vocabulary</keyword>
+			<keyword>architectural principles</keyword>
+		</CyBOK>
+		<CyBOK KA="OSVS" topic="Human Factors: Incident Management">
+			<keyword>prepare: incident management planning</keyword>
+			<keyword>handle: actual incident response</keyword>
+			<keyword>follow up: post incident activities</keyword>
+			<keyword>BUSINESS CONTINUITY PLAN - AND INCIDENT RESPONSE</keyword>
+			<keyword>incident response methodologies</keyword>
+		</CyBOK>
+		<CyBOK KA="LR" topic="Data Protection">
+			<keyword>investigation and prevention of crime</keyword>
+			<keyword>personal data breach notification</keyword>
+			<keyword>enforcement and penalties</keyword>
+		</CyBOK>
+	</video>
 
 	<system>
 		<system_name>desktop</system_name>

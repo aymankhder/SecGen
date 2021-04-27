@@ -34,7 +34,7 @@ A Hackerbot lab. Work through the labsheet, then when prompted interact with Hac
 		<keyword>Access controls and operating systems</keyword>
 		<keyword>Linux security model</keyword>
 		<keyword>Unix File Permissions</keyword>
-		<keyword>filesystems, inodes, and commands</keyword>
+		<keyword>Filesystems, inodes, and commands</keyword>
 		<keyword>umask</keyword>
 	</CyBOK>
 	<CyBOK KA="OSVS" topic="Role of Operating Systems">

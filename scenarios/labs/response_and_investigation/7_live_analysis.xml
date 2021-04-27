@@ -30,6 +30,62 @@
 		<keyword>identifying the presence of malware</keyword>
 	</CyBOK>
 
+	<video>
+		<title>Live System Analysis: Concepts</title>
+		<by>Z. Cliffe Schreuders</by>
+		<url>https://youtu.be/aNvVtF437LI</url>
+		<type>lecture-prerecorded</type>
+		<CyBOK KA="F" topic="Main Memory Forensics">
+			<keyword>process information</keyword>
+			<keyword>file information</keyword>
+			<keyword>network connections</keyword>
+			<keyword>artifacts and fragments</keyword>
+			<keyword>challenges of live forensics</keyword>
+		</CyBOK>
+		<CyBOK KA="OSVS" topic="OS Hardening">
+			<keyword>anomaly detection</keyword>
+		</CyBOK>
+		<CyBOK KA="AAA" topic="Accountability">
+			<keyword>The fallibility of digital evidence to tampering</keyword>
+		</CyBOK>
+		<CyBOK KA="MAT" topic="Malware Detection">
+			<keyword>identifying the presence of malware</keyword>
+		</CyBOK>
+	</video>
+	<video>
+		<title>Live System Analysis: Tools Demo</title>
+		<by>Z. Cliffe Schreuders</by>
+		<url>https://www.youtube.com/watch?v=iUInvMrBw3k</url>
+		<type>demo-prerecorded</type>
+		<CyBOK KA="F" topic="Main Memory Forensics">
+			<keyword>process information</keyword>
+			<keyword>file information</keyword>
+			<keyword>network connections</keyword>
+			<keyword>artifacts and fragments</keyword>
+			<keyword>challenges of live forensics</keyword>
+		</CyBOK>
+		<CyBOK KA="OSVS" topic="OS Hardening">
+			<keyword>anomaly detection</keyword>
+		</CyBOK>
+		<CyBOK KA="AAA" topic="Accountability">
+			<keyword>The fallibility of digital evidence to tampering</keyword>
+		</CyBOK>
+		<CyBOK KA="MAT" topic="Malware Detection">
+			<keyword>identifying the presence of malware</keyword>
+		</CyBOK>
+	</video>
+	<video>
+		<title>Investigating a running process</title>
+		<by>Z. Cliffe Schreuders</by>
+		<url>https://youtu.be/9nyvtJRQ17w</url>
+		<type>demo-prerecorded</type>
+		<CyBOK KA="F" topic="Main Memory Forensics">
+			<keyword>process information</keyword>
+			<keyword>file information</keyword>
+			<keyword>network connections</keyword>
+		</CyBOK>
+	</video>
+	
 	<system>
 		<system_name>desktop</system_name>
 		<base distro="Debian 10" type="desktop" name="KDE"/>

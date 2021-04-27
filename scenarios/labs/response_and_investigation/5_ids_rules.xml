@@ -29,6 +29,50 @@
 		<keyword>attack detection</keyword>
 	</CyBOK>
 
+	<video>
+		<title>IDS accuracy</title>
+		<by>Z. Cliffe Schreuders</by>
+		<url>https://youtu.be/ZUMBsMppsLo</url>
+		<type>lecture-prerecorded</type>
+		<CyBOK KA="SOIM" topic="Analyse: Analysis Methods">
+			<keyword>the base-rate fallacy</keyword>
+		</CyBOK>
+		<CyBOK KA="SOIM" topic="Analyse: Analysis Methods">
+			<keyword>misuse detection</keyword>
+			<keyword>anomaly detection</keyword>
+		</CyBOK>
+		<CyBOK KA="SOIM" topic="Execute: Mitigation and Countermeasures">
+			<keyword>intrusion prevention systems</keyword>
+		</CyBOK>
+		<CyBOK KA="NS" topic="Network Defence Tools">
+			<keyword>intrusion detection systems</keyword>
+		</CyBOK>
+	</video>
+	<video>
+		<title>Snort IDS</title>
+		<by>Z. Cliffe Schreuders</by>
+		<url>https://youtu.be/nuUm4NO_S1s</url>
+		<type>lecture-prerecorded</type>
+		<CyBOK KA="SOIM" topic="Monitor: Data Sources">
+			<keyword>network traffic</keyword>
+		</CyBOK>
+		<CyBOK KA="SOIM" topic="Analyse: Analysis Methods">
+			<keyword>misuse detection</keyword>
+			<keyword>anomaly detection</keyword>
+		</CyBOK>
+		<CyBOK KA="SOIM" topic="Execute: Mitigation and Countermeasures">
+			<keyword>intrusion prevention systems</keyword>
+		</CyBOK>
+		<CyBOK KA="NS" topic="Network Defence Tools">
+			<keyword>packet filters</keyword>
+			<keyword>intrusion detection systems</keyword>
+			<keyword>IDS rules creation</keyword>
+		</CyBOK>
+		<CyBOK KA="MAT" topic="Malware Detection">
+			<keyword>attack detection</keyword>
+		</CyBOK>
+	</video>
+
 	<system>
 		<system_name>desktop</system_name>
 		<base distro="Debian 10" type="desktop" name="KDE"/>

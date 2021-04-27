@@ -21,13 +21,28 @@
 		<keyword>Linux read only protections: ro mounts, file attributes</keyword>
 	</CyBOK>
 
-	<!-- <video>
-		<title></title>
+	<video>
+		<title>The CIA Triad</title>
 		<by>Z. Cliffe Schreuders</by>
-		<url></url>
+		<url>https://www.youtube.com/watch?v=sv1pHuuoW9g</url>
 		<type>lecture-prerecorded</type>
-
-	</video> -->
+		<CyBOK KA="IC" topic="Foundational Concepts">
+			<keyword>objectives of cyber security</keyword>
+		</CyBOK>
+	</video>
+	<video>
+		<title>Protecting Integrity</title>
+		<by>Z. Cliffe Schreuders</by>
+		<url>https://www.youtube.com/watch?v=grISRv-CuHE</url>
+		<type>lecture-prerecorded</type>
+		<CyBOK KA="AAA" topic="Authorisation">
+			<keyword>access control</keyword>
+			<keyword>Protecting integrity</keyword>
+		</CyBOK>
+		<CyBOK KA="OSVS" topic="Primitives for Isolation and Mediation">
+			<keyword>Linux read only protections: ro mounts, file attributes</keyword>
+		</CyBOK>
+	</video>
 
 	<system>
 		<system_name>desktop</system_name>

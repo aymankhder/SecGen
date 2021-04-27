@@ -19,6 +19,44 @@
 		<keyword>BACKUP - INFERENTIAL</keyword>
 	</CyBOK>
 
+	<video>
+		<title>Contingency Planning</title>
+		<by>Z. Cliffe Schreuders</by>
+		<url>https://youtu.be/lak1Sued4GY</url>
+		<type>lecture-prerecorded</type>
+		<CyBOK KA="OSVS" topic="Human Factors: Incident Management">
+			<keyword>prepare: incident management planning</keyword>
+			<keyword>BUSINESS CONTINUITY PLAN - AND INCIDENT RESPONSE</keyword>
+		</CyBOK>
+	</video>
+	<video>
+		<title>Backup Planning</title>
+		<by>Z. Cliffe Schreuders</by>
+		<url>https://youtu.be/stVomGROfbQ</url>
+		<type>lecture-prerecorded</type>
+		<CyBOK KA="SOIM" topic="Execute: Mitigation and Countermeasures">
+			<keyword>Recover data and services after an incident</keyword>
+		</CyBOK>
+		<CyBOK KA="OSVS" topic="Human Factors: Incident Management">
+			<keyword>prepare: incident management planning</keyword>
+			<keyword>BUSINESS CONTINUITY PLAN - AND INCIDENT RESPONSE</keyword>
+		</CyBOK>
+	</video>
+	<video>
+		<title>Backup Levels: Differential and Incremental Backups Using Rsync</title>
+		<by>Z. Cliffe Schreuders</by>
+		<url>https://youtu.be/n8IKEJUOISY</url>
+		<type>lecture-prerecorded</type>
+		<CyBOK KA="SOIM" topic="Execute: Mitigation and Countermeasures">
+			<keyword>Recover data and services after an incident</keyword>
+			<keyword>BACKUP - DIFFERENTIAL</keyword>
+			<keyword>BACKUP - INFERENTIAL</keyword>
+		</CyBOK>
+		<CyBOK KA="OSVS" topic="Human Factors: Incident Management">
+			<keyword>prepare: incident management planning</keyword>
+		</CyBOK>
+	</video>
+
 	<system>
 		<system_name>desktop</system_name>
 		<base distro="Debian 10" type="desktop" name="KDE"/>

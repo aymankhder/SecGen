@@ -1,4 +1,4 @@
-# SecGen Lab Scenarios and CyBOK
+# Lab Scenarios and CyBOK
 
 The Cyber Security Body of Knowledge (CyBOK) is a body of knowledge that aims to encapsulate the various knowledge areas present within cyber security. Scenarios within SecGen now contain XML elements linking them to CyBOK knowledge areas and specific topics within those knowledge areas. Additionally, video content and readings for each scenario are tagged with their CyBOK associations.
 
@@ -242,7 +242,7 @@ Command to build VMs and start scenario:
 | KA | Topic | Keywords
 | --- | --- | --- |
 | Authentication, Authorisation &amp; Accountability (AAA) | Authorisation | access control; enforcing access control; ACCESS CONTROL - DAC (DISCRETIONARY ACCESS CONTROL); Vulnerabilities and attacks on access control misconfigurations |
-|  (OSVS) | Primitives for Isolation and Mediation | Access controls and operating systems; Linux security model; Unix File Permissions; filesystems; inodes; and commands; umask |
+|  (OSVS) | Primitives for Isolation and Mediation | Access controls and operating systems; Linux security model; Unix File Permissions; Filesystems; inodes; and commands; umask |
 |  (OSVS) | Role of Operating Systems | mediation |
 
 
@@ -2081,7 +2081,7 @@ Command to build VMs and start scenario:
 |Description | A Hackerbot lab. Work through the labsheet, then when prompted interact with Hackerbot. Topics covered: Protecting integrity with file attributes; Protecting integrity with read-only filesystems.|
 |Type | ctf-lab; hackerbot-lab; lab-sheet |
 |Author | Z. Cliffe Schreuders |
-|Linked videos| |
+|Linked videos| https://www.youtube.com/watch?v=sv1pHuuoW9g; https://www.youtube.com/watch?v=grISRv-CuHE|
 |VM names|  desktop; hackerbot_server |
 
 
@@ -2110,7 +2110,7 @@ Command to build VMs and start scenario:
 |Description | A Hackerbot lab. Work through the labsheet, then when prompted interact with Hackerbot. Topics covered: Detecting changes to resources using backups; File integrity checkers; Detecting changes to resources using package management.|
 |Type | ctf-lab; hackerbot-lab; lab-sheet |
 |Author | Z. Cliffe Schreuders |
-|Linked videos| |
+|Linked videos| https://www.youtube.com/watch?v=qzyEdeQ_7ZY; https://www.youtube.com/watch?v=kz7m-iyzSOw|
 |VM names|  desktop; hackerbot_server |
 
 
@@ -2140,7 +2140,7 @@ Command to build VMs and start scenario:
 |Description | A Hackerbot lab. Work through the labsheet, then when prompted interact with Hackerbot. Topics covered: Rsync, and backups and restoring data using differential and incremental backups.|
 |Type | ctf-lab; hackerbot-lab; lab-sheet |
 |Author | Z. Cliffe Schreuders |
-|Linked videos| |
+|Linked videos| https://youtu.be/lak1Sued4GY; https://youtu.be/stVomGROfbQ; https://youtu.be/n8IKEJUOISY|
 |VM names|  desktop; backup_server; hackerbot_server |
 
 
@@ -2168,7 +2168,7 @@ Command to build VMs and start scenario:
 |Description | A Hackerbot lab. Work through the labsheet, then when prompted interact with Hackerbot. |
 |Type | ctf-lab; hackerbot-lab; lab-sheet |
 |Author | Z. Cliffe Schreuders |
-|Linked videos| |
+|Linked videos| https://youtu.be/raR0HstMnjg; https://youtu.be/3oDVTSFhl8Y; https://youtu.be/M6MisvbU32M|
 |VM names|  desktop; ids_snoop; web_server; hackerbot_server |
 
 
@@ -2200,7 +2200,7 @@ Command to build VMs and start scenario:
 |Description | A Hackerbot lab. Work through the labsheet, then when prompted interact with Hackerbot. |
 |Type | ctf-lab; hackerbot-lab; lab-sheet |
 |Author | Z. Cliffe Schreuders |
-|Linked videos| |
+|Linked videos| https://youtu.be/ZUMBsMppsLo; https://youtu.be/nuUm4NO_S1s|
 |VM names|  desktop; ids_snoop; web_server; hackerbot_server |
 
 
@@ -2231,7 +2231,7 @@ Command to build VMs and start scenario:
 |Description | A Hackerbot lab. Work through the labsheet, then when prompted interact with Hackerbot. |
 |Type | ctf-lab; hackerbot-lab; lab-sheet |
 |Author | Z. Cliffe Schreuders |
-|Linked videos| |
+|Linked videos| https://youtu.be/4zYn4hbwKYQ; https://youtu.be/Y32tmFrCEBk|
 |VM names|  desktop; ids_snoop; web_server; hackerbot_server |
 
 
@@ -2262,7 +2262,7 @@ Command to build VMs and start scenario:
 |Description | A Hackerbot lab. Work through the labsheet, then when prompted interact with Hackerbot. |
 |Type | ctf-lab; hackerbot-lab; lab-sheet |
 |Author | Z. Cliffe Schreuders |
-|Linked videos| |
+|Linked videos| https://youtu.be/aNvVtF437LI; https://www.youtube.com/watch?v=iUInvMrBw3k; https://youtu.be/9nyvtJRQ17w|
 |VM names|  desktop; compromised_server; hackerbot_server |
 
 
@@ -2293,7 +2293,7 @@ Command to build VMs and start scenario:
 |Description | A Hackerbot lab. Work through the labsheet, then when prompted interact with Hackerbot. |
 |Type | ctf-lab; hackerbot-lab; lab-sheet |
 |Author | Z. Cliffe Schreuders |
-|Linked videos| |
+|Linked videos| https://youtu.be/3kiV0ZJWmMY; https://youtu.be/0EafG4CLwA4|
 |VM names|  desktop; hackerbot_server; kali |
 
 
