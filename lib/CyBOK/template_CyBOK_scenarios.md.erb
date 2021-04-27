@@ -16,7 +16,7 @@ You can browse the list below in terms of the [CyBOK Knowledge Areas, and Topics
 KA_TOPIC_SCENARIOS_HASH.each{|ka,hash|
 %>
 
-## <%= ka %>
+## <%= CyBOK_ACRONYMS[ka] %> (<%= ka %>)
 
 ### <%= ka %> Scenarios
 
@@ -59,7 +59,7 @@ systems = SCENARIOS_FULL_HASH[scenario][0].dig_deep(:system_name).to_s.gsub(/"|\
 | KA | Topic | Keywords
 | --- | --- | --- |
 <%array.each{|arr| -%>
-|    <%= arr["@KA"] %> | <%= arr["@topic"] %> | <%= arr["keyword"].to_s.gsub(/"|\[|\]/, '').gsub(',',';') %> |<%
+|    <%= CyBOK_ACRONYMS[arr["@KA"]] %> (<%= arr["@KA"] %>) | <%= arr["@topic"] %> | <%= arr["keyword"].to_s.gsub(/"|\[|\]/, '').gsub(',',';') %> |<%
 } %>
 
 

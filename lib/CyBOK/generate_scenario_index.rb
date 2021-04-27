@@ -27,10 +27,33 @@ end
 KA_TOPIC_SCENARIOS_HASH = Hash.new { |h, k| h[k] = h.dup.clear }
 SCENARIOS_HASH = {}
 SCENARIOS_FULL_HASH = {}
-
 KA_TOPIC_VIDEO_HASH = Hash.new { |h, k| h[k] = h.dup.clear }
 VIDEO_HASH = {}
+
+CyBOK_ACRONYMS = {
+  "AAA" => "Authentication, Authorisation &amp; Accountability",
+  "AB" => "Adversarial Behaviours",
+  "C" => "Cryptography",
+  "CPS" => "Cyber-Physical Systems Security",
+  "DSS" => "Distributed Systems Security",
+  "F" => "Forensics",
+  "HF" => "Human Factors",
+  "HS" => "Hardware Security",
+  "LR" => "Law &amp; Regulation",
+  "MAT" => "Malware &amp; Attack Technology",
+  "NS" => "Network Security",
+  "OSV" => "Operating Systems &amp; Virtualisation",
+  "PLT" => "Physical Layer &amp; Telecommunications Security",
+  "POR" => "Privacy &amp; Online Rights",
+  "RMG" => "Risk Management &amp; Governance",
+  "SOIM" => "Security Operations &amp; Incident Management",
+  "SS" => "Software Security",
+  "SSL" => "Secure Software Lifecycle",
+  "WAM" => "Web &amp; Mobile Security",
+}
+
 parser = Nori.new()
+
 scenarios.each { |scenario|
   next if scenario.start_with?("examples")
   Print.verbose "Reading #{scenario}"

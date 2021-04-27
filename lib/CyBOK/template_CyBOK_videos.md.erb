@@ -33,7 +33,7 @@ end
 | KA | Topics | Keywords |
 | --- | --- | --- |
 <% arr['CyBOK'].each {|cybok| -%>
-| <%= cybok["@KA"] %> | <%= cybok["@topic"] %> | <%= cybok["keyword"].to_s.gsub(/"|\[|\]/, '').gsub(',',';') %> |
+| <%= CyBOK_ACRONYMS[cybok["@KA"]] %> (<%= cybok["@KA"] %>) | <%= cybok["@topic"] %> | <%= cybok["keyword"].to_s.gsub(/"|\[|\]/, '').gsub(',',';') %> |
 <% } -%>
 <% } %>
 
