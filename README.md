@@ -231,9 +231,11 @@ For details please see the **[Batch Creation of VMs guide](README-Batch-VMs.md)*
 
 The Cyber Security Body of Knowledge (CyBOK) is a body of knowledge that aims to encapsulate the various knowledge areas present within cyber security.
 Scenarios within SecGen now contain XML elements linking them to CyBOK knowledge areas and specific topics within those knowledge areas.
-Additionally, video content and readings for each scenario are tagged with their CyBOK associations.
+Additionally, video content for scenarios are tagged with CyBOK associations.
 
-As an example, see [cybok_example.xml](scenarios/examples/cybok_example.xml)   
+For an index of lab scenarios in SecGen organised by CyBOK Knowledge Areas please see the **[Lab Scenarios and CyBOK](README-CyBOK-Scenarios-Indexed.md)**.
+
+For a list of lecture and demo videos with CyBOK metadata please see the **[Lecture Videos and CyBOK](README-CyBOK-Lecture-Videos.md)**.
 
 The table below is a key for the abbreviations you will find within the CyBOK XML elements within the scenarios:     
 
