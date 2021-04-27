@@ -2323,7 +2323,7 @@ Command to build VMs and start scenario:
 |Description | A MetaCTF lab. In your home directory you will find some binaries that you need to reverse engineer in order to determine the password that the program expects. Once you determing the password, run the program and enter the password to receive the file.</br></br>	[Lab sheet here](https://docs.google.com/document/d/1CRGtnCTOogpEIjl-tLYdZqHBwJt75FpUJTE2xUL9wqI/edit?usp=sharing).</br>	|
 |Type | ctf-lab; lab-sheet |
 |Author | Z. Cliffe Schreuders |
-|Linked videos| |
+|Linked videos| https://youtu.be/14Hv_QodLxs; https://youtu.be/quKsZbpvYIY; https://youtu.be/CxZx7b3OPsg; https://youtu.be/3qmmqfBtJio; https://youtu.be/k3NwrFWuhaY; https://youtu.be/KJPeZptzl1U|
 |VM names|  metactf |
 
 
@@ -2408,7 +2408,7 @@ Command to build VMs and start scenario:
 |Description | A MetaCTF lab. In your home directory you will find some binaries that you need to reverse engineer in order to determine the password that the program expects. Once you determing the password, run the program and enter the password to receive the file.</br></br>	[Lab sheet here](https://docs.google.com/document/d/1l4tU49JhI65Q85Zv9I1Wm1kaHNENp6iyIwMUhM8j_14/edit?usp=sharing).</br>	|
 |Type | ctf-lab; lab-sheet |
 |Author | Z. Cliffe Schreuders |
-|Linked videos| |
+|Linked videos| https://youtu.be/0zUmUZoEpC4; https://youtu.be/m73pHO_0vhI|
 |VM names|  metactf |
 
 
@@ -2548,7 +2548,7 @@ Command to build VMs and start scenario:
 |Description | A MetaCTF lab. In your home directory you will find some binaries that you need to reverse engineer in order to determine the password that the program expects. Once you determing the password, run the program and enter the password to receive the file.</br></br>There are binaries to perform dynamic SRE.</br>|
 |Type | ctf-lab; lab-sheet |
 |Author | Z. Cliffe Schreuders |
-|Linked videos| |
+|Linked videos| https://youtu.be/6XMrHyAqD-4; https://youtu.be/6qeDnjOaRiI|
 |VM names|  metactf |
 
 
