@@ -12,6 +12,15 @@
   <type>lab-sheet</type>
   <difficulty>intermediate</difficulty>
 
+  <CyBOK KA="F" topic="WEB">
+    <keyword>WEB BROWSERS</keyword>
+  </CyBOK>
+
+  <CyBOK KA="WAM" topic="Fundamental Concepts and Approaches">
+    <keyword>BROWSER</keyword>
+    <keyword>cookies</keyword>
+  </CyBOK>
+
   <system>
     <system_name>desktop</system_name>
     <base distro="Debian 9" type="desktop" name="KDE"/>

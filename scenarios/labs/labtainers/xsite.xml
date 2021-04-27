@@ -12,6 +12,14 @@
   <type>lab-sheet</type>
   <difficulty>intermediate</difficulty>
 
+  <CyBOK KA="WMS" topic="Server-Side Vulnerabilities and Mitigations">
+    <keyword>CROSS-SITE SCRIPTING (XSS)</keyword>
+  </CyBOK>
+
+  <CyBOK KA="SS" topic="Prevention of Vulnerabilities">
+    <keyword>Protecting against session management attacks, XSS, SQLi, CSRF</keyword>
+  </CyBOK>
+
   <system>
     <system_name>desktop</system_name>
     <base distro="Debian 9" type="desktop" name="KDE"/>

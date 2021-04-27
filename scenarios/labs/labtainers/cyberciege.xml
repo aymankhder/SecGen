@@ -13,10 +13,61 @@
   <difficulty>intermediate</difficulty>
 
 <!--TODO  fixmeee-->
-  <CyBOK KA="SOIM" topic="Monitor: Data Sources">
-    <keyword>application logs: web server logs and files</keyword>
-    <keyword>system and kernel logs</keyword>
-    <keyword>Syslog</keyword>
+  <CyBOK KA="AAA" topic="Authentication">
+    <keyword>PASSWORD-BASED</keyword>
+  </CyBOK>
+  <CyBOK KA="AAA" topic="Authorisation">
+    <keyword>ACCESS CONTROL - MAC (MANDATORY ACCESS CONTROL)</keyword>
+  </CyBOK>
+  <CyBOK KA="C" topic="Schemes">
+    <keyword>TLS</keyword>
+  </CyBOK>
+  <CyBOK KA="CPS" topic="Cyber-Physical Systems">
+    <keyword>characteristics</keyword>
+    <keyword>security and privacy concerns</keyword>
+  </CyBOK>
+  <CyBOK KA="CPS" topic="Policy and Political Aspects">
+    <keyword>industry practices and standards</keyword>
+  </CyBOK>
+  <CyBOK KA="HS" topic="Secure Platforms">
+    <keyword>secure element and smartcard</keyword>
+  </CyBOK>
+  <CyBOK KA="MAT" topic="Malware Detection">
+    <keyword>identifying the presence of malware</keyword>
+    <keyword>attack detection</keyword>
+    <keyword>attack detection</keyword>
+  </CyBOK>
+  <CyBOK KA="NS" topic="Internet Architecture">
+    <keyword>transport layer security</keyword>
+  </CyBOK>
+  <CyBOK KA="NS" topic="Network Defence Tools">
+    <keyword>DEMILITARISED ZONE (DMZ)</keyword>
+    <keyword>packet filters</keyword>
+    <keyword>network architecture design</keyword>
+    <keyword>VIRTUAL - PRIVATE NETWORK (VPN)</keyword>
+  </CyBOK>
+  <CyBOK KA="OSV" topic="Related Areas">
+    <keyword>databases</keyword>
+  </CyBOK>
+  <CyBOK KA="POR" topic="Confidentiality">
+    <keyword>data confidentiality</keyword>
+  </CyBOK>
+  <CyBOK KA="RMG" topic="Risk Governance">
+    <keyword>risk perception factors</keyword>
+    <keyword>enacting security policy</keyword>
+  </CyBOK>
+  <CyBOK KA="SOIM" topic="Knowledge: Intelligence and Analysis">
+    <keyword>situational awareness</keyword>
+  </CyBOK>
+  <CyBOK KA="SSL" topic="Motivations for Secure Software Lifecycle">
+    <keyword>customers don't apply patches</keyword>
+  </CyBOK>
+  <CyBOK KA="WAM" topic="Client-Side Vulnerabilities and Mitigations">
+    <keyword>phishing</keyword>
+    <keyword>physical attacks</keyword>
+  </CyBOK>
+  <CyBOK KA="WAM" topic="Fundamental Concepts and Approaches">
+    <keyword>frequent software updates</keyword>
   </CyBOK>
 
   <system>
