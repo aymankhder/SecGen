@@ -12,6 +12,17 @@ You can browse the list below in terms of the [CyBOK Knowledge Areas, and Topics
 
 # Scenarios Indexed By CyBOK Knowledge Area (KA)
 
+[Authentication, Authorisation &amp; Accountability (AAA)](#authentication,authorisation&amp;accountabilityaaa)</br>
+[Operating Systems &amp; Virtualisation (OSV)](#operatingsystems&amp;virtualisationosv)</br>
+[Web &amp; Mobile Security (WAM)](#web&amp;mobilesecuritywam)</br>
+[Software Security (SS)](#softwaresecurityss)</br>
+[Network Security (NS)](#networksecurityns)</br>
+[Security Operations &amp; Incident Management (SOIM)](#securityoperations&amp;incidentmanagementsoim)</br>
+[Malware &amp; Attack Technology (MAT)](#malware&amp;attacktechnologymat)</br>
+[Adversarial Behaviours (AB)](#adversarialbehavioursab)</br>
+[Forensics (F)](#forensicsf)</br>
+[Cyber-Physical Systems Security (CPS)](#cyber-physicalsystemssecuritycps)</br>
+[Cryptography (C)](#cryptographyc)</br>
 
 
 ## Authentication, Authorisation &amp; Accountability (AAA)
