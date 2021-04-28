@@ -117,8 +117,7 @@ scenarios.each { |scenario|
     #   SCENARIOS_HASH[scenario]['VMs'] << scenario_hash['scenario']['system']['system_name']
     # end
   else
-    puts "Error reading scenario xml: #{scenario}"
-    logger.warn "Error reading scenario xml: #{scenario}"
+    Print.err "Error reading scenario xml: #{scenario}"
   end
 
 
@@ -145,5 +144,5 @@ rescue StandardError => e
   Print.err e.backtrace.inspect
 end
 
-puts "#{SCENARIOS_HASH.length} scenarios with CyBOK metadata"
-puts "#{VIDEO_HASH.length} videos with CyBOK metadata"
+Print.std "#{SCENARIOS_HASH.length} scenarios with CyBOK metadata"
+Print.std "#{VIDEO_HASH.length} videos with CyBOK metadata"
