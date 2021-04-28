@@ -12,13 +12,13 @@ You can browse the list below in terms of the [CyBOK Knowledge Areas, and Topics
 
 # Scenarios Indexed By CyBOK Knowledge Area (KA)
 
-[Authentication, Authorisation &amp; Accountability (AAA)](#authentication,-authorisation-amp;-accountability-aaa)</br>
-[Operating Systems &amp; Virtualisation (OSV)](#operating-systems-amp;-virtualisation-osv)</br>
-[Web &amp; Mobile Security (WAM)](#web-amp;-mobile-security-wam)</br>
+[Authentication, Authorisation &amp; Accountability (AAA)](#authentication,-authorisation--accountability-aaa)</br>
+[Operating Systems &amp; Virtualisation (OSV)](#operating-systems--virtualisation-osv)</br>
+[Web &amp; Mobile Security (WAM)](#web--mobile-security-wam)</br>
 [Software Security (SS)](#software-security-ss)</br>
 [Network Security (NS)](#network-security-ns)</br>
-[Security Operations &amp; Incident Management (SOIM)](#security-operations-amp;-incident-management-soim)</br>
-[Malware &amp; Attack Technology (MAT)](#malware-amp;-attack-technology-mat)</br>
+[Security Operations &amp; Incident Management (SOIM)](#security-operations--incident-management-soim)</br>
+[Malware &amp; Attack Technology (MAT)](#malware--attack-technology-mat)</br>
 [Adversarial Behaviours (AB)](#adversarial-behaviours-ab)</br>
 [Forensics (F)](#forensics-f)</br>
 [Cyber-Physical Systems Security (CPS)](#cyber-physical-systems-security-cps)</br>

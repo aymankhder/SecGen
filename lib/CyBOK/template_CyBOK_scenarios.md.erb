@@ -16,7 +16,7 @@ You can browse the list below in terms of the [CyBOK Knowledge Areas, and Topics
 KA_TOPIC_SCENARIOS_HASH.each{|ka,hash|
 ka_title = "#{CyBOK_ACRONYMS[ka]} (#{ka})"
 -%>
-[<%= ka_title %>](#<%= ka_title.downcase.delete('&\/().').gsub(/ /, '-') %>)</br>
+[<%= ka_title %>](#<%= ka_title.downcase.gsub(/&amp;/, '').delete('&\/().').gsub(/ /, '-') %>)</br>
 <%
 } -%>
 <%
