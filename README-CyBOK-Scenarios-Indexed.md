@@ -18,39 +18,38 @@ You can browse the list below in terms of the [CyBOK Knowledge Areas, and Topics
 
 ### AAA Scenarios
 
-[labs/authentication_and_access_controls/ads_1_authentication.xml](#labsauthentication_and_access_controlsads_1_authenticationxml)</br>[labs/authentication_and_access_controls/ads_2_pam.xml](#labsauthentication_and_access_controlsads_2_pamxml)</br>[labs/authentication_and_access_controls/ads_3_access_controls.xml](#labsauthentication_and_access_controlsads_3_access_controlsxml)</br>[labs/authentication_and_access_controls/ads_4_suid.xml](#labsauthentication_and_access_controlsads_4_suidxml)</br>[labs/authentication_and_access_controls/ads_5_facls.xml](#labsauthentication_and_access_controlsads_5_faclsxml)</br>[labs/authentication_and_access_controls/ads_6_containers.xml](#labsauthentication_and_access_controlsads_6_containersxml)</br>[labs/authentication_and_access_controls/ads_7_apparmor.xml](#labsauthentication_and_access_controlsads_7_apparmorxml)</br>[labs/labtainers/acl-hackerbot-flags.xml](#labslabtainersacl-hackerbot-flagsxml)</br>[labs/labtainers/acl.xml](#labslabtainersaclxml)</br>[labs/labtainers/cyberciege.xml](#labslabtainerscyberciegexml)</br>[labs/labtainers/file-integrity.xml](#labslabtainersfile-integrityxml)</br>[labs/labtainers/ldap.xml](#labslabtainersldapxml)</br>[labs/labtainers/macs-hash.xml](#labslabtainersmacs-hashxml)</br>[labs/labtainers/nix-commands.xml](#labslabtainersnix-commandsxml)</br>[labs/labtainers/onewayhash.xml](#labslabtainersonewayhashxml)</br>[labs/labtainers/radius.xml](#labslabtainersradiusxml)</br>[labs/labtainers/setuid-env.xml](#labslabtainerssetuid-envxml)</br>[labs/response_and_investigation/1_integrity_protection.xml](#labsresponse_and_investigation1_integrity_protectionxml)</br>[labs/response_and_investigation/7_live_analysis.xml](#labsresponse_and_investigation7_live_analysisxml)</br>[labs/response_and_investigation/8_dead_analysis.xml](#labsresponse_and_investigation8_dead_analysisxml)</br>
+[labs/authentication_and_access_controls/ads_1_authentication.xml](#labsauthentication_and_access_controlsads_1_authenticationxml)</br>[labs/authentication_and_access_controls/ads_2_pam.xml](#labsauthentication_and_access_controlsads_2_pamxml)</br>[labs/authentication_and_access_controls/ads_3_access_controls.xml](#labsauthentication_and_access_controlsads_3_access_controlsxml)</br>[labs/authentication_and_access_controls/ads_4_suid.xml](#labsauthentication_and_access_controlsads_4_suidxml)</br>[labs/authentication_and_access_controls/ads_5_facls.xml](#labsauthentication_and_access_controlsads_5_faclsxml)</br>[labs/authentication_and_access_controls/ads_6_containers.xml](#labsauthentication_and_access_controlsads_6_containersxml)</br>[labs/authentication_and_access_controls/ads_7_apparmor.xml](#labsauthentication_and_access_controlsads_7_apparmorxml)</br>[labs/labtainers/acl-hackerbot-flags.xml](#labslabtainersacl-hackerbot-flagsxml)</br>[labs/labtainers/acl.xml](#labslabtainersaclxml)</br>[labs/labtainers/file-integrity.xml](#labslabtainersfile-integrityxml)</br>[labs/labtainers/ldap.xml](#labslabtainersldapxml)</br>[labs/labtainers/macs-hash.xml](#labslabtainersmacs-hashxml)</br>[labs/labtainers/nix-commands.xml](#labslabtainersnix-commandsxml)</br>[labs/labtainers/onewayhash.xml](#labslabtainersonewayhashxml)</br>[labs/labtainers/radius.xml](#labslabtainersradiusxml)</br>[labs/labtainers/setuid-env.xml](#labslabtainerssetuid-envxml)</br>[labs/response_and_investigation/1_integrity_protection.xml](#labsresponse_and_investigation1_integrity_protectionxml)</br>[labs/response_and_investigation/7_live_analysis.xml](#labsresponse_and_investigation7_live_analysisxml)</br>[labs/response_and_investigation/8_dead_analysis.xml](#labsresponse_and_investigation8_dead_analysisxml)</br>
 ### AAA Scenarios by Topics
 | Topic | Scenario |
 | --- | --- |
-Authentication | [labs/authentication_and_access_controls/ads_1_authentication.xml](#labsauthentication_and_access_controlsads_1_authenticationxml)</br>[labs/authentication_and_access_controls/ads_2_pam.xml](#labsauthentication_and_access_controlsads_2_pamxml)</br>[labs/labtainers/cyberciege.xml](#labslabtainerscyberciegexml)</br>[labs/labtainers/file-integrity.xml](#labslabtainersfile-integrityxml)</br>[labs/labtainers/ldap.xml](#labslabtainersldapxml)</br>[labs/labtainers/macs-hash.xml](#labslabtainersmacs-hashxml)</br>[labs/labtainers/onewayhash.xml](#labslabtainersonewayhashxml)</br>[labs/labtainers/radius.xml](#labslabtainersradiusxml)</br>
-Authorisation | [labs/authentication_and_access_controls/ads_3_access_controls.xml](#labsauthentication_and_access_controlsads_3_access_controlsxml)</br>[labs/authentication_and_access_controls/ads_4_suid.xml](#labsauthentication_and_access_controlsads_4_suidxml)</br>[labs/authentication_and_access_controls/ads_5_facls.xml](#labsauthentication_and_access_controlsads_5_faclsxml)</br>[labs/authentication_and_access_controls/ads_6_containers.xml](#labsauthentication_and_access_controlsads_6_containersxml)</br>[labs/authentication_and_access_controls/ads_7_apparmor.xml](#labsauthentication_and_access_controlsads_7_apparmorxml)</br>[labs/labtainers/acl-hackerbot-flags.xml](#labslabtainersacl-hackerbot-flagsxml)</br>[labs/labtainers/acl.xml](#labslabtainersaclxml)</br>[labs/labtainers/cyberciege.xml](#labslabtainerscyberciegexml)</br>[labs/labtainers/ldap.xml](#labslabtainersldapxml)</br>[labs/labtainers/nix-commands.xml](#labslabtainersnix-commandsxml)</br>[labs/labtainers/setuid-env.xml](#labslabtainerssetuid-envxml)</br>[labs/response_and_investigation/1_integrity_protection.xml](#labsresponse_and_investigation1_integrity_protectionxml)</br>
+Authentication | [labs/authentication_and_access_controls/ads_1_authentication.xml](#labsauthentication_and_access_controlsads_1_authenticationxml)</br>[labs/authentication_and_access_controls/ads_2_pam.xml](#labsauthentication_and_access_controlsads_2_pamxml)</br>[labs/labtainers/file-integrity.xml](#labslabtainersfile-integrityxml)</br>[labs/labtainers/ldap.xml](#labslabtainersldapxml)</br>[labs/labtainers/macs-hash.xml](#labslabtainersmacs-hashxml)</br>[labs/labtainers/onewayhash.xml](#labslabtainersonewayhashxml)</br>[labs/labtainers/radius.xml](#labslabtainersradiusxml)</br>
+Authorisation | [labs/authentication_and_access_controls/ads_3_access_controls.xml](#labsauthentication_and_access_controlsads_3_access_controlsxml)</br>[labs/authentication_and_access_controls/ads_4_suid.xml](#labsauthentication_and_access_controlsads_4_suidxml)</br>[labs/authentication_and_access_controls/ads_5_facls.xml](#labsauthentication_and_access_controlsads_5_faclsxml)</br>[labs/authentication_and_access_controls/ads_6_containers.xml](#labsauthentication_and_access_controlsads_6_containersxml)</br>[labs/authentication_and_access_controls/ads_7_apparmor.xml](#labsauthentication_and_access_controlsads_7_apparmorxml)</br>[labs/labtainers/acl-hackerbot-flags.xml](#labslabtainersacl-hackerbot-flagsxml)</br>[labs/labtainers/acl.xml](#labslabtainersaclxml)</br>[labs/labtainers/ldap.xml](#labslabtainersldapxml)</br>[labs/labtainers/nix-commands.xml](#labslabtainersnix-commandsxml)</br>[labs/labtainers/setuid-env.xml](#labslabtainerssetuid-envxml)</br>[labs/response_and_investigation/1_integrity_protection.xml](#labsresponse_and_investigation1_integrity_protectionxml)</br>
 Accountability | [labs/response_and_investigation/7_live_analysis.xml](#labsresponse_and_investigation7_live_analysisxml)</br>[labs/response_and_investigation/8_dead_analysis.xml](#labsresponse_and_investigation8_dead_analysisxml)</br>
 
 ## Operating Systems &amp; Virtualisation (OSV)
 
 ### OSV Scenarios
 
-[labs/authentication_and_access_controls/ads_1_authentication.xml](#labsauthentication_and_access_controlsads_1_authenticationxml)</br>[labs/authentication_and_access_controls/ads_2_pam.xml](#labsauthentication_and_access_controlsads_2_pamxml)</br>[labs/authentication_and_access_controls/ads_3_access_controls.xml](#labsauthentication_and_access_controlsads_3_access_controlsxml)</br>[labs/authentication_and_access_controls/ads_4_suid.xml](#labsauthentication_and_access_controlsads_4_suidxml)</br>[labs/authentication_and_access_controls/ads_5_facls.xml](#labsauthentication_and_access_controlsads_5_faclsxml)</br>[labs/authentication_and_access_controls/ads_6_containers.xml](#labsauthentication_and_access_controlsads_6_containersxml)</br>[labs/authentication_and_access_controls/ads_7_apparmor.xml](#labsauthentication_and_access_controlsads_7_apparmorxml)</br>[labs/labtainers/acl-hackerbot-flags.xml](#labslabtainersacl-hackerbot-flagsxml)</br>[labs/labtainers/acl.xml](#labslabtainersaclxml)</br>[labs/labtainers/capabilities.xml](#labslabtainerscapabilitiesxml)</br>[labs/labtainers/cyberciege.xml](#labslabtainerscyberciegexml)</br>[labs/labtainers/setuid-env.xml](#labslabtainerssetuid-envxml)</br>[labs/response_and_investigation/1_integrity_protection.xml](#labsresponse_and_investigation1_integrity_protectionxml)</br>[labs/response_and_investigation/2_integrity_detection.xml](#labsresponse_and_investigation2_integrity_detectionxml)</br>[labs/response_and_investigation/7_live_analysis.xml](#labsresponse_and_investigation7_live_analysisxml)</br>
+[labs/authentication_and_access_controls/ads_1_authentication.xml](#labsauthentication_and_access_controlsads_1_authenticationxml)</br>[labs/authentication_and_access_controls/ads_2_pam.xml](#labsauthentication_and_access_controlsads_2_pamxml)</br>[labs/authentication_and_access_controls/ads_3_access_controls.xml](#labsauthentication_and_access_controlsads_3_access_controlsxml)</br>[labs/authentication_and_access_controls/ads_4_suid.xml](#labsauthentication_and_access_controlsads_4_suidxml)</br>[labs/authentication_and_access_controls/ads_5_facls.xml](#labsauthentication_and_access_controlsads_5_faclsxml)</br>[labs/authentication_and_access_controls/ads_6_containers.xml](#labsauthentication_and_access_controlsads_6_containersxml)</br>[labs/authentication_and_access_controls/ads_7_apparmor.xml](#labsauthentication_and_access_controlsads_7_apparmorxml)</br>[labs/labtainers/acl-hackerbot-flags.xml](#labslabtainersacl-hackerbot-flagsxml)</br>[labs/labtainers/acl.xml](#labslabtainersaclxml)</br>[labs/labtainers/capabilities.xml](#labslabtainerscapabilitiesxml)</br>[labs/labtainers/setuid-env.xml](#labslabtainerssetuid-envxml)</br>[labs/response_and_investigation/1_integrity_protection.xml](#labsresponse_and_investigation1_integrity_protectionxml)</br>[labs/response_and_investigation/2_integrity_detection.xml](#labsresponse_and_investigation2_integrity_detectionxml)</br>[labs/response_and_investigation/7_live_analysis.xml](#labsresponse_and_investigation7_live_analysisxml)</br>
 ### OSV Scenarios by Topics
 | Topic | Scenario |
 | --- | --- |
 Primitives for Isolation and Mediation | [labs/authentication_and_access_controls/ads_1_authentication.xml](#labsauthentication_and_access_controlsads_1_authenticationxml)</br>[labs/authentication_and_access_controls/ads_2_pam.xml](#labsauthentication_and_access_controlsads_2_pamxml)</br>[labs/authentication_and_access_controls/ads_3_access_controls.xml](#labsauthentication_and_access_controlsads_3_access_controlsxml)</br>[labs/authentication_and_access_controls/ads_4_suid.xml](#labsauthentication_and_access_controlsads_4_suidxml)</br>[labs/authentication_and_access_controls/ads_5_facls.xml](#labsauthentication_and_access_controlsads_5_faclsxml)</br>[labs/authentication_and_access_controls/ads_6_containers.xml](#labsauthentication_and_access_controlsads_6_containersxml)</br>[labs/authentication_and_access_controls/ads_7_apparmor.xml](#labsauthentication_and_access_controlsads_7_apparmorxml)</br>[labs/labtainers/acl-hackerbot-flags.xml](#labslabtainersacl-hackerbot-flagsxml)</br>[labs/labtainers/acl.xml](#labslabtainersaclxml)</br>[labs/labtainers/capabilities.xml](#labslabtainerscapabilitiesxml)</br>[labs/labtainers/setuid-env.xml](#labslabtainerssetuid-envxml)</br>[labs/response_and_investigation/1_integrity_protection.xml](#labsresponse_and_investigation1_integrity_protectionxml)</br>
 Role of Operating Systems | [labs/authentication_and_access_controls/ads_3_access_controls.xml](#labsauthentication_and_access_controlsads_3_access_controlsxml)</br>[labs/authentication_and_access_controls/ads_6_containers.xml](#labsauthentication_and_access_controlsads_6_containersxml)</br>[labs/labtainers/acl-hackerbot-flags.xml](#labslabtainersacl-hackerbot-flagsxml)</br>[labs/labtainers/acl.xml](#labslabtainersaclxml)</br>
-Related Areas | [labs/labtainers/cyberciege.xml](#labslabtainerscyberciegexml)</br>
 OS Hardening | [labs/response_and_investigation/2_integrity_detection.xml](#labsresponse_and_investigation2_integrity_detectionxml)</br>[labs/response_and_investigation/7_live_analysis.xml](#labsresponse_and_investigation7_live_analysisxml)</br>
 
 ## Web &amp; Mobile Security (WAM)
 
 ### WAM Scenarios
 
-[labs/authentication_and_access_controls/ads_6_containers.xml](#labsauthentication_and_access_controlsads_6_containersxml)</br>[labs/labtainers/cyberciege.xml](#labslabtainerscyberciegexml)</br>[labs/labtainers/iptables-ics.xml](#labslabtainersiptables-icsxml)</br>[labs/labtainers/iptables.xml](#labslabtainersiptablesxml)</br>[labs/labtainers/iptables2.xml](#labslabtainersiptables2xml)</br>[labs/labtainers/sql-inject.xml](#labslabtainerssql-injectxml)</br>[labs/labtainers/webtrack.xml](#labslabtainerswebtrackxml)</br>[labs/labtainers/xforge.xml](#labslabtainersxforgexml)</br>[labs/labtainers/xsite.xml](#labslabtainersxsitexml)</br>[labs/web_security/websec_lab.xml](#labsweb_securitywebsec_labxml)</br>
+[labs/authentication_and_access_controls/ads_6_containers.xml](#labsauthentication_and_access_controlsads_6_containersxml)</br>[labs/labtainers/iptables-ics.xml](#labslabtainersiptables-icsxml)</br>[labs/labtainers/iptables.xml](#labslabtainersiptablesxml)</br>[labs/labtainers/iptables2.xml](#labslabtainersiptables2xml)</br>[labs/labtainers/sql-inject.xml](#labslabtainerssql-injectxml)</br>[labs/labtainers/webtrack.xml](#labslabtainerswebtrackxml)</br>[labs/labtainers/xforge.xml](#labslabtainersxforgexml)</br>[labs/labtainers/xsite.xml](#labslabtainersxsitexml)</br>[labs/web_security/websec_lab.xml](#labsweb_securitywebsec_labxml)</br>
 ### WAM Scenarios by Topics
 | Topic | Scenario |
 | --- | --- |
-Fundamental Concepts and Approaches | [labs/authentication_and_access_controls/ads_6_containers.xml](#labsauthentication_and_access_controlsads_6_containersxml)</br>[labs/labtainers/cyberciege.xml](#labslabtainerscyberciegexml)</br>[labs/labtainers/webtrack.xml](#labslabtainerswebtrackxml)</br>[labs/web_security/websec_lab.xml](#labsweb_securitywebsec_labxml)</br>
-Client-Side Vulnerabilities and Mitigations | [labs/labtainers/cyberciege.xml](#labslabtainerscyberciegexml)</br>[labs/web_security/websec_lab.xml](#labsweb_securitywebsec_labxml)</br>
+Fundamental Concepts and Approaches | [labs/authentication_and_access_controls/ads_6_containers.xml](#labsauthentication_and_access_controlsads_6_containersxml)</br>[labs/labtainers/webtrack.xml](#labslabtainerswebtrackxml)</br>[labs/web_security/websec_lab.xml](#labsweb_securitywebsec_labxml)</br>
 FIREWALLS | [labs/labtainers/iptables-ics.xml](#labslabtainersiptables-icsxml)</br>[labs/labtainers/iptables.xml](#labslabtainersiptablesxml)</br>[labs/labtainers/iptables2.xml](#labslabtainersiptables2xml)</br>
 Server-Side Vulnerabilities and Mitigations | [labs/labtainers/sql-inject.xml](#labslabtainerssql-injectxml)</br>[labs/labtainers/xforge.xml](#labslabtainersxforgexml)</br>[labs/labtainers/xsite.xml](#labslabtainersxsitexml)</br>[labs/web_security/websec_lab.xml](#labsweb_securitywebsec_labxml)</br>
+Client-Side Vulnerabilities and Mitigations | [labs/web_security/websec_lab.xml](#labsweb_securitywebsec_labxml)</br>
 
 ## Software Security (SS)
 
@@ -70,14 +69,14 @@ Detection of Vulnerabilities | [labs/software_security_exploitation/3_bug_huntin
 
 ### NS Scenarios
 
-[labs/introducing_attacks/1_intro_linux.xml](#labsintroducing_attacks1_intro_linuxxml)</br>[labs/introducing_attacks/4_dns_footprinting.xml](#labsintroducing_attacks4_dns_footprintingxml)</br>[labs/introducing_attacks/5_scanning.xml](#labsintroducing_attacks5_scanningxml)</br>[labs/labtainers/arp-spoof.xml](#labslabtainersarp-spoofxml)</br>[labs/labtainers/cyberciege.xml](#labslabtainerscyberciegexml)</br>[labs/labtainers/denyhost.xml](#labslabtainersdenyhostxml)</br>[labs/labtainers/dmz-example.xml](#labslabtainersdmz-examplexml)</br>[labs/labtainers/dmz-lab.xml](#labslabtainersdmz-labxml)</br>[labs/labtainers/grfics.xml](#labslabtainersgrficsxml)</br>[labs/labtainers/iptables-ics.xml](#labslabtainersiptables-icsxml)</br>[labs/labtainers/iptables.xml](#labslabtainersiptablesxml)</br>[labs/labtainers/iptables2.xml](#labslabtainersiptables2xml)</br>[labs/labtainers/local-dns.xml](#labslabtainerslocal-dnsxml)</br>[labs/labtainers/nix-commands.xml](#labslabtainersnix-commandsxml)</br>[labs/labtainers/nmap-discovery.xml](#labslabtainersnmap-discoveryxml)</br>[labs/labtainers/nmap-ssh.xml](#labslabtainersnmap-sshxml)</br>[labs/labtainers/pcapanalysis.xml](#labslabtainerspcapanalysisxml)</br>[labs/labtainers/pubkey.xml](#labslabtainerspubkeyxml)</br>[labs/labtainers/radius.xml](#labslabtainersradiusxml)</br>[labs/labtainers/remote-dns.xml](#labslabtainersremote-dnsxml)</br>[labs/labtainers/routing-basics.xml](#labslabtainersrouting-basicsxml)</br>[labs/labtainers/routing-basics2.xml](#labslabtainersrouting-basics2xml)</br>[labs/labtainers/snort.xml](#labslabtainerssnortxml)</br>[labs/labtainers/tcpip.xml](#labslabtainerstcpipxml)</br>[labs/labtainers/telnetlab.xml](#labslabtainerstelnetlabxml)</br>[labs/labtainers/vpnlab.xml](#labslabtainersvpnlabxml)</br>[labs/labtainers/vpnlab2.xml](#labslabtainersvpnlab2xml)</br>[labs/response_and_investigation/4_ids.xml](#labsresponse_and_investigation4_idsxml)</br>[labs/response_and_investigation/5_ids_rules.xml](#labsresponse_and_investigation5_ids_rulesxml)</br>[labs/response_and_investigation/6_exfiltration_detection.xml](#labsresponse_and_investigation6_exfiltration_detectionxml)</br>
+[labs/introducing_attacks/1_intro_linux.xml](#labsintroducing_attacks1_intro_linuxxml)</br>[labs/introducing_attacks/4_dns_footprinting.xml](#labsintroducing_attacks4_dns_footprintingxml)</br>[labs/introducing_attacks/5_scanning.xml](#labsintroducing_attacks5_scanningxml)</br>[labs/labtainers/arp-spoof.xml](#labslabtainersarp-spoofxml)</br>[labs/labtainers/denyhost.xml](#labslabtainersdenyhostxml)</br>[labs/labtainers/dmz-example.xml](#labslabtainersdmz-examplexml)</br>[labs/labtainers/dmz-lab.xml](#labslabtainersdmz-labxml)</br>[labs/labtainers/grfics.xml](#labslabtainersgrficsxml)</br>[labs/labtainers/iptables-ics.xml](#labslabtainersiptables-icsxml)</br>[labs/labtainers/iptables.xml](#labslabtainersiptablesxml)</br>[labs/labtainers/iptables2.xml](#labslabtainersiptables2xml)</br>[labs/labtainers/local-dns.xml](#labslabtainerslocal-dnsxml)</br>[labs/labtainers/nix-commands.xml](#labslabtainersnix-commandsxml)</br>[labs/labtainers/nmap-discovery.xml](#labslabtainersnmap-discoveryxml)</br>[labs/labtainers/nmap-ssh.xml](#labslabtainersnmap-sshxml)</br>[labs/labtainers/pcapanalysis.xml](#labslabtainerspcapanalysisxml)</br>[labs/labtainers/pubkey.xml](#labslabtainerspubkeyxml)</br>[labs/labtainers/radius.xml](#labslabtainersradiusxml)</br>[labs/labtainers/remote-dns.xml](#labslabtainersremote-dnsxml)</br>[labs/labtainers/routing-basics.xml](#labslabtainersrouting-basicsxml)</br>[labs/labtainers/routing-basics2.xml](#labslabtainersrouting-basics2xml)</br>[labs/labtainers/snort.xml](#labslabtainerssnortxml)</br>[labs/labtainers/tcpip.xml](#labslabtainerstcpipxml)</br>[labs/labtainers/telnetlab.xml](#labslabtainerstelnetlabxml)</br>[labs/labtainers/vpnlab.xml](#labslabtainersvpnlabxml)</br>[labs/labtainers/vpnlab2.xml](#labslabtainersvpnlab2xml)</br>[labs/response_and_investigation/4_ids.xml](#labsresponse_and_investigation4_idsxml)</br>[labs/response_and_investigation/5_ids_rules.xml](#labsresponse_and_investigation5_ids_rulesxml)</br>[labs/response_and_investigation/6_exfiltration_detection.xml](#labsresponse_and_investigation6_exfiltration_detectionxml)</br>
 ### NS Scenarios by Topics
 | Topic | Scenario |
 | --- | --- |
 Network Protocols and Vulnerability | [labs/introducing_attacks/1_intro_linux.xml](#labsintroducing_attacks1_intro_linuxxml)</br>[labs/labtainers/arp-spoof.xml](#labslabtainersarp-spoofxml)</br>[labs/labtainers/local-dns.xml](#labslabtainerslocal-dnsxml)</br>[labs/labtainers/remote-dns.xml](#labslabtainersremote-dnsxml)</br>[labs/labtainers/tcpip.xml](#labslabtainerstcpipxml)</br>
 PENETRATION TESTING | [labs/introducing_attacks/4_dns_footprinting.xml](#labsintroducing_attacks4_dns_footprintingxml)</br>[labs/introducing_attacks/5_scanning.xml](#labsintroducing_attacks5_scanningxml)</br>[labs/labtainers/nix-commands.xml](#labslabtainersnix-commandsxml)</br>[labs/labtainers/nmap-discovery.xml](#labslabtainersnmap-discoveryxml)</br>[labs/labtainers/nmap-ssh.xml](#labslabtainersnmap-sshxml)</br>
-Internet Architecture | [labs/labtainers/cyberciege.xml](#labslabtainerscyberciegexml)</br>[labs/labtainers/iptables-ics.xml](#labslabtainersiptables-icsxml)</br>[labs/labtainers/iptables.xml](#labslabtainersiptablesxml)</br>[labs/labtainers/iptables2.xml](#labslabtainersiptables2xml)</br>[labs/labtainers/pubkey.xml](#labslabtainerspubkeyxml)</br>[labs/labtainers/radius.xml](#labslabtainersradiusxml)</br>[labs/labtainers/routing-basics.xml](#labslabtainersrouting-basicsxml)</br>[labs/labtainers/routing-basics2.xml](#labslabtainersrouting-basics2xml)</br>[labs/labtainers/tcpip.xml](#labslabtainerstcpipxml)</br>
-Network Defence Tools | [labs/labtainers/cyberciege.xml](#labslabtainerscyberciegexml)</br>[labs/labtainers/denyhost.xml](#labslabtainersdenyhostxml)</br>[labs/labtainers/dmz-example.xml](#labslabtainersdmz-examplexml)</br>[labs/labtainers/dmz-lab.xml](#labslabtainersdmz-labxml)</br>[labs/labtainers/grfics.xml](#labslabtainersgrficsxml)</br>[labs/labtainers/iptables-ics.xml](#labslabtainersiptables-icsxml)</br>[labs/labtainers/iptables.xml](#labslabtainersiptablesxml)</br>[labs/labtainers/iptables2.xml](#labslabtainersiptables2xml)</br>[labs/labtainers/snort.xml](#labslabtainerssnortxml)</br>[labs/labtainers/vpnlab.xml](#labslabtainersvpnlabxml)</br>[labs/labtainers/vpnlab2.xml](#labslabtainersvpnlab2xml)</br>[labs/response_and_investigation/4_ids.xml](#labsresponse_and_investigation4_idsxml)</br>[labs/response_and_investigation/5_ids_rules.xml](#labsresponse_and_investigation5_ids_rulesxml)</br>[labs/response_and_investigation/6_exfiltration_detection.xml](#labsresponse_and_investigation6_exfiltration_detectionxml)</br>
+Network Defence Tools | [labs/labtainers/denyhost.xml](#labslabtainersdenyhostxml)</br>[labs/labtainers/dmz-example.xml](#labslabtainersdmz-examplexml)</br>[labs/labtainers/dmz-lab.xml](#labslabtainersdmz-labxml)</br>[labs/labtainers/grfics.xml](#labslabtainersgrficsxml)</br>[labs/labtainers/iptables-ics.xml](#labslabtainersiptables-icsxml)</br>[labs/labtainers/iptables.xml](#labslabtainersiptablesxml)</br>[labs/labtainers/iptables2.xml](#labslabtainersiptables2xml)</br>[labs/labtainers/snort.xml](#labslabtainerssnortxml)</br>[labs/labtainers/vpnlab.xml](#labslabtainersvpnlabxml)</br>[labs/labtainers/vpnlab2.xml](#labslabtainersvpnlab2xml)</br>[labs/response_and_investigation/4_ids.xml](#labsresponse_and_investigation4_idsxml)</br>[labs/response_and_investigation/5_ids_rules.xml](#labsresponse_and_investigation5_ids_rulesxml)</br>[labs/response_and_investigation/6_exfiltration_detection.xml](#labsresponse_and_investigation6_exfiltration_detectionxml)</br>
+Internet Architecture | [labs/labtainers/iptables-ics.xml](#labslabtainersiptables-icsxml)</br>[labs/labtainers/iptables.xml](#labslabtainersiptablesxml)</br>[labs/labtainers/iptables2.xml](#labslabtainersiptables2xml)</br>[labs/labtainers/pubkey.xml](#labslabtainerspubkeyxml)</br>[labs/labtainers/radius.xml](#labslabtainersradiusxml)</br>[labs/labtainers/routing-basics.xml](#labslabtainersrouting-basicsxml)</br>[labs/labtainers/routing-basics2.xml](#labslabtainersrouting-basics2xml)</br>[labs/labtainers/tcpip.xml](#labslabtainerstcpipxml)</br>
 OSI (OPEN SYSTEM INTERCONNECT) MODEL | [labs/labtainers/pcapanalysis.xml](#labslabtainerspcapanalysisxml)</br>
 REMOTE ACCESS | [labs/labtainers/telnetlab.xml](#labslabtainerstelnetlabxml)</br>
 TCP/IP | [labs/labtainers/telnetlab.xml](#labslabtainerstelnetlabxml)</br>
@@ -86,7 +85,7 @@ TCP/IP | [labs/labtainers/telnetlab.xml](#labslabtainerstelnetlabxml)</br>
 
 ### SOIM Scenarios
 
-[labs/introducing_attacks/1_intro_linux.xml](#labsintroducing_attacks1_intro_linuxxml)</br>[labs/introducing_attacks/2_malware_msf_payloads.xml](#labsintroducing_attacks2_malware_msf_payloadsxml)</br>[labs/introducing_attacks/3_vulnerabilities.xml](#labsintroducing_attacks3_vulnerabilitiesxml)</br>[labs/introducing_attacks/4_dns_footprinting.xml](#labsintroducing_attacks4_dns_footprintingxml)</br>[labs/introducing_attacks/5_scanning.xml](#labsintroducing_attacks5_scanningxml)</br>[labs/introducing_attacks/6_exploitation.xml](#labsintroducing_attacks6_exploitationxml)</br>[labs/introducing_attacks/7_post-exploitation.xml](#labsintroducing_attacks7_post-exploitationxml)</br>[labs/introducing_attacks/8_vulnerability_analysis.xml](#labsintroducing_attacks8_vulnerability_analysisxml)</br>[labs/labtainers/arp-spoof.xml](#labslabtainersarp-spoofxml)</br>[labs/labtainers/backups.xml](#labslabtainersbackupsxml)</br>[labs/labtainers/backups2.xml](#labslabtainersbackups2xml)</br>[labs/labtainers/capabilities.xml](#labslabtainerscapabilitiesxml)</br>[labs/labtainers/centos-log.xml](#labslabtainerscentos-logxml)</br>[labs/labtainers/centos-log2.xml](#labslabtainerscentos-log2xml)</br>[labs/labtainers/cyberciege.xml](#labslabtainerscyberciegexml)</br>[labs/labtainers/denyhost.xml](#labslabtainersdenyhostxml)</br>[labs/labtainers/file-integrity.xml](#labslabtainersfile-integrityxml)</br>[labs/labtainers/grassmarlin.xml](#labslabtainersgrassmarlinxml)</br>[labs/labtainers/ldap.xml](#labslabtainersldapxml)</br>[labs/labtainers/metasploit.xml](#labslabtainersmetasploitxml)</br>[labs/labtainers/nmap-ssh.xml](#labslabtainersnmap-sshxml)</br>[labs/labtainers/packet-introspection.xml](#labslabtainerspacket-introspectionxml)</br>[labs/labtainers/pcapanalysis.xml](#labslabtainerspcapanalysisxml)</br>[labs/labtainers/snort.xml](#labslabtainerssnortxml)</br>[labs/labtainers/sys-log.xml](#labslabtainerssys-logxml)</br>[labs/labtainers/wireshark-intro.xml](#labslabtainerswireshark-introxml)</br>[labs/response_and_investigation/2_integrity_detection.xml](#labsresponse_and_investigation2_integrity_detectionxml)</br>[labs/response_and_investigation/3_backups_and_recovery.xml](#labsresponse_and_investigation3_backups_and_recoveryxml)</br>[labs/response_and_investigation/4_ids.xml](#labsresponse_and_investigation4_idsxml)</br>[labs/response_and_investigation/5_ids_rules.xml](#labsresponse_and_investigation5_ids_rulesxml)</br>[labs/response_and_investigation/6_exfiltration_detection.xml](#labsresponse_and_investigation6_exfiltration_detectionxml)</br>
+[labs/introducing_attacks/1_intro_linux.xml](#labsintroducing_attacks1_intro_linuxxml)</br>[labs/introducing_attacks/2_malware_msf_payloads.xml](#labsintroducing_attacks2_malware_msf_payloadsxml)</br>[labs/introducing_attacks/3_vulnerabilities.xml](#labsintroducing_attacks3_vulnerabilitiesxml)</br>[labs/introducing_attacks/4_dns_footprinting.xml](#labsintroducing_attacks4_dns_footprintingxml)</br>[labs/introducing_attacks/5_scanning.xml](#labsintroducing_attacks5_scanningxml)</br>[labs/introducing_attacks/6_exploitation.xml](#labsintroducing_attacks6_exploitationxml)</br>[labs/introducing_attacks/7_post-exploitation.xml](#labsintroducing_attacks7_post-exploitationxml)</br>[labs/introducing_attacks/8_vulnerability_analysis.xml](#labsintroducing_attacks8_vulnerability_analysisxml)</br>[labs/labtainers/arp-spoof.xml](#labslabtainersarp-spoofxml)</br>[labs/labtainers/backups.xml](#labslabtainersbackupsxml)</br>[labs/labtainers/backups2.xml](#labslabtainersbackups2xml)</br>[labs/labtainers/capabilities.xml](#labslabtainerscapabilitiesxml)</br>[labs/labtainers/centos-log.xml](#labslabtainerscentos-logxml)</br>[labs/labtainers/centos-log2.xml](#labslabtainerscentos-log2xml)</br>[labs/labtainers/denyhost.xml](#labslabtainersdenyhostxml)</br>[labs/labtainers/file-integrity.xml](#labslabtainersfile-integrityxml)</br>[labs/labtainers/grassmarlin.xml](#labslabtainersgrassmarlinxml)</br>[labs/labtainers/ldap.xml](#labslabtainersldapxml)</br>[labs/labtainers/metasploit.xml](#labslabtainersmetasploitxml)</br>[labs/labtainers/nmap-ssh.xml](#labslabtainersnmap-sshxml)</br>[labs/labtainers/packet-introspection.xml](#labslabtainerspacket-introspectionxml)</br>[labs/labtainers/pcapanalysis.xml](#labslabtainerspcapanalysisxml)</br>[labs/labtainers/snort.xml](#labslabtainerssnortxml)</br>[labs/labtainers/sys-log.xml](#labslabtainerssys-logxml)</br>[labs/labtainers/wireshark-intro.xml](#labslabtainerswireshark-introxml)</br>[labs/response_and_investigation/2_integrity_detection.xml](#labsresponse_and_investigation2_integrity_detectionxml)</br>[labs/response_and_investigation/3_backups_and_recovery.xml](#labsresponse_and_investigation3_backups_and_recoveryxml)</br>[labs/response_and_investigation/4_ids.xml](#labsresponse_and_investigation4_idsxml)</br>[labs/response_and_investigation/5_ids_rules.xml](#labsresponse_and_investigation5_ids_rulesxml)</br>[labs/response_and_investigation/6_exfiltration_detection.xml](#labsresponse_and_investigation6_exfiltration_detectionxml)</br>
 ### SOIM Scenarios by Topics
 | Topic | Scenario |
 | --- | --- |
@@ -94,7 +93,6 @@ PENETRATION TESTING | [labs/introducing_attacks/1_intro_linux.xml](#labsintroduc
 Monitor: Data Sources | [labs/labtainers/arp-spoof.xml](#labslabtainersarp-spoofxml)</br>[labs/labtainers/capabilities.xml](#labslabtainerscapabilitiesxml)</br>[labs/labtainers/centos-log.xml](#labslabtainerscentos-logxml)</br>[labs/labtainers/centos-log2.xml](#labslabtainerscentos-log2xml)</br>[labs/labtainers/file-integrity.xml](#labslabtainersfile-integrityxml)</br>[labs/labtainers/grassmarlin.xml](#labslabtainersgrassmarlinxml)</br>[labs/labtainers/ldap.xml](#labslabtainersldapxml)</br>[labs/labtainers/packet-introspection.xml](#labslabtainerspacket-introspectionxml)</br>[labs/labtainers/pcapanalysis.xml](#labslabtainerspcapanalysisxml)</br>[labs/labtainers/snort.xml](#labslabtainerssnortxml)</br>[labs/labtainers/sys-log.xml](#labslabtainerssys-logxml)</br>[labs/labtainers/wireshark-intro.xml](#labslabtainerswireshark-introxml)</br>[labs/response_and_investigation/2_integrity_detection.xml](#labsresponse_and_investigation2_integrity_detectionxml)</br>[labs/response_and_investigation/4_ids.xml](#labsresponse_and_investigation4_idsxml)</br>[labs/response_and_investigation/5_ids_rules.xml](#labsresponse_and_investigation5_ids_rulesxml)</br>[labs/response_and_investigation/6_exfiltration_detection.xml](#labsresponse_and_investigation6_exfiltration_detectionxml)</br>
 Execute: Mitigation and Countermeasures | [labs/labtainers/backups.xml](#labslabtainersbackupsxml)</br>[labs/labtainers/backups2.xml](#labslabtainersbackups2xml)</br>[labs/labtainers/denyhost.xml](#labslabtainersdenyhostxml)</br>[labs/labtainers/snort.xml](#labslabtainerssnortxml)</br>[labs/response_and_investigation/3_backups_and_recovery.xml](#labsresponse_and_investigation3_backups_and_recoveryxml)</br>[labs/response_and_investigation/4_ids.xml](#labsresponse_and_investigation4_idsxml)</br>
 INCIDENT RESPONSE | [labs/labtainers/backups.xml](#labslabtainersbackupsxml)</br>[labs/labtainers/backups2.xml](#labslabtainersbackups2xml)</br>
-Knowledge: Intelligence and Analysis | [labs/labtainers/cyberciege.xml](#labslabtainerscyberciegexml)</br>
 CM (CONFIGURATION MANAGEMENT) | [labs/labtainers/denyhost.xml](#labslabtainersdenyhostxml)</br>[labs/labtainers/nmap-ssh.xml](#labslabtainersnmap-sshxml)</br>
 Analyse: Analysis Methods | [labs/labtainers/snort.xml](#labslabtainerssnortxml)</br>[labs/response_and_investigation/4_ids.xml](#labsresponse_and_investigation4_idsxml)</br>[labs/response_and_investigation/5_ids_rules.xml](#labsresponse_and_investigation5_ids_rulesxml)</br>[labs/response_and_investigation/6_exfiltration_detection.xml](#labsresponse_and_investigation6_exfiltration_detectionxml)</br>
 
@@ -102,7 +100,7 @@ Analyse: Analysis Methods | [labs/labtainers/snort.xml](#labslabtainerssnortxml)
 
 ### MAT Scenarios
 
-[labs/introducing_attacks/2_malware_msf_payloads.xml](#labsintroducing_attacks2_malware_msf_payloadsxml)</br>[labs/introducing_attacks/3_vulnerabilities.xml](#labsintroducing_attacks3_vulnerabilitiesxml)</br>[labs/introducing_attacks/5_scanning.xml](#labsintroducing_attacks5_scanningxml)</br>[labs/introducing_attacks/6_exploitation.xml](#labsintroducing_attacks6_exploitationxml)</br>[labs/introducing_attacks/7_post-exploitation.xml](#labsintroducing_attacks7_post-exploitationxml)</br>[labs/introducing_attacks/8_vulnerability_analysis.xml](#labsintroducing_attacks8_vulnerability_analysisxml)</br>[labs/labtainers/acl-hackerbot-flags.xml](#labslabtainersacl-hackerbot-flagsxml)</br>[labs/labtainers/acl.xml](#labslabtainersaclxml)</br>[labs/labtainers/bufoverflow.xml](#labslabtainersbufoverflowxml)</br>[labs/labtainers/cyberciege.xml](#labslabtainerscyberciegexml)</br>[labs/labtainers/formatstring.xml](#labslabtainersformatstringxml)</br>[labs/labtainers/gdblesson.xml](#labslabtainersgdblessonxml)</br>[labs/labtainers/ida.xml](#labslabtainersidaxml)</br>[labs/labtainers/metasploit.xml](#labslabtainersmetasploitxml)</br>[labs/labtainers/retlibc.xml](#labslabtainersretlibcxml)</br>[labs/labtainers/snort.xml](#labslabtainerssnortxml)</br>[labs/response_and_investigation/4_ids.xml](#labsresponse_and_investigation4_idsxml)</br>[labs/response_and_investigation/5_ids_rules.xml](#labsresponse_and_investigation5_ids_rulesxml)</br>[labs/response_and_investigation/7_live_analysis.xml](#labsresponse_and_investigation7_live_analysisxml)</br>[labs/response_and_investigation/8_dead_analysis.xml](#labsresponse_and_investigation8_dead_analysisxml)</br>[labs/software_and_malware_analysis/1_dynamic_and_static_analysis.xml](#labssoftware_and_malware_analysis1_dynamic_and_static_analysisxml)</br>[labs/software_and_malware_analysis/3_c_and_asm.xml](#labssoftware_and_malware_analysis3_c_and_asmxml)</br>[labs/software_and_malware_analysis/4_asm.xml](#labssoftware_and_malware_analysis4_asmxml)</br>[labs/software_and_malware_analysis/5_ghidra.xml](#labssoftware_and_malware_analysis5_ghidraxml)</br>[labs/software_and_malware_analysis/6_ghidra_analysis.xml](#labssoftware_and_malware_analysis6_ghidra_analysisxml)</br>[labs/software_and_malware_analysis/6_ghidra_with_live_malware_samples.xml](#labssoftware_and_malware_analysis6_ghidra_with_live_malware_samplesxml)</br>[labs/software_and_malware_analysis/7_dynamic.xml](#labssoftware_and_malware_analysis7_dynamicxml)</br>[labs/software_and_malware_analysis/8_anti_sre.xml](#labssoftware_and_malware_analysis8_anti_srexml)</br>[labs/software_and_malware_analysis/9_malware_behaviour.xml](#labssoftware_and_malware_analysis9_malware_behaviourxml)</br>[labs/software_security_exploitation/4_exploit_development.xml](#labssoftware_security_exploitation4_exploit_developmentxml)</br>[labs/software_security_exploitation/5_linux_bof_format.xml](#labssoftware_security_exploitation5_linux_bof_formatxml)</br>[labs/software_security_exploitation/6_linux_stack_bof.xml](#labssoftware_security_exploitation6_linux_stack_bofxml)</br>[labs/software_security_exploitation/7_linux_nx_bypass.xml](#labssoftware_security_exploitation7_linux_nx_bypassxml)</br>[labs/software_security_exploitation/8_linux_aslr_bypass.xml](#labssoftware_security_exploitation8_linux_aslr_bypassxml)</br>
+[labs/introducing_attacks/2_malware_msf_payloads.xml](#labsintroducing_attacks2_malware_msf_payloadsxml)</br>[labs/introducing_attacks/3_vulnerabilities.xml](#labsintroducing_attacks3_vulnerabilitiesxml)</br>[labs/introducing_attacks/5_scanning.xml](#labsintroducing_attacks5_scanningxml)</br>[labs/introducing_attacks/6_exploitation.xml](#labsintroducing_attacks6_exploitationxml)</br>[labs/introducing_attacks/7_post-exploitation.xml](#labsintroducing_attacks7_post-exploitationxml)</br>[labs/introducing_attacks/8_vulnerability_analysis.xml](#labsintroducing_attacks8_vulnerability_analysisxml)</br>[labs/labtainers/acl-hackerbot-flags.xml](#labslabtainersacl-hackerbot-flagsxml)</br>[labs/labtainers/acl.xml](#labslabtainersaclxml)</br>[labs/labtainers/bufoverflow.xml](#labslabtainersbufoverflowxml)</br>[labs/labtainers/formatstring.xml](#labslabtainersformatstringxml)</br>[labs/labtainers/gdblesson.xml](#labslabtainersgdblessonxml)</br>[labs/labtainers/ida.xml](#labslabtainersidaxml)</br>[labs/labtainers/metasploit.xml](#labslabtainersmetasploitxml)</br>[labs/labtainers/retlibc.xml](#labslabtainersretlibcxml)</br>[labs/labtainers/snort.xml](#labslabtainerssnortxml)</br>[labs/response_and_investigation/4_ids.xml](#labsresponse_and_investigation4_idsxml)</br>[labs/response_and_investigation/5_ids_rules.xml](#labsresponse_and_investigation5_ids_rulesxml)</br>[labs/response_and_investigation/7_live_analysis.xml](#labsresponse_and_investigation7_live_analysisxml)</br>[labs/response_and_investigation/8_dead_analysis.xml](#labsresponse_and_investigation8_dead_analysisxml)</br>[labs/software_and_malware_analysis/1_dynamic_and_static_analysis.xml](#labssoftware_and_malware_analysis1_dynamic_and_static_analysisxml)</br>[labs/software_and_malware_analysis/2_intro_to_c.xml](#labssoftware_and_malware_analysis2_intro_to_cxml)</br>[labs/software_and_malware_analysis/3_c_and_asm.xml](#labssoftware_and_malware_analysis3_c_and_asmxml)</br>[labs/software_and_malware_analysis/4_asm.xml](#labssoftware_and_malware_analysis4_asmxml)</br>[labs/software_and_malware_analysis/5_ghidra.xml](#labssoftware_and_malware_analysis5_ghidraxml)</br>[labs/software_and_malware_analysis/6_ghidra_analysis.xml](#labssoftware_and_malware_analysis6_ghidra_analysisxml)</br>[labs/software_and_malware_analysis/6_ghidra_with_live_malware_samples.xml](#labssoftware_and_malware_analysis6_ghidra_with_live_malware_samplesxml)</br>[labs/software_and_malware_analysis/7_dynamic.xml](#labssoftware_and_malware_analysis7_dynamicxml)</br>[labs/software_and_malware_analysis/8_anti_sre.xml](#labssoftware_and_malware_analysis8_anti_srexml)</br>[labs/software_and_malware_analysis/9_malware_behaviour.xml](#labssoftware_and_malware_analysis9_malware_behaviourxml)</br>[labs/software_security_exploitation/4_exploit_development.xml](#labssoftware_security_exploitation4_exploit_developmentxml)</br>[labs/software_security_exploitation/5_linux_bof_format.xml](#labssoftware_security_exploitation5_linux_bof_formatxml)</br>[labs/software_security_exploitation/6_linux_stack_bof.xml](#labssoftware_security_exploitation6_linux_stack_bofxml)</br>[labs/software_security_exploitation/7_linux_nx_bypass.xml](#labssoftware_security_exploitation7_linux_nx_bypassxml)</br>[labs/software_security_exploitation/8_linux_aslr_bypass.xml](#labssoftware_security_exploitation8_linux_aslr_bypassxml)</br>
 ### MAT Scenarios by Topics
 | Topic | Scenario |
 | --- | --- |
@@ -111,71 +109,8 @@ Malware Analysis | [labs/introducing_attacks/2_malware_msf_payloads.xml](#labsin
 Attacks and exploitation | [labs/introducing_attacks/2_malware_msf_payloads.xml](#labsintroducing_attacks2_malware_msf_payloadsxml)</br>[labs/introducing_attacks/3_vulnerabilities.xml](#labsintroducing_attacks3_vulnerabilitiesxml)</br>[labs/introducing_attacks/6_exploitation.xml](#labsintroducing_attacks6_exploitationxml)</br>[labs/introducing_attacks/7_post-exploitation.xml](#labsintroducing_attacks7_post-exploitationxml)</br>[labs/introducing_attacks/8_vulnerability_analysis.xml](#labsintroducing_attacks8_vulnerability_analysisxml)</br>[labs/labtainers/bufoverflow.xml](#labslabtainersbufoverflowxml)</br>[labs/labtainers/formatstring.xml](#labslabtainersformatstringxml)</br>[labs/labtainers/metasploit.xml](#labslabtainersmetasploitxml)</br>[labs/labtainers/retlibc.xml](#labslabtainersretlibcxml)</br>[labs/software_security_exploitation/4_exploit_development.xml](#labssoftware_security_exploitation4_exploit_developmentxml)</br>[labs/software_security_exploitation/5_linux_bof_format.xml](#labssoftware_security_exploitation5_linux_bof_formatxml)</br>[labs/software_security_exploitation/6_linux_stack_bof.xml](#labssoftware_security_exploitation6_linux_stack_bofxml)</br>[labs/software_security_exploitation/7_linux_nx_bypass.xml](#labssoftware_security_exploitation7_linux_nx_bypassxml)</br>[labs/software_security_exploitation/8_linux_aslr_bypass.xml](#labssoftware_security_exploitation8_linux_aslr_bypassxml)</br>
 Malicious Activities by Malware | [labs/introducing_attacks/5_scanning.xml](#labsintroducing_attacks5_scanningxml)</br>[labs/introducing_attacks/6_exploitation.xml](#labsintroducing_attacks6_exploitationxml)</br>[labs/introducing_attacks/7_post-exploitation.xml](#labsintroducing_attacks7_post-exploitationxml)</br>[labs/labtainers/metasploit.xml](#labslabtainersmetasploitxml)</br>
 MALCODE/MALWARE | [labs/labtainers/acl-hackerbot-flags.xml](#labslabtainersacl-hackerbot-flagsxml)</br>[labs/labtainers/acl.xml](#labslabtainersaclxml)</br>
-Malware Detection | [labs/labtainers/cyberciege.xml](#labslabtainerscyberciegexml)</br>[labs/labtainers/snort.xml](#labslabtainerssnortxml)</br>[labs/response_and_investigation/4_ids.xml](#labsresponse_and_investigation4_idsxml)</br>[labs/response_and_investigation/5_ids_rules.xml](#labsresponse_and_investigation5_ids_rulesxml)</br>[labs/response_and_investigation/7_live_analysis.xml](#labsresponse_and_investigation7_live_analysisxml)</br>[labs/response_and_investigation/8_dead_analysis.xml](#labsresponse_and_investigation8_dead_analysisxml)</br>
-
-## Cryptography (C)
-
-### C Scenarios
-
-[labs/labtainers/cyberciege.xml](#labslabtainerscyberciegexml)</br>[labs/labtainers/macs-hash.xml](#labslabtainersmacs-hashxml)</br>[labs/labtainers/onewayhash.xml](#labslabtainersonewayhashxml)</br>[labs/labtainers/pubkey.xml](#labslabtainerspubkeyxml)</br>[labs/labtainers/ssh-agent.xml](#labslabtainersssh-agentxml)</br>[labs/labtainers/sshlab.xml](#labslabtainerssshlabxml)</br>[labs/labtainers/ssl.xml](#labslabtainerssslxml)</br>[labs/labtainers/symkeylab.xml](#labslabtainerssymkeylabxml)</br>
-### C Scenarios by Topics
-| Topic | Scenario |
-| --- | --- |
-Schemes | [labs/labtainers/cyberciege.xml](#labslabtainerscyberciegexml)</br>[labs/labtainers/pubkey.xml](#labslabtainerspubkeyxml)</br>[labs/labtainers/symkeylab.xml](#labslabtainerssymkeylabxml)</br>
-Public-Key Cryptography | [labs/labtainers/macs-hash.xml](#labslabtainersmacs-hashxml)</br>[labs/labtainers/onewayhash.xml](#labslabtainersonewayhashxml)</br>[labs/labtainers/ssh-agent.xml](#labslabtainersssh-agentxml)</br>[labs/labtainers/sshlab.xml](#labslabtainerssshlabxml)</br>[labs/labtainers/ssl.xml](#labslabtainerssslxml)</br>
-Symmetric Cryptography | [labs/labtainers/symkeylab.xml](#labslabtainerssymkeylabxml)</br>
-
-## Cyber-Physical Systems Security (CPS)
-
-### CPS Scenarios
-
-[labs/labtainers/cyberciege.xml](#labslabtainerscyberciegexml)</br>[labs/labtainers/grassmarlin.xml](#labslabtainersgrassmarlinxml)</br>[labs/labtainers/grfics.xml](#labslabtainersgrficsxml)</br>[labs/labtainers/iptables-ics.xml](#labslabtainersiptables-icsxml)</br>[labs/labtainers/plc-app.xml](#labslabtainersplc-appxml)</br>[labs/labtainers/plc-forensics-adv.xml](#labslabtainersplc-forensics-advxml)</br>[labs/labtainers/plc-forensics.xml](#labslabtainersplc-forensicsxml)</br>[labs/labtainers/plc.xml](#labslabtainersplcxml)</br>[labs/labtainers/softplc.xml](#labslabtainerssoftplcxml)</br>[labs/labtainers/softplc2.xml](#labslabtainerssoftplc2xml)</br>[labs/labtainers/ssl.xml](#labslabtainerssslxml)</br>
-### CPS Scenarios by Topics
-| Topic | Scenario |
-| --- | --- |
-Cyber-Physical Systems | [labs/labtainers/cyberciege.xml](#labslabtainerscyberciegexml)</br>[labs/labtainers/grassmarlin.xml](#labslabtainersgrassmarlinxml)</br>[labs/labtainers/grfics.xml](#labslabtainersgrficsxml)</br>[labs/labtainers/iptables-ics.xml](#labslabtainersiptables-icsxml)</br>[labs/labtainers/plc-app.xml](#labslabtainersplc-appxml)</br>[labs/labtainers/plc-forensics-adv.xml](#labslabtainersplc-forensics-advxml)</br>[labs/labtainers/plc-forensics.xml](#labslabtainersplc-forensicsxml)</br>[labs/labtainers/plc.xml](#labslabtainersplcxml)</br>[labs/labtainers/softplc.xml](#labslabtainerssoftplcxml)</br>[labs/labtainers/softplc2.xml](#labslabtainerssoftplc2xml)</br>[labs/labtainers/ssl.xml](#labslabtainerssslxml)</br>
-Policy and Political Aspects | [labs/labtainers/cyberciege.xml](#labslabtainerscyberciegexml)</br>
-Cyber-Physical Systems Domains | [labs/labtainers/grassmarlin.xml](#labslabtainersgrassmarlinxml)</br>[labs/labtainers/grfics.xml](#labslabtainersgrficsxml)</br>[labs/labtainers/iptables-ics.xml](#labslabtainersiptables-icsxml)</br>[labs/labtainers/plc-app.xml](#labslabtainersplc-appxml)</br>[labs/labtainers/plc-forensics-adv.xml](#labslabtainersplc-forensics-advxml)</br>[labs/labtainers/plc-forensics.xml](#labslabtainersplc-forensicsxml)</br>[labs/labtainers/plc.xml](#labslabtainersplcxml)</br>[labs/labtainers/softplc.xml](#labslabtainerssoftplcxml)</br>[labs/labtainers/softplc2.xml](#labslabtainerssoftplc2xml)</br>[labs/labtainers/ssl.xml](#labslabtainerssslxml)</br>
-
-## Hardware Security (HS)
-
-### HS Scenarios
-
-[labs/labtainers/cyberciege.xml](#labslabtainerscyberciegexml)</br>
-### HS Scenarios by Topics
-| Topic | Scenario |
-| --- | --- |
-Secure Platforms | [labs/labtainers/cyberciege.xml](#labslabtainerscyberciegexml)</br>
-
-## Privacy &amp; Online Rights (POR)
-
-### POR Scenarios
-
-[labs/labtainers/cyberciege.xml](#labslabtainerscyberciegexml)</br>
-### POR Scenarios by Topics
-| Topic | Scenario |
-| --- | --- |
-Confidentiality | [labs/labtainers/cyberciege.xml](#labslabtainerscyberciegexml)</br>
-
-## Risk Management &amp; Governance (RMG)
-
-### RMG Scenarios
-
-[labs/labtainers/cyberciege.xml](#labslabtainerscyberciegexml)</br>
-### RMG Scenarios by Topics
-| Topic | Scenario |
-| --- | --- |
-Risk Governance | [labs/labtainers/cyberciege.xml](#labslabtainerscyberciegexml)</br>
-
-## Secure Software Lifecycle (SSL)
-
-### SSL Scenarios
-
-[labs/labtainers/cyberciege.xml](#labslabtainerscyberciegexml)</br>
-### SSL Scenarios by Topics
-| Topic | Scenario |
-| --- | --- |
-Motivations for Secure Software Lifecycle | [labs/labtainers/cyberciege.xml](#labslabtainerscyberciegexml)</br>
+Malware Detection | [labs/labtainers/snort.xml](#labslabtainerssnortxml)</br>[labs/response_and_investigation/4_ids.xml](#labsresponse_and_investigation4_idsxml)</br>[labs/response_and_investigation/5_ids_rules.xml](#labsresponse_and_investigation5_ids_rulesxml)</br>[labs/response_and_investigation/7_live_analysis.xml](#labsresponse_and_investigation7_live_analysisxml)</br>[labs/response_and_investigation/8_dead_analysis.xml](#labsresponse_and_investigation8_dead_analysisxml)</br>
+Technical Underpinning | [labs/software_and_malware_analysis/2_intro_to_c.xml](#labssoftware_and_malware_analysis2_intro_to_cxml)</br>[labs/software_and_malware_analysis/3_c_and_asm.xml](#labssoftware_and_malware_analysis3_c_and_asmxml)</br>
 
 ## Forensics (F)
 
@@ -190,6 +125,17 @@ Artifact Analysis | [labs/labtainers/macs-hash.xml](#labslabtainersmacs-hashxml)
 Main Memory Forensics | [labs/labtainers/packet-introspection.xml](#labslabtainerspacket-introspectionxml)</br>[labs/labtainers/pcapanalysis.xml](#labslabtainerspcapanalysisxml)</br>[labs/response_and_investigation/7_live_analysis.xml](#labsresponse_and_investigation7_live_analysisxml)</br>
 WEB | [labs/labtainers/webtrack.xml](#labslabtainerswebtrackxml)</br>
 
+## Cyber-Physical Systems Security (CPS)
+
+### CPS Scenarios
+
+[labs/labtainers/grassmarlin.xml](#labslabtainersgrassmarlinxml)</br>[labs/labtainers/grfics.xml](#labslabtainersgrficsxml)</br>[labs/labtainers/iptables-ics.xml](#labslabtainersiptables-icsxml)</br>[labs/labtainers/plc-app.xml](#labslabtainersplc-appxml)</br>[labs/labtainers/plc-forensics-adv.xml](#labslabtainersplc-forensics-advxml)</br>[labs/labtainers/plc-forensics.xml](#labslabtainersplc-forensicsxml)</br>[labs/labtainers/plc.xml](#labslabtainersplcxml)</br>[labs/labtainers/softplc.xml](#labslabtainerssoftplcxml)</br>[labs/labtainers/softplc2.xml](#labslabtainerssoftplc2xml)</br>[labs/labtainers/ssl.xml](#labslabtainerssslxml)</br>
+### CPS Scenarios by Topics
+| Topic | Scenario |
+| --- | --- |
+Cyber-Physical Systems | [labs/labtainers/grassmarlin.xml](#labslabtainersgrassmarlinxml)</br>[labs/labtainers/grfics.xml](#labslabtainersgrficsxml)</br>[labs/labtainers/iptables-ics.xml](#labslabtainersiptables-icsxml)</br>[labs/labtainers/plc-app.xml](#labslabtainersplc-appxml)</br>[labs/labtainers/plc-forensics-adv.xml](#labslabtainersplc-forensics-advxml)</br>[labs/labtainers/plc-forensics.xml](#labslabtainersplc-forensicsxml)</br>[labs/labtainers/plc.xml](#labslabtainersplcxml)</br>[labs/labtainers/softplc.xml](#labslabtainerssoftplcxml)</br>[labs/labtainers/softplc2.xml](#labslabtainerssoftplc2xml)</br>[labs/labtainers/ssl.xml](#labslabtainerssslxml)</br>
+Cyber-Physical Systems Domains | [labs/labtainers/grassmarlin.xml](#labslabtainersgrassmarlinxml)</br>[labs/labtainers/grfics.xml](#labslabtainersgrficsxml)</br>[labs/labtainers/iptables-ics.xml](#labslabtainersiptables-icsxml)</br>[labs/labtainers/plc-app.xml](#labslabtainersplc-appxml)</br>[labs/labtainers/plc-forensics-adv.xml](#labslabtainersplc-forensics-advxml)</br>[labs/labtainers/plc-forensics.xml](#labslabtainersplc-forensicsxml)</br>[labs/labtainers/plc.xml](#labslabtainersplcxml)</br>[labs/labtainers/softplc.xml](#labslabtainerssoftplcxml)</br>[labs/labtainers/softplc2.xml](#labslabtainerssoftplc2xml)</br>[labs/labtainers/ssl.xml](#labslabtainerssslxml)</br>
+
 ## Adversarial Behaviours (AB)
 
 ### AB Scenarios
@@ -199,6 +145,18 @@ WEB | [labs/labtainers/webtrack.xml](#labslabtainerswebtrackxml)</br>
 | Topic | Scenario |
 | --- | --- |
 Models | [labs/labtainers/grfics.xml](#labslabtainersgrficsxml)</br>
+
+## Cryptography (C)
+
+### C Scenarios
+
+[labs/labtainers/macs-hash.xml](#labslabtainersmacs-hashxml)</br>[labs/labtainers/onewayhash.xml](#labslabtainersonewayhashxml)</br>[labs/labtainers/pubkey.xml](#labslabtainerspubkeyxml)</br>[labs/labtainers/ssh-agent.xml](#labslabtainersssh-agentxml)</br>[labs/labtainers/sshlab.xml](#labslabtainerssshlabxml)</br>[labs/labtainers/ssl.xml](#labslabtainerssslxml)</br>[labs/labtainers/symkeylab.xml](#labslabtainerssymkeylabxml)</br>
+### C Scenarios by Topics
+| Topic | Scenario |
+| --- | --- |
+Public-Key Cryptography | [labs/labtainers/macs-hash.xml](#labslabtainersmacs-hashxml)</br>[labs/labtainers/onewayhash.xml](#labslabtainersonewayhashxml)</br>[labs/labtainers/ssh-agent.xml](#labslabtainersssh-agentxml)</br>[labs/labtainers/sshlab.xml](#labslabtainerssshlabxml)</br>[labs/labtainers/ssl.xml](#labslabtainerssslxml)</br>
+Schemes | [labs/labtainers/pubkey.xml](#labslabtainerspubkeyxml)</br>[labs/labtainers/symkeylab.xml](#labslabtainerssymkeylabxml)</br>
+Symmetric Cryptography | [labs/labtainers/symkeylab.xml](#labslabtainerssymkeylabxml)</br>
 
 ## Human Factors (HF)
 
@@ -922,49 +880,6 @@ Command to build VMs and start scenario:
 ```ruby secgen.rb -s scenario/labs/labtainers/centos-log2.xml run```
 
 [View source](scenarios/labs/labtainers/centos-log2.xml)
-
-
-  ## labs/labtainers/cyberciege.xml
-
-  ### Details
-
-| Key | Data |
-| --- | --- |
-|Name | Labtainers lab: cyberciege |
-|Description | A Labtainers lab.|
-|Type | ctf-lab; lab-sheet |
-|Author | Z. Cliffe Schreuders |
-|Linked videos| |
-|VM names|  desktop |
-
-
-
-  ### CyBOK KAs, Topics, and Keywords
-| KA | Topic | Keywords
-| --- | --- | --- |
-| Authentication, Authorisation &amp; Accountability (AAA) | Authentication | PASSWORD-BASED |
-| Authentication, Authorisation &amp; Accountability (AAA) | Authorisation | ACCESS CONTROL - MAC (MANDATORY ACCESS CONTROL) |
-| Cryptography (C) | Schemes | TLS |
-| Cyber-Physical Systems Security (CPS) | Cyber-Physical Systems | characteristics; security and privacy concerns |
-| Cyber-Physical Systems Security (CPS) | Policy and Political Aspects | industry practices and standards |
-| Hardware Security (HS) | Secure Platforms | secure element and smartcard |
-| Malware &amp; Attack Technology (MAT) | Malware Detection | identifying the presence of malware; attack detection; attack detection |
-| Network Security (NS) | Internet Architecture | transport layer security |
-| Network Security (NS) | Network Defence Tools | DEMILITARISED ZONE (DMZ); packet filters; network architecture design; VIRTUAL - PRIVATE NETWORK (VPN) |
-| Operating Systems &amp; Virtualisation (OSV) | Related Areas | databases |
-| Privacy &amp; Online Rights (POR) | Confidentiality | data confidentiality |
-| Risk Management &amp; Governance (RMG) | Risk Governance | risk perception factors; enacting security policy |
-| Security Operations &amp; Incident Management (SOIM) | Knowledge: Intelligence and Analysis | situational awareness |
-| Secure Software Lifecycle (SSL) | Motivations for Secure Software Lifecycle | customers don't apply patches |
-| Web &amp; Mobile Security (WAM) | Client-Side Vulnerabilities and Mitigations | phishing; physical attacks |
-| Web &amp; Mobile Security (WAM) | Fundamental Concepts and Approaches | frequent software updates |
-
-
-Command to build VMs and start scenario:
-
-```ruby secgen.rb -s scenario/labs/labtainers/cyberciege.xml run```
-
-[View source](scenarios/labs/labtainers/cyberciege.xml)
 
 
   ## labs/labtainers/denyhost.xml
@@ -2733,7 +2648,7 @@ Command to build VMs and start scenario:
 |Description | A MetaCTF lab. In your home directory you will find some binaries that you need to reverse engineer in order to determine the password that the program expects. Once you determing the password, run the program and enter the password to receive the file.</br></br>	[Lab sheet here](https://docs.google.com/document/d/1CRGtnCTOogpEIjl-tLYdZqHBwJt75FpUJTE2xUL9wqI/edit?usp=sharing).</br>	|
 |Type | ctf-lab; lab-sheet |
 |Author | Z. Cliffe Schreuders |
-|Linked videos| https://youtu.be/14Hv_QodLxs; https://youtu.be/quKsZbpvYIY; https://youtu.be/CxZx7b3OPsg; https://youtu.be/3qmmqfBtJio; https://youtu.be/k3NwrFWuhaY; https://youtu.be/KJPeZptzl1U|
+|Linked videos| https://youtu.be/14Hv_QodLxs; https://youtu.be/quKsZbpvYIY; https://youtu.be/CxZx7b3OPsg; https://youtu.be/3qmmqfBtJio; https://youtu.be/k3NwrFWuhaY|
 |VM names|  metactf |
 
 
@@ -2752,6 +2667,34 @@ Command to build VMs and start scenario:
 [View source](scenarios/labs/software_and_malware_analysis/1_dynamic_and_static_analysis.xml)
 
 
+  ## labs/software_and_malware_analysis/2_intro_to_c.xml
+
+  ### Details
+
+| Key | Data |
+| --- | --- |
+|Name | Introdution to C lab |
+|Description | </br>		An introduction to C. Really important fundamentals. No flags this week.</br></br>	[Lab sheet here](https://docs.google.com/document/d/1qaq8LF6wbe9OvXwAqmLQ_FA-1OTRkRVxjH5O5KRDM2w/edit?usp=sharing).</br>	|
+|Type | ctf-lab; lab-sheet |
+|Author | Thalita Vergilio |
+|Linked videos| https://youtu.be/T389wncz_zA; https://youtu.be/2R4QzDAfzLQ|
+|VM names|  metactf |
+
+
+
+  ### CyBOK KAs, Topics, and Keywords
+| KA | Topic | Keywords
+| --- | --- | --- |
+| Malware &amp; Attack Technology (MAT) | Technical Underpinning | Technical underpinnings for malware analysis: C |
+
+
+Command to build VMs and start scenario:
+
+```ruby secgen.rb -s scenario/labs/software_and_malware_analysis/2_intro_to_c.xml run```
+
+[View source](scenarios/labs/software_and_malware_analysis/2_intro_to_c.xml)
+
+
   ## labs/software_and_malware_analysis/3_c_and_asm.xml
 
   ### Details
@@ -2762,7 +2705,7 @@ Command to build VMs and start scenario:
 |Description | A MetaCTF lab. In your home directory you will find some binaries that you need to reverse engineer in order to determine the password that the program expects. Once you determing the password, run the program and enter the password to receive the file.</br></br>  This week, we will finish our crash course in C programming by looking at structs, a data type used to represent composite data, memory management, one of the biggest strengths of the C language, and bitwise operators, which you will find particularly helpful when looking at disassembled code. We will then change our focus to assembly language. Starting with some basics, we will familiarise ourselves with the syntax and organisation of decompiled code before moving onto recognising the structures we learned last week in the assembly code.</br></br>	[Lab sheet here](https://docs.google.com/document/d/14bEEdrJb0hGS5sBR-mOTWzCY-ws1LFDza3sIM04Akvg/edit?usp=sharing).</br>	|
 |Type | ctf-lab; lab-sheet |
 |Author | Thalita Vergilio |
-|Linked videos| |
+|Linked videos| https://youtu.be/_R9nLhtJJHY|
 |VM names|  metactf |
 
 
@@ -2771,6 +2714,7 @@ Command to build VMs and start scenario:
 | KA | Topic | Keywords
 | --- | --- | --- |
 | Malware &amp; Attack Technology (MAT) | Malware Analysis | analysis techniques; analysis environments |
+| Malware &amp; Attack Technology (MAT) | Technical Underpinning | Technical underpinnings for malware analysis: C; Technical underpinnings for malware analysis: ASM |
 
 
 Command to build VMs and start scenario:
@@ -2790,7 +2734,7 @@ Command to build VMs and start scenario:
 |Description | A MetaCTF lab. In your home directory you will find some binaries that you need to reverse engineer in order to determine the password that the program expects. Once you determing the password, run the program and enter the password to receive the file.</br></br>	We start with understanding how branching and conditionals are represented in assembly. We then move onto learning how to identify the common C code constructs we saw in previous weeks in disassembled code, namely loops, function calls, switch statements, arrays and structs.</br></br>	[Lab sheet here](https://docs.google.com/document/d/1l4tU49JhI65Q85Zv9I1Wm1kaHNENp6iyIwMUhM8j_14/edit?usp=sharing).</br>	|
 |Type | ctf-lab; lab-sheet |
 |Author | Thalita Vergilio |
-|Linked videos| |
+|Linked videos| https://youtu.be/wiaxGbPoxZ4|
 |VM names|  metactf |
 
 
@@ -2902,7 +2846,7 @@ Command to build VMs and start scenario:
 |Description | A MetaCTF lab. In your home directory you will find some binaries that you need to reverse engineer in order to determine the password that the program expects. Once you determing the password, run the program and enter the password to receive the file.</br></br>There are binaries to perform dynamic SRE.</br>|
 |Type | ctf-lab; lab-sheet |
 |Author | Z. Cliffe Schreuders |
-|Linked videos| |
+|Linked videos| https://youtu.be/X3XiSupGlYI|
 |VM names|  metactf |
 
 
@@ -2958,7 +2902,7 @@ Command to build VMs and start scenario:
 |Description | A MetaCTF lab. In your home directory you will find some binaries that you need to reverse engineer in order to determine the password that the program expects. Once you determing the password, run the program and enter the password to receive the file.</br></br>There are binaries to perform dynamic SRE.</br>|
 |Type | ctf-lab; lab-sheet |
 |Author | Z. Cliffe Schreuders |
-|Linked videos| https://youtu.be/6XMrHyAqD-4; https://youtu.be/6qeDnjOaRiI|
+|Linked videos| https://youtu.be/6XMrHyAqD-4; https://youtu.be/KJPeZptzl1U; https://youtu.be/6qeDnjOaRiI|
 |VM names|  metactf |
 
 

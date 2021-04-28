@@ -12,8 +12,8 @@
   <type>lab-sheet</type>
   <difficulty>intermediate</difficulty>
 
-<!--TODO  fixmeee-->
-  <CyBOK KA="AAA" topic="Authentication">
+<!--TODO  FIXME and add metadata back in when working-->
+  <!-- <CyBOK KA="AAA" topic="Authentication">
     <keyword>PASSWORD-BASED</keyword>
   </CyBOK>
   <CyBOK KA="AAA" topic="Authorisation">
@@ -68,7 +68,7 @@
   </CyBOK>
   <CyBOK KA="WAM" topic="Fundamental Concepts and Approaches">
     <keyword>frequent software updates</keyword>
-  </CyBOK>
+  </CyBOK> -->
 
   <system>
     <system_name>desktop</system_name>
