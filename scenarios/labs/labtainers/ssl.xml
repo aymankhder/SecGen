@@ -23,9 +23,6 @@
   <CyBOK KA="CPS" topic="Cyber-Physical Systems Domains">
     <keyword>industrial control systems</keyword>
   </CyBOK>
-  <CyBOK KA="HF" topic="Fitting the Task to the Human">
-    <keyword>device capabilities and limitations</keyword>
-  </CyBOK>
 
   <system>
     <system_name>desktop</system_name>

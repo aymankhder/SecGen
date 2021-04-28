@@ -21,6 +21,9 @@ This week we learn how to scan networks to get an understanding of and to map ou
   <type>lab-sheet</type>
   <difficulty>easy</difficulty>
 
+	<CyBOK KA="AB" topic="Models">
+		<keyword>kill chains</keyword>
+	</CyBOK>
 	<CyBOK KA="MAT" topic="Malicious Activities by Malware">
 		<keyword>cyber kill chain</keyword>
 	</CyBOK>

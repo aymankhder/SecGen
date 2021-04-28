@@ -100,17 +100,27 @@ Analyse: Analysis Methods | [labs/labtainers/snort.xml](#labslabtainerssnortxml)
 
 ### MAT Scenarios
 
-[labs/introducing_attacks/2_malware_msf_payloads.xml](#labsintroducing_attacks2_malware_msf_payloadsxml)</br>[labs/introducing_attacks/3_vulnerabilities.xml](#labsintroducing_attacks3_vulnerabilitiesxml)</br>[labs/introducing_attacks/5_scanning.xml](#labsintroducing_attacks5_scanningxml)</br>[labs/introducing_attacks/6_exploitation.xml](#labsintroducing_attacks6_exploitationxml)</br>[labs/introducing_attacks/7_post-exploitation.xml](#labsintroducing_attacks7_post-exploitationxml)</br>[labs/introducing_attacks/8_vulnerability_analysis.xml](#labsintroducing_attacks8_vulnerability_analysisxml)</br>[labs/labtainers/acl-hackerbot-flags.xml](#labslabtainersacl-hackerbot-flagsxml)</br>[labs/labtainers/acl.xml](#labslabtainersaclxml)</br>[labs/labtainers/bufoverflow.xml](#labslabtainersbufoverflowxml)</br>[labs/labtainers/formatstring.xml](#labslabtainersformatstringxml)</br>[labs/labtainers/gdblesson.xml](#labslabtainersgdblessonxml)</br>[labs/labtainers/ida.xml](#labslabtainersidaxml)</br>[labs/labtainers/metasploit.xml](#labslabtainersmetasploitxml)</br>[labs/labtainers/retlibc.xml](#labslabtainersretlibcxml)</br>[labs/labtainers/snort.xml](#labslabtainerssnortxml)</br>[labs/response_and_investigation/4_ids.xml](#labsresponse_and_investigation4_idsxml)</br>[labs/response_and_investigation/5_ids_rules.xml](#labsresponse_and_investigation5_ids_rulesxml)</br>[labs/response_and_investigation/7_live_analysis.xml](#labsresponse_and_investigation7_live_analysisxml)</br>[labs/response_and_investigation/8_dead_analysis.xml](#labsresponse_and_investigation8_dead_analysisxml)</br>[labs/software_and_malware_analysis/1_dynamic_and_static_analysis.xml](#labssoftware_and_malware_analysis1_dynamic_and_static_analysisxml)</br>[labs/software_and_malware_analysis/2_intro_to_c.xml](#labssoftware_and_malware_analysis2_intro_to_cxml)</br>[labs/software_and_malware_analysis/3_c_and_asm.xml](#labssoftware_and_malware_analysis3_c_and_asmxml)</br>[labs/software_and_malware_analysis/4_asm.xml](#labssoftware_and_malware_analysis4_asmxml)</br>[labs/software_and_malware_analysis/5_ghidra.xml](#labssoftware_and_malware_analysis5_ghidraxml)</br>[labs/software_and_malware_analysis/6_ghidra_analysis.xml](#labssoftware_and_malware_analysis6_ghidra_analysisxml)</br>[labs/software_and_malware_analysis/6_ghidra_with_live_malware_samples.xml](#labssoftware_and_malware_analysis6_ghidra_with_live_malware_samplesxml)</br>[labs/software_and_malware_analysis/7_dynamic.xml](#labssoftware_and_malware_analysis7_dynamicxml)</br>[labs/software_and_malware_analysis/8_anti_sre.xml](#labssoftware_and_malware_analysis8_anti_srexml)</br>[labs/software_and_malware_analysis/9_malware_behaviour.xml](#labssoftware_and_malware_analysis9_malware_behaviourxml)</br>[labs/software_security_exploitation/4_exploit_development.xml](#labssoftware_security_exploitation4_exploit_developmentxml)</br>[labs/software_security_exploitation/5_linux_bof_format.xml](#labssoftware_security_exploitation5_linux_bof_formatxml)</br>[labs/software_security_exploitation/6_linux_stack_bof.xml](#labssoftware_security_exploitation6_linux_stack_bofxml)</br>[labs/software_security_exploitation/7_linux_nx_bypass.xml](#labssoftware_security_exploitation7_linux_nx_bypassxml)</br>[labs/software_security_exploitation/8_linux_aslr_bypass.xml](#labssoftware_security_exploitation8_linux_aslr_bypassxml)</br>
+[labs/introducing_attacks/2_malware_msf_payloads.xml](#labsintroducing_attacks2_malware_msf_payloadsxml)</br>[labs/introducing_attacks/3_vulnerabilities.xml](#labsintroducing_attacks3_vulnerabilitiesxml)</br>[labs/introducing_attacks/4_dns_footprinting.xml](#labsintroducing_attacks4_dns_footprintingxml)</br>[labs/introducing_attacks/5_scanning.xml](#labsintroducing_attacks5_scanningxml)</br>[labs/introducing_attacks/6_exploitation.xml](#labsintroducing_attacks6_exploitationxml)</br>[labs/introducing_attacks/7_post-exploitation.xml](#labsintroducing_attacks7_post-exploitationxml)</br>[labs/introducing_attacks/8_vulnerability_analysis.xml](#labsintroducing_attacks8_vulnerability_analysisxml)</br>[labs/labtainers/acl-hackerbot-flags.xml](#labslabtainersacl-hackerbot-flagsxml)</br>[labs/labtainers/acl.xml](#labslabtainersaclxml)</br>[labs/labtainers/bufoverflow.xml](#labslabtainersbufoverflowxml)</br>[labs/labtainers/formatstring.xml](#labslabtainersformatstringxml)</br>[labs/labtainers/gdblesson.xml](#labslabtainersgdblessonxml)</br>[labs/labtainers/ida.xml](#labslabtainersidaxml)</br>[labs/labtainers/metasploit.xml](#labslabtainersmetasploitxml)</br>[labs/labtainers/retlibc.xml](#labslabtainersretlibcxml)</br>[labs/labtainers/snort.xml](#labslabtainerssnortxml)</br>[labs/response_and_investigation/4_ids.xml](#labsresponse_and_investigation4_idsxml)</br>[labs/response_and_investigation/5_ids_rules.xml](#labsresponse_and_investigation5_ids_rulesxml)</br>[labs/response_and_investigation/7_live_analysis.xml](#labsresponse_and_investigation7_live_analysisxml)</br>[labs/response_and_investigation/8_dead_analysis.xml](#labsresponse_and_investigation8_dead_analysisxml)</br>[labs/software_and_malware_analysis/1_dynamic_and_static_analysis.xml](#labssoftware_and_malware_analysis1_dynamic_and_static_analysisxml)</br>[labs/software_and_malware_analysis/2_intro_to_c.xml](#labssoftware_and_malware_analysis2_intro_to_cxml)</br>[labs/software_and_malware_analysis/3_c_and_asm.xml](#labssoftware_and_malware_analysis3_c_and_asmxml)</br>[labs/software_and_malware_analysis/4_asm.xml](#labssoftware_and_malware_analysis4_asmxml)</br>[labs/software_and_malware_analysis/5_ghidra.xml](#labssoftware_and_malware_analysis5_ghidraxml)</br>[labs/software_and_malware_analysis/6_ghidra_analysis.xml](#labssoftware_and_malware_analysis6_ghidra_analysisxml)</br>[labs/software_and_malware_analysis/6_ghidra_with_live_malware_samples.xml](#labssoftware_and_malware_analysis6_ghidra_with_live_malware_samplesxml)</br>[labs/software_and_malware_analysis/7_dynamic.xml](#labssoftware_and_malware_analysis7_dynamicxml)</br>[labs/software_and_malware_analysis/8_anti_sre.xml](#labssoftware_and_malware_analysis8_anti_srexml)</br>[labs/software_and_malware_analysis/9_malware_behaviour.xml](#labssoftware_and_malware_analysis9_malware_behaviourxml)</br>[labs/software_security_exploitation/4_exploit_development.xml](#labssoftware_security_exploitation4_exploit_developmentxml)</br>[labs/software_security_exploitation/5_linux_bof_format.xml](#labssoftware_security_exploitation5_linux_bof_formatxml)</br>[labs/software_security_exploitation/6_linux_stack_bof.xml](#labssoftware_security_exploitation6_linux_stack_bofxml)</br>[labs/software_security_exploitation/7_linux_nx_bypass.xml](#labssoftware_security_exploitation7_linux_nx_bypassxml)</br>[labs/software_security_exploitation/8_linux_aslr_bypass.xml](#labssoftware_security_exploitation8_linux_aslr_bypassxml)</br>
 ### MAT Scenarios by Topics
 | Topic | Scenario |
 | --- | --- |
 Malware Taxonomy | [labs/introducing_attacks/2_malware_msf_payloads.xml](#labsintroducing_attacks2_malware_msf_payloadsxml)</br>[labs/software_and_malware_analysis/1_dynamic_and_static_analysis.xml](#labssoftware_and_malware_analysis1_dynamic_and_static_analysisxml)</br>[labs/software_and_malware_analysis/9_malware_behaviour.xml](#labssoftware_and_malware_analysis9_malware_behaviourxml)</br>
 Malware Analysis | [labs/introducing_attacks/2_malware_msf_payloads.xml](#labsintroducing_attacks2_malware_msf_payloadsxml)</br>[labs/labtainers/gdblesson.xml](#labslabtainersgdblessonxml)</br>[labs/labtainers/ida.xml](#labslabtainersidaxml)</br>[labs/software_and_malware_analysis/1_dynamic_and_static_analysis.xml](#labssoftware_and_malware_analysis1_dynamic_and_static_analysisxml)</br>[labs/software_and_malware_analysis/3_c_and_asm.xml](#labssoftware_and_malware_analysis3_c_and_asmxml)</br>[labs/software_and_malware_analysis/4_asm.xml](#labssoftware_and_malware_analysis4_asmxml)</br>[labs/software_and_malware_analysis/5_ghidra.xml](#labssoftware_and_malware_analysis5_ghidraxml)</br>[labs/software_and_malware_analysis/6_ghidra_analysis.xml](#labssoftware_and_malware_analysis6_ghidra_analysisxml)</br>[labs/software_and_malware_analysis/6_ghidra_with_live_malware_samples.xml](#labssoftware_and_malware_analysis6_ghidra_with_live_malware_samplesxml)</br>[labs/software_and_malware_analysis/7_dynamic.xml](#labssoftware_and_malware_analysis7_dynamicxml)</br>[labs/software_and_malware_analysis/8_anti_sre.xml](#labssoftware_and_malware_analysis8_anti_srexml)</br>[labs/software_and_malware_analysis/9_malware_behaviour.xml](#labssoftware_and_malware_analysis9_malware_behaviourxml)</br>
 Attacks and exploitation | [labs/introducing_attacks/2_malware_msf_payloads.xml](#labsintroducing_attacks2_malware_msf_payloadsxml)</br>[labs/introducing_attacks/3_vulnerabilities.xml](#labsintroducing_attacks3_vulnerabilitiesxml)</br>[labs/introducing_attacks/6_exploitation.xml](#labsintroducing_attacks6_exploitationxml)</br>[labs/introducing_attacks/7_post-exploitation.xml](#labsintroducing_attacks7_post-exploitationxml)</br>[labs/introducing_attacks/8_vulnerability_analysis.xml](#labsintroducing_attacks8_vulnerability_analysisxml)</br>[labs/labtainers/bufoverflow.xml](#labslabtainersbufoverflowxml)</br>[labs/labtainers/formatstring.xml](#labslabtainersformatstringxml)</br>[labs/labtainers/metasploit.xml](#labslabtainersmetasploitxml)</br>[labs/labtainers/retlibc.xml](#labslabtainersretlibcxml)</br>[labs/software_security_exploitation/4_exploit_development.xml](#labssoftware_security_exploitation4_exploit_developmentxml)</br>[labs/software_security_exploitation/5_linux_bof_format.xml](#labssoftware_security_exploitation5_linux_bof_formatxml)</br>[labs/software_security_exploitation/6_linux_stack_bof.xml](#labssoftware_security_exploitation6_linux_stack_bofxml)</br>[labs/software_security_exploitation/7_linux_nx_bypass.xml](#labssoftware_security_exploitation7_linux_nx_bypassxml)</br>[labs/software_security_exploitation/8_linux_aslr_bypass.xml](#labssoftware_security_exploitation8_linux_aslr_bypassxml)</br>
-Malicious Activities by Malware | [labs/introducing_attacks/5_scanning.xml](#labsintroducing_attacks5_scanningxml)</br>[labs/introducing_attacks/6_exploitation.xml](#labsintroducing_attacks6_exploitationxml)</br>[labs/introducing_attacks/7_post-exploitation.xml](#labsintroducing_attacks7_post-exploitationxml)</br>[labs/labtainers/metasploit.xml](#labslabtainersmetasploitxml)</br>
+Malicious Activities by Malware | [labs/introducing_attacks/4_dns_footprinting.xml](#labsintroducing_attacks4_dns_footprintingxml)</br>[labs/introducing_attacks/5_scanning.xml](#labsintroducing_attacks5_scanningxml)</br>[labs/introducing_attacks/6_exploitation.xml](#labsintroducing_attacks6_exploitationxml)</br>[labs/introducing_attacks/7_post-exploitation.xml](#labsintroducing_attacks7_post-exploitationxml)</br>[labs/labtainers/metasploit.xml](#labslabtainersmetasploitxml)</br>
 MALCODE/MALWARE | [labs/labtainers/acl-hackerbot-flags.xml](#labslabtainersacl-hackerbot-flagsxml)</br>[labs/labtainers/acl.xml](#labslabtainersaclxml)</br>
 Malware Detection | [labs/labtainers/snort.xml](#labslabtainerssnortxml)</br>[labs/response_and_investigation/4_ids.xml](#labsresponse_and_investigation4_idsxml)</br>[labs/response_and_investigation/5_ids_rules.xml](#labsresponse_and_investigation5_ids_rulesxml)</br>[labs/response_and_investigation/7_live_analysis.xml](#labsresponse_and_investigation7_live_analysisxml)</br>[labs/response_and_investigation/8_dead_analysis.xml](#labsresponse_and_investigation8_dead_analysisxml)</br>
 Technical Underpinning | [labs/software_and_malware_analysis/2_intro_to_c.xml](#labssoftware_and_malware_analysis2_intro_to_cxml)</br>[labs/software_and_malware_analysis/3_c_and_asm.xml](#labssoftware_and_malware_analysis3_c_and_asmxml)</br>
+
+## Adversarial Behaviours (AB)
+
+### AB Scenarios
+
+[labs/introducing_attacks/4_dns_footprinting.xml](#labsintroducing_attacks4_dns_footprintingxml)</br>[labs/introducing_attacks/5_scanning.xml](#labsintroducing_attacks5_scanningxml)</br>[labs/introducing_attacks/6_exploitation.xml](#labsintroducing_attacks6_exploitationxml)</br>[labs/introducing_attacks/7_post-exploitation.xml](#labsintroducing_attacks7_post-exploitationxml)</br>[labs/labtainers/grfics.xml](#labslabtainersgrficsxml)</br>
+### AB Scenarios by Topics
+| Topic | Scenario |
+| --- | --- |
+Models | [labs/introducing_attacks/4_dns_footprinting.xml](#labsintroducing_attacks4_dns_footprintingxml)</br>[labs/introducing_attacks/5_scanning.xml](#labsintroducing_attacks5_scanningxml)</br>[labs/introducing_attacks/6_exploitation.xml](#labsintroducing_attacks6_exploitationxml)</br>[labs/introducing_attacks/7_post-exploitation.xml](#labsintroducing_attacks7_post-exploitationxml)</br>[labs/labtainers/grfics.xml](#labslabtainersgrficsxml)</br>
 
 ## Forensics (F)
 
@@ -136,16 +146,6 @@ WEB | [labs/labtainers/webtrack.xml](#labslabtainerswebtrackxml)</br>
 Cyber-Physical Systems | [labs/labtainers/grassmarlin.xml](#labslabtainersgrassmarlinxml)</br>[labs/labtainers/grfics.xml](#labslabtainersgrficsxml)</br>[labs/labtainers/iptables-ics.xml](#labslabtainersiptables-icsxml)</br>[labs/labtainers/plc-app.xml](#labslabtainersplc-appxml)</br>[labs/labtainers/plc-forensics-adv.xml](#labslabtainersplc-forensics-advxml)</br>[labs/labtainers/plc-forensics.xml](#labslabtainersplc-forensicsxml)</br>[labs/labtainers/plc.xml](#labslabtainersplcxml)</br>[labs/labtainers/softplc.xml](#labslabtainerssoftplcxml)</br>[labs/labtainers/softplc2.xml](#labslabtainerssoftplc2xml)</br>[labs/labtainers/ssl.xml](#labslabtainerssslxml)</br>
 Cyber-Physical Systems Domains | [labs/labtainers/grassmarlin.xml](#labslabtainersgrassmarlinxml)</br>[labs/labtainers/grfics.xml](#labslabtainersgrficsxml)</br>[labs/labtainers/iptables-ics.xml](#labslabtainersiptables-icsxml)</br>[labs/labtainers/plc-app.xml](#labslabtainersplc-appxml)</br>[labs/labtainers/plc-forensics-adv.xml](#labslabtainersplc-forensics-advxml)</br>[labs/labtainers/plc-forensics.xml](#labslabtainersplc-forensicsxml)</br>[labs/labtainers/plc.xml](#labslabtainersplcxml)</br>[labs/labtainers/softplc.xml](#labslabtainerssoftplcxml)</br>[labs/labtainers/softplc2.xml](#labslabtainerssoftplc2xml)</br>[labs/labtainers/ssl.xml](#labslabtainerssslxml)</br>
 
-## Adversarial Behaviours (AB)
-
-### AB Scenarios
-
-[labs/labtainers/grfics.xml](#labslabtainersgrficsxml)</br>
-### AB Scenarios by Topics
-| Topic | Scenario |
-| --- | --- |
-Models | [labs/labtainers/grfics.xml](#labslabtainersgrficsxml)</br>
-
 ## Cryptography (C)
 
 ### C Scenarios
@@ -157,16 +157,6 @@ Models | [labs/labtainers/grfics.xml](#labslabtainersgrficsxml)</br>
 Public-Key Cryptography | [labs/labtainers/macs-hash.xml](#labslabtainersmacs-hashxml)</br>[labs/labtainers/onewayhash.xml](#labslabtainersonewayhashxml)</br>[labs/labtainers/ssh-agent.xml](#labslabtainersssh-agentxml)</br>[labs/labtainers/sshlab.xml](#labslabtainerssshlabxml)</br>[labs/labtainers/ssl.xml](#labslabtainerssslxml)</br>
 Schemes | [labs/labtainers/pubkey.xml](#labslabtainerspubkeyxml)</br>[labs/labtainers/symkeylab.xml](#labslabtainerssymkeylabxml)</br>
 Symmetric Cryptography | [labs/labtainers/symkeylab.xml](#labslabtainerssymkeylabxml)</br>
-
-## Human Factors (HF)
-
-### HF Scenarios
-
-[labs/labtainers/ssl.xml](#labslabtainerssslxml)</br>
-### HF Scenarios by Topics
-| Topic | Scenario |
-| --- | --- |
-Fitting the Task to the Human | [labs/labtainers/ssl.xml](#labslabtainerssslxml)</br>
 
 # Scenario CyBOK Keywords
 
@@ -485,6 +475,8 @@ Command to build VMs and start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
+| Adversarial Behaviours (AB) | Models | kill chains |
+| Malware &amp; Attack Technology (MAT) | Malicious Activities by Malware | cyber kill chain |
 | Network Security (NS) | PENETRATION TESTING | PENETRATION TESTING - DNS ZONE TRANSFER; EXPLOITATION FRAMEWORKS |
 | Security Operations &amp; Incident Management (SOIM) | PENETRATION TESTING | PENETRATION TESTING - NETWORK MAPPING - RECONNAISSANCE; PENETRATION TESTING - SOFTWARE TOOLS |
 
@@ -514,6 +506,7 @@ Command to build VMs and start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
+| Adversarial Behaviours (AB) | Models | kill chains |
 | Malware &amp; Attack Technology (MAT) | Malicious Activities by Malware | cyber kill chain |
 | Network Security (NS) | PENETRATION TESTING | PENETRATION TESTING - NETWORK MAPPING - FINGERPRINTING; PENETRATION TESTING - NETWORK MAPPING - NMAP; PENETRATION TESTING - NETWORK MAPPING - PING |
 | Security Operations &amp; Incident Management (SOIM) | PENETRATION TESTING | PENETRATION TESTING - NETWORK MAPPING - RECONNAISSANCE; PENETRATION TESTING - SOFTWARE TOOLS |
@@ -544,6 +537,7 @@ Command to build VMs and start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
+| Adversarial Behaviours (AB) | Models | kill chains |
 | Malware &amp; Attack Technology (MAT) | Malicious Activities by Malware | cyber kill chain |
 | Software Security (SS) | Categories of Vulnerabilities | CVEs and CWEs |
 | Malware &amp; Attack Technology (MAT) | Attacks and exploitation | EXPLOITATION; EXPLOITATION FRAMEWORKS |
@@ -575,6 +569,7 @@ Command to build VMs and start scenario:
   ### CyBOK KAs, Topics, and Keywords
 | KA | Topic | Keywords
 | --- | --- | --- |
+| Adversarial Behaviours (AB) | Models | kill chains |
 | Malware &amp; Attack Technology (MAT) | Malicious Activities by Malware | cyber kill chain; attack on confidentiality; integrity; availability |
 | Malware &amp; Attack Technology (MAT) | Attacks and exploitation | Post-exploitation: pivoting attacks; information gathering |
 | Security Operations &amp; Incident Management (SOIM) | PENETRATION TESTING | PENETRATION TESTING - SOFTWARE TOOLS; PENETRATION TESTING - ACTIVE PENETRATION |
@@ -2100,7 +2095,6 @@ Command to build VMs and start scenario:
 | Cryptography (C) | Public-Key Cryptography | public-key encryption; public-key signatures |
 | Cyber-Physical Systems Security (CPS) | Cyber-Physical Systems | characteristics; security and privacy concerns |
 | Cyber-Physical Systems Security (CPS) | Cyber-Physical Systems Domains | industrial control systems |
-| Human Factors (HF) | Fitting the Task to the Human | device capabilities and limitations |
 
 
 Command to build VMs and start scenario:
