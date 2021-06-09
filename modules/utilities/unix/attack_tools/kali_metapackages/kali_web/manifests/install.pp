@@ -21,7 +21,7 @@ class kali_web::install{
     command => 'mkdir /opt/zaproxy-2.9.0',
   } ~>
   file { '/opt/zaproxy-2.9.0/zaproxy_2.9.0-0kali1_all.deb':
-    source => 'puppet:///modules/kali_web/zaproxy_9.2.0-0kali1_all.deb'
+    source => 'puppet:///modules/kali_web/zaproxy_2.9.0-0kali1_all.deb'
   } ~>
   exec { 'install zap 2.9.0':
     command => 'dpkg -i /opt/zaproxy-2.9.0/zaproxy_2.9.0-0kali1_all.deb',
