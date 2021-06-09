@@ -10,7 +10,7 @@ class kali_web::install{
 
   exec { 'safely remove the zaproxy package':
     command => "apt-cache depends kali-tools-web | grep 'Depends:' | awk {'print \$2'} | xargs apt-mark manual",
-    after => Package['kali-tools-web']
+    require => Package['kali-tools-web']
   } ~>
   package{ 'zaproxy':
     ensure => 'absent',
@@ -25,7 +25,7 @@ class kali_web::install{
   } ~>
   exec { 'install zap 2.9.0':
     command => 'dpkg -i /opt/zaproxy-2.9.0/zaproxy_2.9.0-0kali1_all.deb',
-    after => Package['zaproxy']
+    require => Package['zaproxy']
   }
 }
 
