@@ -70,46 +70,46 @@ alert_time_limit:
 # the configuration below and adjust to your needs.
 # Note: if you run ElastAlert with --verbose/--debug, the log level of
 # the "elastalert" logger is changed to INFO, if not already INFO/DEBUG.
-#logging:
-#  version: 1
-#  incremental: false
-#  disable_existing_loggers: false
-#  formatters:
-#    logline:
-#      format: '%(asctime)s %(levelname)+8s %(name)+20s %(message)s'
-#
-#    handlers:
-#      console:
-#        class: logging.StreamHandler
-#        formatter: logline
-#        level: DEBUG
-#        stream: ext://sys.stderr
-#
-#      file:
-#        class : logging.FileHandler
-#        formatter: logline
-#        level: DEBUG
-#        filename: elastalert.log
-#
-#    loggers:
-#      elastalert:
-#        level: WARN
-#        handlers: []
-#        propagate: true
-#
-#      elasticsearch:
-#        level: WARN
-#        handlers: []
-#        propagate: true
-#
-#      elasticsearch.trace:
-#        level: WARN
-#        handlers: []
-#        propagate: true
-#
-#      '':  # root logger
-#        level: WARN
-#          handlers:
-#            - console
-#            - file
-#        propagate: false
+logging:
+  version: 1
+  incremental: false
+  disable_existing_loggers: false
+  formatters:
+    logline:
+      format: '%(asctime)s %(levelname)+8s %(name)+20s %(message)s'
+
+    handlers:
+      console:
+        class: logging.StreamHandler
+        formatter: logline
+        level: DEBUG
+        stream: ext://sys.stderr
+
+      file:
+        class : logging.FileHandler
+        formatter: logline
+        level: DEBUG
+        filename: /var/log/elastalert.log
+
+    loggers:
+      elastalert:
+        level: WARN
+        handlers: []
+        propagate: true
+
+      elasticsearch:
+        level: WARN
+        handlers: []
+        propagate: true
+
+      elasticsearch.trace:
+        level: WARN
+        handlers: []
+        propagate: true
+
+      '':  # root logger
+        level: WARN
+          handlers:
+            - console
+            - file
+        propagate: false
