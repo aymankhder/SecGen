@@ -23,21 +23,21 @@ from elastalert.util import ts_to_dt
 class ExecAlerter(Alerter):
     required_options = set(['command'])
 
-  def __init__(self, *args):
-    super(CommandAlerter, self).__init__(*args)
+    def __init__(self, *args):
+      super(ExecAlerter, self).__init__(*args)
 
-    self.last_command = []
+      self.last_command = []
 
-    self.shell = False
-    if isinstance(self.rule['command'], str):
-      self.shell = True
-      if '%' in self.rule['command']:
-        logging.warning('Warning! You could be vulnerable to shell injection!')
-      self.rule['command'] = [self.rule['command']]
+      self.shell = False
+      if isinstance(self.rule['command'], str):
+       self.shell = True
+       if '%' in self.rule['command']:
+         logging.warning('Warning! You could be vulnerable to shell injection!')
+       self.rule['command'] = [self.rule['command']]
 
-    self.new_style_string_format = False
-    if 'new_style_string_format' in self.rule and self.rule['new_style_string_format']:
-      self.new_style_string_format = True
+      self.new_style_string_format = False
+      if 'new_style_string_format' in self.rule and self.rule['new_style_string_format']:
+        self.new_style_string_format = True
 
     def alert(self, matches):
         # Format the command and arguments
