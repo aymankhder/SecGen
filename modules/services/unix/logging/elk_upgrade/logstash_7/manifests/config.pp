@@ -22,7 +22,7 @@ class logstash_7::config (
     group  => 'logstash',
   }
 
-  file { '/etc/logstash/conf.d/my_ls_config':
+  file { '/etc/logstash/conf.d/my_ls_config.conf':
     ensure => file,
     mode => '0644',
     owner => 'logstash',
