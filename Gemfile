@@ -23,12 +23,13 @@ gem 'process_helper'
 gem 'ovirt-engine-sdk'
 gem 'duplicate'
 gem 'smbhash'
-gem 'digest-whirlpool'
+gem 'digest-whirlpool', :git => "https://github.com/fgosew/ruby-digest-whirlpool"
 gem 'digest-siphash'
 gem 'scrypt'
 gem 'braille', :git => "http://github.com/nicanor/braille.git"
 gem 'bases'
-gem 'huffman'
+gem 'priority_queue', :git => "https://github.com/fgosew/priority_queue"
+gem 'huffman', :git => "https://github.com/fgosew/huffman"
 gem 'ruby-graphviz'
 gem 'rsa'
 gem 'gpgmeh'
