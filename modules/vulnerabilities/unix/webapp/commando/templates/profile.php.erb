@@ -63,14 +63,18 @@ if(!isset($_SESSION['username'])){
       if ($user == $admin_uname) {
         ?>
       <div id="sucess">
+        <?php echo $_SESSION['updated']?>
         Well Done, you have logged into an admin account!<br />
         This account had default Log-in Credentials! Keep hunting!<br />
-        Heres a flag: <div id="flag"><%= @default_login_flag %></div>
+        Here is a flag: <div id="flag"><%= @default_login_flag %></div>
       </div>
         <?php
       }
       ?>
-      <a href="login.php">Logout</a>
+      <nav class="nav">
+        <a href="login.php" class="btn btn-secondary-outline">Logout</a>
+        <a href="update_profile.php" class="btn btn-secondary-outline">Update Profile</a>
+      </nav>
   </div>
 
   <%# This is taken from: https://getbootstrap.com/docs/4.0/getting-started/introduction/%>
@@ -79,6 +83,6 @@ if(!isset($_SESSION['username'])){
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
+  </div>
   </body>
   </html>
