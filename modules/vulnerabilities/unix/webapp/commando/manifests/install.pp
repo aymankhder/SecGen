@@ -114,6 +114,12 @@ class commando::install {
 			content => template('commando/update_profile.php.erb')
 		}
 
+		# log out page
+		file{ "$docroot/logout.php":
+			ensure => file,
+			content => template('commando/logout.php.erb')
+		}
+
 		# connection file
 		file{ "$docroot/connect.php":
 			ensure => file,

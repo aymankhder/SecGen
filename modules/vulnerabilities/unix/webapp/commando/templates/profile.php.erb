@@ -71,13 +71,19 @@ if(!isset($_SESSION['username'])){
         <?php
       }
       ?>
-      <nav class="nav">
-        <a href="update_profile.php" class="btn btn-primary">Update Profile</a>
-        <a href="login.php" class="btn btn-secondary">Logout</a>
-      </nav>
-  </div>
+      <footer class="footer">
+        <ul>
+          <li>
+            <a href="update_profile.php">Update Profile</a>
+          </li>
+          <li>
+            <a href="logout.php">Logout</a>
+          </li>
+        </ul>
+      </footer>
+    </div>
 
-  <%# This is taken from: https://getbootstrap.com/docs/4.0/getting-started/introduction/%>
+    <%# This is taken from: https://getbootstrap.com/docs/4.0/getting-started/introduction/%>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -12,7 +12,7 @@
 
 <body>
 <%= scope.function_template(['commando/subtemplates/nav.html.erb']) %>
-<div class="container">
+<div class="container container-fluid">
   <div class="row">
     <div id="pp-holder">
       <img src="images/icon.png" alt="avi" id="pp">
@@ -31,19 +31,19 @@
     <form method="POST" action="<?php echo $_SERVER['SCRIPT_NAME'];?>">
       <div class="form-group">
         <label for="name">Name:</label>
-        <input type="text" id="name" class="form-control" name="name" maxlength="15" placeholder="<?php echo $row['name'];?>">
+        <input type="text" id="name" name="name" class="form-control" placeholder="<?php echo $row['name'];?>">
       </div>
       <div class="form-group">
         <label for="address">Address:</label>
-        <input type="text" id="address" name="address" size="55" placeholder="<?php echo $row['address'];?>">
+        <input type="text" id="address" name="address" class="form-control" placeholder="<?php echo $row['address'];?>">
       </div>
       <div class="form-group">
         <label for="mobile">Mobile:</label>
-        <input type="text" id="mobile" name="mobile" maxlength="30" placeholder="<?php echo $row['mobile'];?>">
+        <input type="text" id="mobile" name="mobile" maxlength="30" class="form-control" placeholder="<?php echo $row['mobile'];?>">
       </div>
       <div class="form-group">
         <label for="email">E-Mail:</label>
-        <input type="text" id="email" name="email" size="55" placeholder="<?php echo $row['email'];?>">
+        <input type="text" id="email" name="email" class="form-control" placeholder="<?php echo $row['email'];?>">
       </div>
       <input type="submit" name="submit" value="Save">
     </form>
@@ -84,10 +84,16 @@
         header('Location: profile.php');
       }
   ?>
-    <nav class="nav mt-4 col-md-12">
-      <a href="profile.php" class="btn btn-primary">Profile</a>
-      <a href="login.php" class="btn btn-secondary">Logout</a>
-    </nav>
+    <footer class="footer">
+      <ul>
+        <li>
+          <a href="profile.php">Profile</a>
+        </li>
+        <li>
+          <a href="logout.php">Logout</a>
+        </li>
+      </ul>
+    </footer>
   </div>
 </div>
 </body>
