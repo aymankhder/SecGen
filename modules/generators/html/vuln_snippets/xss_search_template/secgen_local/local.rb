@@ -41,12 +41,14 @@ class XSSsearchTemplateGenerator < StringEncoder
     medium_blacklist_insert = "\'" + blacklist_array[0] + "\',\'" + blacklist_array[1] + "\',\'" + blacklist_array[2] + "\'"
 
     # The snippets of code below are taken from lauras code and edited slightly
-    flag_statement = "if(in_array($search, $payloads)){
-                        ?>
-                        <div id=\"sucess\">
-                          #{strings_to_leak}
-                        </div>
-                        <?php
+    flag_statement = "$pattern=\"/<(?i)script>(confirm|prompt|alert)\\(([^'\\\"]*)\\);?<\\/script>/\";
+                        if(preg_match($pattern, $search)){
+                          ?>
+                          <div class=\"alert alert-info\">
+                            Well done, you have successfully exploited a cross-site scripting vulnerability!<br/>
+                            Here is a flag: #{strings_to_leak}
+                          </div>
+                         <?php
                     }
                   }"
 
