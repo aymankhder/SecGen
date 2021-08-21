@@ -18,3 +18,5 @@ modules/**/Gemfile.lock
 modules/generators/network/pcap/files/packet.pcap
 lib/resources/images/scenario
 Gemfile.lock
+.vagrant
+rgloader
