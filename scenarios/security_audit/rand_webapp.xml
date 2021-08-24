@@ -31,6 +31,10 @@
         <generator module_path=".*product_table_headings" />
       </input>
 
+      <input into_datastore="user_table_name">
+        <generator module_path=".*users_table_name" />
+      </input>
+
       <input into="database">
         <generator module_path=".*sql_table_setup">
           <input into="customer_feedback_table_headings">
