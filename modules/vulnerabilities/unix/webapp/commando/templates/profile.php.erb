@@ -40,9 +40,9 @@ if(!isset($_SESSION['username'])){
       $user = $_SESSION['username'];
       $info="SELECT  * FROM <%= @user_table_name %> WHERE Username='$user'";
       $result=mysqli_query($conn2, $info);
-      while ($row=mysqli_fetch_assoc($result)){
-        $id = $row['ID'];
-        ?>
+      $row=mysqli_fetch_assoc($result);
+      $id = $row['ID'];
+       ?>
         <div>
           <ul>
           <li>ID: <?php echo $row['ID']; ?></li>
@@ -53,14 +53,13 @@ if(!isset($_SESSION['username'])){
           </ul>
         </div>
         <?php
-      }
       <%#
       This is the default admin login credentials which is a new concept not using
       lauras code, however it does utilse her verbose error message vulnerability and takes
       inspiration from Secuirty Shepard: https://www.owasp.org/index.php/Top_10_2013-A5-Security_Misconfiguration
       %>
       $admin_uname = "<%= @admin_username %>";
-      if ($user == $admin_uname) {
+      if ($row['Username'] == $admin_uname) {
         ?>
       <div id="sucess">
         <?php echo $_SESSION['updated']?>

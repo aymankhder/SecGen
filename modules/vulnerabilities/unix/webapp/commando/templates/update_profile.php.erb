@@ -26,8 +26,8 @@
       $info="SELECT  * FROM <%= @user_table_name %> WHERE Username='$user'";
       $result=mysqli_query($conn2, $info);
       $id = 0;
-      while ($row=mysqli_fetch_assoc($result)){
-        $id = $row['ID']; ?>
+      $row=mysqli_fetch_assoc($result);
+      $id = $row['ID']; ?>
     <form method="POST" action="<?php echo $_SERVER['SCRIPT_NAME'];?>">
       <div class="form-group">
         <label for="name">Name:</label>
@@ -43,12 +43,12 @@
       </div>
       <div class="form-group">
         <label for="email">E-Mail:</label>
-        <input type="text" id="email" name="email" class="form-control" placeholder="<?php echo $row['email'];?>">
+        <input type="text" id="email" name="email" class="form-control" placeholder="<?php echo $row['Email'];?>">
       </div>
       <input type="submit" name="submit" value="Save">
     </form>
     <?php
-      }
+
       if (isset($_POST['submit']) && (!empty($_POST['name']) || !empty($_POST['address']) || !empty($_POST['mobile']) || !empty($_POST['email']))){
           $statement="UPDATE <%= @user_table_name %> SET ";
           $hasFirst= false;

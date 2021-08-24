@@ -10,13 +10,17 @@
 		$result = mysqli_query($conn2, $query);
 		$count = mysqli_num_rows($result);
 
-		if ($count == 1){
-				$_SESSION['username'] = $username;
+		if ($count == 0){
+		    if (mysqli_error($conn2)) {
+		        header("location:login.php?LoginError=".mysqli_error($conn2));
+		    } else {
+				    header("location:login.php?LoginError=".urlencode("Your credentials are incorrect. Please try again."));
+        }
+    } else {
+    		$_SESSION['username'] = $username;
 				header("location:profile.php");
-		} else {
-				header("location:".$_SERVER['HTTP_REFERER']."?LoginError=".urlencode("Your credentials are incorrect. Please try login again."));
-    }
+		}
   } else {
-    header("location:".$_SERVER['HTTP_REFERER']."?LoginError=".urlencode("Pleae provide a Username and Password!"));
+    header("location:login.php?LoginError=".urlencode("Please provide a Username and Password!"));
   }
 ?>
