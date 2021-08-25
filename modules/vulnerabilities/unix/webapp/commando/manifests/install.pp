@@ -4,6 +4,7 @@ class commando::install {
 		# attack code snippets
 		$search = $secgen_parameters['search']
 		$sqli_attack = $secgen_parameters['sqli']
+	  $idor = $secgen_parameters['idor']
 
 		# On/Off switches
 		$aa_activation = $secgen_parameters['default_admin_deactivation'][0]
@@ -37,7 +38,7 @@ class commando::install {
 			$intro_paragraph = $organisation['intro_paragraph']
 		}
 
-		# database differenitaion generation
+		# database differentiation generation
 		$php_database = $secgen_parameters['database']
 		$user_table_name = $secgen_parameters['user_table_name'][0]
 
@@ -87,7 +88,7 @@ class commando::install {
 		# home page
 		file{ "$docroot/index.php":
 			ensure  => file,
-			content => template('commando/home.php.erb'),
+			content => template('commando/home.php.erb')
 		}
 
 		# about/information page
@@ -124,6 +125,18 @@ class commando::install {
 		file{ "$docroot/connect.php":
 			ensure => file,
 			content => template('commando/connect.php.erb')
+		}
+
+		# product page
+		file{ "$docroot/product.php":
+			ensure => file,
+			content => template('commando/product.php.erb')
+		}
+
+		# not found page
+		file{ "$docroot/not_found.php":
+			ensure => file,
+			content => template('commando/not_found.php.erb')
 		}
 
 		# Standard files which are not dynamic moving accross to the server

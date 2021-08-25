@@ -61,38 +61,42 @@ class XSSsearchTemplateGenerator < StringEncoder
 
         query ="if(isset($_POST['submit'])){
               	$search=mysqli_real_escape_string($conn2, $_POST['search']);
-                $statement=\"SELECT * FROM #{table_name} WHERE #{name} LIKE '%\" .$search .\"%'\"; "
+                $statement=\"SELECT * FROM #{table_name} WHERE #{name} LIKE '%\" .$search .\"%' "
 
     elsif difficulty.eql? 'medium'
 
       query = "if(isset($_POST['submit'])){
             	  $blacklist = array(#{medium_blacklist_insert});
               	$search=str_replace($blacklist, \"\", $_POST['search']);
-                $statement=\"SELECT * FROM #{table_name} WHERE #{name} LIKE '%\" .$search .\"%'\"; "
+                $statement=\"SELECT * FROM #{table_name} WHERE #{name} LIKE '%\" .$search .\"%' "
 
     elsif difficulty.eql? 'hard'
 
       query = "if(isset($_POST['submit'])){
       	  $blacklist = array(#{blacklist_insert});
         	$search=str_replace($blacklist, \"\", $_POST['search']);
-          $statement=\"SELECT * FROM #{table_name} WHERE #{name} LIKE '%\" .$search .\"%'\"; "
+          $statement=\"SELECT * FROM #{table_name} WHERE #{name} LIKE '%\" .$search .\"%' "
 
     else
 
       query = "if(isset($_POST['submit'])){
               	$search=htmlspecialchars(mysqli_real_escape_string($conn2, $_POST['search']));
-                $statement=\"SELECT * FROM #{table_name} WHERE #{name} LIKE '%\" .$search .\"%'\";"
+                $statement=\"SELECT * FROM #{table_name} WHERE #{name} LIKE '%\" .$search .\"%' "
 
     end
 
+    query << "ORDER BY ID LIMIT 6 \";"
+
     submit = "<?php
-    $result=mysqli_query($conn2, $statement);
+                $result=mysqli_query($conn2, $statement);
                 echo '<p id=\"sucess\">You searched for: '.$search.'<br>';
                 while ($row=mysqli_fetch_assoc($result)){
                     ?>
                     <div class=\"product\">
-                      <img src=\"<?php echo $row['#{img}']; ?>\" alt=\"shirt\" height=\"224px\" width=\"224px\" />
-                      <div><?php echo $row['#{name}']; ?> <i class=\"sizes\">(Low Stock)</i></div>
+                      <a href=\"/product.php?id=<?php echo $row['id']?>\">
+                        <img src=\"<?php echo $row['#{img}']; ?>\" alt=\"shirt\" height=\"224px\" width=\"224px\" />
+                        <div><?php echo $row['#{name}']; ?> <i class=\"sizes\">(Low Stock)</i></div>
+                      </a>
                       <div>&pound;<?php echo $row['#{price}']; ?></div>
                       <div>
                         <form>
@@ -118,7 +122,7 @@ class XSSsearchTemplateGenerator < StringEncoder
                       #{payload_statement} \n\n
                       #{flag_statement}
                     else {
-                        $sql = \"SELECT * FROM #{table_name}\";
+                        $sql = \"SELECT * FROM #{table_name} ORDER BY ID LIMIT 6\";
                         ?>
                         </div>
                         <div class=\"col\-9\">
@@ -128,8 +132,10 @@ class XSSsearchTemplateGenerator < StringEncoder
                         while ($row=mysqli_fetch_assoc($standard)){
                             ?>
                             <div class=\"product\">
-                              <img src=\"<?php echo $row['#{img}']; ?>\" alt=\"shirt\" height=\"224px\" width=\"224px\" />
-                              <div><?php echo $row['#{name}']; ?> <i class=\"sizes\">(Low Stock)</i></div>
+                              <a href=\"/product.php?id=<?php echo $row['id']?>\">
+                                <img src=\"<?php echo $row['#{img}']; ?>\" alt=\"shirt\" height=\"224px\" width=\"224px\" />
+                                <div><?php echo $row['#{name}']; ?> <i class=\"sizes\">(Low Stock)</i></div>
+                              </a>
                               <div>&pound;<?php echo $row['#{price}']; ?></div>
                               <div>
                                 <form>

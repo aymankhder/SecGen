@@ -20,6 +20,7 @@ WARNING: This module needs some further testing, and may not work without input 
 <read_fact>search</read_fact>
 <read_fact>database</read_fact>
 <read_fact>organisation</read_fact>
+<read_fact>idor</read_fact>
 
 <default_input into="port">
 	<value>80</value>

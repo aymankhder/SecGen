@@ -18,7 +18,7 @@ class TableCreateGenerator < StringEncoder
     product_headings = "#{self.product_table_headings}".split(',')
 
     $i = 0
-    $num = 6
+    $num = 7
     last_record = false
     product_table_records = []
 
