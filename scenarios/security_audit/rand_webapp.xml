@@ -97,6 +97,29 @@
         </generator>
       </input>
 
+      <input into="insecure_cookie">
+        <generator module_path=".*insecure_cookie_template">
+          <input into="default_superuser_role">
+            <generator module_path=".*default_superuser_role"/>
+          </input>
+          <input into="default_user_role">
+            <generator module_path=".*default_user_role"/>
+          </input>
+          <input into="difficulty">
+            <encoder type="string_selector">
+              <input into="strings_to_encode">
+                <value>easy</value>
+                <value>medium</value>
+                <value>hard</value>
+              </input>
+            </encoder>
+          </input>
+          <input into="strings_to_leak">
+            <generator type="flag_generator" />
+          </input>
+        </generator>
+      </input>
+
     </vulnerability>
 
   	<network type="private_network">
@@ -112,19 +135,19 @@
     </build>
   </system>
 
-<!--  <system>-->
-<!--    <system_name>kali</system_name>-->
-<!--    <base distro="Kali" name="MSF"/>-->
+  <system>
+    <system_name>kali</system_name>
+    <base distro="Kali" name="MSF"/>
 
-<!--    <utility module_path=".*/kali_web"/>-->
-<!--		<utility module_path=".*/metasploit_framework"/>-->
-<!--		<utility module_path=".*/handy_cli_tools"/>-->
-<!--		<utility module_path=".*/nmap"/>-->
+    <utility module_path=".*/kali_web"/>
+		<utility module_path=".*/metasploit_framework"/>
+		<utility module_path=".*/handy_cli_tools"/>
+		<utility module_path=".*/nmap"/>
 
-<!--    <network type="private_network">-->
-<!--        <input into="IP_address">-->
-<!--          <datastore access="next">IP_addresses</datastore>-->
-<!--        </input>-->
-<!--    </network>-->
-<!--  </system>-->
+    <network type="private_network">
+        <input into="IP_address">
+          <datastore access="next">IP_addresses</datastore>
+        </input>
+    </network>
+  </system>
 </scenario>

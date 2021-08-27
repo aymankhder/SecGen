@@ -7,7 +7,7 @@ class UserTableNameGenerator < StringGenerator
   end
 
   def generate
-    table_name = ['user_','User_', 'users', 'Users', 'accounts', 'account', 'user_accounts', 'user_account']
+    table_name = ['user_details', 'users', 'Users', 'accounts', 'account', 'user_accounts', 'user_account']
     selected_table_name = table_name.sample
 
     output = selected_table_name

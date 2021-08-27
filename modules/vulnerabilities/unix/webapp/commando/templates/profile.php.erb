@@ -70,6 +70,9 @@ if(!isset($_SESSION['username'])){
         <?php
       }
       ?>
+      <% @insecure_cookie.each { |insecure_cookie| -%>
+        <%= insecure_cookie %>
+      <%} -%>
       <footer class="footer">
         <ul>
           <li>

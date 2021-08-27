@@ -5,6 +5,7 @@ class commando::install {
 		$search = $secgen_parameters['search']
 		$sqli_attack = $secgen_parameters['sqli']
 	  $idor = $secgen_parameters['idor']
+	  $insecure_cookie = $secgen_parameters['insecure_cookie']
 
 		# On/Off switches
 		$aa_activation = $secgen_parameters['default_admin_deactivation'][0]
