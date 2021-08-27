@@ -8,15 +8,13 @@
 
 <body>
 <%= scope.function_template(['commando/subtemplates/nav.html.erb']) %>
-  <div class="container container-fluid">
-		<div class="jumbotron">
-			<img src="images/not_found.jpg" alt="not found">
-		</div>
-	</div>
-
-    <script src="js/jquery-3.3.1.slim.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="css/bootstrap.4.3.1.min.js"></script>
-
+<div class="container container-fluid">
+  <div class="jumbotron">
+    <img src="images/not_found.jpg" alt="not found">
+  </div>
+</div>
 </body>
+
+<%= scope.function_template(['commando/subtemplates/libraries.html.erb']) %>
+
 </html>

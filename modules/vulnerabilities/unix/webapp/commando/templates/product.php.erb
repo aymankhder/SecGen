@@ -8,19 +8,17 @@
 
 <body>
 
-  <%= scope.function_template(['commando/subtemplates/nav.html.erb']) %>
+<%= scope.function_template(['commando/subtemplates/nav.html.erb']) %>
 
-  <div class="container container-fluid">
+<div class="container container-fluid">
 
-		<% @idor.each { |idor| -%>
-			<%= idor %>
-		<%} -%>
+  <% @idor.each { |idor| -%>
+    <%= idor %>
+  <% } -%>
 
-	</div>
+</div>
 
-    <script src="js/jquery-3.3.1.slim.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="css/bootstrap.4.3.1.min.js"></script>
+<%= scope.function_template(['commando/subtemplates/libraries.html.erb']) %>
 
 </body>
 
