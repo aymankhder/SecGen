@@ -140,24 +140,10 @@ class commando::install {
 			content => template('commando/not_found.php.erb')
 		}
 
-		# Standard files which are not dynamic moving accross to the server
-		# Auth file
-		if $ve_activation == 'false' {
-
-			# if the verbose error message is switched on (this is default)
-			file{ "$docroot/authentication.php":
-			ensure => file,
-			content => template('commando/authentication.php.erb')
-			}
-
-		} elsif $ve_activation == 'true' {
-
-			# if the verbose error message is switched off
-			file{ "$docroot/authentication.php":
-			ensure => file,
-			content => template('commando/authentication_less_vulnerable.php.erb')
-			}
-
+		# authentication page
+		file{ "$docroot/authentication.php":
+		ensure => file,
+		content => template('commando/authentication.php.erb')
 		}
 
 		# CSS file/theme moving over to the server
