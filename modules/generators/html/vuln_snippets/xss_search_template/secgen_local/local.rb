@@ -46,8 +46,8 @@ class XSSsearchTemplateGenerator < StringEncoder
                                        .join("\',\'") + "\'"
 
     # The snippets of code below are taken from lauras code and edited slightly
-    flag_statement = "$pattern=\"/<(?i)script>(confirm|prompt|alert)\\(([^'\\\"]*)\\);?<\\/script>/\";
-                        if(preg_match($pattern, $search)){
+    flag_statement = "$pattern = \"/<(?i)script>(confirm|prompt|alert)\\(([^'\\\"]*)\\);?<\\/script>/\";
+                        if (preg_match($pattern, $search)){
                           ?>
                           <div class=\"alert alert-info\">
                             Well done, you have successfully exploited a cross-site scripting vulnerability!<br/>
@@ -59,10 +59,10 @@ class XSSsearchTemplateGenerator < StringEncoder
     vector_input = File.readlines("#{WS_ATTACK_DIR}/xss_stored/vectors/vector_1")
     vector = vector_input.join('')
 
-    reflected_input = "$search="
+    reflected_input = "$search= "
     reflected_input_with_blacklist = reflected_input + "str_replace($blacklist, \"\", $_POST['search']);"
 
-    base_query = "$sql_query=\"SELECT *  FROM #{table_name}"
+    base_query = "$sql_query = \"SELECT *  FROM #{table_name}"
     where_clause = " WHERE #{name} LIKE '%\" .$search .\"%'"
     order_by = " ORDER BY ID LIMIT 6\";"
     default_db_query = base_query + order_by
@@ -84,8 +84,8 @@ class XSSsearchTemplateGenerator < StringEncoder
     end
 
     submit = "<?php
-                $result=mysqli_query($conn2, $sql_query);
-                echo '<p id=\"sucess\">You searched for: '.$search.'<br>';
+                $result = mysqli_query($conn2, $sql_query);
+                echo '<p id=\"success\">You searched for: '.$search.'<br>';
                 #{flag_statement}
                 while ($row=mysqli_fetch_assoc($result)){ ?>
                   <div class=\"product\">

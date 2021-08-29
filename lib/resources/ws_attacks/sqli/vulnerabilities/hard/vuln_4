@@ -1,8 +1,8 @@
 $badAgents = array('sqlmap');
-if(in_array($_SERVER['HTTP_USER_AGENT'],$badAgents)) {
+if (in_array($_SERVER['HTTP_USER_AGENT'],$badAgents)) {
     exit();
-}else{
+} else {
     $blacklist = array('SELECT', 'UNION', 'FROM', 'DROP', 'SLEEP', 'TABLE');
-      $name=str_replace($blacklist, " ", htmlspecialchars($_GET['name']));
-      $question=htmlspecialchars(mysqli_real_escape_string($conn2, $_GET[$question]));
+    $name = str_replace($blacklist, " ", htmlspecialchars($_GET['name']));
+    $question = htmlspecialchars(mysqli_real_escape_string($conn2, $_GET['question']));
 }

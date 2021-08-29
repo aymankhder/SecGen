@@ -30,7 +30,7 @@ class IdorProductTemplateGenerator < StringEncoder
                     <?php } ?>"
 
     layout = "<?php
-                if(isset($_GET['id'])){
+                if (isset($_GET['id'])){
                 $id = $_GET['id'];
                 $statement = \"SELECT * FROM #{table_name} WHERE ID = \".$id;
                 $statement .= \"; SELECT MAX(ID) FROM #{table_name}\";

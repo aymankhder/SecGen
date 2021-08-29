@@ -1,18 +1,9 @@
 <?php
 include('connect.php');
 
-<%#
-Note, these pages use multiple bootstap templates chopped up and rebuilt
-and can be found at: https://getbootstrap.com/docs/4.0/getting-started/introduction/
-
-As well as using Lauras code as a base template, however this is heavily edited
-%>
-
-  //IF statement taken from https://stackoverflow.com/questions/15088470/how-to-make-an-page-only-accessible-when-logged-in-php
 if(!isset($_SESSION['username'])){
  header("Location:login.php");
 }
-  //end of code from https://stackoverflow.com/questions/15088470/how-to-make-an-page-only-accessible-when-logged-in-php
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +21,7 @@ if(!isset($_SESSION['username'])){
     </div>
   </div>
 
-  <div class="row" id="sucess">
+  <div class="row" id="success">
     Welcome <?php echo $_SESSION['username'];?>
   </div>
 
@@ -61,7 +52,7 @@ if(!isset($_SESSION['username'])){
       $admin_uname = "<%= @admin_username %>";
       if ($row['Username'] == $admin_uname) {
         ?>
-    <div id="sucess">
+    <div id="success">
       <?php echo $_SESSION['updated']?>
       Well Done, you have logged into an admin account!<br/>
       This account had default Log-in Credentials! Keep hunting!<br/>

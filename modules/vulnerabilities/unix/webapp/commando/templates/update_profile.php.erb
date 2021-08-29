@@ -79,7 +79,7 @@
           $statement .= " WHERE ID = $id";
       }
       $result=mysqli_query($conn2, $statement);
-      if($result) {
+      if ($result) {
         $_SESSION['updated'] = true;
         header('Location: profile.php');
       }
