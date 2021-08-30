@@ -8,9 +8,9 @@ class UserRoleGenerator < StringGenerator
   end
 
   def generate
-    creds = File.readlines("#{WORDLISTS_DIR}/user_role")
+    roles = File.readlines("#{WORDLISTS_DIR}/user_role")
 
-    self.outputs << creds.sample.chomp
+    self.outputs << roles.sample.chomp
   end
 end
 

@@ -29,7 +29,7 @@ class SQLiTemplateGenerator < StringEncoder
     vector_2 = "#{WS_ATTACK_DIR}/sqli/vectors/vector_2"
 
     #Make sure there are no unexpected values
-    difficulties = ['easy', 'medium', 'hard', 'impossible']
+    difficulties = %w{easy medium hard impossible}
     unless difficulties.include? self.difficulty
       self.difficulty = difficulties.sample
     end
