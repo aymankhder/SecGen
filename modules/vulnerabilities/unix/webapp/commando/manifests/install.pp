@@ -4,6 +4,8 @@ class commando::install {
 		# attack code snippets
 		$search = $secgen_parameters['search']
 		$sqli_attack = $secgen_parameters['sqli']
+	  $idor = $secgen_parameters['idor']
+	  $insecure_cookie = $secgen_parameters['insecure_cookie']
 
 		# On/Off switches
 		$aa_activation = $secgen_parameters['default_admin_deactivation'][0]
@@ -37,7 +39,7 @@ class commando::install {
 			$intro_paragraph = $organisation['intro_paragraph']
 		}
 
-		# database differenitaion generation
+		# database differentiation generation
 		$php_database = $secgen_parameters['database']
 		$user_table_name = $secgen_parameters['user_table_name'][0]
 
@@ -87,7 +89,7 @@ class commando::install {
 		# home page
 		file{ "$docroot/index.php":
 			ensure  => file,
-			content => template('commando/home.php.erb'),
+			content => template('commando/home.php.erb')
 		}
 
 		# about/information page
@@ -126,24 +128,22 @@ class commando::install {
 			content => template('commando/connect.php.erb')
 		}
 
-		# Standard files which are not dynamic moving accross to the server
-		# Auth file
-		if $ve_activation == 'false' {
-
-			# if the verbose error message is switched on (this is default)
-			file{ "$docroot/authentication.php":
+		# product page
+		file{ "$docroot/product.php":
 			ensure => file,
-			content => template('commando/authentication.php.erb')
-			}
+			content => template('commando/product.php.erb')
+		}
 
-		} elsif $ve_activation == 'true' {
-
-			# if the verbose error message is switched off
-			file{ "$docroot/authentication.php":
+		# not found page
+		file{ "$docroot/not_found.php":
 			ensure => file,
-			content => template('commando/authentication_less_vulnerable.php.erb')
-			}
+			content => template('commando/not_found.php.erb')
+		}
 
+		# authentication page
+		file{ "$docroot/authentication.php":
+		ensure => file,
+		content => template('commando/authentication.php.erb')
 		}
 
 		# CSS file/theme moving over to the server
