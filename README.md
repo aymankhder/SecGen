@@ -33,6 +33,43 @@ You will need to install the following:
 - ImageMagick: https://www.imagemagick.org/
 - And the required Ruby Gems (including Nokogiri and Librarian-puppet)
 
+This project has been adapted to work with the Ubuntu (20.04) release due to (16.04) coming to end of life as of April 2021, though it will still work on that version it is not guaranteed to support the security updates needed for your development environment.
+
+
+### Updated Installation Instruction's to support Ubuntu (20.04)
+### These commands will get you up and running
+
+Ensure Ubuntu is updated using the following commands:
+```bash
+sudo apt update
+sudo apt upgrade
+```
+Install a recent version of vagrant:
+```bash
+wget https://releases.hashicorp.com/vagrant/2.2.9/vagrant_2.2.9_x86_64.deb
+sudo apt install ./vagrant_2.2.9_x86_64.deb
+```
+Install other required packages:
+```bash
+sudo apt-get install ruby-dev zlib1g-dev liblzma-dev build-essential patch virtualbox ruby-bundler imagemagick libmagickwand-dev exiftool libpq-dev libcurl4-openssl-dev libxml2-dev graphviz graphviz-dev libpcap0.8-dev git
+```
+Clone the SecGen repo using the following command.By default this will be /home/username/SecGen, change as required:
+```bash
+git clone https://github.com/cliffe/SecGen.git
+```
+Install gems using the following commands:
+```bash
+#Step In to the file directory
+
+cd /home/username/SecGen
+
+bundle update --bundler
+```
+Update gems:
+```bash
+bundle update 
+```
+
 ### On Ubuntu (16.04) these commands will get you up and running
 Install all the required packages:
 ```bash

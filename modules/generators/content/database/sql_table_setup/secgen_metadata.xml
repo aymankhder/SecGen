@@ -14,6 +14,7 @@
 
   <read_fact>customer_feedback_table_headings</read_fact>
   <read_fact>product_table_headings</read_fact>
+  <read_fact>user_table_name</read_fact>
   <read_fact>field_to_leak</read_fact>
 
   <default_input into="customer_feedback_table_headings">

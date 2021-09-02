@@ -159,7 +159,7 @@ end
     <% if selected_module.attributes['platform'].first.downcase == 'windows' %>
     <%= system.name %>.vm.communicator = 'winssh'
     <%= system.name %>.vm.guest = :windows
-    <%= system.name %>.vm.synced_folder '.', '/vagrant', disabled: true
+    #<%= system.name %>.vm.synced_folder '.', '/vagrant', disabled: true
     <% end %>
 <%   when 'network' -%>
 <%     # DHCP networking -%>
@@ -186,8 +186,12 @@ end
           # ip_address_for_<%= system.name %>=<%= resolve_network(selected_module)%>
 <%         # Static Virtualbox networking -%>
 <%       elsif (@options.has_key? :ovirtuser) && (@options.has_key? :ovirtpass) && @ovirt_base_template && @ovirt_base_template =~ /win/ -%>
-<%         # Windows on oVirt -- change network on reboot via scheduled task, so that it gets the new IP on reboot (not mid-provision)%>
-<%         # TODO: use some clever scripting to identify the network name : $interface = $(wmic.exe nic where "NetConnectionStatus=2" get NetConnectionID | findstr Local).Trim(); schtasks /create /rl HIGHEST /ru system /sc ONSTART /tn networksettings /f /tr "netsh interface ip set address '$interface' static IPADDRESS 255.0.0.0" %>
+<%         # Windows on oVirt
+           # re-activate windows -%>
+          <%= system.name %>.vm.provision 'shell', inline: 'cscript //b c:\windows\system32\slmgr.vbs /ato'
+
+<%           #  change network on reboot via scheduled task, so that it gets the new IP on reboot (not mid-provision)
+           # TODO: use some clever scripting to identify the network name : $interface = $(wmic.exe nic where "NetConnectionStatus=2" get NetConnectionID | findstr Local).Trim(); schtasks /create /rl HIGHEST /ru system /sc ONSTART /tn networksettings /f /tr "netsh interface ip set address '$interface' static IPADDRESS 255.0.0.0" %>
           <%= system.name %>.vm.provision 'shell', inline: 'schtasks /create /rl HIGHEST /ru system /sc ONSTART /tn networksettings1 /f /tr "netsh interface ip set address \'Local Area Connection\' static <%= resolve_network(selected_module)%> 255.0.0.0\" '
           <%= system.name %>.vm.provision 'shell', inline: 'schtasks /create /rl HIGHEST /ru system /sc ONSTART /tn networksettings2 /f /tr "netsh interface ip set address \'Local Area Connection 2\' static <%= resolve_network(selected_module)%> 255.0.0.0\" '
           <%= system.name %>.vm.provision 'shell', inline: 'schtasks /create /rl HIGHEST /ru system /sc ONSTART /tn networksettings3 /f /tr "netsh interface ip set address \'Local Area Connection 3\' static <%= resolve_network(selected_module)%> 255.0.0.0\" '
@@ -218,11 +222,13 @@ end
       }
 <%    end -%>
       <%=module_name%>.module_path = "<%="puppet/#{system.name}/modules"%>"
-      <% if selected_module.attributes['platform'].first.downcase != 'windows' %>
+      <% if selected_module.attributes['platform'].first.downcase == 'windows' %>
+        <%=module_name%>.temp_dir = "/cygdrive/c/vagrant/"
+      <% else %>
         <%=module_name%>.environment_path = "environments/"
         <%=module_name%>.environment = "production"
-        <%=module_name%>.synced_folder_type = "rsync"
       <% end %>
+      <%=module_name%>.synced_folder_type = "rsync"
       <%=module_name%>.manifests_path = "<%="puppet/#{system.name}/modules/#{selected_module.module_path_end}"%>"
       <%=module_name%>.manifest_file = "<%="#{selected_module.module_path_end}.pp"%>"
     end
