@@ -763,9 +763,9 @@ There are 70 videos with CyBOK metadata.
    by Thalita Vergilio
 
 
-   ![thumbnail](http://img.youtube.com/vi/T389wncz_zA/mqdefault.jpg)
+   ![thumbnail](http://img.youtube.com/vi/chebVVwj1kM/mqdefault.jpg)
 
-   https://youtu.be/T389wncz_zA
+   https://youtu.be/chebVVwj1kM
 
    
 | KA | Topics | Keywords |
@@ -779,9 +779,9 @@ There are 70 videos with CyBOK metadata.
    by Thalita Vergilio
 
 
-   ![thumbnail](http://img.youtube.com/vi/2R4QzDAfzLQ/mqdefault.jpg)
+   ![thumbnail](http://img.youtube.com/vi/T389wncz_zA/mqdefault.jpg)
 
-   https://youtu.be/2R4QzDAfzLQ
+   https://youtu.be/T389wncz_zA
 
    
 | KA | Topics | Keywords |
@@ -795,9 +795,9 @@ There are 70 videos with CyBOK metadata.
    by Thalita Vergilio
 
 
-   ![thumbnail](http://img.youtube.com/vi/_R9nLhtJJHY/mqdefault.jpg)
+   ![thumbnail](http://img.youtube.com/vi/QbyorEb3WTs/mqdefault.jpg)
 
-   https://youtu.be/_R9nLhtJJHY
+   https://youtu.be/QbyorEb3WTs
 
    
 | KA | Topics | Keywords |
@@ -811,9 +811,9 @@ There are 70 videos with CyBOK metadata.
    by Thalita Vergilio
 
 
-   ![thumbnail](http://img.youtube.com/vi/wiaxGbPoxZ4/mqdefault.jpg)
+   ![thumbnail](http://img.youtube.com/vi/8b6JokfEFEo/mqdefault.jpg)
 
-   https://youtu.be/wiaxGbPoxZ4
+   https://youtu.be/8b6JokfEFEo
 
    
 | KA | Topics | Keywords |
@@ -859,9 +859,9 @@ There are 70 videos with CyBOK metadata.
    by Thalita Vergilio
 
 
-   ![thumbnail](http://img.youtube.com/vi/X3XiSupGlYI/mqdefault.jpg)
+   ![thumbnail](http://img.youtube.com/vi/6MeJIr3EKKM/mqdefault.jpg)
 
-   https://youtu.be/X3XiSupGlYI
+   https://youtu.be/6MeJIr3EKKM
 
    
 | KA | Topics | Keywords |
