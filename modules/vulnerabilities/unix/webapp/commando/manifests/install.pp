@@ -16,7 +16,6 @@ class commando::install {
 		$alternate_username = $secgen_parameters['alternate_username'][0]
 
 		# Strings to leak for some vulnerabilities
-		$xss_flag = $secgen_parameters['xss_string_to_leak']
 		$default_login_flag = $secgen_parameters['default_admin_string_to_leak'][0]
 
 		# differenitaion in webiste content generation
