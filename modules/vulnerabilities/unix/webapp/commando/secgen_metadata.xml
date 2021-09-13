@@ -39,10 +39,6 @@ WARNING: This module needs some further testing, and may not work without input 
   <generator module_path=".*vulnerable_php_admin_account" />
 </default_input>
 
-<default_input into="xss_string_to_leak">
-  <generator type="flag_generator" />
-</default_input>
-
 <default_input into="default_admin_string_to_leak">
   <generator type="flag_generator" />
 </default_input>
