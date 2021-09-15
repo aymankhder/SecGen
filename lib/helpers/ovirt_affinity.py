@@ -38,8 +38,6 @@ cluster = clusters_service.list(search='name=default')[0]
 cluster_service = clusters_service.cluster_service(cluster.id)
 cluster_affinitygroups_service = cluster_service.affinity_groups_service()
 
-cluster_service = clusters_service.cluster_service(cluster.id)
-cluster_affinitygroups_service = cluster_service.affinity_groups_service()
 
 # could create the affinity group?
 # cluster_affinitygroups_service.add(
