@@ -21,7 +21,7 @@
 	-->
 	<system>
 		<system_name>desktop</system_name>
-		<base distro="Debian 7.8" type="desktop" name="KDE"/>
+		<base distro="Debian 9" type="desktop" name="KDE"/>
 
 		<input into_datastore="IP_addresses">
 			<value>172.16.0.2</value>
@@ -187,7 +187,7 @@
 
 	<system>
 		<system_name>web_server</system_name>
-		<base platform="linux" distro="Debian 7.8" name="Server"/>
+		<base distro="Debian 9" type="desktop" name="KDE"/>
 
 		<!--<utility module_path=".*/parameterised_accounts">-->
 			<!--<input into="accounts">-->
@@ -284,7 +284,7 @@
 		<utility module_path=".*/armitage"/>
 
 		<!--TODO: REMOVE ME - THIS SHOULD BE IN THE KALI TEMPLATE-->
-		<utility module_path=".*/ovirt_agents"/>
+		<!-- <utility module_path=".*/ovirt_agents"/> -->
 
 		<network type="private_network" >
 			<input into="IP_address">
