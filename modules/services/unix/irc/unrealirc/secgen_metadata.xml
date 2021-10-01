@@ -29,7 +29,7 @@
 
   <!--fails to build on Kali-->
   <conflict>
-    <name>Kali.*</name>
+    <name>Kali Light.*</name>
   </conflict>
 
   <requires>
