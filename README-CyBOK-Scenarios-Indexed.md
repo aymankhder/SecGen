@@ -2764,7 +2764,7 @@ Command to build VMs and start scenario:
 | Key | Data |
 | --- | --- |
 |Name | Ghidra lab |
-|Description | A MetaCTF lab. In your home directory you will find some binaries that you need to reverse engineer in order to determine the password that the program expects. Once you determing the password, run the program and enter the password to receive the file.</br></br>	[Lab sheet here](https://docs.google.com/document/d/1l4tU49JhI65Q85Zv9I1Wm1kaHNENp6iyIwMUhM8j_14/edit?usp=sharing).</br>	|
+|Description | A MetaCTF lab. In your home directory you will find some binaries that you need to reverse engineer in order to determine the password that the program expects. Once you determing the password, run the program and enter the password to receive the file.</br></br>	[Lab sheet here](https://docs.google.com/document/d/1d2l1Z5l3r-DOdt-MG96H8HdhmN2l54dz8TL-8iigxWU/edit?usp=sharing).</br>	|
 |Type | ctf-lab; lab-sheet |
 |Author | Z. Cliffe Schreuders |
 |Linked videos| https://youtu.be/0zUmUZoEpC4; https://youtu.be/m73pHO_0vhI|
