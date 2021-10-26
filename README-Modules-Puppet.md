@@ -7,7 +7,7 @@ The module directory contains
 
 The following example should help illustrate.
 
-Distcc has a documented security weakness that enables remote code execution. The below example comes from modules/vulnerabilities/misc/distcc_exec.
+Distcc has a documented security weakness that enables remote code execution. The below example comes from modules/vulnerabilities/unix/misc/distcc_exec.
 
 A manifest/ directory contains the Puppet files for a distcc_exec Puppet class.
 
