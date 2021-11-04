@@ -1,7 +1,7 @@
 class reversing_tools::install {
 
   Exec { path => ['/bin', '/usr/bin', '/usr/local/bin', '/sbin', '/usr/sbin'] }
-  ensure_packages(['gdb', 'git', 'ltrace', 'strace', 'valgrind', 'pax-utils', 'binwalk', 'vbindiff', 'ssdeep', 'pyew'])
+  ensure_packages(['gdb', 'git', 'ltrace', 'strace', 'valgrind', 'pax-utils', 'binwalk', 'vbindiff', 'ssdeep', 'pyew', 'gcc-multilib'])
 
   # ensure ncat is installed for testing purposes
   ensure_packages("nmap")
