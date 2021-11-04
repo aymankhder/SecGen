@@ -14,7 +14,7 @@ SecGen's scenario specification is a powerful interface for specifying the const
 
 The selection logic for choosing the modules to fulfill the specified constraints can filter on any of the attributes in each module's secgen_metadata.xml file (for example, difficulty level and/or CVE), and any ambiguity results in a random selection from the remaining matching options (for example, any vulnerability matching a specified difficulty level).
 
-For example, scenarios/simple_examples/simple_any_random_vulnerability.xml specifies one system with a Debian Linux base, and a vulnerability. In this case the base module is specified by module name, so this selection is predefined (there is only one possible module that matches), and the vulnerability is randomly selected from the entire set of vulnerabilities because no attribute filters are specified, which could have limited down the potential matches.
+For example, scenarios/examples/simple_any_random_vulnerability.xml specifies one system with a Debian Linux base, and a vulnerability. In this case the base module is specified by module name, so this selection is predefined (there is only one possible module that matches), and the vulnerability is randomly selected from the entire set of vulnerabilities because no attribute filters are specified, which could have limited down the potential matches.
 
 ```xml
 <?xml version="1.0"?>

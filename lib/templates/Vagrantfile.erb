@@ -127,6 +127,9 @@ end
         <%= system.name %>.vm.provision 'shell', inline: "echo 'datasource_list: [ None ] '> /etc/cloud/cloud.cfg.d/90_dpkg.cfg"
     <%  end -%>
 
+    <%= system.name %>.vm.boot_timeout = 600
+    <%= system.name %>.ssh.connect_timeout = 600
+
     # SecGen datastore
     # <%= JSON.generate($datastore) %>
 

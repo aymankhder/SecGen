@@ -10,6 +10,34 @@
 
 void printflag();
 
+void printflag()
+{
+	int fd;
+	int len;
+	unsigned char data[128];
+
+	fd = open("flag", O_RDONLY);
+
+	if ( fd <= 0 ) {
+		printf("Failed to open flag.\n");
+		return;
+	}
+
+	len = lseek( fd, 0, SEEK_END);
+	lseek(fd, 0, SEEK_SET);
+
+	if ( len > 128 ) {
+		len = 128;
+	}
+
+	memset(data, 0, 128);
+	read( fd, data, len);
+	close(fd);
+
+	printf("%s\n", data);
+	return;
+}
+
 //Hash function created by Thomas Wang and taken from https://naml.us/post/inverse-of-a-hash-function/
 
 unsigned long long int hash(unsigned long long int key) {
@@ -98,34 +126,6 @@ void print_msg() {
     printf("%s",msg);
   else
     printf("%s",msg);
-}
-
-void printflag()
-{
-	int fd;
-	int len;
-	unsigned char data[128];
-
-	fd = open("flag", O_RDONLY);
-
-	if ( fd <= 0 ) {
-		printf("Failed to open flag.\n");
-		return;
-	}
-
-	len = lseek( fd, 0, SEEK_END);
-	lseek(fd, 0, SEEK_SET);
-
-	if ( len > 128 ) {
-		len = 128;
-	}
-
-	memset(data, 0, 128);
-	read( fd, data, len);
-	close(fd);
-
-	printf("%s\n", data);
-	return;
 }
 
 int main(void) {
