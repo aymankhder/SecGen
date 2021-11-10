@@ -55,7 +55,6 @@
       </encoder>
     </input>
 
-
     <vulnerability module_path=".*/bludit_upload_images_exec">
       <input into="strings_to_leak">
         <generator type="flag_generator"/>
