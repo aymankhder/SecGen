@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<vulnerability xmlns="http://www.github/cliffe/SecGen/vulnerability"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://www.github/cliffe/SecGen/vulnerability">
+
+  <name>Bludit Directory Traversal Image File Upload Vulnerability</name>
+  <author>Z. Cliffe Schreuders</author>
+  <module_license>MIT</module_license>
+  <description>
+    There is a vulnerability in Bludit. A remote user could abuse the uuid
+    parameter in the image upload feature in order to save a malicious payload anywhere
+    onto the server, and then use a custom .htaccess file to bypass the file extension
+    check to finally get remote code execution.
+    Note that this version also has a separate vuln that makes it vulnerable to bruteforce.
+  </description>
+
+  <type>webapp</type>
+  <type>bruteforceable</type>
+  <type>in_the_wild</type>
+  <privilege>user_rwx</privilege>
+  <access>remote</access>
+  <platform>linux</platform>
+  <difficulty>low</difficulty>
+
+  <read_fact>port</read_fact>
+  <read_fact>strings_to_leak</read_fact>
+  <read_fact>leaked_filenames</read_fact>
+
+  <!-- [0] leaks flag to home directory, [1..n] leak messages to gitlist repository (visible through the webapp) -->
+  <default_input into="port">
+    <value>80</value>
+  </default_input>
+
+  <default_input into="organisation">
+    <generator type="realistic_organisation" />
+  </default_input>
+
+  <!-- flags or other secrets exposed after exploitation -->
+  <default_input into="strings_to_leak">
+    <generator type="message_generator"/>
+  </default_input>
+
+  <default_input into="leaked_filenames">
+    <generator type="filename_generator"/>
+  </default_input>
+
+  <!-- these details need to be known or bruteforced to successful exploit the service -->
+  <default_input into="known_username">
+		<!-- <generator type="random_sanitised_word">
+			<input into="wordlist">
+				<value>admin_name</value>
+			</input>
+		</generator> -->
+    <value>admin</value>
+  </default_input>
+  <default_input into="known_password">
+    <generator type="weak_password_generator" />
+  </default_input>
+
+  <!-- pre-leaked, these details are leaked before the main vuln is exploited, for example hidden content or hosted files -->
+  <default_input into="strings_to_pre_leak">
+    <generator type="message_generator"/>
+  </default_input>
+  <default_input into="web_pre_leak_filename">
+    <generator type="random_sanitised_word">
+			<input into="wordlist">
+				<value>www_buster_filename</value>
+			</input>
+		</generator>
+  </default_input>
+
+  <!--optional vulnerability details-->
+  <!-- image upload vuln -->
+  <cve>CVE-2019-16113</cve>
+  <!-- bruteforce vuln -->
+  <cve>CVE-2019-17240</cve>
+
+  <cvss_base_score>9</cvss_base_score>
+  <cvss_vector>AV:N/AC:L/Au:S/C:C/I:C/A:C</cvss_vector>
+  <reference>https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/linux/http/bludit_upload_images_exec.rb</reference>
+  <reference>https://github.com/bludit/bludit/issues/1081</reference>
+  <software_name>bludit</software_name>
+  <software_license>MIT</software_license>
+
+
+  <!--optional hints-->
+  <msf_module>exploit/linux/http/bludit_upload_images_exec</msf_module>
+  <hint>Visit the webapp in a browser at: ip:80/bludit </hint>
+
+  <!-- can't live alongside other web sites, since it accepts any virtual host name -->
+  <conflict>
+    <type>webapp</type>
+  </conflict>
+
+  <requires>
+    <module_path>.*apache.*compatible.*</module_path>
+  </requires>
+
+  <requires>
+    <module_path>.*php.*compatible.*</module_path>
+  </requires>
+
+
+</vulnerability>
