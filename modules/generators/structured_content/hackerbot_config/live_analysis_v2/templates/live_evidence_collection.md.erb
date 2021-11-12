@@ -141,6 +141,8 @@ Are the same processes shown each time? Can you explain why the outputs from dif
 
 ## Gathering live state using statically compiled programs
 
+Note that this section involves running a lot of commands **on your Desktop VM**, that execute on the server and save state to your desktop.
+
 Save a list of the files currently being accessed by programs:
 
 ```bash
@@ -190,10 +192,10 @@ ssh -t <%= $compromised_server_ip %> "sudo /media/cdrom0/statbins/linux2.2_x86/c
 
 We can take a snapshot of the live state of the computer by dumping the entire contents of memory (what is in RAM/swap) into a file. First, check whether we are running a 32-bit or 64-bit operating system.
 ```bash
-uname -m
+ssh -t <%= $compromised_server_ip %> "uname -m"
 ```
 
-On a **32-bit** Linux system /proc/kcore contains an ELF-formatted core dump of the kernel. Save a snapshot of the kernel state:
+On a **32-bit** Linux system /proc/kcore contains an ELF-formatted core dump of the kernel. Only if the compromised_server is 32 bit, save a snapshot of the kernel state:
 
 ```bash
 ssh -t <%= $compromised_server_ip %> "sudo /media/cdrom0/statbins/linux2.2_x86/dd if=/proc/kcore conv=noerror,sync" | tee evidence/kcore
@@ -213,7 +215,7 @@ Next, we can copy entire partitions to our other system, to preserve the exact s
 Start by identifying the device files for the partitions on the compromised system:
 
 ```bash
-df
+ssh -t <%= $compromised_server_ip %> "df"
 ```
 
 Note that on this system the root partition (mounted on "/"), is /dev/sda1.
@@ -225,7 +227,7 @@ Then **you could** (see the tip below) copy byte-for-byte the contents of the en
 ```bash
 ssh -t <%= $compromised_server_ip %> "/media/cdrom0/statbins/linux2.2_x86/dd if=/dev/sda1 conv=noerror,sync" | tee evidence/sda1.img
 ```
-> Tip: Feel free to ==skip this step==. Running this will take some time, so you may wish to continue with the next step while the copying runs.
+> Tip: Feel free to ==skip this step==. Running this will take some time, so if you do run this, you may wish to continue with the next steps while the copying runs.
 
 This command could be repeated for each partition including swap partitions. For now, let's accept that we have all we need.
 
@@ -255,7 +257,7 @@ Identify some commands within the script that collect information you have not a
 
 Exit viewing the script (press q).
 
-Run the data collection script, redirecting output to your Desktop VM:
+**On your Desktop VM**, run the data collection script, redirecting output to your Desktop VM:
 
 ```bash
 ssh -t <%= $compromised_server_ip %> "cd /media/cdrom0/statbins; sudo /media/cdrom0/statbins/linux-ir.sh" | tee evidence/ir_out
@@ -311,6 +313,8 @@ which ls
 This should report the path to our static binary on the FIRE disk.
 
 It is now safe to run chkrootkit[^1]:
+
+**On your Desktop VM**, run:
 
 ```bash
 ssh -t <%= $compromised_server_ip %> "PATH=/media/cdrom0/statbins:$PATH sudo /media/cdrom0/statbins/chkrootkit-linux/chkrootkit" | tee evidence/chkrootkit_out
