@@ -23,6 +23,13 @@
     <value>9200</value>
   </default_input>
 
+  <conflict>
+    <name>Wheezy</name>
+  </conflict>
+  <conflict>
+    <name>Stretch</name>
+  </conflict>
+
   <requires>
     <type>update</type>
   </requires>

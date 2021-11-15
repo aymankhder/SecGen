@@ -3,7 +3,7 @@
 <utility xmlns="http://www.github/cliffe/SecGen/utility"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://www.github/cliffe/SecGen/utility">
-  <name>Java programming language (Stretch Compatible)</name>
+  <name>Java programming language (Buster Compatible)</name>
   <author>Jason Keighley</author>
   <author>puppetlabs</author>
   <module_license>Apache v2</module_license>
@@ -27,9 +27,8 @@
     <name>Wheezy</name>
   </conflict>
   <conflict>
-    <name>Buster</name>
+    <name>Stretch</name>
   </conflict>
-
   <requires>
     <type>update</type>
   </requires>
