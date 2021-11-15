@@ -42,6 +42,7 @@
 # @param xpack the configuration of x-pack monitoring.
 # @param modules the required modules to load.
 # @param processors the optional processors for events enhancement.
+# @param setup the configuration of the setup namespace (kibana, dashboards, template, etc.)
 #
 class auditbeat (
   String $beat_name                                                   = $::hostname,
@@ -75,10 +76,14 @@ class auditbeat (
     },
   },
   Hash $outputs                                                                       = {},
-  Enum['6'] $major_version                                                            = '6',
+  Enum['5', '6', '7'] $major_version                                                  = '7',
   Enum['present', 'absent'] $ensure                                                   = 'present',
   Optional[Enum['systemd', 'init', 'debian', 'redhat', 'upstart']] $service_provider  = undef,
   Boolean $manage_repo                                                                = true,
+  Optional[Variant[Stdlib::HTTPUrl, Stdlib::HTTPSUrl]] $apt_repo_url                  = undef,
+  Optional[Variant[Stdlib::HTTPUrl, Stdlib::HTTPSUrl]] $yum_repo_url                  = undef,
+  Optional[Variant[Stdlib::HTTPUrl, Stdlib::HTTPSUrl]] $gpg_key_url                   = undef,
+  String $gpg_key_id                                                                  = '',
   Enum['enabled', 'running', 'disabled', 'unmanaged'] $service_ensure                 = 'enabled',
   String $package_ensure                                                              = 'latest',
   String $config_file_mode                                                            = '0644',
@@ -88,6 +93,9 @@ class auditbeat (
   Optional[Array[Hash]] $modules                                                      = undef,
   Optional[Array[Hash]] $processors                                                   = undef,
   Optional[Hash] $xpack                                                               = undef,
+  Optional[Hash] $monitoring                                                          = undef,
+  Optional[Hash] $setup                                                               = undef,
+  Optional[Hash] $additional_config                                                   = {},
 ) {
 
   contain auditbeat::repo
