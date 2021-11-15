@@ -8,7 +8,7 @@
 
 	<system>
 		<system_name>elk</system_name>
-		<base platform="linux" type="server" distro="Stretch"/>
+		<base platform="linux" distro="Buster"/>
 
 		<input into_datastore="IP_addresses">
 			<value>172.16.0.2</value>
