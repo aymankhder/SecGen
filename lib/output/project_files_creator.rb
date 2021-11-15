@@ -125,14 +125,7 @@ class ProjectFilesCreator
     xml_report_generator = XmlScenarioGenerator.new(@systems, @scenario, @time)
     xml = xml_report_generator.output
     Print.std "Creating scenario definition file: #{xfile}"
-    begin
-      File.open(xfile, 'w+') do |file|
-        file.write(xml)
-      end
-    rescue StandardError => e
-      Print.err "Error writing file: #{e.message}"
-      abort
-    end
+    write_data_to_file(xml, xfile)
 
     # Create the marker xml file
     x2file = "#{@out_dir}/#{FLAGS_FILENAME}"
@@ -140,14 +133,7 @@ class ProjectFilesCreator
     xml_marker_generator = XmlMarkerGenerator.new(@systems, @scenario, @time)
     xml = xml_marker_generator.output
     Print.std "Creating flags and hints file: #{x2file}"
-    begin
-      File.open(x2file, 'w+') do |file|
-        file.write(xml)
-      end
-    rescue StandardError => e
-      Print.err "Error writing file: #{e.message}"
-      abort
-    end
+    write_data_to_file(xml, x2file)
 
     # Create the CTFd zip file for import
     ctfdfile = "#{@out_dir}/CTFd_importable.zip"
@@ -185,6 +171,17 @@ class ProjectFilesCreator
 
     Print.std "VM(s) can be built using 'vagrant up' in #{@out_dir}"
 
+  end
+
+  def write_data_to_file(data, path)
+    begin
+      File.open(path, 'w+') do |file|
+        file.write(data)
+      end
+    rescue StandardError => e
+      Print.err "Error writing file: #{e.message}"
+      abort
+    end
   end
 
 # @param [Object] template erb path
@@ -251,6 +248,26 @@ class ProjectFilesCreator
     split_name = network_name.split('-')
     split_name[1] = 'snoop' if system_name.include? 'snoop'
     split_name.join('-')
+  end
+
+# Determine how much memory the system requires for Vagrantfile
+  def resolve_memory(system)
+    if @options.has_key? :memory_per_vm
+      memory = @options[:memory_per_vm]
+    elsif @options.has_key? :total_memory
+      memory = @options[:total_memory].to_i / @systems.length.to_i
+    elsif (@options.has_key? :ovirtuser) && (@options.has_key? :ovirtpass) && (@base_type.include? 'desktop')
+      memory = '1536'
+    else
+      memory = '512'
+    end
+
+    system.module_selections.each do |mod|
+      if mod.module_path_name.include? "elasticsearch"
+        memory = '8192'
+      end
+    end
+    memory
   end
 
 # Returns binding for erb files (access to variables in this classes scope)

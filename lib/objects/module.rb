@@ -89,7 +89,7 @@ class Module
   # @return [Object] the module path with _ rather than / for use as a variable name
   def module_path_name
     module_path_name = module_path.clone
-    module_path_name.gsub!('/','_')
+    module_path_name.gsub!('/', '_')
   end
 
   # @return [Object] a list of attributes that can be used to re-select the same modules
