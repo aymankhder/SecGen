@@ -28,6 +28,10 @@
   </conflict>
 
   <conflict>
+    <name>Buster</name>
+  </conflict>
+
+  <conflict>
     <name>Kali</name>
   </conflict>
 
