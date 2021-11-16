@@ -32,6 +32,7 @@ def usage
    --system, -y [system_name]: Only build this system_name from the scenario
    --snapshot: Creates a snapshot of VMs once built
    --no-tests: Prevent post-provisioning tests from running.
+   --no-destroy-on-failure: Don't delete VMs that fail to build.
 
    VIRTUALBOX OPTIONS:
    --gui-output, -g: Show the running VM (not headless)
@@ -184,8 +185,12 @@ def build_vms(scenario, project_dir, options)
           GemExec.exe('vagrant', project_dir, 'destroy -f')
         end
       else
-        Print.err 'Error provisioning VMs, destroying VMs and exiting SecGen.'
-        GemExec.exe('vagrant', project_dir, 'destroy -f')
+        if options[:nodestroy]
+          Print.err "Not destroying failed VM: #{failed_vm}."
+        else
+          Print.err 'Error provisioning VMs, destroying VMs and exiting SecGen.'
+          GemExec.exe('vagrant', project_dir, 'destroy -f')
+        end
         exit 1
       end
     end
@@ -204,6 +209,7 @@ def build_vms(scenario, project_dir, options)
     end
   else
     Print.err "Failed to build VMs"
+    show_running_time(beginning_time)
     exit 1
   end
 end
@@ -444,6 +450,7 @@ opts = GetoptLong.new(
     ['--ovirt-affinity-group', GetoptLong::REQUIRED_ARGUMENT],
     ['--snapshot', GetoptLong::NO_ARGUMENT],
     ['--no-tests', GetoptLong::NO_ARGUMENT],
+    ['--no-destroy-on-failure', GetoptLong::NO_ARGUMENT],
     ['--esxiuser', GetoptLong::REQUIRED_ARGUMENT],
     ['--esxipass', GetoptLong::REQUIRED_ARGUMENT],
     ['--esxi-url', GetoptLong::REQUIRED_ARGUMENT],
@@ -564,6 +571,9 @@ opts.each do |opt, arg|
   when '--no-tests'
     Print.info "Not running post-provision tests"
     options[:notests] = true
+  when '--no-destroy-on-failure'
+    Print.info "Will not destroy VMs when they fail to build"
+    options[:nodestroy] = true
   else
     Print.err "Argument not valid: #{arg}"
     usage
