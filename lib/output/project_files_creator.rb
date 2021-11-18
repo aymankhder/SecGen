@@ -257,9 +257,9 @@ class ProjectFilesCreator
     elsif @options.has_key? :total_memory
       memory = @options[:total_memory].to_i / @systems.length.to_i
     elsif (@options.has_key? :ovirtuser) && (@options.has_key? :ovirtpass) && (@base_type.include? 'desktop')
-      memory = '1536'
+      memory = '3000'
     else
-      memory = '512'
+      memory = '1024'
     end
 
     system.module_selections.each do |mod|
