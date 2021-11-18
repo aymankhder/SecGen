@@ -261,14 +261,16 @@
 			</input>
 		</utility>
 
-		<utility module_path=".*/pidgin">
+		<!-- TODO: get it to all run on Kali without the need for the desktop vm just to hold the evidence files -->
+		<!-- This does get HB and pidgin working, but HB doesn't have the creds to access any evidence files stored on the kali vm -->
+		<!-- <utility module_path=".*/pidgin">
 			<input into="server_ip">
 				<datastore access="1">IP_addresses</datastore>
 			</input>
 			<input into="accounts">
 				<datastore>kali_root_account</datastore>
 			</input>
-		</utility>
+		</utility> -->
 
 		<network type="private_network" >
 			<input into="IP_address">
