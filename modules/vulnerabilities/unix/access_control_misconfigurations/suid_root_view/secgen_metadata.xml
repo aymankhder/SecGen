@@ -3,7 +3,8 @@
 <vulnerability xmlns="http://www.github/cliffe/SecGen/vulnerability"
                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                xsi:schemaLocation="http://www.github/cliffe/SecGen/vulnerability">
-  <name>Access control mis-configurations suid less root</name>
+  <name>Access control mis-configurations suid vi root</name>
+  <author>Z. Cliffe Schreuders</author>
   <author>Jason Keighley</author>
   <module_license>Apache v2</module_license>
   <description>Mis-configure files to enable root privileges</description>
@@ -15,7 +16,7 @@
   <platform>unix</platform>
 
   <!--optional hints-->
-  <hint>Text viewer permission misconfiguration</hint>
-  <solution>Less editor running as user root</solution>
+  <hint>Text editor permission misconfiguration</hint>
+  <solution>Vi text editor running as user root</solution>
 
 </vulnerability>
