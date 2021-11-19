@@ -56,8 +56,16 @@
       </encoder>
     </input>
 
+    <!-- bludit requires a password >= 6 characters long -->
     <input into_datastore="password">
-        <generator type="weak_password_generator" />
+        <generator type="random_sanitised_word">
+				<input into="wordlist">
+					<value>wordlist</value>
+				</input>
+				<input into="min_length">
+					<value>6</value>
+				</input>
+			</generator>
     </input>
 
 
@@ -94,7 +102,7 @@
       <input into="known_username">
         <datastore access_json="['manager']['username']">organisation</datastore>
       </input>
-      <input into="known_password" into_datastore="manager_password">
+      <input into="known_password">
         <datastore>password</datastore>
       </input>
       <input into="strings_to_pre_leak">
